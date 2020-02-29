@@ -1,0 +1,22 @@
+{
+  "name": "wdc",
+  "version": "0.0.1",
+  "description": "Event aggregator for Washington, D.C.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/naomigrace/wdc.git"
+  },
+  "author": "Naomi-Grace Cosio Panlaqui & Nameer Rizvi [N&N]",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/naomigrace/wdc/issues"
+  },
+  "homepage": "https://github.com/naomigrace/wdc#readme",
+  "dependencies": {
+    "scrapefrom": "^1.1.2"
+  }
+}
