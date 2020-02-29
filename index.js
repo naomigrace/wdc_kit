@@ -1,8 +1,8 @@
 const scrapefrom = require("scrapefrom")
-const _930 = require("./configs/930")
+const echostage = require("./configs/rockandrollhotel")
 
 scrapefrom
-  .custom(_930)
+  .custom(echostage)
   .then(data => console.log(data))
   .catch(err => console.log(err));
 

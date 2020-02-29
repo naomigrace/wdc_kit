@@ -16,14 +16,13 @@ Venues we want to scrape from
 - [x] Pearl Street
 - [x] Union Stage
 - [x] The Anthem
-- Songbyrd
-- Echostage
-- Capital One Arena
-- U Street Music Hall
-- Black Cat
-- The Velvet Lounge
-- Howard Theatre
-- Rock and Roll Hotel
+- [x] Songbyrd
+- [x] Echostage
+- [x] U Street Music Hall
+- [x] Black Cat
+- [x] The Velvet Lounge
+- [x] Howard Theatre
+- [x] Rock and Roll Hotel
 
 
 ## DC Area
