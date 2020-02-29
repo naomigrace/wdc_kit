@@ -8,11 +8,19 @@ const promises = keys.map(
     new Promise((resolve, reject) =>
       scrapefrom
         .custom(configs[key])
-        .then(data => resolve(data)).catch(err => reject(err))
+        .then(data => resolve(data))
+        .catch(err => reject(err))
     )
 );
 
-new Promise((resolve, reject) =>
-  Promise.all(promises).then(responses =>
-    console.log(responses)).catch(err => err && console.log(err.message))
-);
+const rawData = () =>
+  new Promise((resolve, reject) =>
+    Promise.all(promises)
+      .then(responses => {
+        const merged = [].concat.apply([], responses);
+        resolve(merged);
+      })
+      .catch(err => reject(err))
+  );
+
+rawData().then(data => console.log(data))
