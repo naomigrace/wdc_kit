@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/naomigrace/wdc#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "scrapefrom": "^1.1.2"
   }
 }
