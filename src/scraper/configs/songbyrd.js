@@ -5,7 +5,6 @@ module.exports = {
   selector: {
     container: `div.row.event-item`,
     text: {
-      time: `time.date-time`,
       title: `a.event-link`,
       description: `div.col-xs-12.col-md-5 p`,
       price: `div.col-xs-6.col-md-3.event-cost`
@@ -18,6 +17,10 @@ module.exports = {
       tickets: {
         selector: `a.eventbtn`,
         attr: `href`
+      },
+      date: {
+        selector: `div.col-xs-6.col-md-2 p strong span.eventDate`,
+        attr: `v`
       }
     }
   }

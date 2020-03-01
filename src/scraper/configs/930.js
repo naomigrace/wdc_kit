@@ -5,7 +5,8 @@ module.exports = {
   selector: {
     container: `article.list-view-item`,
     text: {
-      time: `time.date-time`,
+      date: `time.date-time span.dates`,
+      time: `span.doors`,
       title: `h1.event-name.headliners`,
       description: `h2.supports`
     },

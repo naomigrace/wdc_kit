@@ -3,7 +3,7 @@ module.exports = {
         url: `http://thehowardtheatre.com/`
     },
     selector: {
-        container: `div.post-container`,
+        container: `div.home-primary-column.col1 div.home-primary-column-inner article#text-3.widget.widget_text div.container div.textwidget div.post-container`,
         text: {
             date: `p.post-excerpt`,
             title: `p.post-title`,

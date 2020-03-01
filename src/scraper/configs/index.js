@@ -17,7 +17,7 @@ module.exports = {
   echostage,
   howardtheatre,
   pearlstreet,
-  rockandrollhotel,
+  // rockandrollhotel,
   songbyrd,
   theanthem,
   unionstage,

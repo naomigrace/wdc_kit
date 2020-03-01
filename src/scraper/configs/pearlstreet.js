@@ -5,10 +5,11 @@ module.exports = {
   selector: {
     container: `article.list-view-item`,
     text: {
-      time: `time.date-time`,
+      date: `time.date-time span.dates`,
       title: `h1.event-name.headliners`,
       description: `h2.supports`,
-      price: `span.price-range`
+      price: `span.price-range`,
+      time: `section.times`
     },
     attr: {
       link: {
