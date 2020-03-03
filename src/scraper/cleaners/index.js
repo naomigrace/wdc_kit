@@ -13,7 +13,7 @@ const easyDates = [
   "velvetlounge"
 ];
 
-module.exports = (key, events) => {
+module.exports = (events) => {
   events.forEach(event => {
     if (easyDates.indexOf(event.venue) > -1) {
       if (event && event.date !== undefined) {
@@ -31,7 +31,6 @@ module.exports = (key, events) => {
       event.date = split[0];
       cleanDate(event);
     }
-    // event.venue = key
   });
 
   return events;
