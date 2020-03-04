@@ -6,7 +6,7 @@
   "scripts": {
     "test": "jest",
     "scrape": "node src/scraper/index.js new",
-    "clean": "node src/scraper/index.js"
+    "clean": "node src/scraper/index.js",
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "axios": "^0.19.2",
     "chrono-node": "^1.4.3",
     "projectdb": "^1.0.6",
-    "scrapefrom": "^1.1.2"
+    "scrapefrom": "^1.1.2",
+    "yargs": "^15.1.0"
   }
 }

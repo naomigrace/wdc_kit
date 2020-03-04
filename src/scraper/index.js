@@ -3,10 +3,11 @@ const configs = require("./configs/index");
 const addVenue = require("./enrichers/addVenue");
 const clean = require("./cleaners/index");
 const db = require("projectdb");
+const args = require("yargs").argv;
 
-let args = process.argv;
+console.log(args);
 
-if (args.includes('new')) {
+if (args.new) {
   console.log("scraping for new data");
   const keys = Object.keys(configs);
 
@@ -35,10 +36,28 @@ if (args.includes('new')) {
 
   rawData().then(data => {
     db.set(data);
+    console.log(`scraping complete. ${data.length} events in the db.`);
   });
+} else if (args.test) {
+  let venue = args.test;
+
+  console.log(`scraping data for ${venue}...`);
+
+  scrapefrom
+    .custom(configs[venue])
+    .then(data => {
+      console.log(data);
+      console.log(`scraping complete, ${data.length} event found`);
+    })
+    .catch(err => reject(err));
 } else {
-  console.log('cleaning existing data')
+  console.log("cleaning existing data");
   let data = db.get();
   let cleaned = clean(data);
-  cleaned.forEach(event => console.log(event.time));
+  cleaned.forEach(event => {
+    if (event.time === undefined) {
+      console.log(event);
+    }
+    //   console.log(event.time + ' ' + event.venue)
+  });
 }

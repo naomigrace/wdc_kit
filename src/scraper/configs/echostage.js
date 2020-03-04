@@ -6,7 +6,7 @@ module.exports = {
         container: `article.list-view-item`,
         text: {
           date: `time.date-time span.dates`,
-          time: `section.times`,
+          time: `time.date-time section.times span.start`,
           title: `h1.event-name.headliners`,
           description: `section.topline-info.presented-by`,
         },

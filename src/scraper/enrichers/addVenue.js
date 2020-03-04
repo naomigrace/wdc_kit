@@ -1,4 +1,6 @@
-module.exports = (key, event) => {
-    event.venue = key
-    return event
+module.exports = (key, data) => {
+    data.forEach(event => {
+        event.venue = key
+    })
+    return data
 }
