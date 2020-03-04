@@ -55,9 +55,6 @@ if (args.new) {
   let data = db.get();
   let cleaned = clean(data);
   cleaned.forEach(event => {
-    if (event.time === undefined) {
-      console.log(event);
-    }
-    //   console.log(event.time + ' ' + event.venue)
+    console.log(event)
   });
 }
