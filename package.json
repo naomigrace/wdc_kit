@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "scrape": "node src/scraper/index.js new",
-    "clean": "node src/scraper/index.js"
+    "scrape": "node src/scraper/index.js --scrape",
+    "clean": "node src/scraper/index.js --clean",
+    "clean.andSave": "node src/scraper/index.js --clean --save"
   },
   "repository": {
     "type": "git",

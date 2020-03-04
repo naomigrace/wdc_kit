@@ -7,8 +7,8 @@ const args = require("yargs").argv;
 
 console.log(args);
 
-if (args.new) {
-  console.log("scraping for new data");
+if (args.scrape) {
+  console.log("scraping for new data...");
   const keys = Object.keys(configs);
 
   const promises = keys.map(
@@ -50,11 +50,18 @@ if (args.new) {
       console.log(`scraping complete, ${data.length} event found`);
     })
     .catch(err => reject(err));
-} else {
-  console.log("cleaning existing data");
+} else if(args.clean){
+  console.log("cleaning existing data...");
   let data = db.get();
   let cleaned = clean(data);
   cleaned.forEach(event => {
     console.log(event)
   });
+  if(args.save){
+    db.set(cleaned);
+  }
+  console.log(`cleaning complete`);
+  if(args.save){
+    console.log(`${cleaned.length} events saved`)
+  }
 }
