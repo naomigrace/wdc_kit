@@ -7,7 +7,8 @@
     "test": "jest",
     "scrape": "node src/scraper/index.js --scrape",
     "clean": "node src/scraper/index.js --clean",
-    "clean.andSave": "node src/scraper/index.js --clean --save"
+    "clean.andSave": "node src/scraper/index.js --clean --save",
+    "updateData": "cp db.txt src/app/src/data/events.json"
   },
   "repository": {
     "type": "git",
