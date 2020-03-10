@@ -3,11 +3,13 @@ const regexExtractor = require('../helpers/regexExtractor')
 
 
 function cleanDate(event) {
+    let eventDate
     if(event.time){
-        event.date = chrono.parseDate(`${event.date} ${event.time}`)
+        eventDate = chrono.parseDate(`${event.date} ${event.time}`)
     } else {
-        event.date = chrono.parseDate(event.date)
+        eventDate = chrono.parseDate(event.date)
     }
+    event.date = eventDate
 }
 
 module.exports = (event) => {
