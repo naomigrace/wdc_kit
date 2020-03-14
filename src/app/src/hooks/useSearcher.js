@@ -6,6 +6,7 @@ const parseEvents = events => {
   let newEvents = events
   newEvents.forEach(event => {
     event.date = new Date(event.date)
+    event.price = parseFloat(event.price)
   })
   return newEvents
 }
@@ -17,6 +18,8 @@ const evaluateCondition = condition => {
     return { date: { $gte: new Date(condition.date) } }
   } else if ("venue" in condition) {
     return { venue: { $eq: condition.venue } }
+  } else if("price" in condition) {
+    return { price: { $lte: Number(condition.price) }}
   }
 }
 
@@ -26,7 +29,6 @@ const evaluateConditions = conditions => {
     let c = evaluateCondition(condition)
     allConditions.push(c)
   })
-  console.log(allConditions)
   return allConditions
 }
 
@@ -37,7 +39,6 @@ const useSearcher = defaultConditions => {
   useEffect(() => {
     let result
     if (conditions && conditions.length > 1) {
-      // result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
       result = events.filter(sift({ $and: evaluateConditions(conditions) }))
     } else if (conditions && conditions.length === 1) {
       result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
