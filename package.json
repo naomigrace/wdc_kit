@@ -8,7 +8,9 @@
     "scrape": "node src/scraper/index.js --scrape",
     "clean": "node src/scraper/index.js --clean",
     "clean.andSave": "node src/scraper/index.js --clean --save",
-    "updateData": "cp db.txt src/app/src/data/events.json"
+    "updateData": "cp db.txt src/app/src/data/events.json",
+    "up": "npm install && cd src/app && npm install",
+    "start": "cd src/app && gatsby develop"
   },
   "repository": {
     "type": "git",

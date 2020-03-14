@@ -1,7 +1,9 @@
 # Venues
-Venues we want to scrape from 
+
+Venues we want to scrape from
 
 ## Desired attrbutes
+
 - Date
 - Title (headliner)
 - Description (optional)
@@ -11,6 +13,7 @@ Venues we want to scrape from
 - Link(s) (to event and/or tickets)
 
 ## DC Proper
+
 - [x] 9:30 Club
 - [x] Warner Theatre (API available)
 - [x] Pearl Street
@@ -24,13 +27,13 @@ Venues we want to scrape from
 - [x] Howard Theatre
 - [x] Rock and Roll Hotel
 
-
 ## DC Area
+
 - Merriweather Pavillion
 - Wolftrap
 
-
 # Protocol
+
 1. Check if there's an API available
 2. Disable javascript on the page and see if you can still view events
 3. Create the config

@@ -50,18 +50,18 @@ if (args.scrape) {
       console.log(`scraping complete, ${data.length} event found`);
     })
     .catch(err => reject(err));
-} else if(args.clean){
+} else if (args.clean) {
   console.log("cleaning existing data...");
   let data = db.get();
   let cleaned = clean(data);
   cleaned.forEach(event => {
-    console.log(event)
+    console.log(event);
   });
-  if(args.save){
+  if (args.save) {
     db.set(cleaned);
   }
   console.log(`cleaning complete`);
-  if(args.save){
-    console.log(`${cleaned.length} events saved`)
+  if (args.save) {
+    console.log(`${cleaned.length} events saved`);
   }
 }

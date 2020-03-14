@@ -4,17 +4,17 @@ import venues from "../data/venues"
 
 const Search = () => {
   const [date, setDate] = useState()
-  const [venue, setVenue] = useState('_930')
+  const [venue, setVenue] = useState("_930")
 
   const [setConditions, results] = useSearcher()
 
   useEffect(() => {
     let newConditions = []
-    if(date){
-        newConditions.push({ date: date })
+    if (date) {
+      newConditions.push({ date: date })
     }
-    if(venue){
-        newConditions.push({ venue: venue })
+    if (venue) {
+      newConditions.push({ venue: venue })
     }
     console.log(newConditions)
     setConditions(newConditions)

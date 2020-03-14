@@ -10,4 +10,4 @@ module.exports = {
     artist: "",
     offerType: "STANDARD,TM Event,Free Events"
   }
-}
+};

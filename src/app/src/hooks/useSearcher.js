@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import sift from "sift"
 import events from "../data/events"
 
-const parseEvents = (events) => {
+const parseEvents = events => {
   let newEvents = events
   newEvents.forEach(event => {
     event.date = new Date(event.date)
@@ -23,8 +23,8 @@ const evaluateCondition = condition => {
 const evaluateConditions = conditions => {
   let allConditions = []
   conditions.forEach(condition => {
-      let c = evaluateCondition(condition)
-      allConditions.push(c)
+    let c = evaluateCondition(condition)
+    allConditions.push(c)
   })
   console.log(allConditions)
   return allConditions
@@ -38,7 +38,7 @@ const useSearcher = defaultConditions => {
     let result
     if (conditions && conditions.length > 1) {
       // result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
-      result = events.filter(sift({ $and: evaluateConditions(conditions)}))
+      result = events.filter(sift({ $and: evaluateConditions(conditions) }))
     } else if (conditions && conditions.length === 1) {
       result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
     } else {

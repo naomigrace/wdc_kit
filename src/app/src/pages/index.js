@@ -4,15 +4,12 @@ import SEO from "../components/seo"
 import Search from "../components/Search"
 
 const IndexPage = () => {
-
-
-  return(
+  return (
     <Layout>
-    <SEO title="Home" />
-    <Search/>
-  </Layout>
+      <SEO title="Home" />
+      <Search />
+    </Layout>
   )
-
 }
 
 export default IndexPage

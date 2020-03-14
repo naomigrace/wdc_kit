@@ -22,6 +22,6 @@ module.exports = {
   theanthem,
   unionstage,
   ustreet,
-  velvetlounge,
-//   warnertheatre
+  velvetlounge
+  // warnertheatre
 };
