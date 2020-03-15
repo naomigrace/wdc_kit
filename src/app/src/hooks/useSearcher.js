@@ -19,6 +19,7 @@ const evaluateCondition = condition => {
   } else if ("venue" in condition) {
     return { venue: { $eq: condition.venue } }
   } else if("price" in condition) {
+    if (condition.price === "all") return
     return { price: { $lte: Number(condition.price) }}
   }
 }
@@ -29,6 +30,7 @@ const evaluateConditions = conditions => {
     let c = evaluateCondition(condition)
     allConditions.push(c)
   })
+  console.log(allConditions)
   return allConditions
 }
 
@@ -43,7 +45,7 @@ const useSearcher = defaultConditions => {
     } else if (conditions && conditions.length === 1) {
       result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
     } else {
-      result = null
+      result = parsedEvents
     }
     setResults(result)
   }, [conditions, setConditions])
