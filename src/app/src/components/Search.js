@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react"
 import useSearcher from "../hooks/useSearcher"
-import venues from "../data/venues"
 import { DateTimePicker } from '@atlaskit/datetime-picker';
 import Select from '@atlaskit/select';
-
+import Flex from "../ui/Flex"
+import Results from "./Results";
 
 const Search = () => {
   const dateTimeNow = new Date().toISOString()
@@ -51,14 +51,26 @@ const Search = () => {
     {value: 100, label: "<= $100"},
   ]
 
+  const flexGrow = {style: { flexGrow: 1 }}
+
+  const customStyles = {
+    container: (provided) => ({...provided, flexGrow: "1"}),
+    control: (provided) => ({
+      ...provided,
+      height: "100%"
+    })
+  }
+
   return (
     <div>
-      <h1>Filters!</h1>
-      <DateTimePicker onChange={value => setDate(value)} defaultValue={dateTimeNow}/>
-      <Select onChange={obj => setVenue(obj.value)} defaultValue={"all"} options={venueOptions}/>
-      <Select onChange={obj => setPrice(obj.value)} defaultValue={"all"} options={priceOptions}/>
-      <h1>Results</h1>
-      {JSON.stringify(results, null, 2)}
+      <h1>Filters:</h1>
+      <Flex>
+        <DateTimePicker innerProps={flexGrow} onChange={value => setDate(value)} defaultValue={dateTimeNow}/>
+        <Select styles={customStyles} onChange={obj => setVenue(obj.value)} options={venueOptions} defaultValue={{value: "all", label: "all venues"}}/>
+        <Select styles={customStyles} onChange={obj => setPrice(obj.value)} options={priceOptions} defaultValue={{value: "all", label: "all prices"}}/>
+      </Flex>
+      <Results events={results}/>
+      {/* {JSON.stringify(results, null, 2)} */}
     </div>
   )
 }
