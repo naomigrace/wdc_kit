@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
-import "./layout.css"
+import "../ui/atlaskit-css-reset.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
