@@ -18,9 +18,9 @@ const evaluateCondition = condition => {
     return { date: { $gte: new Date(condition.date) } }
   } else if ("venue" in condition) {
     return { venue: { $eq: condition.venue } }
-  } else if("price" in condition) {
+  } else if ("price" in condition) {
     if (condition.price === "all") return
-    return { price: { $lte: Number(condition.price) }}
+    return { price: { $lte: Number(condition.price) } }
   }
 }
 

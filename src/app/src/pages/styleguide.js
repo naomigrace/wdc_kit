@@ -9,14 +9,23 @@ const StyleGuide = () => (
   <Layout>
     <SEO title="Style Guide for Just Wanna DC" />
     <h1>Mood</h1>
-    <p>Mostly modern, with traditional elements. Fun and irreverent, but not too irreverent.</p>
+    <p>
+      Mostly modern, with traditional elements. Fun and irreverent, but not too
+      irreverent.
+    </p>
     <h1>Fonts</h1>
-    <h2 style={{fontFamily: 'Shrikhand, display'}}>Shrikhand</h2>
+    <h2 style={{ fontFamily: "Shrikhand, display" }}>Shrikhand</h2>
     <h1>Colors</h1>
     <Flex>
-      <SquareBox color={"red"}><p>red</p></SquareBox>
-      <SquareBox color={"white"}><p>white</p></SquareBox>
-      <SquareBox color={"blue"}><p style={{color: "white"}}>blue</p></SquareBox>
+      <SquareBox color={"red"}>
+        <p>red</p>
+      </SquareBox>
+      <SquareBox color={"white"}>
+        <p>white</p>
+      </SquareBox>
+      <SquareBox color={"blue"}>
+        <p style={{ color: "white" }}>blue</p>
+      </SquareBox>
     </Flex>
   </Layout>
 )

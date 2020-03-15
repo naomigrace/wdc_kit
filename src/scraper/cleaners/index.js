@@ -3,7 +3,7 @@ const cleanDates = require("./date");
 const cleanLinks = require("./link");
 const cleanPrice = require("./price");
 
-module.exports = (events) => {
+module.exports = events => {
   events.forEach(event => {
     cleanTimes(event);
     cleanDates(event);
