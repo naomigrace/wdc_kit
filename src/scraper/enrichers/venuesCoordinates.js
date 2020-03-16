@@ -1,4 +1,4 @@
-export default {
+module.exports = {
     _930: [38.9179969,-77.023692],
     blackcat: [38.9145867,-77.033917],
     echostage: [38.9198046,-76.9747932],

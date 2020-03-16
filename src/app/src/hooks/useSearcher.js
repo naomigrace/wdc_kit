@@ -1,15 +1,7 @@
 import { useState, useEffect } from "react"
 import sift from "sift"
 import events from "../data/events"
-
-const parseEvents = events => {
-  let newEvents = events
-  newEvents.forEach(event => {
-    event.date = new Date(event.date)
-    event.price = parseFloat(event.price)
-  })
-  return newEvents
-}
+import parseEvents from "../utils/parseEvents"
 
 const parsedEvents = parseEvents(events)
 
