@@ -7,6 +7,6 @@ export default {
   songbyrd: "Songbyrd Cafe",
   theanthem: "The Anthem",
   unionstage: "Union Stage",
-  ustreet: "U Street Music Lounge",
+  ustreet: "U Street Music Hall",
   velvetlounge: "The Velvet Lounge",
 }
