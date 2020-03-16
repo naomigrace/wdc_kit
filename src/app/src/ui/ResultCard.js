@@ -6,9 +6,9 @@ export default styled.div`
   h2 {
     margin-top: 0;
   }
-  margin: 20px 0;
-  // border-radius: ${props => props.theme.borderRadius};
+  margin: 10px 20px;
   border: ${props => props.theme.borderWidth} solid
     ${props => props.theme.lightBlue};
   padding: 20px;
+  
 `

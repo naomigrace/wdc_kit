@@ -8,7 +8,8 @@ const Results = ({ events }) => {
   if (!events) {
     return <div>No results</div>
   }
-  const allEvents = events.map((event, index) => (
+  let sliced = events.slice(0, 100)
+  const allEvents = sliced.map((event, index) => (
     <ResultCard key={index}>
       {/* <h4>{`${format(event.date, "eeee, LLLL Lo")} ${event.time ? `- ${event.time}`: ``}`}</h4> */}
       <h1>{event.title}</h1>

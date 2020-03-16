@@ -8,6 +8,7 @@
     "@atlaskit/badge": "^13.1.7",
     "@atlaskit/css-reset": "^5.0.10",
     "@atlaskit/datetime-picker": "^9.2.8",
+    "@atlaskit/drawer": "^5.3.5",
     "@atlaskit/select": "^11.0.9",
     "@atlaskit/theme": "^9.5.1",
     "date-fns": "^2.11.0",
