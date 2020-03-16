@@ -1,25 +1,26 @@
 import React, {useState} from 'react';
 import MapGL from 'react-map-gl';
 
-// const MAPBOX_TOKEN = process.env.GATSBY_MAP_TOKEN; // Set your mapbox token here
+const MAPBOX_TOKEN = "pk.eyJ1Ijoid2FubmFkYyIsImEiOiJjazBja2M1ZzYwM2lnM2dvM3o1bmF1dmV6In0.50nuNnApjrJYkMfR2AUpXA"
 
-console.log(MAPBOX_TOKEN)
 const Map = () => {
   const [viewport, setViewport] = useState({
-    latitude: 37.8,
-    longitude: -122.4,
-    zoom: 14,
+    latitude: 38.8943,
+    longitude: -77.0276,
+    zoom: 12.5,
     bearing: 0,
-    pitch: 0
+    pitch: 0,
+    minZoom: 11,
+    maxZoom: 17
   });
 
   return (
-      <div>hello
+      <div>
     <MapGL
       {...viewport}
       width="100vw"
       height="100vh"
-      mapStyle="mapbox://styles/mapbox/light-v9"
+      mapStyle={"mapbox://styles/wannadc/ck0cznyx70bdn1cl71u081o73"}
       onViewportChange={setViewport}
       mapboxApiAccessToken={MAPBOX_TOKEN}
     />
