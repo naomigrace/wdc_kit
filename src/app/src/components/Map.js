@@ -1,14 +1,14 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import MapGL, { Popup } from "react-map-gl"
-import parseEvents from "../utils/parseEvents"
-import events from "../data/events.json"
 import Pins from "./Pins"
-const parsedEvents = parseEvents(events)
+import groupBy from "../utils/groupBy"
+import venueCoordinates from "../data/venueCoordinates"
+
 
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoid2FubmFkYyIsImEiOiJjazBja2M1ZzYwM2lnM2dvM3o1bmF1dmV6In0.50nuNnApjrJYkMfR2AUpXA"
 
-const Map = () => {
+const Map = ({events}) => {
   const [viewport, setViewport] = useState({
     latitude: 38.8943,
     longitude: -77.0276,
@@ -19,28 +19,57 @@ const Map = () => {
     maxZoom: 17,
   })
 
-  const onClickMarker = () => {
-      console.log("bloop")
+
+  const [eventInfo, setEventInfo] = useState()
+  const [venuesEventsData, setVenuesEventsData] = useState()
+
+  useEffect(() => {
+    let groupedByVenue
+    let venuesEventsData = []
+    if(events){
+      groupedByVenue = groupBy('venue')(events)
+  
+      Object.keys(groupedByVenue).forEach(venueGroup => {
+        let subEvents = groupedByVenue[venueGroup]
+        let venueCoords = venueCoordinates[venueGroup]
+        delete groupedByVenue[venueGroup]
+        let venueEvents = {
+          venue: venueGroup,
+          events: [subEvents],
+          latitude: venueCoords[0],
+          longitude: venueCoords[1]
+        }
+        venuesEventsData.push(venueEvents)
+      })
+    }
+    setVenuesEventsData(venuesEventsData)
+
+  }, [events])
+
+
+
+  const onClickMarker = (event) => {
+    console.log(event)
+    setEventInfo(event)
+    
   }
 
   const renderPopup = () => {
     // const {popupInfo} = null;
-
-    return (
-        <div>bloop</div>
-    //   popupInfo && (
-    //     <Popup
-    //       tipSize={5}
-    //       anchor="top"
-    //       longitude={popupInfo.longitude}
-    //       latitude={popupInfo.latitude}
-    //       closeOnClick={false}
-    //       onClose={() => this.setState({popupInfo: null})}
-    //     >
-    //       {/* <CityInfo info={popupInfo} /> */}
-    //     </Popup>
-    //   )
-    );
+    if(eventInfo){
+      return(
+        <Popup
+          tipSize={5}
+          anchor="top"
+          longitude={eventInfo.longitude}
+          latitude={eventInfo.latitude}
+          closeOnClick={false}
+          // onClose={() => this.setState({popupInfo: null})}
+        >
+         {eventInfo.title}
+        </Popup>
+      )
+    }
   }
   return (
     <div>
@@ -52,7 +81,7 @@ const Map = () => {
         onViewportChange={setViewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
       >
-        <Pins data={parsedEvents} onClick={() => onClickMarker()} />
+        <Pins data={venuesEventsData} onClick={(event) => onClickMarker(event)} />
         {renderPopup()}
       </MapGL>
     </div>

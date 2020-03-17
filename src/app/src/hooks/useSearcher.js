@@ -39,10 +39,11 @@ const useSearcher = defaultConditions => {
     } else {
       result = parsedEvents
     }
+    console.log(results)
     setResults(result)
   }, [conditions, setConditions])
 
-  return [setConditions, results]
+  return [setConditions, conditions, results]
 }
 
 export default useSearcher

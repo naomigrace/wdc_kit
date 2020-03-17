@@ -1,19 +1,13 @@
 import React, { useState, useEffect } from "react"
-import useSearcher from "../hooks/useSearcher"
 import { DateTimePicker } from "@atlaskit/datetime-picker"
 import Select from "@atlaskit/select"
-import Drawer from "@atlaskit/drawer"
 import Flex from "../ui/Flex"
-import Results from "./Results"
-import ListIcon from '@atlaskit/icon/glyph/list';
 
-const Search = () => {
+const Search = ({ setConditions }) => {
   const dateTimeNow = new Date().toISOString()
   const [date, setDate] = useState(dateTimeNow)
   const [venue, setVenue] = useState("all")
   const [price, setPrice] = useState("all")
-  const [setConditions, results] = useSearcher()
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   useEffect(() => {
     let newConditions = []
@@ -27,6 +21,7 @@ const Search = () => {
       newConditions.push({ price: price })
     }
     if (newConditions.length > 0) {
+      console.log(newConditions)
       setConditions(newConditions)
     }
   }, [date, venue, price, setConditions])
@@ -64,21 +59,6 @@ const Search = () => {
     }),
   }
 
-  const ContentOverrideComponent = ({ children }) => {
-    return (
-      <div
-        style={{
-          flex: 1,
-          overflow: 'auto',
-          marginTop: 60,
-          margin: `60px 0 0 -68px`
-        }}
-      >
-        {children}
-      </div>
-    );
-  };
-
   return (
     <div id="search">
       <Flex>
@@ -100,20 +80,6 @@ const Search = () => {
           defaultValue={{ value: "all", label: "all prices" }}
         />
       </Flex>
-      <div id="listButton" onClick={() => setIsDrawerOpen(!isDrawerOpen)}><ListIcon size={"medium"}/></div>
-      <Drawer
-        onClose={() => setIsDrawerOpen(false)}
-        isOpen={isDrawerOpen}
-        width="wide"
-        shouldUnmountOnExit={true}
-        overrides={{
-          Content: {
-            component: ContentOverrideComponent,
-          },
-        }}
-      >
-        <Results events={results} />
-      </Drawer>
     </div>
   )
 }
