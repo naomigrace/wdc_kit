@@ -21,7 +21,6 @@ const Search = ({ setConditions }) => {
       newConditions.push({ price: price })
     }
     if (newConditions.length > 0) {
-      console.log(newConditions)
       setConditions(newConditions)
     }
   }, [date, venues, price, setConditions])

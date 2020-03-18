@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useMemo } from "react"
 import MapGL, { Popup } from "react-map-gl"
 import Pins from "./Pins"
 import groupBy from "../utils/groupBy"
 import venueCoordinates from "../data/venueCoordinates"
-
+import renderEvent from "./renderEvent"
+import renderEvents from "./renderEvents"
 
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoid2FubmFkYyIsImEiOiJjazBja2M1ZzYwM2lnM2dvM3o1bmF1dmV6In0.50nuNnApjrJYkMfR2AUpXA"
@@ -18,8 +19,6 @@ const Map = ({events}) => {
     minZoom: 11,
     maxZoom: 17,
   })
-
-
   const [eventInfo, setEventInfo] = useState()
   const [venuesEventsData, setVenuesEventsData] = useState()
 
@@ -46,16 +45,13 @@ const Map = ({events}) => {
 
   }, [events])
 
-
-
   const onClickMarker = (event) => {
-    console.log(event)
-    setEventInfo(event)
-    
+    setEventInfo(event)    
   }
 
+  const multipleEvents = useMemo(() => eventInfo ? renderEvents(eventInfo) : null, [eventInfo])
+
   const renderPopup = () => {
-    // const {popupInfo} = null;
     if(eventInfo){
       return(
         <Popup
@@ -64,13 +60,14 @@ const Map = ({events}) => {
           longitude={eventInfo.longitude}
           latitude={eventInfo.latitude}
           closeOnClick={false}
-          // onClose={() => this.setState({popupInfo: null})}
+          onClose={() => setEventInfo(null)}
         >
-         {eventInfo.title}
+         {Array.isArray(eventInfo.events) ? multipleEvents : renderEvent(eventInfo.event)}
         </Popup>
       )
     }
   }
+
   return (
     <div>
       <MapGL
