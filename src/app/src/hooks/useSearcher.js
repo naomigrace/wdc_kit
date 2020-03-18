@@ -8,8 +8,15 @@ const parsedEvents = parseEvents(events)
 const evaluateCondition = condition => {
   if ("date" in condition) {
     return { date: { $gte: new Date(condition.date) } }
-  } else if ("venue" in condition) {
-    return { venue: { $eq: condition.venue } }
+  } else if ("venues" in condition) {
+    if (condition.venues && condition.venues.find(v => v.value === "all")) {
+      return null
+    }
+    let venuesCondition = []
+    condition.venues.forEach(venue => {
+      venuesCondition.push({ venue: { $eq: venue.value } })
+    })
+    return { $or: venuesCondition }
   } else if ("price" in condition) {
     if (condition.price === "all") return
     return { price: { $lte: Number(condition.price) } }
@@ -20,9 +27,10 @@ const evaluateConditions = conditions => {
   let allConditions = []
   conditions.forEach(condition => {
     let c = evaluateCondition(condition)
-    allConditions.push(c)
+    if (c) {
+      allConditions.push(c)
+    }
   })
-  console.log(allConditions)
   return allConditions
 }
 
@@ -39,7 +47,6 @@ const useSearcher = defaultConditions => {
     } else {
       result = parsedEvents
     }
-    console.log(results)
     setResults(result)
   }, [conditions, setConditions])
 

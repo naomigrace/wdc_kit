@@ -11,10 +11,7 @@ const IndexPage = () => {
 
   const [setConditions, conditions, results] = useSearcher()
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
-
-  console.log(conditions)
-  console.log(results)
-
+  
   return (
     <Layout>
       <SEO title="Home" />

@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { DateTimePicker } from "@atlaskit/datetime-picker"
-import Select from "@atlaskit/select"
+import Select, { CheckboxSelect } from "@atlaskit/select"
 import Flex from "../ui/Flex"
 
 const Search = ({ setConditions }) => {
   const dateTimeNow = new Date().toISOString()
   const [date, setDate] = useState(dateTimeNow)
-  const [venue, setVenue] = useState("all")
+  const [venues, setVenues] = useState([{ value: "all", label: "all venues" }])
   const [price, setPrice] = useState("all")
 
   useEffect(() => {
@@ -14,8 +14,8 @@ const Search = ({ setConditions }) => {
     if (date) {
       newConditions.push({ date: date })
     }
-    if (venue && venue !== "all") {
-      newConditions.push({ venue: venue })
+    if (venues) {
+      newConditions.push({ venues: venues })
     }
     if (price && price !== "all") {
       newConditions.push({ price: price })
@@ -24,7 +24,7 @@ const Search = ({ setConditions }) => {
       console.log(newConditions)
       setConditions(newConditions)
     }
-  }, [date, venue, price, setConditions])
+  }, [date, venues, price, setConditions])
 
   const venueOptions = [
     { value: "all", label: "all venues" },
@@ -67,9 +67,9 @@ const Search = ({ setConditions }) => {
           onChange={value => setDate(value)}
           defaultValue={dateTimeNow}
         />
-        <Select
+        <CheckboxSelect
           styles={customStyles}
-          onChange={obj => setVenue(obj.value)}
+          onChange={obj => setVenues(obj)}
           options={venueOptions}
           defaultValue={{ value: "all", label: "all venues" }}
         />

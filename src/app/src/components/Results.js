@@ -40,7 +40,7 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen }) => {
     <Drawer
       onClose={() => setIsDrawerOpen(false)}
       isOpen={isDrawerOpen}
-      width="wide"
+      width="narrow"
       shouldUnmountOnExit={true}
       overrides={{
         Content: {
