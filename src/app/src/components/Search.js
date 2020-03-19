@@ -12,6 +12,7 @@ const Search = ({ setConditions }) => {
   const [price, setPrice] = useState("all")
 
   useEffect(() => {
+    console.log('in here')
     let newConditions = []
     if (date) {
       newConditions.push({ date: date })
@@ -19,7 +20,7 @@ const Search = ({ setConditions }) => {
     if (venues) {
       newConditions.push({ venues: venues })
     }
-    if (price && price !== "all") {
+    if (price !== undefined && price !== "all") {
       newConditions.push({ price: price })
     }
     if (newConditions.length > 0) {

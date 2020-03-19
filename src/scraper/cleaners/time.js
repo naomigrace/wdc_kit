@@ -33,10 +33,13 @@ module.exports = event => {
       let extractedTime = regexExtractor(
         event.time,
         timeRegexResolver(event.venue),
-        1
+        1, 
+        true
       );
       if (extractedTime) {
         event.time = extractedTime;
+      } else {
+        delete event.time
       }
     }
   }

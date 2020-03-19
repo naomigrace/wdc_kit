@@ -18,7 +18,7 @@ module.exports = event => {
     }
 
     // event is cancelled or sold out is the typical use case
-    if (isNaN(event.price)) {
+    if (isNaN(parseFloat(event.price))) {
       delete event.price;
     }
   }

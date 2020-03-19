@@ -52,14 +52,16 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
           <h2>{event.description}</h2>
 
           {event.tickets && (
-            <a href={event.tickets} target="_blank" rel="noopener noreferrer">
-              <img
-                width={20}
-                height={20}
-                src={ticketSVG}
-                alt="Purchase Tickets Icon"
-              />
-            </a>
+            <div style={{ marginTop: "1rem" }}>
+              <a href={event.tickets} target="_blank" rel="noopener noreferrer">
+                <img
+                  width={20}
+                  height={20}
+                  src={ticketSVG}
+                  alt="Purchase Tickets Icon"
+                />
+              </a>
+            </div>
           )}
 
           <div id="tagsContainer">

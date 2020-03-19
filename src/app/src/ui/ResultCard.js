@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import chroma from "chroma-js"
 import venueColors from "../data/venueColors"
 
 export default styled.div`
@@ -7,6 +6,9 @@ export default styled.div`
   h1,
   h2 {
     margin-top: 0;
+  }
+  h1, h2, h4 {
+    overflow-wrap: break-word;
   }
   margin: 10px 20px;
   box-shadow: ${props => props.theme.shadowBase.boxShadow};

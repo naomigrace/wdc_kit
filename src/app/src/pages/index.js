@@ -5,7 +5,7 @@ import Search from "../components/Search"
 import Map from "../components/Map"
 import useSearcher from "../hooks/useSearcher"
 import Results from "../components/Results"
-import ListIcon from "@atlaskit/icon/glyph/list"
+import cardStackSVG from "../images/cardStack.svg"
 
 const IndexPage = () => {
   const [setConditions, conditions, results] = useSearcher()
@@ -17,7 +17,7 @@ const IndexPage = () => {
       <Map events={results} />
       <Search setConditions={setConditions} />
       <div id="listButton" onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
-        <ListIcon size={"medium"} />
+        <img src={cardStackSVG} height={25} width={25} style={{ marginTop: "9px" }}/>
       </div>
       <Results
         events={results}

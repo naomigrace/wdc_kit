@@ -1,4 +1,4 @@
-module.exports = (str, regex, groupNumber) => {
+module.exports = (str, regex, groupNumber, returnNullIfNotFound) => {
   let matches = str.match(regex);
-  return matches ? matches[groupNumber] : str;
+  return matches ? matches[groupNumber] : returnNullIfNotFound ? null : str;
 };

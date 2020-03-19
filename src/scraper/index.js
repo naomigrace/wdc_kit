@@ -5,8 +5,6 @@ const clean = require("./cleaners/index");
 const db = require("projectdb");
 const args = require("yargs").argv;
 
-console.log(args);
-
 if (args.scrape) {
   console.log("scraping for new data...");
   const keys = Object.keys(configs);
@@ -53,13 +51,22 @@ if (args.scrape) {
 } else if (args.clean) {
   console.log("cleaning existing data...");
   let data = db.get();
+
+  // clean the events
   let cleaned = clean(data);
+
+  // sort events by date
+  cleaned.sort((a, b) => a.date - b.date);
+
+  // sanity check
   cleaned.forEach(event => {
     console.log(event);
   });
+
   if (args.save) {
     db.set(cleaned);
   }
+
   console.log(`cleaning complete`);
   if (args.save) {
     console.log(`${cleaned.length} events saved`);
