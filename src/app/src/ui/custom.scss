@@ -1,8 +1,14 @@
 #logo {
+    font-family: Shrikhand, display;
+    background-color: #FF5722;
+    padding: 2px 10px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px;
     position: fixed;
-    bottom: 20px;
-    right: 36px;
+    bottom: 30px;
+    right: 25px;
     font-size: 20px;
+    color: white;
 }
 
 #search {
@@ -36,4 +42,11 @@
             height: 100%;
         }
     }
+}
+
+#tagsContainer {
+    margin-top: 1rem;
+    height: 20px;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
 }

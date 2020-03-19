@@ -4,7 +4,6 @@ import theme from "../ui/themes"
 import { ThemeProvider } from "styled-components"
 import "../ui/atlaskit-css-reset.css"
 import "../ui/custom.scss"
-import "./layout.scss"
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>

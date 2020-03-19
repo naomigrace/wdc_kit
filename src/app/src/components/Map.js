@@ -3,8 +3,8 @@ import MapGL, { Popup } from "react-map-gl"
 import Pins from "./Pins"
 import groupBy from "../utils/groupBy"
 import venueCoordinates from "../data/venueCoordinates"
-import renderEvent from "./renderEvent"
-import renderEvents from "./renderEvents"
+import renderEvent from "./mapRenderEvent"
+import renderEvents from "./mapRenderEvents"
 
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoid2FubmFkYyIsImEiOiJjazBja2M1ZzYwM2lnM2dvM3o1bmF1dmV6In0.50nuNnApjrJYkMfR2AUpXA"
@@ -74,7 +74,7 @@ const Map = ({events}) => {
         {...viewport}
         width="100vw"
         height="100vh"
-        mapStyle={"mapbox://styles/wannadc/ck0cznyx70bdn1cl71u081o73"}
+        mapStyle={"mapbox://styles/wannadc/ck7xuzkwg06me1hmzf07ypykm"}
         onViewportChange={setViewport}
         mapboxApiAccessToken={MAPBOX_TOKEN}
       >

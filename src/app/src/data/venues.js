@@ -2,7 +2,7 @@ export default {
   _930: "930 Club",
   blackcat: "Black Cat",
   echostage: "Echo Stage",
-  howardtheatre: "Howard Theatre",
+  howardtheatre: "The Howard Theatre",
   pearlstreet: "Pearl Street",
   songbyrd: "Songbyrd Cafe",
   theanthem: "The Anthem",

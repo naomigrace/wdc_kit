@@ -26,6 +26,9 @@ const StyleGuide = () => (
       <SquareBox color={"blue"}>
         <p style={{ color: "white" }}>blue</p>
       </SquareBox>
+      <SquareBox color={"purple"}>
+        <p>purple</p>
+      </SquareBox>
     </Flex>
   </Layout>
 )

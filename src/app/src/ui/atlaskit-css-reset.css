@@ -67,14 +67,13 @@ a {
 }
 a:hover {
   color: #0065ff;
-  text-decoration: underline;
+  text-decoration: none;
 }
 a:active {
   color: #0747a6;
 }
 a:focus {
   outline: 2px solid #4c9aff;
-  outline-offset: 2px;
 }
 
 /* Headings */

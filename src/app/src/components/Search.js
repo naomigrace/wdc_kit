@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
+import chroma from "chroma-js"
 import { DateTimePicker } from "@atlaskit/datetime-picker"
 import Select, { CheckboxSelect } from "@atlaskit/select"
+import venueColors from "../data/venueColors"
 import Flex from "../ui/Flex"
 
 const Search = ({ setConditions }) => {
@@ -47,33 +49,67 @@ const Search = ({ setConditions }) => {
     { value: 100, label: "< $100" },
   ]
 
-  const flexGrow = { style: { flexGrow: 1, borderRadius: 0 } }
+  const dateTimeStyles = { 
+    style: { 
+      flexGrow: 1, 
+      borderRadius: 0,
+      maxWidth: 200, 
+    } 
+  }
 
-  const customStyles = {
+  const tagInputStyles = {
     container: provided => ({ ...provided, flexGrow: "1" }),
     control: provided => ({
       ...provided,
       height: "100%",
       borderRadius: 0,
     }),
+    multiValue: (styles, { data }) => {
+      const color = chroma(venueColors[data.value]);
+      return {
+        ...styles,
+        backgroundColor: color.alpha(0.2).css(),
+      };
+    },
+    multiValueLabel: (styles, { data }) => {
+      return {
+        ...styles,
+        fontWeight: "bold",
+      };
+    }
+  }
+
+  const priceInputStyles = {
+    container: provided => ({ ...provided, flexGrow: "1", maxWidth: 150 }),
+    control: provided => ({
+      ...provided,
+      height: "100%",
+      maxWidth: 150,
+      borderRadius: 0,
+      marginRight: 0,
+    }),
+    menu: provided => ({
+      ...provided,
+      maxWidth: 150
+    })
   }
 
   return (
     <div id="search">
-      <Flex>
+      <Flex style={{ boxShadow: "0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04)", maxWidth: "960px" }}>
         <DateTimePicker
-          innerProps={flexGrow}
+          innerProps={dateTimeStyles}
           onChange={value => setDate(value)}
           defaultValue={dateTimeNow}
         />
         <CheckboxSelect
-          styles={customStyles}
+          styles={tagInputStyles}
           onChange={obj => setVenues(obj)}
           options={venueOptions}
           defaultValue={{ value: "all", label: "all venues" }}
         />
         <Select
-          styles={customStyles}
+          styles={priceInputStyles}
           onChange={obj => setPrice(obj.value)}
           options={priceOptions}
           defaultValue={{ value: "all", label: "all prices" }}

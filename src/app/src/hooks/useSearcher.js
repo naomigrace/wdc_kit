@@ -39,13 +39,17 @@ const useSearcher = defaultConditions => {
   let [results, setResults] = useState()
 
   useEffect(() => {
-    let result
-    if (conditions && conditions.length > 1) {
-      result = events.filter(sift({ $and: evaluateConditions(conditions) }))
-    } else if (conditions && conditions.length === 1) {
-      result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
+    let result = parsedEvents
+
+    if(conditions === "default"){
+      setConditions([])
+      
     } else {
-      result = parsedEvents
+      if (conditions && conditions.length > 1) {
+        result = parsedEvents.filter(sift({ $and: evaluateConditions(conditions) }))
+      } else if (conditions && conditions.length === 1) {
+        result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
+      } 
     }
     setResults(result)
   }, [conditions, setConditions])

@@ -1,33 +1,35 @@
 import React, { PureComponent } from "react"
 import { Marker } from "react-map-gl"
+import chroma from "chroma-js"
+import venueColors from "../data/venueColors"
 
-const ICON = `M20.2,15.7L20.2,15.7c1.1-1.6,1.8-3.6,1.8-5.7c0-5.6-4.5-10-10-10S2,4.5,2,10c0,2,0.6,3.9,1.6,5.4c0,0.1,0.1,0.2,0.2,0.3
-  c0,0,0.1,0.1,0.1,0.2c0.2,0.3,0.4,0.6,0.7,0.9c2.6,3.1,7.4,7.6,7.4,7.6s4.8-4.5,7.4-7.5c0.2-0.3,0.5-0.6,0.7-0.9
-  C20.1,15.8,20.2,15.8,20.2,15.7z`
+const ICON = `M32 2a20 20 0 0 0-20 20c0 18 20 40 20 40s20-22 20-40A20 20 0 0 0 32 2zm7.4 32.1L32 28.7l-7.4 5.4 2.9-8.7L20 20h9.2l2.8-8.7 2.8 8.7H44l-7.4 5.4z`
 
-const SIZE = 20
+const SIZE = 50
 
 // Important for perf: the markers never change, avoid rerender when the map viewport changes
 export default class Pins extends PureComponent {
   render() {
     const { data, onClick } = this.props
 
-    return data.map((city, index) => (
+    return data.map((event, index) => (
       <Marker
         key={`marker-${index}`}
-        longitude={city.longitude}
-        latitude={city.latitude}
+        longitude={event.longitude}
+        latitude={event.latitude}
       >
         <svg
           height={SIZE}
-          viewBox="0 0 24 24"
+          viewBox="0 0 75 64"
           style={{
             cursor: "pointer",
-            fill: "#d00",
-            stroke: "none",
+            fill: chroma(venueColors[event.venue]).alpha(0.7).css(),
+            // fill: chroma("#FF5722").alpha(0.7).css(),
+            stroke: `"#FF5722"`,
+            strokeWidth: `3%`,
             transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,
           }}
-          onClick={() => onClick(city)}
+          onClick={() => onClick(event)}
         >
           <path d={ICON} />
         </svg>
