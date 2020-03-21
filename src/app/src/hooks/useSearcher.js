@@ -5,22 +5,45 @@ import parseEvents from "../utils/parseEvents"
 
 const parsedEvents = parseEvents(events)
 
+const triageFilter = (filter) => {
+  // return appropriate filter based on type
+  // where type can be
+  // n: neighborhood
+  // v: venue
+  switch(filter.t){
+    case "n":
+      return { neighborhood: { $eq: filter.value } }
+    case "v":
+      return { venue: { $eq: filter.value } }
+    default:
+      console.error("triage type not specified in filter object. can be one of 'n', 't'")
+      return null
+  }
+}
+
 const evaluateCondition = condition => {
   if ("date" in condition) {
     return { date: { $gte: new Date(condition.date) } }
-  } else if ("venues" in condition) {
-    if (condition.venues && condition.venues.find(v => v.value === "all")) {
-      return null
-    }
-    let venuesCondition = []
-    condition.venues.forEach(venue => {
-      venuesCondition.push({ venue: { $eq: venue.value } })
+
+  } else if ("filters" in condition) {
+    
+    // handle 'filter filters'
+    let filterConditions = []
+    condition.filters.forEach(filter => {
+      let f = triageFilter(filter, filterConditions)
+      filterConditions.push(f)
     })
-    return { $or: venuesCondition }
+    return { $or: filterConditions }
+
+    // handle price filtering
   } else if ("price" in condition) {
     if (condition.price === "all") return
-    if (condition.price === 0) return { price: { $eq: 0 } }
-    return { price: { $lte: Number(condition.price) } }
+    if (condition.price === 0) return { 
+      price: { $eq: 0 } 
+    }
+    return { 
+      price: { $lte: Number(condition.price) } 
+    }
   }
 }
 
@@ -32,6 +55,7 @@ const evaluateConditions = conditions => {
       allConditions.push(c)
     }
   })
+  console.log(allConditions)
   return allConditions
 }
 

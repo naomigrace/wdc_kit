@@ -1,6 +1,7 @@
 const scrapefrom = require("scrapefrom");
 const configs = require("./configs/index");
 const addVenue = require("./enrichers/addVenue");
+const addNeighborhood = require("./enrichers/addNeighborhood")
 const clean = require("./cleaners/index");
 const db = require("projectdb");
 const args = require("yargs").argv;
@@ -16,6 +17,7 @@ if (args.scrape) {
           .custom(configs[key])
           .then(data => {
             let keyedData = addVenue(key, data);
+            keyedData = addNeighborhood(key, data);
             resolve(keyedData);
           })
           .catch(err => reject(err))

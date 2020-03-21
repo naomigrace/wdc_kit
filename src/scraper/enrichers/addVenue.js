@@ -1,4 +1,4 @@
-const venueCoordinates = require("./venuesCoordinates");
+const venueCoordinates = require("../../app/src/data/venueCoordinates");
 
 module.exports = (key, data) => {
   data.forEach(event => {
