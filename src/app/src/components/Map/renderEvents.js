@@ -1,7 +1,7 @@
 
 import React from "react"
-import renderEvent from "./mapRenderEvent"
-import { EventButton } from "../ui/PopupEvent"
+import renderEvent from "./renderEvent"
+import { EventButton } from "../../ui/PopupEvent"
 
 const renderEvents = info => {
   let renderThese = info.events[0]

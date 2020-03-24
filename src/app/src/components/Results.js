@@ -1,14 +1,19 @@
 import React from "react"
-import { format } from "date-fns"
 import ConditionalWrapper from "./ConditionalWrapper"
-import venueColors from "../data/venueColors"
-import Button from "@atlaskit/button"
 import Drawer from "@atlaskit/drawer"
-import Lozenge from "../ui/Lozenge"
 import venues from "../data/venues"
-import ResultCard from "../ui/ResultCard"
+import venueColors from "../data/venueColors"
+import ResultCard, {
+  TimeHeader,
+  Title,
+  Description,
+  TicketContainer,
+  TagsContainer,
+} from "../ui/ResultCard"
+import Lozenge from "../ui/Lozenge"
 import ZeroState from "./ZeroState"
 import ticketSVG from "../images/ticket.svg"
+import getDateTimeString from "../utils/getDateTimeString"
 
 const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
   let eventDisplay
@@ -18,15 +23,8 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
       <ZeroState
         title={`No Events Found`}
         description={`This is awkward, but we couldn't find any events for your criteria! Try broadening your search.`}
-      >
-        <Button
-          style={{ marginTop: "2rem" }}
-          appearance={"primary"}
-          onClick={() => clearFilters()}
-        >
-          reset my filters
-        </Button>
-      </ZeroState>
+        callToAction={{ title: "reset my filters", fn: () => clearFilters() }}
+      />
     )
   } else {
     let sliced = events.slice(0, 100)
@@ -45,14 +43,12 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
           venue={event.venue}
           link={event.link ? true : false}
         >
-          <h4 style={{ color: "#6b6b6b", fontWeight: "normal", marginBottom: "10px"}}>{`${format(event.date, "eeee, LLLL Lo")} ${
-            event.time ? `| ${event.time}` : ``
-          }`}</h4>
-          <h1>{event.title}</h1>
-          <h2>{event.description}</h2>
+          <TimeHeader>{getDateTimeString(event.date, event.time)}</TimeHeader>
+          <Title>{event.title}</Title>
+          <Description>{event.description}</Description>
 
           {event.tickets && (
-            <div style={{ marginTop: "1rem", textAlign: "right" }}>
+            <TicketContainer>
               <a href={event.tickets} target="_blank" rel="noopener noreferrer">
                 <img
                   width={20}
@@ -61,10 +57,10 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
                   alt="Purchase Tickets Icon"
                 />
               </a>
-            </div>
+            </TicketContainer>
           )}
 
-          <div id="tagsContainer">
+          <TagsContainer>
             <Lozenge color={venueColors[event.venue]}>
               venue: {venues[event.venue]}
             </Lozenge>
@@ -73,7 +69,7 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
                 {event.price === 0 ? `free` : `$${event.price}`}
               </Lozenge>
             )}
-          </div>
+          </TagsContainer>
         </ResultCard>
       </ConditionalWrapper>
     ))

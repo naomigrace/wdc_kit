@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useMemo } from "react"
 import MapGL, { Popup } from "react-map-gl"
 import Pins from "./Pins"
-import groupBy from "../utils/groupBy"
-import venueCoordinates from "../data/venueCoordinates"
-import renderEvent from "./mapRenderEvent"
-import renderEvents from "./mapRenderEvents"
-import mapRenderVenueHeader from "./mapRenderVenueHeader"
+import renderEvent from "./renderEvent"
+import renderEvents from "./renderEvents"
+import VenueHeader from "./VenueHeader"
+import groupBy from "../../utils/groupBy"
+import venueCoordinates from "../../data/venueCoordinates"
 
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoid2FubmFkYyIsImEiOiJjazBja2M1ZzYwM2lnM2dvM3o1bmF1dmV6In0.50nuNnApjrJYkMfR2AUpXA"
@@ -64,7 +64,7 @@ const Map = ({events}) => {
           closeOnClick={false}
           onClose={() => setEventInfo(null)}
         >
-         {mapRenderVenueHeader(eventInfo.venue)}
+         <VenueHeader venue={eventInfo.venue}/>
          {Array.isArray(eventInfo.events) ? multipleEvents : renderEvent(eventInfo.event)}
         </Popup>
       )
@@ -89,3 +89,4 @@ const Map = ({events}) => {
 }
 
 export default Map
+

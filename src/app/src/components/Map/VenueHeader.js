@@ -1,8 +1,8 @@
 import React from "react"
-import venues from "../data/venues"
-import PopupHeader, { PopupImage } from "../ui/PopupHeader"
+import venues from "../../data/venues"
+import PopupHeader, { PopupImage } from "../../ui/PopupHeader"
 
-export default venue => {
+export default ({venue}) => {
   return (
     <PopupHeader venue={venue}>
       <header>

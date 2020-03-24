@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react"
-import chroma from "chroma-js"
 import { DateTimePicker } from "@atlaskit/datetime-picker"
 import Select, { CheckboxSelect } from "@atlaskit/select"
 import filterOptions from "../data/filterOptions"
 import filterPriceOptions from "../data/filterPriceOptions"
 import Flex from "../ui/Flex"
+import {
+  dateTimeStyles,
+  tagInputStyles,
+  priceInputStyles,
+} from "../ui/SearchStyles"
 
 const Search = ({ setConditions }) => {
   const dateTimeNow = new Date().toISOString()
@@ -27,51 +31,6 @@ const Search = ({ setConditions }) => {
       setConditions(newConditions)
     }
   }, [date, filters, price, setConditions])
-
-  const dateTimeStyles = {
-    style: {
-      flexGrow: 1,
-      borderRadius: 0,
-      maxWidth: 200,
-    },
-  }
-
-  const tagInputStyles = {
-    container: provided => ({ ...provided, flexGrow: "1" }),
-    control: provided => ({
-      ...provided,
-      height: "100%",
-      borderRadius: 0,
-    }),
-    multiValue: (styles, { data }) => {
-      const color = data.color ? chroma(data.color) : chroma("#000")
-      return {
-        ...styles,
-        backgroundColor: color.alpha(0.2).css(),
-      }
-    },
-    multiValueLabel: (styles, { data }) => {
-      return {
-        ...styles,
-        fontWeight: "bold",
-      }
-    },
-  }
-
-  const priceInputStyles = {
-    container: provided => ({ ...provided, flexGrow: "1", maxWidth: 150 }),
-    control: provided => ({
-      ...provided,
-      height: "100%",
-      maxWidth: 150,
-      borderRadius: 0,
-      marginRight: 0,
-    }),
-    menu: provided => ({
-      ...provided,
-      maxWidth: 150,
-    }),
-  }
 
   return (
     <div id="search">

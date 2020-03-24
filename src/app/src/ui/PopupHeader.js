@@ -13,7 +13,7 @@ import ImageVelvetLounge from "../images/venue_velvetlounge.jpg"
 import ImageAnthem from "../images/venue_anthem.jpg"
 
 const imageResolver = venue => {
-    console.log(venue)
+  console.log(venue)
   return {
     _930: Image930,
     blackcat: ImageBlackCat,
@@ -36,21 +36,19 @@ export const PopupImage = styled.div`
 `
 
 export default styled.div`
-    h1, h2 {
-        margin-top: 0;
-        padding: 0 10px 0 10px;
-    }
-    h2 {
-        color: ${props => venueColors[props.venue]};
-        padding-top: 10px;
-        font-size: 0.75rem;
-        text-transform: uppercase;
-    }
-    h1 {
-        margin-top: 4px;
-        font-size: 1.25rem;
-    }
-    // padding-bottom: 10px;
-    // border-bottom: 1px solid ${props => venueColors[props.venue]};
-    
+  h1,
+  h2 {
+    margin-top: 0;
+    padding: 0 10px 0 10px;
+  }
+  h2 {
+    color: ${props => venueColors[props.venue]};
+    padding-top: 10px;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+  }
+  h1 {
+    margin-top: 4px;
+    font-size: 1.25rem;
+  }
 `
