@@ -45,14 +45,14 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
           venue={event.venue}
           link={event.link ? true : false}
         >
-          <h4>{`${format(event.date, "eeee, LLLL Lo")} ${
+          <h4 style={{ color: "#6b6b6b", fontWeight: "normal", marginBottom: "10px"}}>{`${format(event.date, "eeee, LLLL Lo")} ${
             event.time ? `| ${event.time}` : ``
           }`}</h4>
           <h1>{event.title}</h1>
           <h2>{event.description}</h2>
 
           {event.tickets && (
-            <div style={{ marginTop: "1rem" }}>
+            <div style={{ marginTop: "1rem", textAlign: "right" }}>
               <a href={event.tickets} target="_blank" rel="noopener noreferrer">
                 <img
                   width={20}

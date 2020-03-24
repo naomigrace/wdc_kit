@@ -16,7 +16,7 @@ const triageFilter = (filter) => {
     case "v":
       return { venue: { $eq: filter.value } }
     default:
-      console.error("triage type not specified in filter object. can be one of 'n', 't'")
+      console.error("triage type not specified in filter object. can be one of 'n', 't'", filter)
       return null
   }
 }
@@ -31,7 +31,9 @@ const evaluateCondition = condition => {
     let filterConditions = []
     condition.filters.forEach(filter => {
       let f = triageFilter(filter, filterConditions)
-      filterConditions.push(f)
+      if(f){
+        filterConditions.push(f)
+      }
     })
     return { $or: filterConditions }
 
@@ -55,7 +57,6 @@ const evaluateConditions = conditions => {
       allConditions.push(c)
     }
   })
-  console.log(allConditions)
   return allConditions
 }
 

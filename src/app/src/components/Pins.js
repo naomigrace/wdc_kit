@@ -24,7 +24,6 @@ export default class Pins extends PureComponent {
           style={{
             cursor: "pointer",
             fill: chroma(venueColors[event.venue]).alpha(0.7).css(),
-            // fill: chroma("#FF5722").alpha(0.7).css(),
             stroke: `"#FF5722"`,
             strokeWidth: `3%`,
             transform: `translate(${-SIZE / 2}px,${-SIZE}px)`,

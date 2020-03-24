@@ -9,9 +9,7 @@ import Flex from "../ui/Flex"
 const Search = ({ setConditions }) => {
   const dateTimeNow = new Date().toISOString()
   const [date, setDate] = useState(dateTimeNow)
-  const [filters, setFilters] = useState([
-    { value: "all", label: "all venues" },
-  ])
+  const [filters, setFilters] = useState()
   const [price, setPrice] = useState("all")
 
   useEffect(() => {

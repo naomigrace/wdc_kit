@@ -5,6 +5,7 @@ import groupBy from "../utils/groupBy"
 import venueCoordinates from "../data/venueCoordinates"
 import renderEvent from "./mapRenderEvent"
 import renderEvents from "./mapRenderEvents"
+import mapRenderVenueHeader from "./mapRenderVenueHeader"
 
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoid2FubmFkYyIsImEiOiJjazBja2M1ZzYwM2lnM2dvM3o1bmF1dmV6In0.50nuNnApjrJYkMfR2AUpXA"
@@ -55,6 +56,7 @@ const Map = ({events}) => {
     if(eventInfo){
       return(
         <Popup
+          className={`wdc-popup`}
           tipSize={5}
           anchor="top"
           longitude={eventInfo.longitude}
@@ -62,6 +64,7 @@ const Map = ({events}) => {
           closeOnClick={false}
           onClose={() => setEventInfo(null)}
         >
+         {mapRenderVenueHeader(eventInfo.venue)}
          {Array.isArray(eventInfo.events) ? multipleEvents : renderEvent(eventInfo.event)}
         </Popup>
       )
