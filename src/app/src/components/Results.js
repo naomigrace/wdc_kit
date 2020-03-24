@@ -31,6 +31,7 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
 
     eventDisplay = sliced.map((event, index) => (
       <ConditionalWrapper
+        key={index}
         condition={event.link}
         wrapper={children => (
           <a href={event.link} target="_blank" rel="noopener noreferrer">
@@ -38,11 +39,7 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
           </a>
         )}
       >
-        <ResultCard
-          key={index}
-          venue={event.venue}
-          link={event.link ? true : false}
-        >
+        <ResultCard venue={event.venue} link={event.link ? true : false}>
           <TimeHeader>{getDateTimeString(event.date, event.time)}</TimeHeader>
           <Title>{event.title}</Title>
           <Description>{event.description}</Description>

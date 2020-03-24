@@ -13,7 +13,7 @@ const renderEvents = info => {
   if (renderThese) {
     return (
       <div>
-        {renderThese.map(event => renderEvent(event))}
+        {renderThese.map((event, index) => renderEvent(event, index))}
         {eventCount > 2 && <EventButton venue={renderThese[0].venue}>{`see ${eventCount - 2} more events`}</EventButton>}
       </div>
     )
