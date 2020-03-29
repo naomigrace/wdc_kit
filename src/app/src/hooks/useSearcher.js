@@ -90,7 +90,7 @@ const useSearcher = defaultConditions => {
         result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
       }
     }
-
+    console.log(conditions)
     setResults(result)
   }, [conditions, setConditions])
 

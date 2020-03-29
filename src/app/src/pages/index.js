@@ -11,17 +11,19 @@ import cardStackSVG from "../images/cardStack.svg"
 const dateTimeNow = new Date().toISOString()
 
 const IndexPage = () => {
-  const [setConditions, conditions, results] = useSearcher()
+  const [setConditions, conditions, results] = useSearcher([
+    { date: dateTimeNow },
+    { filters: [
+      {t: "n", label: "all neighborhoods", value: "all_n"},
+      {t: "v", label: "all venues", value: "all_v"}
+    ]},
+  ])
   const [date, setDate] = useState(dateTimeNow)
   const [filters, setFilters] = useState()
   const [price, setPrice] = useState("all")
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
-
-  useEffect(() => {
-    setDate(dateTimeNow)
-  }, [])
 
   useEffect(() => {
     let newConditions = []
