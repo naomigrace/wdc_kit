@@ -50,13 +50,13 @@ const evaluateCondition = condition => {
 
     // handle price filtering
   } else if ("price" in condition) {
-    if (condition.price === "all") return { price: { $exists: true } }
-    if (condition.price === 0)
+    if (condition.price.value === "all") return { $or: [ { price: { $exists: true } }, { price: { $exists: false } } ] }
+    if (condition.price.value === 0)
       return {
         price: { $eq: 0 },
       }
     return {
-      price: { $lte: Number(condition.price) },
+      price: { $lte: Number(condition.price.value) },
     }
   }
 }

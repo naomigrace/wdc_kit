@@ -34,17 +34,14 @@ const Search = ({
         styles={tagInputStyles}
         onChange={obj => setFilters(obj)}
         options={filterOptions}
-        defaultValue={filters || [
-          { label: "all neighborhoods", value: "all_n" },
-          { label: "all venues", value: "all_v" }
-        ]}
+        defaultValue={filters}
       />
       <Select
         id="search-price"
         styles={priceInputStyles}
         onChange={obj => setPrice(obj)}
         options={filterPriceOptions}
-        defaultValue={price || { value: "all", label: "all prices" }}
+        defaultValue={price}
 
       />
     </SearchContainer>
