@@ -73,13 +73,12 @@ export default styled.div`
       #search-filters, #search-price {
         margin-top: 10px
       }
-
       `
       : 
       `
       position: fixed;
       top: 0;
-      left: 60px;
+      left: 55px;
       display: flex;
       margin: 20px 0;
       width: 100%;

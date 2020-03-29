@@ -13,10 +13,10 @@
 
 #listButton {
     position: fixed;
-    top: 20px;
+    top: 25px;
     left: 10px;
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     cursor: pointer;
     text-align: center;
     background-color: #172b4deb;
@@ -29,9 +29,9 @@
         background-color: #482e86;
     }
     img {
-        margin-top: 10px;
-        width: 20px;
-        height: 20px;
+        margin-top: 4px;
+        width: 18px;
+        height: 18px;
     }
 
 }
@@ -55,12 +55,13 @@
     .mapboxgl-popup-close-button {
         padding: 2px 8px 8px 8px;
         font-size: 20px;
+        font-weight: bold;
         width: 30px;
         height: 30px;
         border-radius: 50%;
         top: 5px;
         right: 5px;
         color: #fff;
-        background-color: #0000005c;
+        background-color: #000000c9;
     }
 }
