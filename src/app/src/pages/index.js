@@ -36,7 +36,6 @@ const IndexPage = () => {
     }
     if (newConditions.length > 0) {
       setConditions(newConditions)
-      console.log(newConditions)
     }
   }, [date, filters, price, setConditions])
 

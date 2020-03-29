@@ -8,7 +8,6 @@ const parseEvents = events => {
     event.latitude = parseFloat(event.latitude)
     event.longitude = parseFloat(event.longitude)
   })
-  console.log(newEvents)
   return newEvents
 }
 

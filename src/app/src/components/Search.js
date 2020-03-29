@@ -24,7 +24,6 @@ const Search = ({
       <DateTimePicker
         innerProps={dateTimeStyles}
         onChange={value => setDate(value)}
-        // defaultValue={dateTimeNow}
         value={date}
         id="search-date"
       />
@@ -34,9 +33,8 @@ const Search = ({
         isMulti={true}
         styles={tagInputStyles}
         onChange={obj => setFilters(obj)}
-        // value={filters || null}
         options={filterOptions}
-        defaultValue={[
+        defaultValue={filters || [
           { label: "all neighborhoods", value: "all_n" },
           { label: "all venues", value: "all_v" }
         ]}
@@ -44,10 +42,10 @@ const Search = ({
       <Select
         id="search-price"
         styles={priceInputStyles}
-        onChange={obj => setPrice(obj.value)}
+        onChange={obj => setPrice(obj)}
         options={filterPriceOptions}
-        // value={price || null}
-        defaultValue={{ value: "all", label: "all prices" }}
+        defaultValue={price || { value: "all", label: "all prices" }}
+
       />
     </SearchContainer>
   )
