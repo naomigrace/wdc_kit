@@ -58,6 +58,7 @@ const Search = ({ setConditions }) => {
           onChange={obj => setPrice(obj.value)}
           options={filterPriceOptions}
           defaultValue={{ value: "all", label: "all prices" }}
+
         />
       </Flex>
     </div>

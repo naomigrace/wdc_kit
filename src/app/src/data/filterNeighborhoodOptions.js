@@ -1,4 +1,5 @@
 export default [
+    { t: "n", label: "all neighborhoods", value: "all" },
     { t: "n", label: "Adams Morgan", value: "admo" },
     { t: "n", label: "Captiol Riverfront/Navy Yard", value: "nav" },
     { t: "n", label: "Downtown", value: "dtn" },

@@ -13,7 +13,6 @@ import ImageVelvetLounge from "../images/venue_velvetlounge.jpg"
 import ImageAnthem from "../images/venue_anthem.jpg"
 
 const imageResolver = venue => {
-  console.log(venue)
   return {
     _930: Image930,
     blackcat: ImageBlackCat,

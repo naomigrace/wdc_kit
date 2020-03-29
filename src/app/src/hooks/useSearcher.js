@@ -5,18 +5,21 @@ import parseEvents from "../utils/parseEvents"
 
 const parsedEvents = parseEvents(events)
 
-const triageFilter = (filter) => {
+const triageFilter = filter => {
   // return appropriate filter based on type
   // where type can be
   // n: neighborhood
   // v: venue
-  switch(filter.t){
+  switch (filter.t) {
     case "n":
       return { neighborhood: { $eq: filter.value } }
     case "v":
       return { venue: { $eq: filter.value } }
     default:
-      console.error("triage type not specified in filter object. can be one of 'n', 't'", filter)
+      console.error(
+        "triage type not specified in filter object. can be one of 'n', 't'",
+        filter
+      )
       return null
   }
 }
@@ -24,27 +27,36 @@ const triageFilter = (filter) => {
 const evaluateCondition = condition => {
   if ("date" in condition) {
     return { date: { $gte: new Date(condition.date) } }
-
   } else if ("filters" in condition) {
-    
     // handle 'filter filters'
-    let filterConditions = []
+    let filterConditions = { $or: [] }
+    // let filterVenues = { $or: [] }
+    // let filterNeighborhoods = { $or: []}
     condition.filters.forEach(filter => {
-      let f = triageFilter(filter, filterConditions)
-      if(f){
-        filterConditions.push(f)
+      // if filter is all for either venue or neighborhood,
+      // return all those results
+      let f
+      filter.value === "all"
+        ? filter.t === "v" ? (f = { venue: { $exists: true } }) : (f = { neighborhood: { $exists: true }})
+        : (f = triageFilter(filter, filterConditions))
+      if (f) {
+        filterConditions['$or'].push(f)
       }
     })
-    return { $or: filterConditions }
+    // if(filterVenues['$or'].length > 0){
+    //   filterConditions.push
+    // }
+    return filterConditions
 
     // handle price filtering
   } else if ("price" in condition) {
-    if (condition.price === "all") return
-    if (condition.price === 0) return { 
-      price: { $eq: 0 } 
-    }
-    return { 
-      price: { $lte: Number(condition.price) } 
+    if (condition.price === "all") return { price: { $exists: true } }
+    if (condition.price === 0)
+      return {
+        price: { $eq: 0 },
+      }
+    return {
+      price: { $lte: Number(condition.price) },
     }
   }
 }
@@ -67,16 +79,18 @@ const useSearcher = defaultConditions => {
   useEffect(() => {
     let result = parsedEvents
 
-    if(conditions === "default"){
+    if (conditions === "default") {
       setConditions([])
-      
     } else {
       if (conditions && conditions.length > 1) {
-        result = parsedEvents.filter(sift({ $and: evaluateConditions(conditions) }))
+        result = parsedEvents.filter(
+          sift({ $and: evaluateConditions(conditions) })
+        )
       } else if (conditions && conditions.length === 1) {
         result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
-      } 
+      }
     }
+
     setResults(result)
   }, [conditions, setConditions])
 
