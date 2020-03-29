@@ -1,6 +1,8 @@
 import chroma from "chroma-js"
+import styled from "styled-components"
 
 export const dateTimeStyles = {
+  id: "search-date",
   style: {
     flexGrow: 1,
     borderRadius: 0,
@@ -9,11 +11,18 @@ export const dateTimeStyles = {
 }
 
 export const tagInputStyles = {
-  container: provided => ({ ...provided, flexGrow: "1" }),
+  container: provided => ({
+    ...provided,
+    flexGrow: "1",
+  }),
   control: provided => ({
     ...provided,
     height: "100%",
     borderRadius: 0,
+  }),
+  multiValue: provided => ({
+    ...provided,
+    height: "44px",
   }),
   multiValue: (styles, { data }) => {
     const color = data.color ? chroma(data.color) : chroma("#000")
@@ -22,7 +31,7 @@ export const tagInputStyles = {
       backgroundColor: color.alpha(0.2).css(),
     }
   },
-  multiValueLabel: (styles, { data }) => {
+  multiValueLabel: (styles) => {
     return {
       ...styles,
       fontWeight: "bold",
@@ -44,3 +53,41 @@ export const priceInputStyles = {
     maxWidth: 150,
   }),
 }
+
+export default styled.div`
+  pointer-events: none;
+  margin-bottom: 20px;
+  ${props =>
+    props.isMobile
+      ? 
+      `
+      margin-top: 20px;
+      left: 20px;
+      display: flex;
+      flex-direction: column;
+      max-width: 325px;
+      position: relative;
+      #search-date, #search-filters, #search-price {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      }
+      #search-filters, #search-price {
+        margin-top: 10px
+      }
+
+      `
+      : 
+      `
+      position: fixed;
+      top: 0;
+      left: 60px;
+      display: flex;
+      margin: 20px 0;
+      width: 100%;
+      justify-content: space-between;
+      flex-direction: row;
+      max-width: 960px;
+      box-shadow:
+        0 20px 25px -5px rgba(0,0,0,.1), 0 10px 10px -5px rgba(0,0,0,.04);
+      `
+}
+`

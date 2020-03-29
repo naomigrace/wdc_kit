@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import venueColors from "../data/venueColors"
 
 import Image930 from "../images/venue__930.jpg"
 import ImageBlackCat from "../images/venue_blackcat.jpg"
@@ -41,7 +40,7 @@ export default styled.div`
     padding: 0 10px 0 10px;
   }
   h2 {
-    color: ${props => venueColors[props.venue]};
+    color: ${props => props.theme.red};
     padding-top: 10px;
     font-size: 0.75rem;
     text-transform: uppercase;

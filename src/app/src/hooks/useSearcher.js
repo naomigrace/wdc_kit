@@ -30,8 +30,6 @@ const evaluateCondition = condition => {
   } else if ("filters" in condition) {
     // handle 'filter filters'
     let filterConditions = { $or: [] }
-    // let filterVenues = { $or: [] }
-    // let filterNeighborhoods = { $or: []}
     condition.filters.forEach(filter => {
       // if filter is all for either venue or neighborhood,
       // return all those results
@@ -43,9 +41,6 @@ const evaluateCondition = condition => {
         filterConditions['$or'].push(f)
       }
     })
-    // if(filterVenues['$or'].length > 0){
-    //   filterConditions.push
-    // }
     return filterConditions
 
     // handle price filtering

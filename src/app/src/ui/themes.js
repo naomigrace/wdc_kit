@@ -4,7 +4,7 @@ const mainTheme = {
   red: colors.R300,
   white: "#fff",
   blue: colors.B300,
-  purple: "#8e3ffb",
+  purple: "#482e86",
   lightBlue: colors.B50,
   borderRadius: "10px",
   borderWidth: "5px",

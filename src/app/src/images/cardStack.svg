@@ -3,7 +3,7 @@ aria-describedby="desc" role="img" xmlns:xlink="http://www.w3.org/1999/xlink">
   <title>Stack</title>
   <desc>A solid styled icon from Orion Icon Library.</desc>
   <path data-name="layer3"
-  fill="#ff5722a6" d="M32 33.9l26.9-14.2 5.2-2.7L32 0-.1 17l5.2 2.8L32 33.9z"></path>
-  <path data-name="layer2" fill="#ff5722a6" d="M32 38.5L10 26.8-.1 32.1l5.3 2.7L32 49.1l26.9-14.2 5.2-2.8L54 26.8 32 38.5z"></path>
-  <path data-name="layer1" fill="#ff5722a6" d="M32 53.6L9.8 41.8-.1 47 32 64l32.1-17-9.9-5.2L32 53.6z"></path>
+  fill="#ffffff" d="M32 33.9l26.9-14.2 5.2-2.7L32 0-.1 17l5.2 2.8L32 33.9z"></path>
+  <path data-name="layer2" fill="#ffffff" d="M32 38.5L10 26.8-.1 32.1l5.3 2.7L32 49.1l26.9-14.2 5.2-2.8L54 26.8 32 38.5z"></path>
+  <path data-name="layer1" fill="#ffffff" d="M32 53.6L9.8 41.8-.1 47 32 64l32.1-17-9.9-5.2L32 53.6z"></path>
 </svg>

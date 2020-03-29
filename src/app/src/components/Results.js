@@ -15,7 +15,7 @@ import ZeroState from "./ZeroState"
 import ticketSVG from "../images/ticket.svg"
 import getDateTimeString from "../utils/getDateTimeString"
 
-const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
+const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters, children }) => {
   let eventDisplay
 
   if (!events || events.length === 0) {
@@ -100,6 +100,7 @@ const Results = ({ events, isDrawerOpen, setIsDrawerOpen, clearFilters }) => {
         },
       }}
     >
+      {children}
       <div>{eventDisplay}</div>
     </Drawer>
   )

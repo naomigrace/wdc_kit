@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import Button from "@atlaskit/button"
-import venueColors from "../data/venueColors"
 
 export const Date = styled.time`
     font-weight: bold;
@@ -12,10 +11,10 @@ export const Title = styled.p`
 
 export const EventButton = styled(Button)`
     margin: 10px;
-    border: 1px solid ${props => venueColors[props.venue]} !important;
+    border: 1px solid ${props => props.theme.red} !important;
     background-color: #fff;
     span {
-        color: ${props => venueColors[props.venue]} !important;
+        color: ${props => props.theme.red} !important;
     }
 `
 
