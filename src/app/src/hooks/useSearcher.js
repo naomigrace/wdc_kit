@@ -26,7 +26,14 @@ const triageFilter = filter => {
 
 const evaluateCondition = condition => {
   if ("date" in condition) {
-    return { date: { $gte: new Date(condition.date) } }
+
+    if(condition.justToday){
+      let date_without_time = condition.date.split("T")[0]
+      return { date: { $eq: new Date(date_without_time) } }
+    } else {
+      return { date: { $gte: new Date(condition.date) } }
+    }
+    
   } else if ("filters" in condition) {
     // handle 'filter filters'
     let filterConditions = { $or: [] }

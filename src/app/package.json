@@ -13,6 +13,7 @@
     "@atlaskit/lozenge": "^9.1.6",
     "@atlaskit/select": "^11.0.9",
     "@atlaskit/theme": "^9.5.1",
+    "@atlaskit/toggle": "^8.1.6",
     "chroma-js": "^2.1.0",
     "date-fns": "^2.11.0",
     "gatsby": "^2.19.7",

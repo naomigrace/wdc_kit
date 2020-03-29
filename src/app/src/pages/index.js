@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
-import { useMediaQuery } from 'react-responsive'
+import { ToggleStateless } from "@atlaskit/toggle"
+import { useMediaQuery } from "react-responsive"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Search from "../components/Search"
@@ -13,22 +14,26 @@ const dateTimeNow = new Date().toISOString()
 const IndexPage = () => {
   const [setConditions, conditions, results] = useSearcher([
     { date: dateTimeNow },
-    { filters: [
-      {t: "n", label: "all neighborhoods", value: "all_n"},
-      {t: "v", label: "all venues", value: "all_v"}
-    ]},
+    {
+      filters: [
+        { t: "n", label: "all neighborhoods", value: "all_n" },
+        { t: "v", label: "all venues", value: "all_v" },
+      ],
+    },
+    { price: { label: "all prices", value: "all" } },
   ])
   const [date, setDate] = useState(dateTimeNow)
+  const [justToday, setJustToday] = useState(false)
   const [filters, setFilters] = useState()
   const [price, setPrice] = useState("all")
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" })
 
   useEffect(() => {
     let newConditions = []
     if (date) {
-      newConditions.push({ date: date })
+      newConditions.push({ date: date, justToday: justToday })
     }
     if (filters) {
       newConditions.push({ filters: filters })
@@ -39,21 +44,22 @@ const IndexPage = () => {
     if (newConditions.length > 0) {
       setConditions(newConditions)
     }
-  }, [date, filters, price, setConditions])
+  }, [date, justToday, filters, price, setConditions])
 
   return (
     <Layout>
       <SEO title="Home" />
       <Map events={results} />
-      {!isTabletOrMobile && <Search
-        setDate={setDate}
-        setFilters={setFilters}
-        setPrice={setPrice}
-        date={date}
-        filters={filters}
-        price={price}
-
-      />}
+      {!isTabletOrMobile && (
+        <Search
+          setDate={setDate}
+          setFilters={setFilters}
+          setPrice={setPrice}
+          date={date}
+          filters={filters}
+          price={price}
+        />
+      )}
       <div id="listButton" onClick={() => setIsDrawerOpen(!isDrawerOpen)}>
         <img
           src={cardStackSVG}
@@ -68,15 +74,33 @@ const IndexPage = () => {
         setIsDrawerOpen={setIsDrawerOpen}
         clearFilters={() => setConditions("default")}
       >
-        {isDrawerOpen && isTabletOrMobile && <Search
-          isDrawerOpen={isDrawerOpen}
-          setDate={setDate}
-          setFilters={setFilters}
-          setPrice={setPrice}
-          date={date}
-          filters={filters}
-          price={price}
-        />}
+        {isDrawerOpen && isTabletOrMobile && (
+          <Search
+            isDrawerOpen={isDrawerOpen}
+            setDate={setDate}
+            setFilters={setFilters}
+            setPrice={setPrice}
+            date={date}
+            filters={filters}
+            price={price}
+          />
+        )}
+        <div
+          style={{
+            textAlign: "right",
+            paddingRight: "20px",
+          }}
+          onClick={() => setJustToday(!justToday)}
+        >
+          <p>
+            <small>Today's events only</small>
+          </p>
+          <ToggleStateless
+            isChecked={justToday}
+            size="large"
+            label="Show events for just today"
+          />
+        </div>
       </Results>
     </Layout>
   )
