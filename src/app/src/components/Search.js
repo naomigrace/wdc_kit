@@ -12,7 +12,6 @@ import SearchContainer, {
 
 const Search = ({
   isDrawerOpen,
-  dateTimeNow,
   setDate,
   setFilters,
   setPrice,
@@ -25,8 +24,8 @@ const Search = ({
       <DateTimePicker
         innerProps={dateTimeStyles}
         onChange={value => setDate(value)}
+        // defaultValue={dateTimeNow}
         value={date}
-        defaultValue={dateTimeNow}
         id="search-date"
       />
       <CheckboxSelect
@@ -35,15 +34,19 @@ const Search = ({
         isMulti={true}
         styles={tagInputStyles}
         onChange={obj => setFilters(obj)}
-        value={filters || null}
+        // value={filters || null}
         options={filterOptions}
+        defaultValue={[
+          { label: "all neighborhoods", value: "all_n" },
+          { label: "all venues", value: "all_v" }
+        ]}
       />
       <Select
         id="search-price"
         styles={priceInputStyles}
         onChange={obj => setPrice(obj.value)}
         options={filterPriceOptions}
-        value={price || null}
+        // value={price || null}
         defaultValue={{ value: "all", label: "all prices" }}
       />
     </SearchContainer>

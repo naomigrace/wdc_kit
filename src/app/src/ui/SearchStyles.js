@@ -20,10 +20,6 @@ export const tagInputStyles = {
     height: "100%",
     borderRadius: 0,
   }),
-  multiValue: provided => ({
-    ...provided,
-    height: "44px",
-  }),
   multiValue: (styles, { data }) => {
     const color = data.color ? chroma(data.color) : chroma("#000")
     return {

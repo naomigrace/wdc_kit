@@ -1,5 +1,5 @@
 export default [
-  { t: "v", value: "all", label: "all venues", color: "#000000" },
+  { t: "v", value: "all_v", label: "all venues", color: "#000000" },
   { t: "v", value: "_930", label: "930 Club", color: "#0066dd" },
   { t: "v", value: "blackcat", label: "Black Cat", color: "#000000" },
   { t: "v", value: "echostage", label: "Echo Stage", color: "#662483" },

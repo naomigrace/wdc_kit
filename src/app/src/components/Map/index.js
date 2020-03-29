@@ -47,8 +47,6 @@ const Map = ({events}) => {
 
   }, [events])
 
-
-
   const onClickMarker = (event) => {
     setEventInfo(event)    
   }

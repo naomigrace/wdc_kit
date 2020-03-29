@@ -30,17 +30,22 @@ const evaluateCondition = condition => {
   } else if ("filters" in condition) {
     // handle 'filter filters'
     let filterConditions = { $or: [] }
-    condition.filters.forEach(filter => {
-      // if filter is all for either venue or neighborhood,
-      // return all those results
-      let f
-      filter.value === "all"
-        ? filter.t === "v" ? (f = { venue: { $exists: true } }) : (f = { neighborhood: { $exists: true }})
-        : (f = triageFilter(filter, filterConditions))
-      if (f) {
-        filterConditions['$or'].push(f)
-      }
-    })
+    if(condition.filters.length > 0){
+      condition.filters.forEach(filter => {
+        // if filter is all for either venue or neighborhood,
+        // return all those results
+        let f
+        filter.value === "all_v" ? (f = { venue: { $exists: true } }) : 
+        filter.value === 'all_n' ? (f = { neighborhood: { $exists: true }}) : 
+        (f = triageFilter(filter, filterConditions))
+        if (f) {
+          filterConditions['$or'].push(f)
+        }
+      })
+    } else {
+      filterConditions['$or'] = [{ venue: { $exists: true } }, { neighborhood: { $exists: true }}] 
+    }
+
     return filterConditions
 
     // handle price filtering

@@ -8,6 +8,7 @@ import useSearcher from "../hooks/useSearcher"
 import Results from "../components/Results"
 import cardStackSVG from "../images/cardStack.svg"
 
+const dateTimeNow = new Date().toISOString()
 
 const IndexPage = () => {
   const [setConditions, conditions, results] = useSearcher()
@@ -16,8 +17,11 @@ const IndexPage = () => {
   const [price, setPrice] = useState("all")
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
-  const dateTimeNow = new Date().toISOString()
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1024px)' })
+
+  useEffect(() => {
+    setDate(dateTimeNow)
+  }, [])
 
   useEffect(() => {
     let newConditions = []
@@ -32,6 +36,7 @@ const IndexPage = () => {
     }
     if (newConditions.length > 0) {
       setConditions(newConditions)
+      console.log(newConditions)
     }
   }, [date, filters, price, setConditions])
 
@@ -40,7 +45,6 @@ const IndexPage = () => {
       <SEO title="Home" />
       <Map events={results} />
       {!isTabletOrMobile && <Search
-        dateTimeNow={dateTimeNow}
         setDate={setDate}
         setFilters={setFilters}
         setPrice={setPrice}
@@ -65,7 +69,6 @@ const IndexPage = () => {
       >
         {isDrawerOpen && isTabletOrMobile && <Search
           isDrawerOpen={isDrawerOpen}
-          dateTimeNow={dateTimeNow}
           setDate={setDate}
           setFilters={setFilters}
           setPrice={setPrice}
