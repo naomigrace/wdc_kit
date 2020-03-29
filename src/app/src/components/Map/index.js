@@ -27,8 +27,9 @@ const Map = ({events}) => {
     let groupedByVenue
     let venuesEventsData = []
     if(events){
+      setEventInfo(null)
       groupedByVenue = groupBy('venue')(events)
-  
+
       Object.keys(groupedByVenue).forEach(venueGroup => {
         let subEvents = groupedByVenue[venueGroup]
         let venueCoords = venueCoordinates[venueGroup]
@@ -45,6 +46,8 @@ const Map = ({events}) => {
     setVenuesEventsData(venuesEventsData)
 
   }, [events])
+
+
 
   const onClickMarker = (event) => {
     setEventInfo(event)    
