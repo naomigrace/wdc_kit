@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const Lozenge = styled.span`
-    background-color: ${props => props.color};
+    background-color: ${props => props.color === "music" ? props.theme.purpleMid : props.theme.grey};
     color: #fff;
     font-size: 11px;
     font-weight: bold;

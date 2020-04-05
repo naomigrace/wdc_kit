@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "New York Bold";
+    src: url("../fonts/NewYorkLarge-Bold.otf");
+}
+
+@font-face {
+    font-family: "New York Regular";
+    src: url("../fonts/NewYorkLarge-Regular.otf");
+}
+
+@font-face {
+    font-family: "SF Pro Text Regular";
+    src: url("../fonts/SF-Pro-Text-Regular.otf");
+}
+
+@font-face {
+    font-family: "SF Pro Text Bold";
+    src: url("../fonts/SF-Pro-Text-Bold.otf");
+}

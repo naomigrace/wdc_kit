@@ -24,12 +24,25 @@ const triageFilter = filter => {
   }
 }
 
+
+
+function pad(n, width, z) {
+  z = z || '0';
+  n = n + '';
+  return n.length >= width ? n : new Array(width - n.length + 1).join(z) + n;
+}
+
 const evaluateCondition = condition => {
   if ("date" in condition) {
 
     if(condition.justToday){
       let date_without_time = condition.date.split("T")[0]
-      return { date: { $eq: new Date(date_without_time) } }
+      let date_without_time_pieces = date_without_time.split("-")
+      let day_after_num = pad(Number(date_without_time_pieces[2]) + 1, 2)
+      let day_after = `${date_without_time_pieces[0]}-${date_without_time_pieces[1]}-${day_after_num}T01:00:00Z`
+      console.log(new Date(day_after))
+      console.log(new Date(date_without_time))
+      return { date: { $and: [ {$gte: new Date(date_without_time + 'T01:00:00Z')}, { $lte: new Date(day_after)} ] } }
     } else {
       return { date: { $gte: new Date(condition.date) } }
     }

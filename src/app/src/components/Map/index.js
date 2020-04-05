@@ -1,25 +1,17 @@
 import React, { useState, useEffect, useMemo } from "react"
-import MapGL, { Popup } from "react-map-gl"
+import MapGL from "react-map-gl"
 import Pins from "./Pins"
 import renderEvent from "./renderEvent"
 import renderEvents from "./renderEvents"
 import VenueHeader from "./VenueHeader"
 import groupBy from "../../utils/groupBy"
 import venueCoordinates from "../../data/venueCoordinates"
+import PopupStyle from "../../ui/PopupStyle"
 
 const MAPBOX_TOKEN =
   "pk.eyJ1Ijoid2FubmFkYyIsImEiOiJjazBja2M1ZzYwM2lnM2dvM3o1bmF1dmV6In0.50nuNnApjrJYkMfR2AUpXA"
 
-const Map = ({events}) => {
-  const [viewport, setViewport] = useState({
-    latitude: 38.8943,
-    longitude: -77.0276,
-    zoom: 12.5,
-    bearing: 0,
-    pitch: 0,
-    minZoom: 11,
-    maxZoom: 17,
-  })
+const Map = ({events, setSelectedEvent, selectedEvent, isTabletOrMobile, viewport, setViewport }) => {
   const [eventInfo, setEventInfo] = useState()
   const [venuesEventsData, setVenuesEventsData] = useState()
 
@@ -28,6 +20,7 @@ const Map = ({events}) => {
     let venuesEventsData = []
     if(events){
       setEventInfo(null)
+      setSelectedEvent(null)
       groupedByVenue = groupBy('venue')(events)
 
       Object.keys(groupedByVenue).forEach(venueGroup => {
@@ -56,8 +49,8 @@ const Map = ({events}) => {
   const renderPopup = () => {
     if(eventInfo){
       return(
-        <Popup
-          className={`wdc-popup`}
+        <PopupStyle
+          width={250}
           tipSize={5}
           anchor="top"
           longitude={eventInfo.longitude}
@@ -67,7 +60,7 @@ const Map = ({events}) => {
         >
          <VenueHeader venue={eventInfo.venue}/>
          {Array.isArray(eventInfo.events) ? multipleEvents : renderEvent(eventInfo.event)}
-        </Popup>
+        </PopupStyle>
       )
     }
   }
@@ -76,13 +69,13 @@ const Map = ({events}) => {
     <div>
       <MapGL
         {...viewport}
-        width="100vw"
-        height="100vh"
+        width={isTabletOrMobile ? `100vw` : `70vw`}
+        height={isTabletOrMobile ? `60vh` : `100vh`}
         mapStyle={"mapbox://styles/wannadc/ck7xuzkwg06me1hmzf07ypykm"}
-        onViewportChange={setViewport}
+        onViewportChange={newViewport => setViewport(newViewport)}
         mapboxApiAccessToken={MAPBOX_TOKEN}
       >
-        <Pins data={venuesEventsData} onClick={(event) => onClickMarker(event)} />
+        <Pins selectedEvent={selectedEvent} data={venuesEventsData} onClick={(event) => onClickMarker(event)} />
         {renderPopup()}
       </MapGL>
     </div>

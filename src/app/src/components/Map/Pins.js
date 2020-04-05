@@ -9,7 +9,7 @@ const SIZE = 50
 // Important for perf: the markers never change, avoid rerender when the map viewport changes
 export default class Pins extends PureComponent {
   render() {
-    const { data, onClick } = this.props
+    const { data, onClick, selectedEvent } = this.props
 
     return data.map((event, index) => (
       <Marker
@@ -18,6 +18,7 @@ export default class Pins extends PureComponent {
         latitude={event.latitude}
       >
         <PinStyle
+          selected={selectedEvent && event.venue === selectedEvent.venue}
           height={SIZE}
           viewBox="0 0 75 64"
           venue={event.venue}
