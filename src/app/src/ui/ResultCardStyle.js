@@ -6,6 +6,22 @@ export const TimeHeader = styled.p`
   margin-top: 0;
 `
 
+export const Link = styled.a`
+  margin-left: 5px;
+  text-align: right;
+  padding: 2px 5px;
+  border-radius: 5px;
+  float: right;
+  color: #fff;
+  &:hover {
+    background-color: ${props => props.theme.red} !important;
+    color: ${props => props.theme.lightBlue} !important;
+  }
+  &:active {
+    background-color: ${props => props.theme.purpleMid} !important;
+  }
+`
+
 export const Title = styled.p`
   font-weight: bold;
 `
@@ -15,6 +31,17 @@ export const Description = styled.p``
 export const TicketContainer = styled.div`
   margin-top: 5px;
   text-align: right;
+  img {
+    margin-left: 5px;
+    vertical-align: text-top;
+  }
+  a {
+    color: #fff;
+    &:hover {
+      background-color: ${props => props.theme.red} !important;
+      color: ${props => props.theme.lightBlue} !important;
+    }
+  }
 `
 
 export const TagsContainer = styled.div`
@@ -58,8 +85,11 @@ export default styled.div`
       padding-top: 30px;
       padding-bottom: 30px;
       color: ${props.theme.white};
+      ${Title} {
+        font-size: 17px;
+      }
       ${TimeHeader} {
-        color: ${props.theme.white}
+        color: ${props.theme.lightBlue}
       }
       `
       : 

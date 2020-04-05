@@ -1,19 +1,20 @@
 import React from "react"
 import venues from "../data/venues"
-
+import Flex from "../ui/Flex"
 import ResultCardStyle, {
   TimeHeader,
   Title,
+  Link,
   Description,
   TicketContainer,
   TagsContainer,
 } from "../ui/ResultCardStyle"
-import ticketSVG from "../images/ticket.svg"
+import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
+import CreditcardIcon from '@atlaskit/icon/glyph/creditcard';
 import getDateTimeString from "../utils/getDateTimeString"
 import Lozenge from "../ui/Lozenge"
 
 export default ({ selected, event, ...props }) => {
-  // console.log(selected)
   return (
     <ResultCardStyle selected={selected} {...props}>
       <Title>{event.title ? event.title : event.description}</Title>
@@ -22,19 +23,19 @@ export default ({ selected, event, ...props }) => {
       {selected && (
         <div>
           <Description>{event.description}</Description>
-
+          <Flex style={{ justifyContent: "flex-end", margin: "10px 0" }}>
           {event.tickets && (
-            <TicketContainer>
-              <a href={event.tickets} target="_blank" rel="noopener noreferrer">
-                <img
-                  width={20}
-                  height={20}
-                  src={ticketSVG}
-                  alt="Purchase Tickets Icon"
-                />
-              </a>
-            </TicketContainer>
+              <Link href={event.tickets} target="_blank" rel="noopener noreferrer">
+                tickets <CreditcardIcon size="small"/>
+              </Link>
           )}
+          {event.link && (
+            <Link href={event.link} target="_blank" rel="noopener noreferrer">
+              more info <ShortcutIcon size="small"/>
+            </Link>
+          )}
+          </Flex>
+
         </div>
       )}
 
