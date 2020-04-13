@@ -11,11 +11,13 @@
     "@atlaskit/datetime-picker": "^9.2.8",
     "@atlaskit/drawer": "^5.3.5",
     "@atlaskit/lozenge": "^9.1.6",
+    "@atlaskit/pagination": "^12.0.19",
     "@atlaskit/select": "^11.0.9",
     "@atlaskit/theme": "^9.5.1",
     "@atlaskit/toggle": "^8.1.6",
     "chroma-js": "^2.1.0",
     "date-fns": "^2.11.0",
+    "deck.gl": "^8.1.1",
     "gatsby": "^2.19.7",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-google-fonts": "^1.0.1",
@@ -36,7 +38,8 @@
     "react-modal": "^3.11.2",
     "react-responsive": "^8.0.3",
     "sift": "^11.1.8",
-    "styled-components": "^5.0.1"
+    "styled-components": "^5.0.1",
+    "supercluster": "^7.0.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1"

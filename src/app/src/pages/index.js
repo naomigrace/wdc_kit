@@ -4,6 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Search from "../components/Search"
 import Map from "../components/Map/index"
+import Pagination from "@atlaskit/pagination"
 import { FlyToInterpolator } from "react-map-gl"
 import useSearcher from "../hooks/useSearcher"
 import Results from "../components/Results"
@@ -13,16 +14,26 @@ import iconFilterSVG from "../images/icon_filter.svg"
 const dateTimeNow = new Date().toISOString()
 
 const IndexPage = () => {
-  const [setConditions, conditions, results] = useSearcher([
-    { date: dateTimeNow },
-    {
-      filters: [
-        { t: "n", label: "all neighborhoods", value: "all_n" },
-        { t: "v", label: "all venues", value: "all_v" },
-      ],
-    },
-    { price: { label: "all", value: "all" } },
-  ])
+  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" })
+
+  const [
+    setConditions,
+    conditions,
+    results,
+  ] = useSearcher(
+    [
+      { date: dateTimeNow },
+      {
+        filters: [
+          { t: "n", label: "all neighborhoods", value: "all_n" },
+          { t: "v", label: "all venues", value: "all_v" },
+        ],
+      },
+      { price: { label: "all", value: "all" } },
+    ],
+    isTabletOrMobile
+  )
+
   const [date, setDate] = useState(dateTimeNow)
   const [justToday, setJustToday] = useState(false)
   const [filters, setFilters] = useState()
@@ -35,12 +46,10 @@ const IndexPage = () => {
     bearing: 0,
     pitch: 0,
     minZoom: 11,
-    maxZoom: 17,
+    maxZoom: 20,
   })
 
   const [selectedEvent, setSelectedEvent] = useState()
-
-  const isTabletOrMobile = useMediaQuery({ query: "(max-width: 1024px)" })
 
   // change viewport when user clicks on card
   useEffect(() => {
@@ -55,7 +64,6 @@ const IndexPage = () => {
       setViewport({ ...viewport, ...newViewport })
     }
   }, [selectedEvent])
-
 
   useEffect(() => {
     let newConditions = []
@@ -82,6 +90,14 @@ const IndexPage = () => {
           events={results}
           clearFilters={() => setConditions("default")}
         >
+          {/* <PageSwitcher>
+            <Pagination
+              pages={[...Array(maxPage + 1).keys()].slice(1)}
+              max={6}
+              onChange={(event, newPage) => jump(newPage)}
+            />
+            <p>{getOneThroughOfLabel()}</p>
+          </PageSwitcher> */}
           {isFiltersOpen && (
             <Search
               isMobile={isTabletOrMobile}
@@ -110,10 +126,13 @@ const IndexPage = () => {
       />
 
       <FilterButton onClick={() => setIsFiltersOpen(!isFiltersOpen)}>
-        <img src={iconFilterSVG} height={30} width={30} />
-        <span>
-          filter<strong>{results && ` ` + results.length}</strong> results
-        </span>
+        <img
+          src={iconFilterSVG}
+          height={30}
+          width={30}
+          alt={"filter results button"}
+        />
+        <span>filter results</span>
       </FilterButton>
     </Layout>
   )

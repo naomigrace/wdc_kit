@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import Lozenge from "../ui/Lozenge"
 
 export default styled.div`
     z-index: 400;
@@ -12,4 +13,10 @@ export default styled.div`
     left: 20px;
     font-size: 20px;
     color: white;
+    span {
+        font-family: ${props => props.theme.fonts.serifBold} !important;
+        margin-left: 10px;
+        vertical-align: middle;
+        background-color: #ffffff38;
+    }
 `

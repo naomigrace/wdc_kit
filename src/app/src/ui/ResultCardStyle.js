@@ -96,7 +96,7 @@ export default styled.div`
       `
       padding-top: 20px;
       padding-bottom: 20px;
-      background-color: #ff;
+      background-color: #fff;
       `
   }
 `

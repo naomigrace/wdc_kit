@@ -47,6 +47,6 @@ export default styled.div`
   }
   h1 {
     margin-top: 4px;
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 `

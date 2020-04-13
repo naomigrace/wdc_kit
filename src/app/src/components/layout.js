@@ -7,6 +7,7 @@ import "../ui/typography.css"
 import Sidebar from "./Sidebar"
 import Main from "../ui/Main"
 import Logo from "../ui/Logo"
+import Lozenge from "../ui/Lozenge"
 
 const Layout = ({ children, sidebar }) => (
   <ThemeProvider theme={theme}>
@@ -15,7 +16,7 @@ const Layout = ({ children, sidebar }) => (
         <Sidebar>{sidebar()}</Sidebar>
         {children}
       </Main>
-      <Logo>WannaDC</Logo>
+      <Logo>WannaDC<Lozenge>alpha v0.5</Lozenge></Logo>
     </div>
   </ThemeProvider>
 )

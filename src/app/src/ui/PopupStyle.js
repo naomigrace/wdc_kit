@@ -1,13 +1,19 @@
 import styled from "styled-components"
-import { Popup } from "react-map-gl"
 
-export default styled(Popup)`
+export default styled.div`
+    background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06);
+    box-shadow: ${props => props.theme.shadows.popup};
     width: 250px;
-    max-height: 300px;
-    overflow-x: none;
+    min-height: 100;
+    max-height: 400px;
+    overflow-x: hidden;
     overflow-y: scroll;
+    pointer-events: all;
+    cursor: auto;
+    position: absolute;
+    z-index: 9999999;
+
 
     .mapboxgl-popup-tip {
         border: 0;

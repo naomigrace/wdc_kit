@@ -8,7 +8,7 @@ export default ({venue}) => {
       <header>
         <PopupImage venue={venue}/>
         <h2>music venue</h2>
-        <h1>{venues[venue]}</h1>
+        <h1 style={{marginBottom: "5px"}}>{venues[venue]}</h1>
       </header>
     </PopupHeader>
   )

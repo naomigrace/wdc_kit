@@ -19,8 +19,8 @@ export const EventButton = styled(Button)`
 `
 
 export default styled.div`
-    padding: 10px 10px 0 10px;
-    &:last-child {
-        padding-bottom: 10px;
+    padding: 5px 10px;
+    &:hover {
+        background-color: ${props => props.theme.lightBlue};
     }
 `

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useMemo } from "react"
 import DissmissableMessage from "../ui/DissmissableMessage"
 import ZeroState from "./ZeroState"
 import ResultsContainer from "../ui/ResultsContainer"
@@ -8,14 +8,13 @@ const Results = ({
   selectedEvent,
   setSelectedEvent,
   events,
-  isDrawerOpen,
-  setIsDrawerOpen,
   clearFilters,
   children,
 }) => {
   let eventDisplay
+  let memoizedEvents = useMemo(() => events, [events])
 
-  if (!events || events.length === 0) {
+  if (!memoizedEvents || memoizedEvents.length === 0) {
     eventDisplay = (
       <ZeroState
         title={`No Events Found`}
@@ -23,10 +22,9 @@ const Results = ({
         callToAction={{ title: "reset my filters", fn: () => clearFilters() }}
       />
     )
-  } else {
-    let sliced = events.slice(0, 50)
-
-    eventDisplay = sliced.map((event, index) => (
+  } else if(memoizedEvents.length){
+    console.log(memoizedEvents)
+    eventDisplay = memoizedEvents.map((event, index) => (
       <ResultCard
         selected={!selectedEvent ? false : event.id === selectedEvent.id}
         key={index}
@@ -35,6 +33,13 @@ const Results = ({
       />
     ))
   }
+
+  useEffect(() => {
+    if (selectedEvent && selectedEvent.fromPopup) {
+      let selectedEventDiv = document.getElementById(selectedEvent.id)
+      selectedEventDiv.scrollIntoView({ behavior: "smooth", block: "center" })
+    }
+  }, [selectedEvent])
 
   return (
     <ResultsContainer>

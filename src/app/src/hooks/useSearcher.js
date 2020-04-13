@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import sift from "sift"
 import events from "../data/events"
 import parseEvents from "../utils/parseEvents"
+import usePagination from "./usePagination"
 
 const parsedEvents = parseEvents(events)
 
@@ -92,9 +93,9 @@ const evaluateConditions = conditions => {
   return allConditions
 }
 
-const useSearcher = defaultConditions => {
-  let [conditions, setConditions] = useState(defaultConditions)
-  let [results, setResults] = useState()
+const useSearcher = (defaultConditions, isMobile ) => {
+  let [ conditions, setConditions ] = useState(defaultConditions)
+  let [ results, setResults ] = useState()
 
   useEffect(() => {
     let result = parsedEvents
@@ -113,6 +114,7 @@ const useSearcher = defaultConditions => {
     console.log(conditions)
     setResults(result)
   }, [conditions, setConditions])
+
 
   return [setConditions, conditions, results]
 }

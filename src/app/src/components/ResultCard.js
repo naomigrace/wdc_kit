@@ -16,7 +16,7 @@ import Lozenge from "../ui/Lozenge"
 
 export default ({ selected, event, ...props }) => {
   return (
-    <ResultCardStyle selected={selected} {...props}>
+    <ResultCardStyle selected={selected} id={event.id} {...props}>
       <Title>{event.title ? event.title : event.description}</Title>
       <TimeHeader>{getDateTimeString(event.date, event.time)}</TimeHeader>
 
