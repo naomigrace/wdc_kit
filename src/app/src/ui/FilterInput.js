@@ -29,4 +29,11 @@ export default styled.div`
         color: ${props => props.active ? `#fff` : props.theme.purpleMid};
     }
 
+    ${props => props.clear && `
+        background-color: ${props.theme.lightBlue} !important;
+        border-color: ${props.theme.lightBlue};
+        // color: ${props.theme.grey};
+    `
+    }
+
 `

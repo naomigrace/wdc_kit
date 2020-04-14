@@ -22,6 +22,8 @@ const Search = ({
   date,
   filters,
   price,
+  clearFilters,
+  filtersSet,
 }) => {
 
   const handlePriceClick = () => {
@@ -45,7 +47,7 @@ const Search = ({
       <FilterInput>neighborhoods</FilterInput>
       <FilterInput>venues</FilterInput>
       <FilterInput active={price.label === "free"} onClick={() => handlePriceClick()}>price ({price.label})</FilterInput>
-
+      {filtersSet && <FilterInput clear={true} onClick={() => clearFilters()}>clear filters</FilterInput>}
 
 
       {/* <DateTimePicker

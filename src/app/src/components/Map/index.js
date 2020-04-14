@@ -139,11 +139,11 @@ const Map = ({
         return (
           <PopupStyle  style={{ left: x, top: y }}>
             {venuesEventDataForPin.map((venue, index) => {
-              let sliced = venue.events ? venue.events[0].slice(0, 1) : []
+              let showHeaderAndVenueLabel = venuesEventDataForPin.length === 1
               return (
                 <div key={index}>
-                  <VenueHeader venue={venue.venue} />
-                  {renderEvents(venue.events[0], setSelectedEvent)}
+                  {showHeaderAndVenueLabel && <VenueHeader venue={venue.venue} />}
+                  {renderEvents(venue.events[0], setSelectedEvent, showHeaderAndVenueLabel)}
                 </div>
               )
             })}

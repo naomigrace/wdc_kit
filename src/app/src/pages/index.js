@@ -4,7 +4,6 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Search from "../components/Search"
 import Map from "../components/Map/index"
-import Pagination from "@atlaskit/pagination"
 import { FlyToInterpolator } from "react-map-gl"
 import useSearcher from "../hooks/useSearcher"
 import Results from "../components/Results"
@@ -51,6 +50,12 @@ const IndexPage = () => {
 
   const [selectedEvent, setSelectedEvent] = useState()
 
+  const clearFilters = () => {
+    setSelectedEvent(null)
+    setJustToday(false)
+    setPrice({ label: "all", value: "all" })
+  }
+
   // change viewport when user clicks on card
   useEffect(() => {
     if (selectedEvent) {
@@ -88,16 +93,8 @@ const IndexPage = () => {
           selectedEvent={selectedEvent}
           setSelectedEvent={setSelectedEvent}
           events={results}
-          clearFilters={() => setConditions("default")}
+          clearFilters={() => clearFilters()}
         >
-          {/* <PageSwitcher>
-            <Pagination
-              pages={[...Array(maxPage + 1).keys()].slice(1)}
-              max={6}
-              onChange={(event, newPage) => jump(newPage)}
-            />
-            <p>{getOneThroughOfLabel()}</p>
-          </PageSwitcher> */}
           {isFiltersOpen && (
             <Search
               isMobile={isTabletOrMobile}
@@ -109,6 +106,8 @@ const IndexPage = () => {
               date={date}
               filters={filters}
               price={price}
+              clearFilters={clearFilters}
+              filtersSet={justToday || price.value !== "all"}
             />
           )}
         </Results>
