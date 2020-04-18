@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "wannadc",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "curated events in the capitol city",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Naomi-Grace Panlaqui <naomigracep@gmail.com>",
   "dependencies": {
     "@atlaskit/badge": "^13.1.7",
     "@atlaskit/button": "^13.3.9",
@@ -15,6 +15,7 @@
     "@atlaskit/select": "^11.0.9",
     "@atlaskit/theme": "^9.5.1",
     "@atlaskit/toggle": "^8.1.6",
+    "babel-plugin-styled-components": "^1.10.7",
     "chroma-js": "^2.1.0",
     "date-fns": "^2.11.0",
     "deck.gl": "^8.1.1",
@@ -26,6 +27,7 @@
     "gatsby-plugin-react-helmet": "^3.1.21",
     "gatsby-plugin-sass": "^2.1.30",
     "gatsby-plugin-sharp": "^2.4.3",
+    "gatsby-plugin-styled-components": "^3.2.3",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-transformer-json": "^2.2.26",
     "gatsby-transformer-sharp": "^2.3.13",
@@ -38,14 +40,17 @@
     "react-modal": "^3.11.2",
     "react-responsive": "^8.0.3",
     "sift": "^11.1.8",
-    "styled-components": "^5.0.1",
+    "styled-components": "^5.1.0",
     "supercluster": "^7.0.0"
   },
   "devDependencies": {
     "prettier": "^1.19.1"
   },
   "keywords": [
-    "gatsby"
+    "washington dc",
+    "capitol city",
+    "events",
+    "music"
   ],
   "license": "MIT",
   "scripts": {

@@ -32,8 +32,9 @@ export default styled.div`
     ${props => props.clear && `
         background-color: ${props.theme.lightBlue} !important;
         border-color: ${props.theme.lightBlue};
-        // color: ${props.theme.grey};
     `
     }
+
+    ${props => props.inVisible && `visibility: hidden`}
 
 `

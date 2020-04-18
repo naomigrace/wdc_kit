@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import Lozenge from "../ui/Lozenge"
 
 export default styled.div`
     z-index: 400;

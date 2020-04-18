@@ -6,7 +6,6 @@ import ResultCardStyle, {
   Title,
   Link,
   Description,
-  TicketContainer,
   TagsContainer,
 } from "../ui/ResultCardStyle"
 import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';

@@ -8,6 +8,7 @@ import { FlyToInterpolator } from "react-map-gl"
 import useSearcher from "../hooks/useSearcher"
 import Results from "../components/Results"
 import FilterButton from "../ui/FilterButton"
+import SidebarStyle from "../ui/SidebarStyle"
 import iconFilterSVG from "../images/icon_filter.svg"
 
 const dateTimeNow = new Date().toISOString()
@@ -68,7 +69,7 @@ const IndexPage = () => {
       }
       setViewport({ ...viewport, ...newViewport })
     }
-  }, [selectedEvent])
+  }, [selectedEvent, viewport])
 
   useEffect(() => {
     let newConditions = []
@@ -88,8 +89,10 @@ const IndexPage = () => {
 
   return (
     <Layout
-      sidebar={() => (
-        <Results
+    >
+      <SEO title="Home" />
+      <SidebarStyle>
+      <Results
           selectedEvent={selectedEvent}
           setSelectedEvent={setSelectedEvent}
           events={results}
@@ -111,10 +114,7 @@ const IndexPage = () => {
             />
           )}
         </Results>
-      )}
-    >
-      <SEO title="Home" />
-
+      </SidebarStyle>
       <Map
         viewport={viewport}
         setViewport={setViewport}

@@ -4,7 +4,7 @@ export default styled.div`
     z-index: 900;
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 20px;
     cursor: pointer;
     text-align: center;
     background-color: ${props => props.theme.purpleDarkest};

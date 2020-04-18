@@ -1,7 +1,6 @@
 import styled from "styled-components"
 
 export default styled.div`
-    // background-color: rgb(236, 237, 242);
     background-color: #fff;
     box-shadow: ${props => props.theme.shadowBase.boxShadow};
     border: ${props => props.theme.shadowBase.border};

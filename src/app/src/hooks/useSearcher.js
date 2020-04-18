@@ -2,7 +2,6 @@ import { useState, useEffect } from "react"
 import sift from "sift"
 import events from "../data/events"
 import parseEvents from "../utils/parseEvents"
-import usePagination from "./usePagination"
 
 const parsedEvents = parseEvents(events)
 
@@ -24,8 +23,6 @@ const triageFilter = filter => {
       return null
   }
 }
-
-
 
 function pad(n, width, z) {
   z = z || '0';
@@ -93,7 +90,7 @@ const evaluateConditions = conditions => {
   return allConditions
 }
 
-const useSearcher = (defaultConditions, isMobile ) => {
+const useSearcher = ( defaultConditions ) => {
   let [ conditions, setConditions ] = useState(defaultConditions)
   let [ results, setResults ] = useState()
 

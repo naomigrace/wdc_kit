@@ -1,19 +1,17 @@
-import React, { useState, useEffect, useMemo } from "react"
+import React, { useState } from "react"
 import iconMapping from "../../data/location-icon-mapping.json"
 import iconAtlas from "../../data/location-icon-atlas.png"
-import MapGL, { StaticMap } from "react-map-gl"
+import { StaticMap } from "react-map-gl"
 import DeckGL from "@deck.gl/react"
 import { MapView } from "@deck.gl/core"
 import { IconLayer } from "@deck.gl/layers"
 import IconClusterLayer from "./icon-cluster-layer"
-
-import Pins from "./Pins"
-import renderEvent from "./renderEvent"
 import renderEvents from "./renderEvents"
 import VenueHeader from "./VenueHeader"
 import groupBy from "../../utils/groupBy"
 import venueCoordinates from "../../data/venueCoordinates"
 import PopupStyle from "../../ui/PopupStyle"
+import MapStyle from "../../ui/MapStyle"
 const MAP_VIEW = new MapView({ repeat: true })
 
 const MAPBOX_TOKEN =
@@ -22,13 +20,8 @@ const MAPBOX_TOKEN =
 const Map = ({
   events,
   setSelectedEvent,
-  selectedEvent,
-  isTabletOrMobile,
   viewport,
-  setViewport,
 }) => {
-  const [eventInfo, setEventInfo] = useState()
-  const [venuesEventsData, setVenuesEventsData] = useState()
   const [x, setX] = useState(0)
   const [y, setY] = useState(0)
   const [hoveredObject, setHoveredObject] = useState(null)
@@ -60,63 +53,31 @@ const Map = ({
     }
   }
 
-  useEffect(() => {
-    let groupedByVenue
-    let venuesEventsData = []
-    if (events) {
-      setEventInfo(null)
-      setSelectedEvent(null)
-      groupedByVenue = groupBy("venue")(events)
+  // useEffect(() => {
+  //   let groupedByVenue
+  //   let venuesEventsData = []
+  //   if (events) {
+  //     setEventInfo(null)
+  //     setSelectedEvent(null)
+  //     groupedByVenue = groupBy("venue")(events)
 
-      Object.keys(groupedByVenue).forEach(venueGroup => {
-        let subEvents = groupedByVenue[venueGroup]
-        let venueCoords = venueCoordinates[venueGroup]
-        delete groupedByVenue[venueGroup]
-        let venueEvents = {
-          venue: venueGroup,
-          events: [subEvents],
-          latitude: venueCoords[0],
-          longitude: venueCoords[1],
-        }
-        venuesEventsData.push(venueEvents)
-      })
-    }
-    setVenuesEventsData(venuesEventsData)
-  }, [events])
-
-  const onClickMarker = event => {
-    setEventInfo(event)
-  }
-
-  const multipleEvents = useMemo(
-    () => (eventInfo ? renderEvents(eventInfo, setSelectedEvent) : null),
-    [eventInfo]
-  )
-
-  const renderPopup = () => {
-    if (eventInfo) {
-      return (
-        <PopupStyle
-          width={250}
-          tipSize={5}
-          anchor="top"
-          longitude={eventInfo.longitude}
-          latitude={eventInfo.latitude}
-          closeOnClick={false}
-          onClose={() => setEventInfo(null)}
-        >
-          <VenueHeader venue={eventInfo.venue} />
-          {Array.isArray(eventInfo.events)
-            ? multipleEvents
-            : renderEvent(eventInfo.event, null, setSelectedEvent)}
-        </PopupStyle>
-      )
-    }
-  }
+  //     Object.keys(groupedByVenue).forEach(venueGroup => {
+  //       let subEvents = groupedByVenue[venueGroup]
+  //       let venueCoords = venueCoordinates[venueGroup]
+  //       delete groupedByVenue[venueGroup]
+  //       let venueEvents = {
+  //         venue: venueGroup,
+  //         events: [subEvents],
+  //         latitude: venueCoords[0],
+  //         longitude: venueCoords[1],
+  //       }
+  //       venuesEventsData.push(venueEvents)
+  //     })
+  //   }
+  //   setVenuesEventsData(venuesEventsData)
+  // }, [events])
 
   const renderhoveredItems = () => {
-    // const {x, y, hoveredObject, expandedObjects} = this.state;
-
     if (expandedObjects) {
       let groupedByVenue = groupBy("venue")(expandedObjects)
 
@@ -203,7 +164,7 @@ const Map = ({
   }
 
   return (
-    <div>
+    <MapStyle id="wdc-map">
       <DeckGL
         layers={renderLayers()}
         views={MAP_VIEW}
@@ -220,19 +181,7 @@ const Map = ({
         />
         {renderhoveredItems()}
       </DeckGL>
-
-      {/* <MapGL
-        {...viewport}
-        width={isTabletOrMobile ? `100vw` : `70vw`}
-        height={isTabletOrMobile ? `60vh` : `100vh`}
-        mapStyle={"mapbox://styles/wannadc/ck7xuzkwg06me1hmzf07ypykm"}
-        onViewportChange={newViewport => setViewport(newViewport)}
-        mapboxApiAccessToken={MAPBOX_TOKEN}
-      >
-        <Pins setSelectedEvent={setSelectedEvent} data={venuesEventsData} onClick={(event) => onClickMarker(event)} />
-        {renderPopup()}
-      </MapGL> */}
-    </div>
+    </MapStyle>
   )
 }
 
