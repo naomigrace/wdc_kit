@@ -2,6 +2,7 @@ import { colors } from "@atlaskit/theme"
 
 const mainTheme = {
   red: colors.R300,
+  orange: "#FF5722",
   white: "#fff",
   black: "#000",
   blue: colors.B300,

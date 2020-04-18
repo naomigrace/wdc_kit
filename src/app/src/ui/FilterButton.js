@@ -6,6 +6,7 @@ export default styled.div`
     bottom: 30px;
     right: 20px;
     cursor: pointer;
+    pointer-events: all;
     text-align: center;
     background-color: ${props => props.theme.purpleDarkest};
     border-radius: 20px;

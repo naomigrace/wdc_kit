@@ -20,6 +20,8 @@ const IndexPage = () => {
     setConditions,
     conditions,
     results,
+    selectedVenue,
+    setSelectedVenueFromMap,
   ] = useSearcher(
     [
       { date: dateTimeNow },
@@ -52,6 +54,7 @@ const IndexPage = () => {
   const [selectedEvent, setSelectedEvent] = useState()
 
   const clearFilters = () => {
+    setSelectedVenueFromMap(null)
     setSelectedEvent(null)
     setJustToday(false)
     setPrice({ label: "all", value: "all" })
@@ -69,7 +72,7 @@ const IndexPage = () => {
       }
       setViewport({ ...viewport, ...newViewport })
     }
-  }, [selectedEvent, viewport])
+  }, [selectedEvent, setSelectedVenueFromMap])
 
   useEffect(() => {
     let newConditions = []
@@ -94,6 +97,7 @@ const IndexPage = () => {
       <SidebarStyle>
       <Results
           selectedEvent={selectedEvent}
+          selectedVenue={selectedVenue}
           setSelectedEvent={setSelectedEvent}
           events={results}
           clearFilters={() => clearFilters()}
@@ -110,7 +114,7 @@ const IndexPage = () => {
               filters={filters}
               price={price}
               clearFilters={clearFilters}
-              filtersSet={justToday || price.value !== "all"}
+              filtersSet={justToday || price.value !== "all" || selectedVenue}
             />
           )}
         </Results>
@@ -121,6 +125,7 @@ const IndexPage = () => {
         events={results}
         selectedEvent={selectedEvent}
         setSelectedEvent={setSelectedEvent}
+        setSelectedVenueFromMap={setSelectedVenueFromMap}
         isTabletOrMobile={isTabletOrMobile}
       />
 

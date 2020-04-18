@@ -34,7 +34,7 @@ const Search = ({
       <FilterInput>neighborhoods</FilterInput>
       <FilterInput>venues</FilterInput>
       <FilterInput active={price.label === "free"} onClick={() => handlePriceClick()}>price ({price.label})</FilterInput>
-      <FilterInput inVisible={!filtersSet} disabled={!filtersSet} clear={true} onClick={() => clearFilters()}>clear filters</FilterInput>
+      <FilterInput inVisible={!filtersSet} disabled={!filtersSet} clear={true} onClick={() => clearFilters()}>reset filters</FilterInput>
     </SearchContainer>
   )
 }

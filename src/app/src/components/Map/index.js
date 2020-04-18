@@ -21,21 +21,12 @@ const Map = ({
   events,
   setSelectedEvent,
   viewport,
+  setSelectedVenueFromMap
 }) => {
   const [x, setX] = useState(0)
   const [y, setY] = useState(0)
-  const [hoveredObject, setHoveredObject] = useState(null)
   const [expandedObjects, setExpandedObjects] = useState(null)
 
-  const onHover = info => {
-    if (expandedObjects) {
-      return
-    }
-    const { x, y, object } = info
-    setX(x)
-    setY(y)
-    setHoveredObject(object)
-  }
 
   const onClick = info => {
     const { x, y, objects, object } = info
@@ -49,34 +40,9 @@ const Map = ({
   const closePopup = () => {
     if (expandedObjects) {
       setExpandedObjects(null)
-      setHoveredObject(null)
     }
   }
-
-  // useEffect(() => {
-  //   let groupedByVenue
-  //   let venuesEventsData = []
-  //   if (events) {
-  //     setEventInfo(null)
-  //     setSelectedEvent(null)
-  //     groupedByVenue = groupBy("venue")(events)
-
-  //     Object.keys(groupedByVenue).forEach(venueGroup => {
-  //       let subEvents = groupedByVenue[venueGroup]
-  //       let venueCoords = venueCoordinates[venueGroup]
-  //       delete groupedByVenue[venueGroup]
-  //       let venueEvents = {
-  //         venue: venueGroup,
-  //         events: [subEvents],
-  //         latitude: venueCoords[0],
-  //         longitude: venueCoords[1],
-  //       }
-  //       venuesEventsData.push(venueEvents)
-  //     })
-  //   }
-  //   setVenuesEventsData(venuesEventsData)
-  // }, [events])
-
+  
   const renderhoveredItems = () => {
     if (expandedObjects) {
       let groupedByVenue = groupBy("venue")(expandedObjects)
@@ -104,7 +70,7 @@ const Map = ({
               return (
                 <div key={index}>
                   {showHeaderAndVenueLabel && <VenueHeader venue={venue.venue} />}
-                  {renderEvents(venue.events[0], setSelectedEvent, showHeaderAndVenueLabel)}
+                  {renderEvents(venue.events[0], setSelectedEvent, showHeaderAndVenueLabel, setSelectedVenueFromMap)}
                 </div>
               )
             })}
@@ -112,23 +78,6 @@ const Map = ({
         )
       }
     }
-
-    if (!hoveredObject) {
-      return null
-    }
-
-    return hoveredObject.cluster ? (
-      <div className="tooltip" style={{ left: x, top: y }}>
-        <h5>{hoveredObject.point_count} records</h5>
-      </div>
-    ) : (
-      <div className="tooltip" style={{ left: x, top: y }}>
-        <h5>
-          {hoveredObject.name}{" "}
-          {hoveredObject.year ? `(${hoveredObject.year})` : ""}
-        </h5>
-      </div>
-    )
   }
 
   const renderLayers = () => {
@@ -142,7 +91,6 @@ const Map = ({
       },
       iconAtlas,
       iconMapping,
-      onHover: onHover,
     }
 
     const layer = showCluster

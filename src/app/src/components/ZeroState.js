@@ -1,5 +1,5 @@
 import React from "react"
-import Button from "@atlaskit/button"
+import FilterInput from "../ui/FilterInput"
 import WashingtonSVG from "../images/washingtondc.svg"
 
 const ZeroState = ({
@@ -15,18 +15,19 @@ const ZeroState = ({
       }}
     >
       <img
+        height={150}
         src={WashingtonSVG}
         alt="illustration of the monuments in Washington DC"
       />
       <h1>{title}</h1>
       <p>{description}</p>
-      <Button
+      <FilterInput
         style={{ marginTop: "2rem" }}
         appearance={"primary"}
         onClick={fn}
       >
         {buttonTitle}
-      </Button>
+      </FilterInput>
     </div>
   )
 }

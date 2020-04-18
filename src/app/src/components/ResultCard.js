@@ -8,8 +8,8 @@ import ResultCardStyle, {
   Description,
   TagsContainer,
 } from "../ui/ResultCardStyle"
-import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
-import CreditcardIcon from '@atlaskit/icon/glyph/creditcard';
+import ShortcutIcon from "@atlaskit/icon/glyph/shortcut"
+import CreditcardIcon from "@atlaskit/icon/glyph/creditcard"
 import getDateTimeString from "../utils/getDateTimeString"
 import Lozenge from "../ui/Lozenge"
 
@@ -19,24 +19,25 @@ export default ({ selected, event, ...props }) => {
       <Title>{event.title ? event.title : event.description}</Title>
       <TimeHeader>{getDateTimeString(event.date, event.time)}</TimeHeader>
 
-      {selected && (
-        <div>
-          <Description>{event.description}</Description>
-          <Flex style={{ justifyContent: "flex-end", margin: "10px 0" }}>
+      <div>
+        <Description>{event.description}</Description>
+        <Flex style={{ justifyContent: "flex-end", margin: "10px 0" }}>
           {event.tickets && (
-              <Link href={event.tickets} target="_blank" rel="noopener noreferrer">
-                tickets <CreditcardIcon size="small"/>
-              </Link>
+            <Link
+              href={event.tickets}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              tickets <CreditcardIcon size="small" />
+            </Link>
           )}
           {event.link && (
             <Link href={event.link} target="_blank" rel="noopener noreferrer">
-              more info <ShortcutIcon size="small"/>
+              more info <ShortcutIcon size="small" />
             </Link>
           )}
-          </Flex>
-
-        </div>
-      )}
+        </Flex>
+      </div>
 
       <TagsContainer>
         <Lozenge color={"music"}>{venues[event.venue]}</Lozenge>

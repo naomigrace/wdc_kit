@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export default styled.div`
-  z-index: 201;
+  z-index: 900;
   position: fixed;
   right: 0px;
   padding: 20px;

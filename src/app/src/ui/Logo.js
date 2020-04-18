@@ -3,7 +3,7 @@ import styled from "styled-components"
 export default styled.div`
     z-index: 400;
     font-family: "Shrikhand", display;
-    background-color: #FF5722;
+    background-color: ${props => props.theme.navyBlue};
     padding: 2px 10px;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px;

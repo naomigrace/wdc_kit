@@ -3,7 +3,7 @@ import React from "react"
 import renderEvent from "./renderEvent"
 import { EventButton } from "../../ui/PopupEvent"
 
-const renderEvents = (events, setSelectedEvent, showHeaderAndVenueLabel) => {
+const renderEvents = (events, setSelectedEvent, showHeaderAndVenueLabel, setSelectedVenueFromMap) => {
   let renderThese = events
   let eventCount = renderThese.length
   if (eventCount > 2) {
@@ -11,10 +11,11 @@ const renderEvents = (events, setSelectedEvent, showHeaderAndVenueLabel) => {
   }
 
   if (renderThese) {
+    let venue_name = renderThese[0].venue
     return (
       <div>
         {renderThese.map((event, index) => renderEvent(event, index, setSelectedEvent))}
-        {showHeaderAndVenueLabel && eventCount > 1 && <EventButton venue={renderThese[0].venue}>{`see ${eventCount - 1} more events`}</EventButton>}
+        {showHeaderAndVenueLabel && eventCount > 1 && <EventButton onClick={() => setSelectedVenueFromMap(venue_name)} venue={venue_name}>{`see ${eventCount - 1} more events`}</EventButton>}
       </div>
     )
   }

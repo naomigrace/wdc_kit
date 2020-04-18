@@ -93,6 +93,7 @@ const evaluateConditions = conditions => {
 const useSearcher = ( defaultConditions ) => {
   let [ conditions, setConditions ] = useState(defaultConditions)
   let [ results, setResults ] = useState()
+  let [ selectedVenue, setSelectedVenueFromMap ] = useState()
 
   useEffect(() => {
     let result = parsedEvents
@@ -108,12 +109,16 @@ const useSearcher = ( defaultConditions ) => {
         result = parsedEvents.filter(sift(evaluateCondition(conditions[0])))
       }
     }
-    console.log(conditions)
-    setResults(result)
-  }, [conditions, setConditions])
+    if(selectedVenue){
+      let newResult = result.filter(e => e.venue === selectedVenue)
+      setResults(newResult)
+    } else {
+      setResults(result)
+    }
+  }, [conditions, setConditions, selectedVenue])
 
 
-  return [setConditions, conditions, results]
+  return [setConditions, conditions, results, selectedVenue, setSelectedVenueFromMap]
 }
 
 export default useSearcher
