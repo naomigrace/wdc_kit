@@ -5,7 +5,7 @@ export default styled.div`
     box-shadow: ${props => props.theme.shadowBase.boxShadow};
     border: ${props => props.theme.shadowBase.border};
     width: 100vw;
-    height: 40vh;
+    height: 30vh;
     z-index: 200;
 
     overflow-x: none;

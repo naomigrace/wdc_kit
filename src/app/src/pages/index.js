@@ -91,33 +91,16 @@ const IndexPage = () => {
   }, [date, justToday, filters, price, setConditions])
 
   return (
-    <Layout
-    >
+    <Layout>
       <SEO title="Home" />
       <SidebarStyle>
-      <Results
+        <Results
           selectedEvent={selectedEvent}
           selectedVenue={selectedVenue}
           setSelectedEvent={setSelectedEvent}
           events={results}
           clearFilters={() => clearFilters()}
-        >
-          {isFiltersOpen && (
-            <Search
-              isMobile={isTabletOrMobile}
-              setDate={setDate}
-              setFilters={setFilters}
-              setPrice={setPrice}
-              setJustToday={setJustToday}
-              justToday={justToday}
-              date={date}
-              filters={filters}
-              price={price}
-              clearFilters={clearFilters}
-              filtersSet={justToday || price.value !== "all" || selectedVenue}
-            />
-          )}
-        </Results>
+        />
       </SidebarStyle>
       <Map
         viewport={viewport}
@@ -128,7 +111,21 @@ const IndexPage = () => {
         setSelectedVenueFromMap={setSelectedVenueFromMap}
         isTabletOrMobile={isTabletOrMobile}
       />
-
+      {isFiltersOpen && (
+        <Search
+          isMobile={isTabletOrMobile}
+          setDate={setDate}
+          setFilters={setFilters}
+          setPrice={setPrice}
+          setJustToday={setJustToday}
+          justToday={justToday}
+          date={date}
+          filters={filters}
+          price={price}
+          clearFilters={clearFilters}
+          filtersSet={justToday || price.value !== "all" || selectedVenue}
+        />
+      )}
       <FilterButton onClick={() => setIsFiltersOpen(!isFiltersOpen)}>
         <img
           src={iconFilterSVG}

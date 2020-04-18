@@ -1,12 +1,10 @@
 import styled from "styled-components"
 
 export default styled.div`
-  z-index: 900;
+  z-index: 9999;
   position: fixed;
   right: 0px;
   padding: 20px;
   bottom: 60px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  pointer-events: all;
 `

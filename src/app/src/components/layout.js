@@ -10,7 +10,7 @@ import Lozenge from "../ui/Lozenge"
 
 const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
-    <div>
+    <div style={{ overflowY: 'hidden'}}>
       <Main>
         {children}
       </Main>

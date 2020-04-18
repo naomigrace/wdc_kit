@@ -70,7 +70,7 @@ const Map = ({
               return (
                 <div key={index}>
                   {showHeaderAndVenueLabel && <VenueHeader venue={venue.venue} />}
-                  {renderEvents(venue.events[0], setSelectedEvent, showHeaderAndVenueLabel, setSelectedVenueFromMap)}
+                  {renderEvents(venue.events[0], setSelectedEvent, showHeaderAndVenueLabel, setSelectedVenueFromMap, setExpandedObjects)}
                 </div>
               )
             })}
