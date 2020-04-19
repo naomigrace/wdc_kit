@@ -22,7 +22,7 @@ const ZeroState = ({
       <h1>{title}</h1>
       <p>{description}</p>
       <FilterInput
-        style={{ marginTop: "2rem" }}
+        style={{ margin: "2rem auto 0 auto", width: "fit-content" }}
         appearance={"primary"}
         onClick={fn}
       >

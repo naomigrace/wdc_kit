@@ -7,4 +7,7 @@ export default styled.div`
   padding: 20px;
   bottom: 60px;
   pointer-events: all;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 `

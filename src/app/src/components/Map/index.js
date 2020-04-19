@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import iconMapping from "../../data/location-icon-mapping.json"
 import iconAtlas from "../../data/location-icon-atlas.png"
+import CrossCircleIcon from '@atlaskit/icon/glyph/cross-circle'
 import { StaticMap } from "react-map-gl"
 import DeckGL from "@deck.gl/react"
 import { MapView } from "@deck.gl/core"
@@ -10,7 +11,7 @@ import renderEvents from "./renderEvents"
 import VenueHeader from "./VenueHeader"
 import groupBy from "../../utils/groupBy"
 import venueCoordinates from "../../data/venueCoordinates"
-import PopupStyle from "../../ui/PopupStyle"
+import PopupStyle, { PopupClose } from "../../ui/PopupStyle"
 import MapStyle from "../../ui/MapStyle"
 const MAP_VIEW = new MapView({ repeat: true })
 
@@ -43,11 +44,15 @@ const Map = ({
     }
   }
   
-  const renderhoveredItems = () => {
+  const renderPopups = () => {
     if (expandedObjects) {
       let groupedByVenue = groupBy("venue")(expandedObjects)
 
+      let arrayOfVenues = Array.isArray(groupedByVenue)
+
       let venuesEventDataForPin = []
+
+      arrayOfVenues ?
       Object.keys(groupedByVenue).forEach(venueGroup => {
         let subEvents = groupedByVenue[venueGroup]
         let venueCoords = venueCoordinates[venueGroup]
@@ -60,17 +65,19 @@ const Map = ({
         }
         venuesEventDataForPin.push(venueEvents)
       })
+      : venuesEventDataForPin.push(groupedByVenue)
 
       if (venuesEventDataForPin.length) {
         console.log(venuesEventDataForPin)
         return (
-          <PopupStyle  style={{ left: x, top: y }}>
+          <PopupStyle style={{ left: x, top: y }}>
+            <PopupClose onClick={() => closePopup()}><CrossCircleIcon/></PopupClose>
             {venuesEventDataForPin.map((venue, index) => {
               let showHeaderAndVenueLabel = venuesEventDataForPin.length === 1
               return (
                 <div key={index}>
-                  {showHeaderAndVenueLabel && <VenueHeader venue={venue.venue} />}
-                  {renderEvents(venue.events[0], setSelectedEvent, showHeaderAndVenueLabel, setSelectedVenueFromMap, setExpandedObjects)}
+                  <VenueHeader venue={venue.venue} />
+                  {showHeaderAndVenueLabel && renderEvents(arrayOfVenues ? venue.events[0] : venuesEventDataForPin, setSelectedEvent, showHeaderAndVenueLabel, setSelectedVenueFromMap, closePopup)}
                 </div>
               )
             })}
@@ -127,7 +134,7 @@ const Map = ({
           preventStyleDiffing={true}
           mapboxApiAccessToken={MAPBOX_TOKEN}
         />
-        {renderhoveredItems()}
+        {renderPopups()}
       </DeckGL>
     </MapStyle>
   )

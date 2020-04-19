@@ -20,6 +20,7 @@ export const EventButton = styled(Button)`
 
 export default styled.div`
     padding: 5px 10px;
+    cursor: pointer;
     &:hover {
         background-color: ${props => props.theme.lightBlue};
     }

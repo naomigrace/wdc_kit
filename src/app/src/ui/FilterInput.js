@@ -10,6 +10,7 @@ export default styled.div`
     border-radius: 20px;
     padding: 8px 15px;
     margin-bottom: 6px;
+    width: fit-content;
 
     span {
         color: #fff;
@@ -30,8 +31,9 @@ export default styled.div`
     }
 
     ${props => props.clear && `
-        background-color: ${props.theme.lightBlue} !important;
-        border-color: ${props.theme.lightBlue};
+        background-color: ${props.theme.white} !important;
+        border-color: ${props.theme.grey};
+        color: ${props.theme.grey};
     `
     }
 

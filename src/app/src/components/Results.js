@@ -44,7 +44,7 @@ const Results = ({
             title={`Select a Pin`}
             description={`Click on a pin or try broadening your search.`}
             callToAction={{
-              title: "reset my filters",
+              title: "reset filters",
               fn: () => clearFilters(),
             }}
           />

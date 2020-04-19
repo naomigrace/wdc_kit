@@ -30,7 +30,7 @@ const Search = ({
 
     return (
     <SearchContainer id="wdc-search-container" isMobile={isMobile}>
-      <FilterInput active={justToday} onClick={() => handleDateClick()}>{justToday ? "today only" : "today and beyond"}</FilterInput>
+      <FilterInput active={justToday} onClick={() => handleDateClick()}>{justToday ? "today only" : "today and after"}</FilterInput>
       <FilterInput>neighborhoods</FilterInput>
       <FilterInput>venues</FilterInput>
       <FilterInput active={price.label === "free"} onClick={() => handlePriceClick()}>price ({price.label})</FilterInput>

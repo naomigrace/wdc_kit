@@ -19,7 +19,7 @@ export default ({ selected, event, ...props }) => {
       <Title>{event.title ? event.title : event.description}</Title>
       <TimeHeader>{getDateTimeString(event.date, event.time)}</TimeHeader>
 
-      <div>
+      {selected && <div>
         <Description>{event.description}</Description>
         <Flex style={{ justifyContent: "flex-end", margin: "10px 0" }}>
           {event.tickets && (
@@ -37,7 +37,7 @@ export default ({ selected, event, ...props }) => {
             </Link>
           )}
         </Flex>
-      </div>
+      </div>}
 
       <TagsContainer>
         <Lozenge color={"music"}>{venues[event.venue]}</Lozenge>
