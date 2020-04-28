@@ -54,7 +54,6 @@ export default ({ title, description, path, style }) => (
   direction="left"
   swipe
   duration={1.25}
-  // bg={`linear-gradient(rgb(101, 84, 192), rgb(64, 50, 148))`}
   style={{width: `100%`, textDecoration: `none`, marginBottom: `10px`}}
 >
     <EventStick style={style}>
