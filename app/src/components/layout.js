@@ -1,19 +1,12 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
-
 import React from "react"
 import PropTypes from "prop-types"
 import { ThemeProvider } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-
-import Header from "./header"
-import "../styled/typography.css"
-import "./layout.css"
+import { useMediaQuery } from "react-responsive"
+import Header from "./Header"
 import theme from "../styled/theme"
+import "../styled/typography.css"
+import "../styled/normalize.css"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -26,23 +19,17 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-device-width: 1224px)'
+  })
+
+  let themeWithMediaQueries = theme
+  themeWithMediaQueries[`isDesktopOrLaptop`] = isDesktopOrLaptop
+
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themeWithMediaQueries}>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+      {children}
     </ThemeProvider>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import theme from "../styled/theme"
-import { Box, FlexContainer } from "../styled"
+import { Box, BoxGradient, FlexContainer } from "../styled"
 
 export default {
   title: "Brand",
@@ -9,20 +9,41 @@ export default {
 
 export const colors = () => (
   <FlexContainer directionColumn={true}>
-    {Object.keys(theme.colors).map(color => (
-      <Box color={color} padding={`chubby`} style={{ marginBottom: `10px` }}>
+    {Object.keys(theme.colors).map((color) => (
+      <Box key={color} color={color} padding={`chubby`} style={{ marginBottom: `10px` }}>
         {color}
       </Box>
     ))}
   </FlexContainer>
 )
 
+export const gradients = () => (
+  <FlexContainer directionColumn={true}>
+  {Object.keys(theme.gradients).map(gradient => (
+    <BoxGradient key={gradient} whiteOnDark={gradient.indexOf("neutral") === -1} gradient={gradient} padding={`chubby`} style={{ marginBottom: `10px` }}>
+      {gradient}
+    </BoxGradient>
+  ))}
+</FlexContainer>
+)
+
+export const shadows = () => (
+  <FlexContainer wrapWrap>
+  {Object.keys(theme.shadows).map(shadow => (
+    <BoxGradient key={shadow} shadow={shadow} gradient={"neutral_opaque"} padding={`chubby`} style={{ margin: `30px`, flexWidth: `100px` }}>
+      {shadow}
+    </BoxGradient>
+  ))}
+</FlexContainer>
+)
+
 export const typography = () => (
   <FlexContainer directionColumn={true}>
     {Object.keys(theme.fonts.family).map(fontFamily => (
-      <h1 style={{ fontFamily: theme.fonts.family[fontFamily] }}>
+      <h1 key={fontFamily} style={{ fontFamily: theme.fonts.family[fontFamily] }}>
         wanna dc - {fontFamily}
       </h1>
     ))}
   </FlexContainer>
 )
+

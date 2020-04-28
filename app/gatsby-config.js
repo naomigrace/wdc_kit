@@ -21,7 +21,8 @@ module.exports = {
         name: `wannadc`,
         short_name: `wdc`,
         start_url: `/`,
-        background_color: `#fff`,
+        background: `linear-gradient(rgb(23, 43, 77), rgb(64, 50, 148))`,
+        background_color: `#rgb(23, 43, 77)`,
         theme_color: `#ff382e`,
         display: `standalone`,
         icon: `src/images/wdc-icon.png`, // This path is relative to the root of the site.
@@ -30,5 +31,6 @@ module.exports = {
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
+    `gatsby-plugin-transition-link`
   ],
 }

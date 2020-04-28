@@ -5,19 +5,28 @@
   "version": "0.1.0",
   "author": "Naomi-Grace Panlaqui <naomigracep@gmail.com>, Nameer Rizvi <rizvinameer@gmail.com>",
   "dependencies": {
+    "@styled-icons/material": "^10.0.0",
+    "@styled-icons/material-outlined": "^10.0.0",
+    "axios": "^0.19.2",
     "gatsby": "^2.20.25",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-manifest": "^2.3.5",
     "gatsby-plugin-offline": "^3.1.4",
     "gatsby-plugin-react-helmet": "^3.2.4",
     "gatsby-plugin-sharp": "^2.5.6",
+    "gatsby-plugin-transition-link": "^1.18.0",
     "gatsby-source-filesystem": "^2.2.4",
     "gatsby-transformer-sharp": "^2.4.6",
+    "gsap": "^3.2.6",
     "polished": "^3.5.2",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0",
+    "react-responsive": "^8.0.3",
+    "react-virtualized-auto-sizer": "^1.0.2",
+    "react-window": "^1.8.5",
+    "simpul": "0.0.4",
     "styled-components": "^5.1.0"
   },
   "devDependencies": {
@@ -27,6 +36,7 @@
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
     "babel-loader": "^8.1.0",
+    "babel-plugin-remove-graphql-queries": "^2.8.5",
     "prettier": "2.0.4"
   },
   "keywords": [
@@ -41,7 +51,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "NODE_ENV=production start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "repository": {
