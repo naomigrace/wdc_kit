@@ -1,0 +1,25 @@
+@font-face {
+    font-family: "Rozha One Regular";
+    src: url("../fonts/RozhaOne-Regular.ttf");
+}
+
+@font-face {
+    font-family: "New York Large Bold";
+    src: url("../fonts/NewYorkLarge-Bold.otf");
+}
+
+@font-face {
+    font-family: "New York Large Regular";
+    src: url("../fonts/NewYorkLarge-Regular.otf");
+}
+
+@font-face {
+    font-family: "SF Pro Text Regular";
+    src: url("../fonts/SF-Pro-Text-Regular.otf");
+}
+
+@font-face {
+    font-family: "SF Pro Text Bold";
+    src: url("../fonts/SF-Pro-Text-Bold.otf");
+}
+
