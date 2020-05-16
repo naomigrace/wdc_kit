@@ -1,10 +1,11 @@
 import styled from "styled-components"
-import { handleFont, buttonBase } from "../styled/utils"
+import { handleFont, buttonBase, handleSpacing } from "../styled/utils"
 import { darken } from "polished"
 
 export default styled.button`
   ${props => handleFont(props)};
   ${props => buttonBase(props)};
+  ${props => handleSpacing(props)};
 
   color: ${props =>
     props.color

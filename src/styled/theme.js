@@ -51,16 +51,16 @@ export default {
   },
   gradients: {
       solid_white: `rgb(255, 255, 255), rgb(255, 255, 255)`,
-      primary: `rgb(101, 84, 192), rgb(64, 50, 148)`, 
-      primary_opaque: `rgba(101, 84, 192, 0.95), rgba(64, 50, 148, 0.65)`, 
-      secondary: `rgb(255, 87, 54), rgb(255, 65, 62)`,
-      secondary_opaque: `rgba(255, 65, 62, 0.95), rgba(255, 87, 54, 0.75)`,
-      tertiary: `rgb(23, 43, 77), rgb(64, 50, 148)`,
+      primary_wod: `rgb(101, 84, 192), rgb(64, 50, 148)`, 
+      primary_opaque_wod: `rgba(101, 84, 192, 0.95), rgba(64, 50, 148, 0.65)`, 
+      secondary_wod: `rgb(255, 87, 54), rgb(255, 65, 62)`,
+      secondary_opaque_wod: `rgba(255, 65, 62, 0.95), rgba(255, 87, 54, 0.75)`,
+      tertiary_wod: `rgb(23, 43, 77), rgb(64, 50, 148)`,
+      neutral_dark_wod: `rgb(23, 43, 77), rgb(52, 53, 59)`,
       neutral: `rgb(255, 255, 255), rgb(206, 217, 235)`,
       neutral_opaque_hover: `rgba(255, 255, 255, 1), rgba(206, 217, 235, 0.3)`,
       neutral_opaque: `rgba(255, 255, 255, 1), rgba(206, 217, 235, 0.2)`,
       neutral_light: `rgb(240, 243, 249), rgba(206, 217, 235, 0.6)`,
-      neutral_dark: `rgb(23, 43, 77), rgb(52, 53, 59)`
   },
   widths: {
     itty: `1px`,

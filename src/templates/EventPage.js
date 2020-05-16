@@ -1,5 +1,4 @@
 import React from "react"
-// import { formattedTimestamp } from "simpul"
 import Layout from "../components/Layout"
 import { OpenInNew } from "@styled-icons/material/OpenInNew"
 import { EventSeat } from "@styled-icons/material/EventSeat"
@@ -12,34 +11,32 @@ import {
   P,
   IconTextStyle,
   Button,
-  Box,
   BoxGradient,
   FlexContainer,
   FooterContainer,
   FooterActionBar,
-  FooterBottomBits,
   MainBody_EventPage,
-  UpButton,
 } from "../../index"
 import neighborhoods from "../configs/neighborhoods"
-import footerContent from "../configs/footerContent"
 
-// export default ({ data }) => <pre>{JSON.stringify(data, null, 4)}</pre>
+export default ({ venue, title, date, description, neighborhood, link, tickets, handleBackButton }) => {
 
-export default () => {
+  let formattedDate = new Date(date)
+  let month = formattedDate.getMonth()
+  let day = formattedDate.getDate()
+  let time = formattedDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+
   return (
     <Layout>
-      {/* <MainBody_EventPage>
+      <MainBody_EventPage>
         <div>
           <Hero image={venue}>
             <HeroTitle>{title}</HeroTitle>
           </Hero>
           <PageContainer>
             <Label size={`sm`}>date &amp; time</Label>
-            <Box shadow={`base`} color={`neutral_white`} mb={2} padding={`chubby`} radius={`mini`} fitContent style={{ textAlign: `center`}}>
-              <P size={`xl`} bold mb={0.5}>{formattedTimestamp(new Date(date), "M/D")}</P>
-              <P size={`md`} serif mb={2}>{formattedTimestamp(new Date(date), "h:m p")}</P>
-            </Box>
+              <P size={`xl`} bold mb={0.5}>{`${month}/${day}`}</P>
+              <P size={`md`} serif mb={2}>{`${time}`}</P>
 
             {description && (<><Label size={`sm`}>description</Label>
             <P size={`xl`} serif mb={2}>{description}</P></>)}
@@ -52,10 +49,9 @@ export default () => {
           <FooterActionBar>
             <BoxGradient gradient={`neutral_light`} padding={`chubby`}>
               <FlexContainer justifySpaceBetween wrapWrap>
-                  <BackButton small openStyle color={`primary_mid_wod`}>
+                  <BackButton onClick={handleBackButton} small openStyle color={`primary_mid_wod`} mb={0.75}>
                     main map
                   </BackButton>
-
                 <a href={link} target="_blank" rel="noopener noreferrer">
                   <Button color={`primary_mid_wod`}>
                     <IconTextStyle iconRight>more information</IconTextStyle>
@@ -74,7 +70,7 @@ export default () => {
             </BoxGradient>
           </FooterActionBar>
         </FooterContainer>
-      </MainBody_EventPage> */}
+      </MainBody_EventPage>
     </Layout>
   )
 }

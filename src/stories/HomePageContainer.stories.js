@@ -1,5 +1,5 @@
 import React from "react"
-import { HomePageContainer } from "../../index"
+import { HomePageContainer, Box } from "../../index"
 import { TraySample } from "./Tray.stories"
 
 export default {
@@ -9,9 +9,7 @@ export default {
 
 export const HomePageContainerExample = () => (
     <HomePageContainer>
-        <div>
-            Map goes here
-        </div>
+        <Box color={`neutral_mid`} radius={`none`} style={{height: `100%`}}/>
         <TraySample/>
     </HomePageContainer>
 )

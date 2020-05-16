@@ -20,7 +20,7 @@ export const colors = () => (
 export const gradients = () => (
   <FlexContainer directionColumn={true}>
   {Object.keys(theme.gradients).map(gradient => (
-    <BoxGradient key={gradient} whiteOnDark={gradient.indexOf("neutral") === -1} gradient={gradient} padding={`chubby`} style={{ marginBottom: `10px` }}>
+    <BoxGradient key={gradient} gradient={gradient} padding={`chubby`} style={{ marginBottom: `10px` }}>
       {gradient}
     </BoxGradient>
   ))}

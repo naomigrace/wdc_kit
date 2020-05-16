@@ -46,5 +46,4 @@ export {
     ScrollToTopIconContainer,
     ScrollWrapperContainer,
     UpButton,
-    // components
 }

@@ -20,7 +20,7 @@ export const HeroTitle = styled.h1`
 `
 
 export default styled.div`
-  background: linear-gradient(${props => props.theme.gradients.primary_opaque}),
+  background: linear-gradient(${props => props.theme.gradients.primary_opaque_wod}),
     url(${props => imageResolver(props.image)});
   background-size: cover;
   background-position-y: center;

@@ -35,6 +35,7 @@ export const handleIconStyle = props => `
 
 export const handleWhiteTextOnDark = (props, force) =>
   (props.color && props.color.indexOf("_wod") > -1) ||
+  (props.gradient && props.gradient.indexOf("_wod") > -1) ||
   props.whiteOnDark ||
   force
     ? `color: ${props.theme.colors.neutral_white} !important;
@@ -101,7 +102,6 @@ export const handleSpacing = props => {
   props.ml ? `margin-left: ${props.ml}rem` : ``
 }
 
-
 export const handleColor = props =>
   props.color ? `color: ${props.theme.colors[props.color]}` : `color: ${props.theme.colors.neutral_black_wod}`
 
@@ -126,7 +126,6 @@ font-family: ${
     ? props.theme.fonts.family.serifBold
     : props.theme.fonts.family.serifRegular
 };
-
 `
 
 export const handleShadow = props => `

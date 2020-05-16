@@ -4,7 +4,7 @@ import { handleWhiteTextOnDark } from "./utils"
 
 export default styled(Box)`
   background: linear-gradient(${props => props.theme.gradients[props.gradient]});
-  ${props => props.whiteOnDark && handleWhiteTextOnDark(props)};
+  ${props => handleWhiteTextOnDark(props)};
 
   ${props =>
     props.hover &&

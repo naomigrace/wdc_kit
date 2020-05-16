@@ -16,7 +16,7 @@ export default styled.div`
     &:hover {
         ${props => handleWhiteTextOnDark(props, true)};
         color: ${props => props.theme.colors.neutral_white};
-        background: linear-gradient(${props => props.theme.gradients.secondary});
+        background: linear-gradient(${props => props.theme.gradients.secondary_wod});
         box-shadow: ${props => props.theme.shadows.lg};
     }
 `
