@@ -1,7 +1,7 @@
 {
-  "name": "wdc",
+  "name": "wdc_kit",
   "version": "0.0.1",
-  "description": "Event aggregator for Washington, D.C.",
+  "description": "shared UI components for wannadc",
   "main": "index.js",
   "scripts": {
     "storybook": "start-storybook",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/naomigrace/wdc.git"
+    "url": "git+https://github.com/naomigrace/wdc_kit.git"
   },
-  "author": "Naomi-Grace Cosio Panlaqui & Nameer Rizvi [N&N]",
+  "author": "Naomi-Grace Cosio Panlaqui & Nameer Rizvi",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/naomigrace/wdc/issues"
+    "url": "https://github.com/naomigrace/wdc_kit/issues"
   },
-  "homepage": "https://github.com/naomigrace/wdc#readme",
+  "homepage": "https://github.com/naomigrace/wdc_kit#readme",
   "dependencies": {
     "@styled-icons/material": "^10.0.0",
     "@styled-icons/material-outlined": "^10.0.0",
@@ -37,6 +37,7 @@
     "@storybook/addon-links": "^5.3.18",
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
+    "@storybook/storybook-deployer": "^2.8.6",
     "babel-loader": "^8.1.0",
     "prettier": "2.0.4",
     "react-is": "^16.13.1"
