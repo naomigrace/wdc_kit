@@ -1,5 +1,5 @@
 import React from "react"
-import { P } from "../../index"
+import { P } from "../index"
 import ScrollWrapper from "../components/ScrollWrapper"
 
 export default {

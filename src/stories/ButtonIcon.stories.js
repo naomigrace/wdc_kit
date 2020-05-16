@@ -1,5 +1,5 @@
 import React from "react"
-import { CloseButton, UpButton } from "../../index"
+import { CloseButton, UpButton } from "../index"
 
 export default {
   title: "Icon Buttons",

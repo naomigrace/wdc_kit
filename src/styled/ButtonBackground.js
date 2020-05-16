@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Button } from "../../index"
+import { Button } from "../index"
 import { imageResolver } from "./utils"
 
 export default styled(props => <Button background {...props}/>)`

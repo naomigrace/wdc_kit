@@ -1,5 +1,5 @@
 import React from "react"
-import { Button, ButtonOpen, ButtonBackground } from "../../index"
+import { Button, ButtonOpen, ButtonBackground } from "../index"
 import venues from "../configs/venues"
 
 export default {

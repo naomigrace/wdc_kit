@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { handleIconStyle } from "../styled/utils"
-import { Button, ButtonOpen, IconTextStyle } from "../../index"
+import { Button, ButtonOpen, IconTextStyle } from "../index"
 import { Close } from "@styled-icons/material/Close"
 import { ArrowUpward } from "@styled-icons/material-outlined/ArrowUpward"
 import { ArrowBack } from "@styled-icons/material-outlined/ArrowBack"

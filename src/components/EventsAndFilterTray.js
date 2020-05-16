@@ -10,7 +10,7 @@ import {
   TrayContent,
   TrayNavigation,
   P,
-} from "../../index"
+} from "../index"
 
 import EventStick from "./EventStick"
 import ScrollWrapper from "./ScrollWrapper"

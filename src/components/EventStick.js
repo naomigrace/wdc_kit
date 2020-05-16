@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Box, P } from "../../index"
+import { Box, P } from "../index"
 
 const EventStick = styled(props => (
   <Box shadow={`sm`} padding={`mini`} {...props} />

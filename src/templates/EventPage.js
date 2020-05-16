@@ -16,7 +16,7 @@ import {
   FooterContainer,
   FooterActionBar,
   MainBody_EventPage,
-} from "../../index"
+} from "../index"
 import neighborhoods from "../configs/neighborhoods"
 
 export default ({ venue, title, date, description, neighborhood, link, tickets, handleBackButton }) => {

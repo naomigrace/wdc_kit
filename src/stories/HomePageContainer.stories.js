@@ -1,5 +1,5 @@
 import React from "react"
-import { HomePageContainer, Box } from "../../index"
+import { HomePageContainer, Box } from "../index"
 import { TraySample } from "./Tray.stories"
 
 export default {

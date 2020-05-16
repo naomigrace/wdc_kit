@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { BoxGradient, Button, BackButton } from "../../index"
+import { BoxGradient, Button, BackButton } from "../index"
 import { handleWhiteTextOnDark } from "./utils"
 
 export const FooterContainer = styled.div`

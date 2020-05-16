@@ -6,7 +6,7 @@ import {
   FlexContainer,
   Label,
   Button,
-} from "../../index"
+} from "../index"
 import EventStick from "../components/EventStick"
 import ScrollWrapper from "../components/ScrollWrapper"
 

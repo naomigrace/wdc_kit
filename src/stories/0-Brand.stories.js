@@ -1,6 +1,6 @@
 import React from "react"
 import theme from "../styled/theme"
-import { Box, BoxGradient, FlexContainer } from "../../index"
+import { Box, BoxGradient, FlexContainer } from "../index"
 
 export default {
   title: "Brand",
