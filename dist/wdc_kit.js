@@ -1846,5 +1846,5 @@ var Tray = styled.div`
     }
 `;
 
-export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonOpen, CloseButton, FlexContainer, FooterActionBar, FooterContainer, StyledHeader as Header, Hero, HeroTitle, HomePageContainer, IconTextStyle, Label, Logo, MainBody_EventPage, MainBody_HomePage, P, PageContainer, ScrollToTopIconContainer, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton };
+export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonOpen, CloseButton, FlexContainer, FooterActionBar, FooterContainer, StyledHeader as Header, Hero, HeroTitle, HomePageContainer, IconTextStyle, Label, Logo, MainBody_EventPage, MainBody_HomePage, P, PageContainer, ScrollToTopIconContainer, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme };
 //# sourceMappingURL=wdc_kit.js.map

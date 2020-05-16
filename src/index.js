@@ -17,6 +17,7 @@ import P from "./styled/P"
 import PageContainer from "./styled/PageContainer"
 import { ScrollToTopIconContainer, ScrollWrapperContainer } from "./styled/ScrollWrapperStyles"
 import Tray, { TrayNavigation, TrayContent } from "./styled/Tray"
+import theme from "./styled/theme"
 
 export {
     BackButton, 
@@ -46,4 +47,5 @@ export {
     ScrollToTopIconContainer,
     ScrollWrapperContainer,
     UpButton,
+    theme,
 }
