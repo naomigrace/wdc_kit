@@ -3,6 +3,7 @@
   "version": "0.0.21",
   "description": "shared UI components for wannadc",
   "main": "dist/wdc_kit.js",
+  "type": "module",
   "scripts": {
     "storybook": "start-storybook",
     "deploy-storybook": "storybook-to-ghpages",
