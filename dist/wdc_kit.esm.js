@@ -3,6 +3,94 @@ import React__default, { forwardRef, createElement } from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 
+var theme = {
+  breakpoints: {
+    phone_portrait: `@media only screen and (max-width : 320px)`,
+    phone_landscape: `@media only screen and (min-width : 321px)`,
+    tablet: `@media only screen and (min-width: 768px)`,
+    tablet_landscape: `@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)`,
+    tablet_portrait: `@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)`,
+    desktop: `@media only screen and (min-width: 1024px)`,
+    largeScreen: `@media only screen and (min-width : 1440px)`
+  },
+  fonts: {
+    family: {
+      serif: `'Trocchi', serif`,
+      sans: `'Poppins', sans-serif`,
+      display: `'Rozha One', serif`
+    },
+    size: {
+      sm: `0.75rem`,
+      base: `1rem`,
+      md: `1.25rem`,
+      lg: `1.5rem`,
+      xl: `1.75rem`,
+      xxl: `2rem`,
+      logo: `1.45rem`
+    }
+  },
+  colors: {
+    // purple
+    "primary_lightest": `rgb(234, 230, 255)`,
+    "primary_light": `rgb(192, 182, 242)`,
+    "primary_mid_wod": `rgb(101, 84, 192)`,
+    "primary_dark_wod": `rgb(82, 67, 170)`,
+    "primary_darkest_wod": `rgb(64, 50, 148)`,
+    // orange-red
+    "secondary_orange_wod": `rgb(254, 106, 62)`,
+    "secondary_peach_wod": `rgb(255, 62, 85)`,
+    // navy blue
+    "tertiary_mid_wod": `rgb(23, 43, 77)`,
+    // grey-blue
+    "neutral_black_wod": `rgb(52, 53, 59)`,
+    "neutral_mid_wod": `rgb(103, 117, 143)`,
+    "neutral_mid": `rgb(206, 217, 235)`,
+    "neutral_grey": `rgb(228, 228, 228)`,
+    "neutral_light": `rgb(240, 243, 249)`,
+    "neutral_white": `rgb(255, 255, 255)`
+  },
+  gradients: {
+    solid_white: `rgb(255, 255, 255), rgb(255, 255, 255)`,
+    primary_wod: `rgb(101, 84, 192), rgb(64, 50, 148)`,
+    primary_opaque_wod: `rgba(101, 84, 192, 0.95), rgba(64, 50, 148, 0.65)`,
+    secondary_wod: `rgb(255, 87, 54), rgb(255, 65, 62)`,
+    secondary_opaque_wod: `rgba(255, 65, 62, 0.95), rgba(255, 87, 54, 0.75)`,
+    tertiary_wod: `rgb(23, 43, 77), rgb(64, 50, 148)`,
+    neutral_dark_wod: `rgb(23, 43, 77), rgb(52, 53, 59)`,
+    neutral: `rgb(255, 255, 255), rgb(206, 217, 235)`,
+    neutral_opaque_hover: `rgba(255, 255, 255, 1), rgba(206, 217, 235, 0.3)`,
+    neutral_opaque: `rgba(255, 255, 255, 1), rgba(206, 217, 235, 0.2)`,
+    neutral_light: `rgb(240, 243, 249), rgba(206, 217, 235, 0.6)`
+  },
+  widths: {
+    itty: `1px`,
+    mini: `3px`,
+    chubby: `5px`
+  },
+  padding: {
+    mini: `8px`,
+    chubby: `20px`,
+    baby: `40px`
+  },
+  radius: {
+    none: `0`,
+    mini: `5px`,
+    chubby: `15px`,
+    baby: `30px`
+  },
+  shadows: {
+    xs: `0 0 0 1px rgba(0,0,0,.05)`,
+    sm: `0 1px 2px 0 rgba(0,0,0,.05)`,
+    base: `0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)`,
+    base_reverse: `0 -1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)`,
+    md: `0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)`,
+    md_reverse: `0 -4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)`,
+    lg: `0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)`,
+    xl: `0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04)`,
+    xxl: `0 25px 50px -12px rgba(0,0,0,.25)`
+  }
+};
+
 function _extends() {
   _extends = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -1170,6 +1258,21 @@ var Button = styled.button`
   }
 `;
 
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
 function _extends$1() {
   _extends$1 = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
@@ -1609,94 +1712,6 @@ Header.defaultProps = {
   siteTitle: ``
 };
 
-var theme = {
-  breakpoints: {
-    phone_portrait: `@media only screen and (max-width : 320px)`,
-    phone_landscape: `@media only screen and (min-width : 321px)`,
-    tablet: `@media only screen and (min-width: 768px)`,
-    tablet_landscape: `@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)`,
-    tablet_portrait: `@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)`,
-    desktop: `@media only screen and (min-width: 1024px)`,
-    largeScreen: `@media only screen and (min-width : 1440px)`
-  },
-  fonts: {
-    family: {
-      serif: `'Trocchi', serif`,
-      sans: `'Poppins', sans-serif`,
-      display: `'Rozha One', serif`
-    },
-    size: {
-      sm: `0.75rem`,
-      base: `1rem`,
-      md: `1.25rem`,
-      lg: `1.5rem`,
-      xl: `1.75rem`,
-      xxl: `2rem`,
-      logo: `1.45rem`
-    }
-  },
-  colors: {
-    // purple
-    "primary_lightest": `rgb(234, 230, 255)`,
-    "primary_light": `rgb(192, 182, 242)`,
-    "primary_mid_wod": `rgb(101, 84, 192)`,
-    "primary_dark_wod": `rgb(82, 67, 170)`,
-    "primary_darkest_wod": `rgb(64, 50, 148)`,
-    // orange-red
-    "secondary_orange_wod": `rgb(254, 106, 62)`,
-    "secondary_peach_wod": `rgb(255, 62, 85)`,
-    // navy blue
-    "tertiary_mid_wod": `rgb(23, 43, 77)`,
-    // grey-blue
-    "neutral_black_wod": `rgb(52, 53, 59)`,
-    "neutral_mid_wod": `rgb(103, 117, 143)`,
-    "neutral_mid": `rgb(206, 217, 235)`,
-    "neutral_grey": `rgb(228, 228, 228)`,
-    "neutral_light": `rgb(240, 243, 249)`,
-    "neutral_white": `rgb(255, 255, 255)`
-  },
-  gradients: {
-    solid_white: `rgb(255, 255, 255), rgb(255, 255, 255)`,
-    primary_wod: `rgb(101, 84, 192), rgb(64, 50, 148)`,
-    primary_opaque_wod: `rgba(101, 84, 192, 0.95), rgba(64, 50, 148, 0.65)`,
-    secondary_wod: `rgb(255, 87, 54), rgb(255, 65, 62)`,
-    secondary_opaque_wod: `rgba(255, 65, 62, 0.95), rgba(255, 87, 54, 0.75)`,
-    tertiary_wod: `rgb(23, 43, 77), rgb(64, 50, 148)`,
-    neutral_dark_wod: `rgb(23, 43, 77), rgb(52, 53, 59)`,
-    neutral: `rgb(255, 255, 255), rgb(206, 217, 235)`,
-    neutral_opaque_hover: `rgba(255, 255, 255, 1), rgba(206, 217, 235, 0.3)`,
-    neutral_opaque: `rgba(255, 255, 255, 1), rgba(206, 217, 235, 0.2)`,
-    neutral_light: `rgb(240, 243, 249), rgba(206, 217, 235, 0.6)`
-  },
-  widths: {
-    itty: `1px`,
-    mini: `3px`,
-    chubby: `5px`
-  },
-  padding: {
-    mini: `8px`,
-    chubby: `20px`,
-    baby: `40px`
-  },
-  radius: {
-    none: `0`,
-    mini: `5px`,
-    chubby: `15px`,
-    baby: `30px`
-  },
-  shadows: {
-    xs: `0 0 0 1px rgba(0,0,0,.05)`,
-    sm: `0 1px 2px 0 rgba(0,0,0,.05)`,
-    base: `0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)`,
-    base_reverse: `0 -1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)`,
-    md: `0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)`,
-    md_reverse: `0 -4px 6px -1px rgba(0,0,0,.1),0 2px 4px -1px rgba(0,0,0,.06)`,
-    lg: `0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05)`,
-    xl: `0 20px 25px -5px rgba(0,0,0,.1),0 10px 10px -5px rgba(0,0,0,.04)`,
-    xxl: `0 25px 50px -12px rgba(0,0,0,.25)`
-  }
-};
-
 const Layout = ({
   children
 }) => {
@@ -1846,5 +1861,93 @@ var Tray = styled.div`
     }
 `;
 
-export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonOpen, CloseButton, FlexContainer, FooterActionBar, FooterContainer, StyledHeader as Header, Hero, HeroTitle, HomePageContainer, IconTextStyle, Label, Logo, MainBody_EventPage, MainBody_HomePage, P, PageContainer, ScrollToTopIconContainer, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme };
+const EventStick = styled(props => /*#__PURE__*/React__default.createElement(Box, _extends$1({
+  shadow: `sm`,
+  padding: `mini`
+}, props)))`
+    width: 100%;
+    background-color: ${props => props.theme.colors.neutral_white};
+    border: 1px solid ${props => props.theme.colors.primary_lightest};
+    margin-bottom: 5px;
+    transition: all 250ms ease-in-out;
+    &:hover, &:active {
+        box-shadow: ${props => props.theme.shadows.base};
+        transform: translateY(-2px);
+        cursor: pointer;
+        background: linear-gradient(90deg, ${props => props.theme.colors.primary_dark_wod}, ${props => props.theme.colors.secondary_peach_wod});
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+        text-shadow: none;
+    }
+    &:active {
+       transform: scale(0.99);
+    }
+`;
+const EventTitle = styled(props => /*#__PURE__*/React__default.createElement(P, _extends$1({
+  bold: true,
+  size: `md`
+}, props)))`
+  letter-spacing: 2px;
+`;
+const EventDescription = styled(P)`
+  letter-spacing: 2px;
+  color: grey;
+`;
+var EventStick$1 = (({
+  title,
+  description,
+  ...rest
+}) => /*#__PURE__*/React__default.createElement(EventStick, rest, /*#__PURE__*/React__default.createElement(EventTitle, null, title), description && description.length && /*#__PURE__*/React__default.createElement(EventDescription, null, description.toUpperCase())));
+
+class ScrollWrapper extends React__default.Component {
+  constructor(...args) {
+    super(...args);
+
+    _defineProperty(this, "state", {
+      hasScrolled: false
+    });
+
+    _defineProperty(this, "onScroll", () => {
+      if (this.scrollingWrapper.scrollTop > 100 && !this.state.hasScrolled) {
+        this.setState({
+          hasScrolled: true
+        });
+      } else if (this.scrollingWrapper.scrollTop < 100 && this.state.hasScrolled) {
+        this.setState({
+          hasScrolled: false
+        });
+      }
+    });
+
+    _defineProperty(this, "scrollToTop", () => {
+      this.scrollingWrapper.scrollTop = 0;
+    });
+
+    _defineProperty(this, "reference", id => ref => {
+      this[id] = ref;
+    });
+  }
+
+  componentDidMount() {
+    this.scrollingWrapper.addEventListener('scroll', this.onScroll);
+  }
+
+  render() {
+    return /*#__PURE__*/React__default.createElement("div", this.props, /*#__PURE__*/React__default.createElement(ScrollWrapperContainer, {
+      ref: this.reference('scrollingWrapper')
+    }, this.props.children), this.state.hasScrolled && /*#__PURE__*/React__default.createElement(ScrollToTopIconContainer, {
+      onClick: this.scrollToTop
+    }, /*#__PURE__*/React__default.createElement(UpButton, {
+      name: "backToTop",
+      small: true,
+      color: `tertiary_mid_wod`,
+      shadow: `md`
+    })));
+  }
+
+}
+
+export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonOpen, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, StyledHeader as Header, Hero, HeroTitle, HomePageContainer, IconTextStyle, Label, Logo, MainBody_EventPage, MainBody_HomePage, P, PageContainer, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme };
 //# sourceMappingURL=wdc_kit.esm.js.map

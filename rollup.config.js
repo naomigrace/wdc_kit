@@ -28,7 +28,8 @@ export default {
       image(),
       babel({ 
         babelHelpers: "bundled",
-        presets: ["@babel/preset-react"]
+        presets: ["@babel/preset-react"],
+        plugins: ["@babel/plugin-proposal-class-properties"]
       }),
       scss(),
       resolve()

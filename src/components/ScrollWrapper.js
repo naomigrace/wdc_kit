@@ -1,5 +1,6 @@
 import React from 'react'
-import { UpButton, ScrollToTopIconContainer, ScrollWrapperContainer } from "../index"
+import { UpButton } from "../styled/ButtonIcon"
+import { ScrollToTopIconContainer, ScrollWrapperContainer } from "../styled/ScrollWrapperStyles"
 
 class ScrollWrapper extends React.Component {
   state = { hasScrolled: false }

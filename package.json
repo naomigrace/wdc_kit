@@ -1,6 +1,6 @@
 {
   "name": "wdc_kit",
-  "version": "0.0.23",
+  "version": "0.0.24",
   "description": "shared UI components for wannadc",
   "main": "dist/wdc_kit.cjs.js",
   "module": "dist/wdc_kit.esm.js",
@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-react": "^7.9.4",
     "@rollup/plugin-babel": "^5.0.0",
     "@rollup/plugin-image": "^2.0.5",
