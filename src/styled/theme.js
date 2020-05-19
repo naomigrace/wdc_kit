@@ -10,11 +10,9 @@ export default {
   },
   fonts: {
     family: {
-      serifRegular: `"New York Large Regular", serif`,
-      serifBold: `"New York Large Bold", serif`,
-      sansRegular: `"SF Pro Text Regular", serif`,
-      sansBold: `"SF Pro Text Bold", serif`,
-      display: `"Rozha One Regular", serif`,
+      serif: `'Trocchi', serif`,
+      sans: `'Poppins', sans-serif`,
+      display: `'Rozha One', serif`,
     },
     size: {
       sm: `0.75rem`,

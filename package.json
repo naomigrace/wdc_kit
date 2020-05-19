@@ -46,7 +46,8 @@
     "polished": "^3.5.2",
     "prettier": "2.0.4",
     "react-is": "^16.13.1",
-    "rollup": "^2.10.2",
-    "rollup-plugin-scss": "^2.5.0"
+    "rollup": "^2.10.4",
+    "rollup-plugin-scss": "^2.5.0",
+    "styled-components": "^5.1.0"
   }
 }

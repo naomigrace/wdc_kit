@@ -1,6 +1,6 @@
 import PropTypes from "prop-types"
 import React from "react"
-import { Logo, Header as StyledHeader } from "../index"
+import StyledHeader from "../styled/Header"
 
 const Header = ({ siteTitle }) => (
   <StyledHeader>

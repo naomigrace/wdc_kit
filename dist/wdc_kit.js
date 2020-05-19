@@ -1104,11 +1104,13 @@ const handleColor = props => props.color ? `color: ${props.theme.colors[props.co
 const handleFont = props => props.serif ? handleSerifFont(props) : handleSansFont(props);
 const handleSansFont = props => `
   font-size: ${props.size ? getFontSize(props) : props.theme.fonts.size.regular};
-  font-family: ${props.bold ? props.theme.fonts.family.sansBold : props.theme.fonts.family.sansRegular};
+  font-family: ${props.theme.fonts.family.sans};
+  font-weight: ${props.bold ? `700` : `400`};
 `;
 const handleSerifFont = props => `
 font-size: ${props.size ? getFontSize(props) : props.theme.fonts.size.regular};
-font-family: ${props.bold ? props.theme.fonts.family.serifBold : props.theme.fonts.family.serifRegular};
+font-family: ${props.theme.fonts.family.serif};
+font-family: ${props.bold ? `bold` : `regular`};
 `;
 const handleShadow = props => `
   ${props.shadow && `box-shadow: ${props.theme.shadows[props.shadow]};`}
@@ -1228,6 +1230,12 @@ var ButtonOpen = styled.button`
     border-color: ${props => props.theme.colors.neutral_mid_wod};
     color: ${props => props.theme.colors.neutral_mid_wod};
   }
+`;
+
+var IconTextStyle = styled.span`
+  vertical-align: middle;
+  ${props => props.iconLeft && `margin-left: 10px;`}
+  ${props => props.iconRight && `margin-right: 10px;`}
 `;
 
 /*! *****************************************************************************
@@ -1613,11 +1621,9 @@ var theme = {
   },
   fonts: {
     family: {
-      serifRegular: `"New York Large Regular", serif`,
-      serifBold: `"New York Large Bold", serif`,
-      sansRegular: `"SF Pro Text Regular", serif`,
-      sansBold: `"SF Pro Text Bold", serif`,
-      display: `"Rozha One Regular", serif`
+      serif: `'Trocchi', serif`,
+      sans: `'Poppins', sans-serif`,
+      display: `'Rozha One', serif`
     },
     size: {
       sm: `0.75rem`,
@@ -1733,12 +1739,6 @@ const MainBody_HomePage = styled.main`
 var HomePageContainer = (({
   children
 }) => /*#__PURE__*/React__default.createElement(Layout, null, /*#__PURE__*/React__default.createElement(MainBody_HomePage, null, children)));
-
-var IconTextStyle = styled.span`
-  vertical-align: middle;
-  ${props => props.iconLeft && `margin-left: 10px;`}
-  ${props => props.iconRight && `margin-right: 10px;`}
-`;
 
 var Label = styled.label`
     ${props => handleFont(props)};

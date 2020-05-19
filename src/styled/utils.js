@@ -112,19 +112,21 @@ export const handleSansFont = props => `
   font-size: ${
     props.size ? getFontSize(props) : props.theme.fonts.size.regular
   };
-  font-family: ${
+  font-family: ${props.theme.fonts.family.sans};
+  font-weight: ${
     props.bold
-      ? props.theme.fonts.family.sansBold
-      : props.theme.fonts.family.sansRegular
+      ? `700`
+      : `400`
   };
 `
 
 export const handleSerifFont = props => `
 font-size: ${props.size ? getFontSize(props) : props.theme.fonts.size.regular};
+font-family: ${props.theme.fonts.family.serif};
 font-family: ${
   props.bold
-    ? props.theme.fonts.family.serifBold
-    : props.theme.fonts.family.serifRegular
+    ? `bold`
+    : `regular`
 };
 `
 

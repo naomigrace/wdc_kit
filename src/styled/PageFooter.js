@@ -1,6 +1,6 @@
 import styled from "styled-components"
-import { BoxGradient, Button, BackButton } from "../index"
-import { handleWhiteTextOnDark } from "./utils"
+import BoxGradient from "./BoxGradient"
+import Button from "./Button"
 
 export const FooterContainer = styled.div`
   position: fixed;

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { Box } from "../index"
+import Box from "./Box"
 import { handleWhiteTextOnDark } from "./utils"
 
 export default styled(Box)`
