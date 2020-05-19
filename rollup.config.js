@@ -7,11 +7,18 @@ import pkg from "./package.json"
 
 export default {
   input: "src/index.js",
-  output: {
-    file: "dist/wdc_kit.js",
-    format: "esm",
-    sourcemap: "true",
-  },
+  output: [
+    {
+      file: "dist/wdc_kit.cjs.js",
+      format: "cjs",
+      sourcemap: "true",
+    },
+    {
+      file: "dist/wdc_kit.esm.js",
+      format: "es",
+      sourcemap: "true",
+    }
+  ],
   external: [
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {}),

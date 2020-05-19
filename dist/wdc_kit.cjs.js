@@ -1,7 +1,15 @@
-import styled, { ThemeProvider } from 'styled-components';
-import React__default, { forwardRef, createElement } from 'react';
-import PropTypes from 'prop-types';
-import { useMediaQuery } from 'react-responsive';
+'use strict';
+
+Object.defineProperty(exports, '__esModule', { value: true });
+
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var styled = require('styled-components');
+var styled__default = _interopDefault(styled);
+var React = require('react');
+var React__default = _interopDefault(React);
+var PropTypes = _interopDefault(require('prop-types'));
+var reactResponsive = require('react-responsive');
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -1116,7 +1124,7 @@ const handleShadow = props => `
   ${props.shadow && `box-shadow: ${props.theme.shadows[props.shadow]};`}
 `;
 
-var Box = styled.div`
+var Box = styled__default.div`
   ${props => handleFont(props)}
   ${props => handleShadow(props)}
   display: inline-block;
@@ -1132,7 +1140,7 @@ var Box = styled.div`
 
 `;
 
-var BoxGradient = styled(Box)`
+var BoxGradient = styled__default(Box)`
   background: linear-gradient(${props => props.theme.gradients[props.gradient]});
   ${props => handleWhiteTextOnDark(props)};
 
@@ -1147,7 +1155,7 @@ var BoxGradient = styled(Box)`
     `}
 `;
 
-var Button = styled.button`
+var Button = styled__default.button`
   ${props => handleFont(props)};
   ${props => handleWhiteTextOnDark(props)};
   ${props => buttonBase(props)};
@@ -1188,7 +1196,7 @@ function _extends$1() {
   return _extends$1.apply(this, arguments);
 }
 
-var ButtonBackground = styled(props => /*#__PURE__*/React__default.createElement(Button, _extends$1({
+var ButtonBackground = styled__default(props => /*#__PURE__*/React__default.createElement(Button, _extends$1({
   background: true
 }, props)))`
   background: linear-gradient(${props => props.theme.gradients.primary_opaque_wod}), url(${props => imageResolver(props.image)});
@@ -1204,7 +1212,7 @@ var ButtonBackground = styled(props => /*#__PURE__*/React__default.createElement
   }
 `;
 
-var ButtonOpen = styled.button`
+var ButtonOpen = styled__default.button`
   ${props => handleFont(props)};
   ${props => buttonBase(props)};
   ${props => handleSpacing(props)};
@@ -1232,7 +1240,7 @@ var ButtonOpen = styled.button`
   }
 `;
 
-var IconTextStyle = styled.span`
+var IconTextStyle = styled__default.span`
   vertical-align: middle;
   ${props => props.iconLeft && `margin-left: 10px;`}
   ${props => props.iconRight && `margin-right: 10px;`}
@@ -1310,7 +1318,7 @@ function filterSVGProps(props) {
   }, {});
 }
 
-const StyledIconBaseBase = forwardRef((props, ref) => {
+const StyledIconBaseBase = React.forwardRef((props, ref) => {
   const {
     children,
     iconAttrs,
@@ -1330,33 +1338,33 @@ const StyledIconBaseBase = forwardRef((props, ref) => {
     role: title != null ? 'img' : undefined
   }, iconAttrs);
   const svgProps = filterSVGProps(otherProps);
-  return createElement("svg", Object.assign({}, iconProps, svgProps, {
+  return React.createElement("svg", Object.assign({}, iconProps, svgProps, {
     ref: ref
-  }), title && createElement("title", {
+  }), title && React.createElement("title", {
     key: "icon-title"
   }, title), children);
 });
-const StyledIconBase = styled(StyledIconBaseBase)`
+const StyledIconBase = styled__default(StyledIconBaseBase)`
   display: inline-block;
   vertical-align: ${props => props.iconVerticalAlign};
   overflow: hidden;
 `;
 
-var Close = forwardRef(function (props, ref) {
+var Close = React.forwardRef(function (props, ref) {
   var attrs = {
     "fill": "currentColor",
     "xmlns": "http://www.w3.org/2000/svg"
   };
-  return createElement(StyledIconBase, __assign({
+  return React.createElement(StyledIconBase, __assign({
     iconAttrs: attrs,
     iconVerticalAlign: "middle",
     iconViewBox: "0 0 24 24"
   }, props, {
     ref: ref
-  }), createElement("path", {
+  }), React.createElement("path", {
     d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z",
     key: "k0"
-  }), createElement("path", {
+  }), React.createElement("path", {
     fill: "none",
     d: "M0 0h24v24H0z",
     key: "k1"
@@ -1364,57 +1372,57 @@ var Close = forwardRef(function (props, ref) {
 });
 Close.displayName = 'Close';
 
-var ArrowUpward = forwardRef(function (props, ref) {
+var ArrowUpward = React.forwardRef(function (props, ref) {
   var attrs = {
     "fill": "currentColor",
     "xmlns": "http://www.w3.org/2000/svg"
   };
-  return createElement(StyledIconBase, __assign({
+  return React.createElement(StyledIconBase, __assign({
     iconAttrs: attrs,
     iconVerticalAlign: "middle",
     iconViewBox: "0 0 24 24"
   }, props, {
     ref: ref
-  }), createElement("path", {
+  }), React.createElement("path", {
     fill: "none",
     d: "M0 0h24v24H0V0z",
     key: "k0"
-  }), createElement("path", {
+  }), React.createElement("path", {
     d: "M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z",
     key: "k1"
   }));
 });
 ArrowUpward.displayName = 'ArrowUpward';
 
-var ArrowBack = forwardRef(function (props, ref) {
+var ArrowBack = React.forwardRef(function (props, ref) {
   var attrs = {
     "fill": "currentColor",
     "xmlns": "http://www.w3.org/2000/svg"
   };
-  return createElement(StyledIconBase, __assign({
+  return React.createElement(StyledIconBase, __assign({
     iconAttrs: attrs,
     iconVerticalAlign: "middle",
     iconViewBox: "0 0 24 24"
   }, props, {
     ref: ref
-  }), createElement("path", {
+  }), React.createElement("path", {
     fill: "none",
     d: "M0 0h24v24H0V0z",
     key: "k0"
-  }), createElement("path", {
+  }), React.createElement("path", {
     d: "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z",
     key: "k1"
   }));
 });
 ArrowBack.displayName = 'ArrowBack';
 
-const StyledClose = styled(Close)`
+const StyledClose = styled__default(Close)`
   ${props => handleIconStyle(props)}
 `;
-const StyledArrowUpwards = styled(ArrowUpward)`
+const StyledArrowUpwards = styled__default(ArrowUpward)`
   ${props => handleIconStyle(props)}
 `;
-const StyledArrowBack = styled(ArrowBack)`
+const StyledArrowBack = styled__default(ArrowBack)`
   ${props => handleIconStyle(props)}
 `;
 
@@ -1464,13 +1472,13 @@ const BackButton = ({
   iconLeft: true
 }, children)));
 
-const FooterContainer = styled.div`
+const FooterContainer = styled__default.div`
   position: fixed;
   bottom: 0;
   width: 100%;
 
 `;
-const FooterActionBar = styled.div`
+const FooterActionBar = styled__default.div`
   margin-top: 2rem;
   margin: 0.5rem auto 0 auto;
 
@@ -1553,7 +1561,7 @@ const getRule = (ruleName, defaultRule) => props => {
   return rule.join('-');
 };
 
-const FlexContainer = styled.div`
+const FlexContainer = styled__default.div`
   display: ${props => props.inline ? 'inline-flex' : 'flex'};
   flex-direction: ${getRule('direction', 'row')};
   flex-wrap: ${getRule('wrap', 'nowrap')};
@@ -1562,7 +1570,7 @@ const FlexContainer = styled.div`
   align-content: ${getRule('content', 'stretch')};
 `;
 
-var StyledHeader = styled.header`
+var StyledHeader = styled__default.header`
   position: absolute;
   margin: 0 auto;
   padding: 20px;
@@ -1572,7 +1580,7 @@ var StyledHeader = styled.header`
   }
 `;
 
-const HeroTitle = styled.h1`
+const HeroTitle = styled__default.h1`
   color: ${props => props.theme.colors.neutral_white};
   text-align: center;
   padding: 5rem 2rem 5rem 2rem;
@@ -1589,7 +1597,7 @@ const HeroTitle = styled.h1`
     font-size: 3rem;
   }
 `;
-var Hero = styled.div`
+var Hero = styled__default.div`
   background: linear-gradient(${props => props.theme.gradients.primary_opaque_wod}),
     url(${props => imageResolver(props.image)});
   background-size: cover;
@@ -1700,12 +1708,12 @@ var theme = {
 const Layout = ({
   children
 }) => {
-  const isDesktopOrLaptop = useMediaQuery({
+  const isDesktopOrLaptop = reactResponsive.useMediaQuery({
     query: '(min-device-width: 1224px)'
   });
   let themeWithMediaQueries = theme;
   themeWithMediaQueries[`isDesktopOrLaptop`] = isDesktopOrLaptop;
-  return /*#__PURE__*/React__default.createElement(ThemeProvider, {
+  return /*#__PURE__*/React__default.createElement(styled.ThemeProvider, {
     theme: themeWithMediaQueries
   }, /*#__PURE__*/React__default.createElement(Header, {
     siteTitle: "wdc"
@@ -1716,14 +1724,14 @@ Layout.propTypes = {
   children: PropTypes.node.isRequired
 };
 
-const MainBody_EventPage = styled.main`
+const MainBody_EventPage = styled__default.main`
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   background-color: ${props => props.theme.colors.neutral_white};
 `;
-const MainBody_HomePage = styled.main`
+const MainBody_HomePage = styled__default.main`
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -1740,7 +1748,7 @@ var HomePageContainer = (({
   children
 }) => /*#__PURE__*/React__default.createElement(Layout, null, /*#__PURE__*/React__default.createElement(MainBody_HomePage, null, children)));
 
-var Label = styled.label`
+var Label = styled__default.label`
     ${props => handleFont(props)};
     text-transform: uppercase;
     color: ${props => props.theme.colors.neutral_mid_wod};
@@ -1748,7 +1756,7 @@ var Label = styled.label`
     margin-bottom: 1rem;
 `;
 
-var Logo = styled.div`
+var Logo = styled__default.div`
     text-align: center;
     background: linear-gradient(${props => props.theme.gradients.neutral});
     border-radius: ${props => props.theme.radius.chubby};
@@ -1768,14 +1776,14 @@ var Logo = styled.div`
     }
 `;
 
-var P = styled.p`
+var P = styled__default.p`
     ${props => handleFont(props)};
     ${props => handleColor(props)};
     margin: 0.25rem 0;
     ${props => handleSpacing(props)};
 `;
 
-var PageContainer = styled.div`
+var PageContainer = styled__default.div`
     margin: 0 auto 12rem auto;
     padding: 20px;
     overflow-x: hidden;
@@ -1789,13 +1797,13 @@ var PageContainer = styled.div`
     }
 `;
 
-const ScrollWrapperContainer = styled.div`
+const ScrollWrapperContainer = styled__default.div`
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
   position: relative;
   height: 100%;
 `;
-const ScrollToTopIconContainer = styled.div`
+const ScrollToTopIconContainer = styled__default.div`
   position: absolute;
   right: 20px;
   bottom: 20px;
@@ -1817,13 +1825,13 @@ const ScrollToTopIconContainer = styled.div`
   }
 `;
 
-const TrayNavigation = styled.div`
+const TrayNavigation = styled__default.div`
     display: block;
     position: fixed;
     width: 100%;
     margin: -60px 0;
 `;
-const TrayContent = styled.div`
+const TrayContent = styled__default.div`
     padding: 20px;
     background-color: ${props => props.theme.colors.neutral_white};
     ${props => props.theme.breakpoints.desktop} {
@@ -1831,7 +1839,7 @@ const TrayContent = styled.div`
         margin: 0 auto;
     }
 `;
-var Tray = styled.div`
+var Tray = styled__default.div`
     width: 100vw;
     height: 40%;
     z-index: 0;
@@ -1846,5 +1854,32 @@ var Tray = styled.div`
     }
 `;
 
-export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonOpen, CloseButton, FlexContainer, FooterActionBar, FooterContainer, StyledHeader as Header, Hero, HeroTitle, HomePageContainer, IconTextStyle, Label, Logo, MainBody_EventPage, MainBody_HomePage, P, PageContainer, ScrollToTopIconContainer, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme };
-//# sourceMappingURL=wdc_kit.js.map
+exports.BackButton = BackButton;
+exports.Box = Box;
+exports.BoxGradient = BoxGradient;
+exports.Button = Button;
+exports.ButtonBackground = ButtonBackground;
+exports.ButtonOpen = ButtonOpen;
+exports.CloseButton = CloseButton;
+exports.FlexContainer = FlexContainer;
+exports.FooterActionBar = FooterActionBar;
+exports.FooterContainer = FooterContainer;
+exports.Header = StyledHeader;
+exports.Hero = Hero;
+exports.HeroTitle = HeroTitle;
+exports.HomePageContainer = HomePageContainer;
+exports.IconTextStyle = IconTextStyle;
+exports.Label = Label;
+exports.Logo = Logo;
+exports.MainBody_EventPage = MainBody_EventPage;
+exports.MainBody_HomePage = MainBody_HomePage;
+exports.P = P;
+exports.PageContainer = PageContainer;
+exports.ScrollToTopIconContainer = ScrollToTopIconContainer;
+exports.ScrollWrapperContainer = ScrollWrapperContainer;
+exports.Tray = Tray;
+exports.TrayContent = TrayContent;
+exports.TrayNavigation = TrayNavigation;
+exports.UpButton = UpButton;
+exports.theme = theme;
+//# sourceMappingURL=wdc_kit.cjs.js.map
