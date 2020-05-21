@@ -1,5 +1,5 @@
 import styled, { ThemeProvider } from 'styled-components';
-import React__default, { forwardRef, createElement } from 'react';
+import React__default, { forwardRef, createElement, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
 
@@ -30,6 +30,8 @@ var theme = {
     }
   },
   colors: {
+    //focus
+    "focus": `rgba(79, 190, 255, 0.6)`,
     // purple
     "primary_lightest": `rgb(234, 230, 255)`,
     "primary_light": `rgb(192, 182, 242)`,
@@ -1172,12 +1174,13 @@ const buttonBase = props => `
   }
 
   &:active {
+    outline: none;
     ${!props.background && `transform: scale(0.98);`}
   }
 
   &:focus, &:active {
     outline: none;
-    box-shadow: 0 0 0 ${props.theme.widths.mini} ${props.colors ? curriedTransparentize(0.41, props.theme.colors[props.color]) : curriedTransparentize(0.4, props.theme.colors.secondary_orange_wod)};
+    box-shadow: 0 0 0 ${props.theme.widths.mini} ${props.colors ? curriedTransparentize(0.41, props.theme.colors[props.color]) : props.theme.colors.focus};
   }
 `;
 
@@ -1241,20 +1244,24 @@ var Button = styled.button`
   ${props => buttonBase(props)};
   ${props => handleShadow(props)};
   ${props => handleSpacing(props)};
-  border: none;
-  background: ${props => props.color ? props.theme.colors[props.color] : props.background ? `` : props.theme.colors.primary_dark_wod};
+  border: ${props => props.theme.widths.mini} solid
+    ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.primary_dark_wod};
+  background: ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.primary_dark_wod};
 
   &:hover,
   &:focus {
-    background: ${props => props.color ? curriedDarken(0.05, props.theme.colors[props.color]) : props.background ? `` : curriedDarken(0.05, props.theme.colors.primary_dark_wod)};
+    border-color: ${props => props.color ? curriedDarken(0.05, props.theme.colors[props.color]) : curriedDarken(0.05, props.theme.colors.primary_dark_wod)};
+    background: ${props => props.color ? curriedDarken(0.05, props.theme.colors[props.color]) : curriedDarken(0.05, props.theme.colors.primary_dark_wod)};
   }
 
   &:focus {
-    background: ${props => props.color ? curriedDarken(0.1, props.theme.colors[props.color]) : props.background ? `` : curriedDarken(0.1, props.theme.colors.primary_dark_wod)};
+    border-color: ${props => props.color ? curriedDarken(0.1, props.theme.colors[props.color]) : curriedDarken(0.1, props.theme.colors.primary_dark_wod)};
+    background: ${props => props.color ? curriedDarken(0.1, props.theme.colors[props.color]) : curriedDarken(0.1, props.theme.colors.primary_dark_wod)};
   }
 
   &:disabled {
-      background: ${props => props.theme.colors.neutral_mid_wod}
+    border-color: ${props => props.theme.colors.neutral_mid_wod};
+    background: ${props => props.theme.colors.neutral_mid_wod};
   }
 `;
 
@@ -1300,7 +1307,7 @@ var ButtonBackground = styled(props => /*#__PURE__*/React__default.createElement
   color: ${props => props.theme.colors.neutral_white};
   transition: all 250ms ease-in-out !important;
 
-  &:hover, &:active {
+  &:hover, &:active, &:focus {
     background: linear-gradient(${props => props.theme.gradients.primary_wod});
     background-size: cover;
     background-position-y: center;  
@@ -1337,8 +1344,8 @@ var ButtonOpen = styled.button`
 
 var IconTextStyle = styled.span`
   vertical-align: middle;
-  ${props => props.iconLeft && `margin-left: 10px;`}
-  ${props => props.iconRight && `margin-right: 10px;`}
+  ${props => props.iconLeft && `margin-left: 5px;`}
+  ${props => props.iconRight && `margin-right: 5px;`}
 `;
 
 /*! *****************************************************************************
@@ -1665,6 +1672,14 @@ const FlexContainer = styled.div`
   align-content: ${getRule('content', 'stretch')};
 `;
 
+var FormAlert = styled.a`
+    display: block;
+    padding: 10px 0 0 0;
+    text-decoration: none;
+    font-size: 0.75rem;
+    color: ${props => props.theme.colors.neutral_black_wod};
+`;
+
 var StyledHeader = styled.header`
   position: absolute;
   margin: 0 auto;
@@ -1700,6 +1715,13 @@ var Hero = styled.div`
   min-height: 100px;
   width: 100%;
 `;
+
+var HiddenFieldset = styled.fieldset`
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  `;
 
 const Header = ({
   siteTitle
@@ -1755,10 +1777,31 @@ var HomePageContainer = (({
   children
 }) => /*#__PURE__*/React__default.createElement(Layout, null, /*#__PURE__*/React__default.createElement(MainBody_HomePage, null, children)));
 
+var InlineLinkSpan = styled.span`
+  ${props => handleSpacing(props)};
+  font-weight: normal;
+  text-decoration: underline;
+  font-size: 0.75rem;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: ${props => props.theme.radius[`baby`]};
+  border: ${props => props.theme.widths.itty} solid ${props => props.theme.colors.neutral_white};
+
+  &:focus {
+    outline: none;
+    color: ${props => props.theme.colors.primary_mid_wod};
+    transition: all 150ms ease-in-out;
+    border-color: 
+      ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.focus};
+  }
+`;
+
 var Label = styled.label`
     ${props => handleFont(props)};
+    ${props => handleSpacing(props)};
     text-transform: uppercase;
-    color: ${props => props.theme.colors.neutral_mid_wod};
+    color: ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.neutral_mid_wod};
     display: block;
     margin-bottom: 1rem;
 `;
@@ -1949,5 +1992,254 @@ class ScrollWrapper extends React__default.Component {
 
 }
 
-export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonOpen, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, StyledHeader as Header, Hero, HeroTitle, HomePageContainer, IconTextStyle, Label, Logo, MainBody_EventPage, MainBody_HomePage, P, PageContainer, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme };
+var Check = forwardRef(function (props, ref) {
+  var attrs = {
+    "fill": "currentColor",
+    "xmlns": "http://www.w3.org/2000/svg"
+  };
+  return createElement(StyledIconBase, __assign({
+    iconAttrs: attrs,
+    iconVerticalAlign: "middle",
+    iconViewBox: "0 0 20 20"
+  }, props, {
+    ref: ref
+  }), createElement("path", {
+    d: "M8.294 16.998c-.435 0-.847-.203-1.111-.553L3.61 11.724a1.392 1.392 0 01.27-1.951 1.392 1.392 0 011.953.27l2.351 3.104 5.911-9.492a1.396 1.396 0 011.921-.445c.653.406.854 1.266.446 1.92L9.478 16.34a1.39 1.39 0 01-1.12.656c-.022.002-.042.002-.064.002z",
+    key: "k0"
+  }));
+});
+Check.displayName = 'Check';
+
+const ButtonInput = ({
+  selected,
+  labelID,
+  children,
+  ...rest
+}) => {
+  return selected ? /*#__PURE__*/React__default.createElement(Button, _extends$1({
+    bold: true,
+    type: "button",
+    role: "switch",
+    color: `primary_mid_wod`,
+    "aria-labelledby": labelID,
+    "aria-checked": "true"
+  }, rest), /*#__PURE__*/React__default.createElement(IconTextStyle, {
+    iconRight: true
+  }, children), /*#__PURE__*/React__default.createElement(Check, {
+    size: "1rem"
+  })) : /*#__PURE__*/React__default.createElement(ButtonOpen, _extends$1({
+    bold: true,
+    type: "button",
+    role: "switch",
+    "aria-labelledby": labelID,
+    "aria-checked": "false"
+  }, rest), children);
+};
+
+const ButtonInputBackground = ({
+  selected,
+  labelID,
+  children,
+  ...rest
+}) => {
+  return selected ? /*#__PURE__*/React__default.createElement(ButtonBackground, _extends$1({
+    bold: true,
+    type: "button",
+    role: "switch",
+    color: `primary_mid_wod`,
+    "aria-labelledby": labelID,
+    "aria-checked": "true"
+  }, rest), /*#__PURE__*/React__default.createElement(IconTextStyle, {
+    iconRight: true
+  }, children), /*#__PURE__*/React__default.createElement(Check, {
+    size: "1rem"
+  })) : /*#__PURE__*/React__default.createElement(ButtonOpen, _extends$1({
+    bold: true,
+    type: "button",
+    role: "switch",
+    "aria-labelledby": labelID,
+    "aria-checked": "false"
+  }, rest), children);
+};
+
+var venues = {
+  _930: "930 Club",
+  blackcat: "Black Cat",
+  echostage: "Echo Stage",
+  howardtheatre: "The Howard Theatre",
+  pearlstreet: "Pearl Street",
+  songbyrd: "Songbyrd Cafe",
+  theanthem: "The Anthem",
+  unionstage: "Union Stage",
+  ustreet: "U Street Music Hall",
+  velvetlounge: "The Velvet Lounge"
+};
+
+var neighborhoods = {
+  admo: "Adams Morgan",
+  nav: "Captiol Riverfront/Navy Yard",
+  dtn: "Downtown",
+  dup: "Dupont Circle",
+  geo: "Georgetown",
+  hst: "H Street",
+  ivy: "Ivy City",
+  log: "Logan Circle",
+  noma: "NoMa",
+  pet: "Petworth",
+  shaw: "Shaw",
+  sowe: "Southwest Waterfront",
+  ust: "U Street",
+  wdl: "Woodley Park"
+};
+
+const useFilterBox = ({
+  defaultState
+}) => {
+  const [justToday, setJustToday] = useState(defaultState.justToday);
+  const [price, setPrice] = useState(defaultState.price);
+  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState(defaultState.neighborhoods);
+  const [selectedVenues, setSelectedVenues] = useState(defaultState.venues);
+
+  const handlePrice = toggle => {
+    setPrice({ ...price,
+      [toggle]: 1 - (price[toggle] | 0)
+    });
+  };
+
+  const handleNeighborhoods = toggle => {
+    setSelectedNeighborhoods({ ...selectedNeighborhoods,
+      [toggle]: 1 - (selectedNeighborhoods[toggle] | 0)
+    });
+  };
+
+  const handleVenues = toggle => {
+    setSelectedVenues({ ...selectedVenues,
+      [toggle]: 1 - (selectedVenues[toggle] | 0)
+    });
+  };
+
+  const handleToggleSelectNeighborhoods = () => {
+    let toggleNeighborhoods = selectedNeighborhoods;
+
+    if (noNeighborhoodSelected) {
+      Object.keys(toggleNeighborhoods).map(n => toggleNeighborhoods[n] = 1);
+    } else {
+      Object.keys(toggleNeighborhoods).map(n => toggleNeighborhoods[n] = 0);
+    }
+
+    setSelectedNeighborhoods({ ...selectedNeighborhoods,
+      ...toggleNeighborhoods
+    });
+  };
+
+  const handleToggleSelectVenues = () => {
+    let toggleVenues = selectedVenues;
+
+    if (noVenueSelected) {
+      Object.keys(toggleVenues).map(n => toggleVenues[n] = 1);
+    } else {
+      Object.keys(toggleVenues).map(n => toggleVenues[n] = 0);
+    }
+
+    setSelectedNeighborhoods({ ...selectedNeighborhoods,
+      ...toggleVenues
+    });
+  };
+
+  const noPriceSelected = !Object.values(price).includes(1);
+  const noNeighborhoodSelected = !Object.values(selectedNeighborhoods).includes(1);
+  const noVenueSelected = !Object.values(selectedVenues).includes(1);
+  return {
+    justToday,
+    price,
+    selectedNeighborhoods,
+    selectedVenues,
+    setJustToday,
+    setPrice,
+    setSelectedNeighborhoods,
+    setSelectedVenues,
+    renderFilterBox: () => {
+      return /*#__PURE__*/React__default.createElement(Box, {
+        radius: "none",
+        padding: `baby`
+      }, /*#__PURE__*/React__default.createElement("form", null, /*#__PURE__*/React__default.createElement(HiddenFieldset, null, /*#__PURE__*/React__default.createElement("legend", {
+        className: "sr-only"
+      }, "filters"), /*#__PURE__*/React__default.createElement(Label, {
+        id: "date-filter",
+        bold: true
+      }, "date"), /*#__PURE__*/React__default.createElement(ButtonInput, {
+        labelID: "date-filter",
+        selected: justToday,
+        mb: 0.5,
+        onClick: () => setJustToday(!justToday)
+      }, "just today"), /*#__PURE__*/React__default.createElement(ButtonInput, {
+        labelID: "date-filter",
+        selected: !justToday,
+        mb: 0.5,
+        onClick: () => setJustToday(!justToday)
+      }, "today and after"), /*#__PURE__*/React__default.createElement(Label, {
+        id: "price-filter",
+        bold: true,
+        mt: 1.5
+      }, "price"), /*#__PURE__*/React__default.createElement(ButtonInput, {
+        labelID: "price-filter",
+        selected: price.free,
+        onClick: () => handlePrice("free"),
+        mb: 0.5,
+        color: `secondary_orange_wod`
+      }, "free"), /*#__PURE__*/React__default.createElement(ButtonInput, {
+        labelID: "price-filter",
+        selected: price["not free"],
+        onClick: () => handlePrice("not free"),
+        mb: 0.5,
+        color: `secondary_orange_wod`
+      }, "not free"), noPriceSelected && /*#__PURE__*/React__default.createElement(FormAlert, {
+        href: "#price-filter",
+        id: "price-filter-error"
+      }, "please select a price filter"), /*#__PURE__*/React__default.createElement(Label, {
+        id: "neighborhoods-filter",
+        bold: true,
+        mt: 1.5
+      }, "neighborhoods", " ", /*#__PURE__*/React__default.createElement(InlineLinkSpan, {
+        ml: 0.5,
+        tabIndex: "0",
+        role: "link",
+        name: "deselect all neighborhoods",
+        onClick: () => handleToggleSelectNeighborhoods()
+      }, noNeighborhoodSelected ? `select all?` : `deselect all?`)), Object.keys(neighborhoods).map(neighborhood => /*#__PURE__*/React__default.createElement(ButtonInput, {
+        key: neighborhood,
+        labelID: "neighborhoods-filter",
+        selected: selectedNeighborhoods[neighborhood] === 1,
+        mb: 0.5,
+        onClick: () => handleNeighborhoods(neighborhood),
+        color: `secondary_peach_wod`
+      }, neighborhoods[neighborhood])), noNeighborhoodSelected && /*#__PURE__*/React__default.createElement(FormAlert, {
+        href: "#neighborhoods-filter",
+        id: "neighborhoods-filter-error"
+      }, "please select a neighborhood filter"), /*#__PURE__*/React__default.createElement(Label, {
+        bold: true,
+        mt: 1.5,
+        id: "venues-filter"
+      }, "venues", " ", /*#__PURE__*/React__default.createElement(InlineLinkSpan, {
+        ml: 0.5,
+        tabIndex: "0",
+        role: "link",
+        name: "deselect all venues",
+        onClick: () => handleToggleSelectVenues()
+      }, noVenueSelected ? `select all?` : `deselect all?`)), Object.keys(venues).map(venue => /*#__PURE__*/React__default.createElement(ButtonInputBackground, {
+        key: venue,
+        labelID: "venues-filter",
+        selected: selectedVenues[venue],
+        image: venue,
+        mb: 0.5,
+        onClick: () => handleVenues(venue)
+      }, venues[venue])), noVenueSelected && /*#__PURE__*/React__default.createElement(FormAlert, {
+        href: "#venues-filter",
+        id: "venues-filter-error"
+      }, "please select a venue filter"))));
+    }
+  };
+};
+
+export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, StyledHeader as Header, Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Logo, MainBody_EventPage, MainBody_HomePage, P, PageContainer, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox };
 //# sourceMappingURL=wdc_kit.esm.js.map

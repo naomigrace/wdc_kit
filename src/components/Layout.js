@@ -5,7 +5,7 @@ import { ThemeProvider } from "styled-components"
 import { useMediaQuery } from "react-responsive"
 import Header from "./Header"
 import theme from "../styled/theme"
-import "../sheets/typography.css"
+import "../sheets/global.css"
 import "../sheets/normalize.css"
 
 const Layout = ({ children }) => {

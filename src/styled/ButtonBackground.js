@@ -10,7 +10,7 @@ export default styled(props => <Button background {...props}/>)`
   color: ${props => props.theme.colors.neutral_white};
   transition: all 250ms ease-in-out !important;
 
-  &:hover, &:active {
+  &:hover, &:active, &:focus {
     background: linear-gradient(${props => props.theme.gradients.primary_wod});
     background-size: cover;
     background-position-y: center;  

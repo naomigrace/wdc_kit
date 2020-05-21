@@ -5,7 +5,7 @@ export default {
     dup: "Dupont Circle",
     geo: "Georgetown",
     hst: "H Street",
-    lang: "Langdon",
+    ivy: "Ivy City",
     log: "Logan Circle",
     noma: "NoMa",
     pet: "Petworth",

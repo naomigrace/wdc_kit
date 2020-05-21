@@ -25,6 +25,8 @@ export default {
     },
   },
   colors: {
+    //focus
+    "focus": `rgba(79, 190, 255, 0.6)`,
     // purple
     "primary_lightest": `rgb(234, 230, 255)`,
     "primary_light": `rgb(192, 182, 242)`,

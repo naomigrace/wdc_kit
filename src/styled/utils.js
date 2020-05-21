@@ -76,6 +76,7 @@ export const buttonBase = props => `
   }
 
   &:active {
+    outline: none;
     ${!props.background && `transform: scale(0.98);`}
   }
 
@@ -84,7 +85,7 @@ export const buttonBase = props => `
     box-shadow: 0 0 0 ${props.theme.widths.mini} ${
   props.colors
     ? transparentize(0.41, props.theme.colors[props.color])
-    : transparentize(0.4, props.theme.colors.secondary_orange_wod)
+    : props.theme.colors.focus
 };
   }
 `
