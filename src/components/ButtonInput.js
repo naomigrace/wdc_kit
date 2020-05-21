@@ -1,7 +1,6 @@
 import React from "react"
 import Button from "../styled/Button"
 import ButtonOpen from "../styled/ButtonOpen"
-import IconTextStyle from "../styled/IconTextStyle"
 import { Check } from "@styled-icons/entypo/Check"
 
 const ButtonInput = ({ selected, labelID, children, ...rest }) => {
@@ -13,10 +12,11 @@ const ButtonInput = ({ selected, labelID, children, ...rest }) => {
       color={`primary_mid_wod`}
       aria-labelledby={labelID}
       aria-checked={"true"}
+      style={{paddingRight: `37px`}}
       {...rest}
     >
-      <IconTextStyle iconRight>{children}</IconTextStyle>
-      <Check size="1rem" />
+      {children}
+      <Check size="1rem" style={{ position: `absolute` }} role="graphic"/>
     </Button>
   ) : (
     <ButtonOpen
@@ -25,6 +25,7 @@ const ButtonInput = ({ selected, labelID, children, ...rest }) => {
       role="switch"
       aria-labelledby={labelID}
       aria-checked={"false"}
+      style={{paddingRight: `37px`}}
       {...rest}
     >
       {children}
