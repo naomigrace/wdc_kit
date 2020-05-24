@@ -9,11 +9,12 @@ import neighborhoods from "../configs/neighborhoods"
 import ButtonInput from "./ButtonInput"
 import ButtonInputBackground from "./ButtonInputBackground"
 
-const useFilterBox = ({ defaultState }) => {
-  const [justToday, setJustToday] = useState(defaultState.justToday)
-  const [price, setPrice] = useState(defaultState.price)
-  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState(defaultState.neighborhoods)
-  const [selectedVenues, setSelectedVenues] = useState(defaultState.venues)
+const useFilterBox = ({ filterState }) => {
+  const [justToday, setJustToday] = useState(filterState.justToday)
+  const [price, setPrice] = useState(filterState.price)
+  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState(filterState.neighborhoods)
+  const [selectedVenues, setSelectedVenues] = useState(filterState.venues)
+
 
   const handlePrice = toggle => {
     setPrice({ ...price, [toggle]: 1 - (price[toggle] | 0) })
@@ -34,17 +35,17 @@ const useFilterBox = ({ defaultState }) => {
   }
 
   const handleToggleSelectNeighborhoods = () => {
-    let toggleNeighborhoods = selectedNeighborhoods
+    let toggleNeighborhoods = {...selectedNeighborhoods}
     if(noNeighborhoodSelected){
         Object.keys(toggleNeighborhoods).map(n => toggleNeighborhoods[n] = 1)
     } else {
         Object.keys(toggleNeighborhoods).map(n => toggleNeighborhoods[n] = 0)
     }
-    setSelectedNeighborhoods({...selectedNeighborhoods, ...toggleNeighborhoods})
+    setSelectedNeighborhoods(toggleNeighborhoods)
   }
 
   const handleToggleSelectVenues = () => {
-    let toggleVenues = selectedVenues
+    let toggleVenues = {...selectedVenues}
     if(noVenueSelected){
         Object.keys(toggleVenues).map(n => toggleVenues[n] = 1)
     } else {

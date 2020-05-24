@@ -2030,17 +2030,25 @@ const ButtonInput = ({
     role: "switch",
     color: `primary_mid_wod`,
     "aria-labelledby": labelID,
-    "aria-checked": "true"
-  }, rest), /*#__PURE__*/React__default.createElement(IconTextStyle, {
-    iconRight: true
-  }, children), /*#__PURE__*/React__default.createElement(Check, {
-    size: "1rem"
+    "aria-checked": "true",
+    style: {
+      paddingRight: `37px`
+    }
+  }, rest), children, /*#__PURE__*/React__default.createElement(Check, {
+    size: "1rem",
+    style: {
+      position: `absolute`
+    },
+    role: "graphic"
   })) : /*#__PURE__*/React__default.createElement(ButtonOpen, _extends$1({
     bold: true,
     type: "button",
     role: "switch",
     "aria-labelledby": labelID,
-    "aria-checked": "false"
+    "aria-checked": "false",
+    style: {
+      paddingRight: `37px`
+    }
   }, rest), children);
 };
 
@@ -2056,17 +2064,25 @@ const ButtonInputBackground = ({
     role: "switch",
     color: `primary_mid_wod`,
     "aria-labelledby": labelID,
-    "aria-checked": "true"
-  }, rest), /*#__PURE__*/React__default.createElement(IconTextStyle, {
-    iconRight: true
-  }, children), /*#__PURE__*/React__default.createElement(Check, {
-    size: "1rem"
+    "aria-checked": "true",
+    style: {
+      paddingRight: `37px`
+    }
+  }, rest), children, /*#__PURE__*/React__default.createElement(Check, {
+    size: "1rem",
+    style: {
+      position: `absolute`
+    },
+    role: "graphic"
   })) : /*#__PURE__*/React__default.createElement(ButtonOpen, _extends$1({
     bold: true,
     type: "button",
     role: "switch",
     "aria-labelledby": labelID,
-    "aria-checked": "false"
+    "aria-checked": "false",
+    style: {
+      paddingRight: `37px`
+    }
   }, rest), children);
 };
 
@@ -2101,12 +2117,12 @@ var neighborhoods = {
 };
 
 const useFilterBox = ({
-  defaultState
+  filterState
 }) => {
-  const [justToday, setJustToday] = React.useState(defaultState.justToday);
-  const [price, setPrice] = React.useState(defaultState.price);
-  const [selectedNeighborhoods, setSelectedNeighborhoods] = React.useState(defaultState.neighborhoods);
-  const [selectedVenues, setSelectedVenues] = React.useState(defaultState.venues);
+  const [justToday, setJustToday] = React.useState(filterState.justToday);
+  const [price, setPrice] = React.useState(filterState.price);
+  const [selectedNeighborhoods, setSelectedNeighborhoods] = React.useState(filterState.neighborhoods);
+  const [selectedVenues, setSelectedVenues] = React.useState(filterState.venues);
 
   const handlePrice = toggle => {
     setPrice({ ...price,
@@ -2127,7 +2143,8 @@ const useFilterBox = ({
   };
 
   const handleToggleSelectNeighborhoods = () => {
-    let toggleNeighborhoods = selectedNeighborhoods;
+    let toggleNeighborhoods = { ...selectedNeighborhoods
+    };
 
     if (noNeighborhoodSelected) {
       Object.keys(toggleNeighborhoods).map(n => toggleNeighborhoods[n] = 1);
@@ -2135,13 +2152,12 @@ const useFilterBox = ({
       Object.keys(toggleNeighborhoods).map(n => toggleNeighborhoods[n] = 0);
     }
 
-    setSelectedNeighborhoods({ ...selectedNeighborhoods,
-      ...toggleNeighborhoods
-    });
+    setSelectedNeighborhoods(toggleNeighborhoods);
   };
 
   const handleToggleSelectVenues = () => {
-    let toggleVenues = selectedVenues;
+    let toggleVenues = { ...selectedVenues
+    };
 
     if (noVenueSelected) {
       Object.keys(toggleVenues).map(n => toggleVenues[n] = 1);
@@ -2168,8 +2184,7 @@ const useFilterBox = ({
     setSelectedVenues,
     renderFilterBox: () => {
       return /*#__PURE__*/React__default.createElement(Box, {
-        radius: "none",
-        padding: `baby`
+        radius: "none"
       }, /*#__PURE__*/React__default.createElement("form", null, /*#__PURE__*/React__default.createElement(HiddenFieldset, null, /*#__PURE__*/React__default.createElement("legend", {
         className: "sr-only"
       }, "filters"), /*#__PURE__*/React__default.createElement(Label, {
@@ -2213,7 +2228,10 @@ const useFilterBox = ({
         tabIndex: "0",
         role: "link",
         name: "deselect all neighborhoods",
-        onClick: () => handleToggleSelectNeighborhoods()
+        onClick: () => handleToggleSelectNeighborhoods(),
+        onKeyPress: event => {
+          event.key === "Enter" ? handleToggleSelectNeighborhoods() : null;
+        }
       }, noNeighborhoodSelected ? `select all?` : `deselect all?`)), Object.keys(neighborhoods).map(neighborhood => /*#__PURE__*/React__default.createElement(ButtonInput, {
         key: neighborhood,
         labelID: "neighborhoods-filter",

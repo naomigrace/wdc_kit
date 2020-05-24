@@ -10,7 +10,7 @@ export default {
 
 export const EventStickExample = () => {
   const { renderFilterBox } = useFilterBox({
-    defaultState: {
+    filterState: {
       justToday: true,
       price: {
         free: 1,
