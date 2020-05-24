@@ -2152,14 +2152,12 @@ const useFilterBox = ({
     };
 
     if (noVenueSelected) {
-      Object.keys(toggleVenues).map(n => toggleVenues[n] = 1);
+      Object.keys(toggleVenues).map(v => toggleVenues[v] = 1);
     } else {
-      Object.keys(toggleVenues).map(n => toggleVenues[n] = 0);
+      Object.keys(toggleVenues).map(v => toggleVenues[v] = 0);
     }
 
-    setSelectedNeighborhoods({ ...selectedNeighborhoods,
-      ...toggleVenues
-    });
+    setSelectedVenues(toggleVenues);
   };
 
   const noPriceSelected = !Object.values(price).includes(1);
