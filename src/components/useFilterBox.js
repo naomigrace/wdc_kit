@@ -70,7 +70,7 @@ const useFilterBox = ({ defaultState }) => {
     setSelectedVenues,
     renderFilterBox: () => {
       return (
-        <Box radius={"none"} padding={`baby`}>
+        <Box radius={"none"}>
           <form>
             <HiddenFieldset>
               <legend className="sr-only">filters</legend>
@@ -130,6 +130,9 @@ const useFilterBox = ({ defaultState }) => {
                   role="link"
                   name="deselect all neighborhoods"
                   onClick={() => handleToggleSelectNeighborhoods()}
+                  onKeyPress={event => {
+                    event.key === "Enter" ? handleToggleSelectNeighborhoods() : null
+                  }}
                 >
                   {noNeighborhoodSelected ? `select all?` : `deselect all?`}
                 </InlineLinkSpan>
