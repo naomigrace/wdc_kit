@@ -19,7 +19,7 @@ const eventSample = [
   {
     id: "wdc-4-4",
     venue: "pearlstreet",
-    date: "2020-04-25T09:09:00.000Z",
+    date: "2020-05-25T09:09:00.000Z",
     title: "LIVE STREAM - Martin and Kelly",
     price: 0,
     link: "https://www.pearlstreetwarehouse.com/e/live-stream-martin-and-kelly-103526560730/",

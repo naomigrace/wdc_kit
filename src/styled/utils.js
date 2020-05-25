@@ -10,6 +10,14 @@ import ImageUStreet from "../images/venue_ustreet.jpeg"
 import ImageVelvetLounge from "../images/venue_velvetlounge.jpg"
 import ImageAnthem from "../images/venue_anthem.jpg"
 
+export const isToday = (someDate) => {
+  const today = new Date()
+  
+  return someDate.getDate() == today.getDate() &&
+    someDate.getMonth() == today.getMonth() &&
+    someDate.getFullYear() == today.getFullYear()
+}
+
 export const imageResolver = venue => {
   return {
     _930: Image930,
