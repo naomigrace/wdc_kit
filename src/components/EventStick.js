@@ -6,7 +6,7 @@ import P from "../styled/P"
 const EventStick = styled(props => (
   <Box shadow={`sm`} padding={`mini`} {...props} />
 ))`
-    width: 100%;
+    width: 95%;
     background-color: ${props => props.theme.colors.neutral_white};
     border: 1px solid ${props => props.theme.colors.primary_lightest};
     margin-bottom: 5px;

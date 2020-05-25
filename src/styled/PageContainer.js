@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export default styled.div`
-    margin: 0 auto 12rem auto;
+    margin: 0 auto 20rem auto;
     padding: 20px;
     overflow-x: hidden;
     overflow-y: scroll;
