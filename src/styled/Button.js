@@ -5,7 +5,7 @@ import {
   buttonBase,
   handleShadow,
   handleSpacing,
-} from "../styled/utils"
+} from "../utils"
 import { darken } from "polished"
 
 export default styled.button`

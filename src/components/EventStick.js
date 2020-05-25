@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Box from "../styled/Box"
 import P from "../styled/P"
 import FlexContainer from "../styled/FlexContainer"
-import { isToday } from "../styled/utils"
+import { isToday } from "../utils"
 
 const EventStick = styled(props => (
   <Box shadow={`sm`} padding={`mini`} {...props} />

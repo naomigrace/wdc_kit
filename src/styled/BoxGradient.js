@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import Box from "./Box"
-import { handleWhiteTextOnDark } from "./utils"
+import { handleWhiteTextOnDark } from "../utils"
 
 export default styled(Box)`
   background: linear-gradient(${props => props.theme.gradients[props.gradient]});

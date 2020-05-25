@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { handleIconStyle } from "../styled/utils"
+import { handleIconStyle } from "../utils"
 import Button from "./Button"
 import ButtonOpen from "./ButtonOpen"
 import IconTextStyle from "./IconTextStyle"

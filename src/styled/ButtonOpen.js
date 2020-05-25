@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { handleFont, buttonBase, handleSpacing } from "../styled/utils"
+import { handleFont, buttonBase, handleSpacing } from "../utils"
 import { darken } from "polished"
 
 export default styled.button`

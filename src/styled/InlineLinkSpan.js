@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { handleSpacing } from "../styled/utils"
+import { handleSpacing } from "../utils"
 
 export default styled.span`
   ${props => handleSpacing(props)};

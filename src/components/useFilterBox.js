@@ -139,16 +139,17 @@ const useFilterBox = ({ filterState }) => {
                 </InlineLinkSpan>
               </Label>
               {Object.keys(neighborhoods).map(neighborhood => (
-                <ButtonInput
+                <ButtonInputBackground
                   key={neighborhood}
+                  image={neighborhood}
+                  color={`secondary_peach_wod`}
                   labelID={"neighborhoods-filter"}
                   selected={selectedNeighborhoods[neighborhood] === 1}
                   mb={0.5}
                   onClick={() => handleNeighborhoods(neighborhood)}
-                  color={`secondary_peach_wod`}
                 >
                   {neighborhoods[neighborhood]}
-                </ButtonInput>
+                </ButtonInputBackground>
               ))}
     
               {noNeighborhoodSelected && (

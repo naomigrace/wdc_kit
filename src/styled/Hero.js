@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { imageResolver, handleWhiteTextOnDark } from "../styled/utils"
+import { imageResolver, handleWhiteTextOnDark } from "../utils"
 
 export const HeroTitle = styled.h1`
   color: ${props => props.theme.colors.neutral_white};

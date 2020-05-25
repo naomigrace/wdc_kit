@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { handleFont, handleColor, handleSpacing } from "./utils"
+import { handleFont, handleColor, handleSpacing } from "../utils"
 
 export default styled.p`
     ${props => handleFont(props)};

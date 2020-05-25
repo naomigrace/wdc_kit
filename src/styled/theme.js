@@ -55,6 +55,8 @@ export default {
       primary_opaque_wod: `rgba(101, 84, 192, 0.95), rgba(64, 50, 148, 0.65)`, 
       secondary_wod: `rgb(255, 87, 54), rgb(255, 65, 62)`,
       secondary_opaque_wod: `rgba(255, 65, 62, 0.95), rgba(255, 87, 54, 0.75)`,
+      secondary_peach_wod: `rgb(255, 62, 85, 1), rgb(255, 62, 85, 0.95)`,
+      secondary_peach_wod_opaque: `rgb(255, 62, 85, 0.95), rgb(255, 62, 85, 0.65)`,
       tertiary_wod: `rgb(23, 43, 77), rgb(64, 50, 148)`,
       neutral_dark_wod: `rgb(23, 43, 77), rgb(52, 53, 59)`,
       neutral: `rgb(255, 255, 255), rgb(206, 217, 235)`,

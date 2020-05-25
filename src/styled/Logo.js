@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { handleWhiteTextOnDark } from "../styled/utils"
+import { handleWhiteTextOnDark } from "../utils"
 
 export default styled.div`
     text-align: center;

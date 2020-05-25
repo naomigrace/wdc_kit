@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { handleWhiteTextOnDark, handleShadow, handleFont, handleSpacing } from "./utils"
+import { handleWhiteTextOnDark, handleShadow, handleFont, handleSpacing } from "../utils"
 
 export default styled.div`
   ${props => handleFont(props)}
