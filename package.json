@@ -1,6 +1,6 @@
 {
   "name": "wdc_kit",
-  "version": "0.0.29",
+  "version": "0.0.30",
   "description": "shared UI components for wannadc",
   "main": "dist/wdc_kit.cjs.js",
   "module": "dist/wdc_kit.esm.js",
@@ -20,7 +20,6 @@
   },
   "homepage": "https://github.com/naomigrace/wdc_kit#readme",
   "dependencies": {
-    "@styled-icons/entypo": "^10.0.0",
     "@styled-icons/material": "^10.0.0",
     "@styled-icons/material-outlined": "^10.0.0",
     "react-responsive": "^8.0.3"
@@ -46,6 +45,7 @@
     "@storybook/addons": "^5.3.18",
     "@storybook/react": "^5.3.18",
     "@storybook/storybook-deployer": "^2.8.6",
+    "@styled-icons/entypo": "^10.0.0",
     "babel-loader": "^8.1.0",
     "polished": "^3.5.2",
     "prettier": "2.0.4",

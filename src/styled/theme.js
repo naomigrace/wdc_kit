@@ -10,7 +10,7 @@ export default {
   },
   fonts: {
     family: {
-      serif: `'Trocchi', serif`,
+      serif: `Georgia, Cambria, "Times New Roman", Times, serif`,
       sans: `'Poppins', sans-serif`,
       display: `'Rozha One', serif`,
     },

@@ -1,7 +1,8 @@
 import React from "react"
 import Layout from "../components/Layout"
-import { OpenInNew } from "@styled-icons/material/OpenInNew"
-import { EventSeat } from "@styled-icons/material/EventSeat"
+import { Location } from "@styled-icons/entypo/Location"
+import { Popup as ExternalLink } from "@styled-icons/entypo/Popup"
+import { Ticket } from "@styled-icons/entypo/Ticket"
 import {
   Hero,
   HeroTitle,
@@ -18,13 +19,29 @@ import {
   MainBody_EventPage,
 } from "../index"
 import neighborhoods from "../configs/neighborhoods"
+import venues from "../configs/venues"
 
-export default ({ venue, title, date, description, neighborhood, link, tickets, handleBackButton }) => {
-
+export default ({
+  venue,
+  title,
+  date,
+  description,
+  neighborhood,
+  link,
+  tickets,
+  latitude,
+  longitude,
+  handleBackButton,
+  price,
+}) => {
   let formattedDate = new Date(date)
   let month = formattedDate.getMonth()
   let day = formattedDate.getDate()
-  let time = formattedDate.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+  let time = formattedDate.toLocaleString("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  })
 
   return (
     <Layout>
@@ -34,38 +51,89 @@ export default ({ venue, title, date, description, neighborhood, link, tickets, 
             <HeroTitle>{title}</HeroTitle>
           </Hero>
           <PageContainer>
-            <Label size={`sm`}>date &amp; time</Label>
-              <P size={`xl`} bold mb={0.5}>{`${month}/${day}`}</P>
-              <P size={`md`} serif mb={2}>{`${time}`}</P>
+            <FlexContainer>
+              <div style={{ marginRight: `70px` }}>
+                <Label size={`sm`}>date &amp; time</Label>
+                <P size={`xl`} serif mb={2}>
+                  {month}/{day} {time && `@ ${time}`}
+                </P>
+              </div>
 
-            {description && (<><Label size={`sm`}>description</Label>
-            <P size={`xl`} serif mb={2}>{description}</P></>)}
+              {price !== undefined && (
+                <div>
+                  <Label size={`sm`}>price</Label>
+                  <P size={`xl`} serif mb={2}>
+                    {price === 0 ? `free` : `$${price}`}
+                  </P>
+                </div>
+              )}
+            </FlexContainer>
+
+            {description && (
+              <>
+                <Label size={`sm`}>description</Label>
+                <P size={`xl`} serif mb={2}>
+                  {description}
+                </P>
+              </>
+            )}
 
             <Label size={`sm`}>neighborhood</Label>
-            <P size={`xl`} serif mb={2}>{neighborhoods[neighborhood]}</P>
+            <P size={`xl`} serif mb={2}>
+              {neighborhoods[neighborhood]}
+            </P>
+
+            <Label size={`sm`}>venue</Label>
+            <P size={`xl`} serif mb={2}>
+              {venues[venue]}
+            </P>
           </PageContainer>
         </div>
         <FooterContainer id="footer">
           <FooterActionBar>
             <BoxGradient gradient={`neutral_light`} padding={`chubby`}>
               <FlexContainer justifySpaceBetween wrapWrap>
-                  <BackButton onClick={handleBackButton} small openStyle color={`primary_mid_wod`} mb={0.75}>
-                    main map
-                  </BackButton>
-                <a href={link} target="_blank" rel="noopener noreferrer">
-                  <Button color={`primary_mid_wod`}>
-                    <IconTextStyle iconRight>more information</IconTextStyle>
-                    <OpenInNew size={`1rem`} />
-                  </Button>
-                </a>
-                {tickets && (
-                  <a href={tickets} target="_blank" rel="noopener noreferrer">
+                <BackButton
+                  onClick={handleBackButton}
+                  small
+                  openStyle
+                  color={`primary_mid_wod`}
+                  mb={0.75}
+                >
+                  main map
+                </BackButton>
+                <div>
+                  {link && (
+                    <a href={link} target="_blank" rel="noopener noreferrer">
+                      <Button color={`primary_mid_wod`}>
+                        <IconTextStyle iconRight>info</IconTextStyle>
+                        <ExternalLink size={`1rem`} />
+                      </Button>
+                    </a>
+                  )}
+                  {tickets && (
+                    <a href={tickets} target="_blank" rel="noopener noreferrer">
+                      <Button color={`primary_mid_wod`}>
+                        <IconTextStyle iconRight>tickets</IconTextStyle>
+                        <Ticket size={`1rem`} />
+                      </Button>
+                    </a>
+                  )}
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${encodeURI(
+                      `${latitude}, ${longitude}`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button color={`primary_mid_wod`}>
-                      <IconTextStyle iconRight>get tickets</IconTextStyle>
-                      <EventSeat size={`1rem`} />
+                      <IconTextStyle iconRight>
+                        google map directions
+                      </IconTextStyle>
+                      <Location size={`1rem`} />
                     </Button>
                   </a>
-                )}
+                </div>
               </FlexContainer>
             </BoxGradient>
           </FooterActionBar>
