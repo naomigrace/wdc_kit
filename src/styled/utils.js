@@ -124,7 +124,7 @@ export const handleSansFont = props => `
 export const handleSerifFont = props => `
 font-size: ${props.size ? getFontSize(props) : props.theme.fonts.size.regular};
 font-family: ${props.theme.fonts.family.serif};
-font-family: ${
+font-weight: ${
   props.bold
     ? `bold`
     : `regular`

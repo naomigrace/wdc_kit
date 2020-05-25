@@ -1209,7 +1209,7 @@ const handleSansFont = props => `
 const handleSerifFont = props => `
 font-size: ${props.size ? getFontSize(props) : props.theme.fonts.size.regular};
 font-family: ${props.theme.fonts.family.serif};
-font-family: ${props.bold ? `bold` : `regular`};
+font-weight: ${props.bold ? `bold` : `regular`};
 `;
 const handleShadow = props => `
   ${props.shadow && `box-shadow: ${props.theme.shadows[props.shadow]};`}
