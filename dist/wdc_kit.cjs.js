@@ -1842,7 +1842,7 @@ var P = styled__default.p`
 `;
 
 var PageContainer = styled__default.div`
-    margin: 0 auto 12rem auto;
+    margin: 0 auto 20rem auto;
     padding: 20px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -1916,7 +1916,7 @@ const EventStick = styled__default(props => /*#__PURE__*/React__default.createEl
   shadow: `sm`,
   padding: `mini`
 }, props)))`
-    width: 100%;
+    width: 95%;
     background-color: ${props => props.theme.colors.neutral_white};
     border: 1px solid ${props => props.theme.colors.primary_lightest};
     margin-bottom: 5px;
