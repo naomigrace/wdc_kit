@@ -1,6 +1,7 @@
 import buttonBase from "./buttonBase"
 import getFontSize from "./getFontSize"
 import handleColor from "./handleColor"
+import handleGradientHoverColor from "./handleGradientHoverColor"
 import { handleFont } from "./handleFont"
 import handleIconStyle from "./handleIconStyle"
 import handleShadow from "./handleShadow"
@@ -15,6 +16,7 @@ export {
     getFontSize,
     handleColor,
     handleFont,
+    handleGradientHoverColor,
     handleIconStyle,
     handleShadow,
     handleSpacing,

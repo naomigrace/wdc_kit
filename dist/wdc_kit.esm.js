@@ -1149,6 +1149,17 @@ const buttonBase = props => `
 
 const handleColor = props => props.color ? `color: ${props.theme.colors[props.color]}` : `color: ${props.theme.colors.neutral_black_wod}`;
 
+const handleGradientHoverColor = props => `      background: linear-gradient(
+    90deg,
+    ${props.theme.colors.primary_dark_wod},
+    ${props.theme.colors.secondary_peach_wod}
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  text-shadow: none;`;
+
 const getFontSize = props => {
   return props.size ? props.theme.fonts.size[props.size] : props.theme.fonts.size.base;
 };
@@ -1967,56 +1978,6 @@ var Tray = styled(motion.div)`
     }
 `;
 
-const EventStick = styled(props => /*#__PURE__*/React__default.createElement(Box, _extends$1({
-  shadow: `sm`,
-  padding: `mini`
-}, props)))`
-  width: 95%;
-  transition: all 250ms ease-in-out;
-  margin-bottom: 5px;
-
-  ${props => props.active ? `
-    ${handleWhiteTextOnDark(props, true)}
-    background: linear-gradient(${props.theme.gradients.primary_wod});
-    color: ${props.theme.colors.neutral_white};
-    ${EventDate}, ${Today}, ${EventTitle}, ${EventDescription}{
-      color: ${props.theme.colors.neutral_white};
-    }
-    &:hover,
-    &:active {
-      background: linear-gradient(${props.theme.gradients.tertiary_wod});
-      transform: translateY(-2px);
-    }
-    ` : `
-    background-color: ${props.theme.colors.neutral_white};
-    border: 1px solid ${props.theme.colors.primary_lightest};
-    &:hover,
-    &:active {
-      box-shadow: ${props.theme.shadows.base};
-      transform: translateY(-2px);
-      background: linear-gradient(
-        90deg,
-        ${props.theme.colors.primary_dark_wod},
-        ${props.theme.colors.secondary_peach_wod}
-      );
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-box-decoration-break: clone;
-      box-decoration-break: clone;
-      text-shadow: none;
-    }
-    `}
-
-  &:active {
-    transform: scale(0.99);
-    cursor: pointer;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
-  }
-`;
 const EventTitle = styled(props => /*#__PURE__*/React__default.createElement(P, _extends$1({
   bold: true,
   size: `md`
@@ -2027,7 +1988,7 @@ const EventDate = styled.time`
   color: ${props => props.theme.colors.neutral_mid_wod};
   font-family: ${props => props.theme.fonts.family.display};
   font-size: 2rem;
-  margin: auto 1rem auto 0;
+  margin: auto 0.75rem auto 0;
   padding-right: 0.75rem;
   text-align: right;
   min-width: 100px;
@@ -2037,7 +1998,7 @@ const Today = styled.time`
   color: ${props => props.theme.colors.neutral_mid_wod};
   font-family: ${props => props.theme.fonts.family.display};
   font-size: 1.75rem;
-  margin: auto 1rem auto 0;
+  margin: auto 0.75rem auto 0;
   padding-right: 0.75rem;
   letter-spacing: 1px;
   text-align: right;
@@ -2047,6 +2008,61 @@ const Today = styled.time`
 const EventDescription = styled(P)`
   letter-spacing: 2px;
   color: grey;
+`;
+const EventStick = styled(props => /*#__PURE__*/React__default.createElement(Box, _extends$1({
+  shadow: `sm`,
+  padding: `mini`
+}, props)))`
+  width: 95%;
+  transition: all 250ms ease-in-out;
+  margin-bottom: 5px;
+
+  &:active {
+    transform: scale(0.99);
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
+  }
+
+  &:hover,
+  &:active {
+    box-shadow: ${props => props.theme.shadows.base};
+    transform: translateY(-2px);
+  }
+
+  &:hover {
+    ${EventTitle}, ${EventDescription}{
+      ${props => !props.active && handleGradientHoverColor(props)};
+    }
+    ${EventDate}, ${Today}{
+      color: ${props => props.theme.colors.primary_dark_wod};
+    }
+  }
+
+
+  ${props => props.active ? `
+    ${handleWhiteTextOnDark(props, true)}
+    background: linear-gradient(${props.theme.gradients.primary_wod});
+    color: ${props.theme.colors.neutral_white} !important;
+    ${EventDate}, ${Today}, ${EventTitle}, ${EventDescription}{
+      color: ${props.theme.colors.neutral_white} !important;
+    }
+    &:hover,
+    &:active {
+      background: linear-gradient(${props.theme.gradients.tertiary_wod});
+      color: ${props.theme.colors.neutral_white} !important;
+      ${EventDate}, ${Today}, ${EventTitle}, ${EventDescription}{
+        color: ${props.theme.colors.neutral_white} !important;
+      }
+    }
+    ` : `
+    background-color: ${props.theme.colors.neutral_white};
+    border: 1px solid ${props.theme.colors.primary_lightest};
+
+    `}
 `;
 var EventStick$1 = (({
   title,
