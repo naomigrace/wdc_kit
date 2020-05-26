@@ -66,7 +66,7 @@ const EventDate = styled.time`
   color: ${props => props.theme.colors.neutral_mid_wod};
   font-family: ${props => props.theme.fonts.family.display};
   font-size: 2rem;
-  margin: auto 1rem auto 0;
+  margin: auto 0.75rem auto 0;
   padding-right: 0.75rem;
   text-align: right;
   min-width: 100px;
@@ -76,7 +76,7 @@ const Today = styled.time`
   color: ${props => props.theme.colors.neutral_mid_wod};
   font-family: ${props => props.theme.fonts.family.display};
   font-size: 1.75rem;
-  margin: auto 1rem auto 0;
+  margin: auto 0.75rem auto 0;
   padding-right: 0.75rem;
   letter-spacing: 1px;
   text-align: right;
