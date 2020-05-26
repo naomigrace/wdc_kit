@@ -7,6 +7,7 @@ import handleShadow from "./handleShadow"
 import handleSpacing from "./handleSpacing"
 import handleWhiteTextOnDark from "./handleWhiteTextOnDark"
 import imageResolver from "./imageResolver"
+import isAfterThisYear from "./isAfterThisYear"
 import isToday from "./isToday"
 
 export {
@@ -19,5 +20,6 @@ export {
     handleSpacing,
     handleWhiteTextOnDark,
     imageResolver,
+    isAfterThisYear,
     isToday
 }

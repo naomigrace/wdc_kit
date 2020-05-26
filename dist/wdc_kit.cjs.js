@@ -10,6 +10,7 @@ var React = require('react');
 var React__default = _interopDefault(React);
 var PropTypes = _interopDefault(require('prop-types'));
 var reactResponsive = require('react-responsive');
+var framerMotion = require('framer-motion');
 
 var theme = {
   breakpoints: {
@@ -1266,6 +1267,11 @@ const imageResolver = machine_name => {
   }[machine_name];
 };
 
+const isAfterThisYear = someDate => {
+  const today = new Date();
+  return someDate.getFullYear() > today.getFullYear();
+};
+
 const isToday = someDate => {
   const today = new Date();
   return someDate.getDate() == today.getDate() && someDate.getMonth() == today.getMonth() && someDate.getFullYear() == today.getFullYear();
@@ -1939,8 +1945,9 @@ const ScrollToTopIconContainer = styled__default.div`
   }
 `;
 
-const TrayNavigation = styled__default.div`
-    display: block;
+const TrayNavigation = styled__default(framerMotion.motion.div)`
+    display: flex;
+    justify-content: center;
     position: fixed;
     width: 100%;
     margin: -60px 0;
@@ -1953,7 +1960,7 @@ const TrayContent = styled__default.div`
         margin: 0 auto;
     }
 `;
-var Tray = styled__default.div`
+var Tray = styled__default(framerMotion.motion.div)`
     width: 100vw;
     height: 40%;
     z-index: 0;
@@ -1995,7 +2002,6 @@ const EventStick = styled__default(props => /*#__PURE__*/React__default.createEl
     &:active {
       box-shadow: ${props.theme.shadows.base};
       transform: translateY(-2px);
-      cursor: pointer;
       background: linear-gradient(
         90deg,
         ${props.theme.colors.primary_dark_wod},
@@ -2011,6 +2017,12 @@ const EventStick = styled__default(props => /*#__PURE__*/React__default.createEl
 
   &:active {
     transform: scale(0.99);
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
   }
 `;
 const EventTitle = styled__default(props => /*#__PURE__*/React__default.createElement(P, _extends$1({
@@ -2024,7 +2036,7 @@ const EventDate = styled__default.time`
   font-family: ${props => props.theme.fonts.family.display};
   font-size: 2rem;
   margin: auto 1rem auto 0;
-  padding-right: 1rem;
+  padding-right: 0.75rem;
   text-align: right;
   min-width: 100px;
   border-right: 1px solid ${props => props.theme.colors.neutral_grey};
@@ -2034,7 +2046,7 @@ const Today = styled__default.time`
   font-family: ${props => props.theme.fonts.family.display};
   font-size: 1.75rem;
   margin: auto 1rem auto 0;
-  padding-right: 1rem;
+  padding-right: 0.75rem;
   letter-spacing: 1px;
   text-align: right;
   min-width: 100px;
@@ -2053,12 +2065,16 @@ var EventStick$1 = (({
   let formattedDate = new Date(date);
   let month = formattedDate.getMonth() + 1;
   let day = formattedDate.getDate();
+  let year = formattedDate.getFullYear();
   let dateIsToday = isToday(formattedDate);
-  return /*#__PURE__*/React__default.createElement(EventStick, rest, /*#__PURE__*/React__default.createElement(FlexContainer, null, dateIsToday ? /*#__PURE__*/React__default.createElement(Today, {
+  let afterThisYear = isAfterThisYear(formattedDate);
+  return /*#__PURE__*/React__default.createElement(EventStick, _extends$1({}, rest, {
+    tabIndex: 0
+  }), /*#__PURE__*/React__default.createElement(FlexContainer, null, dateIsToday ? /*#__PURE__*/React__default.createElement(Today, {
     datetime: date
   }, "TODAY") : /*#__PURE__*/React__default.createElement(EventDate, {
     datetime: date
-  }, month, "/", day), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, title), description && description.length && /*#__PURE__*/React__default.createElement(EventDescription, null, description.toUpperCase()))));
+  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, title), description && description.length && /*#__PURE__*/React__default.createElement(EventDescription, null, description.toUpperCase()))));
 });
 
 class ScrollWrapper extends React__default.Component {

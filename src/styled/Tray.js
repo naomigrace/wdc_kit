@@ -1,7 +1,9 @@
 import styled from "styled-components"
+import { motion } from "framer-motion"
 
-export const TrayNavigation = styled.div`
-    display: block;
+export const TrayNavigation = styled(motion.div)`
+    display: flex;
+    justify-content: center;
     position: fixed;
     width: 100%;
     margin: -60px 0;
@@ -16,7 +18,7 @@ export const TrayContent = styled.div`
     }
 `
 
-export default styled.div`
+export default styled(motion.div)`
     width: 100vw;
     height: 40%;
     z-index: 0;

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import Box from "../styled/Box"
 import P from "../styled/P"
 import FlexContainer from "../styled/FlexContainer"
-import { isToday, handleWhiteTextOnDark } from "../utils"
+import { isToday, handleWhiteTextOnDark, isAfterThisYear } from "../utils"
 
 const EventStick = styled(props => (
   <Box shadow={`sm`} padding={`mini`} {...props} />
@@ -12,8 +12,9 @@ const EventStick = styled(props => (
   transition: all 250ms ease-in-out;
   margin-bottom: 5px;
 
-  ${props => props.active
-    ? `
+  ${props =>
+    props.active
+      ? `
     ${handleWhiteTextOnDark(props, true)}
     background: linear-gradient(${props.theme.gradients.primary_wod});
     color: ${props.theme.colors.neutral_white};
@@ -26,14 +27,13 @@ const EventStick = styled(props => (
       transform: translateY(-2px);
     }
     `
-    : `
+      : `
     background-color: ${props.theme.colors.neutral_white};
     border: 1px solid ${props.theme.colors.primary_lightest};
     &:hover,
     &:active {
       box-shadow: ${props.theme.shadows.base};
       transform: translateY(-2px);
-      cursor: pointer;
       background: linear-gradient(
         90deg,
         ${props.theme.colors.primary_dark_wod},
@@ -49,6 +49,12 @@ const EventStick = styled(props => (
 
   &:active {
     transform: scale(0.99);
+    cursor: pointer;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
   }
 `
 
@@ -61,7 +67,7 @@ const EventDate = styled.time`
   font-family: ${props => props.theme.fonts.family.display};
   font-size: 2rem;
   margin: auto 1rem auto 0;
-  padding-right: 1rem;
+  padding-right: 0.75rem;
   text-align: right;
   min-width: 100px;
   border-right: 1px solid ${props => props.theme.colors.neutral_grey};
@@ -71,7 +77,7 @@ const Today = styled.time`
   font-family: ${props => props.theme.fonts.family.display};
   font-size: 1.75rem;
   margin: auto 1rem auto 0;
-  padding-right: 1rem;
+  padding-right: 0.75rem;
   letter-spacing: 1px;
   text-align: right;
   min-width: 100px;
@@ -87,16 +93,20 @@ export default ({ title, description, date, ...rest }) => {
   let formattedDate = new Date(date)
   let month = formattedDate.getMonth() + 1
   let day = formattedDate.getDate()
+  let year = formattedDate.getFullYear()
 
   let dateIsToday = isToday(formattedDate)
+  let afterThisYear = isAfterThisYear(formattedDate)
+
   return (
-    <EventStick {...rest}>
+    <EventStick {...rest} tabIndex={0}>
       <FlexContainer>
         {dateIsToday ? (
           <Today datetime={date}>TODAY</Today>
         ) : (
           <EventDate datetime={date}>
             {month}/{day}
+            {afterThisYear && `/${year.toString().slice(2)}`}
           </EventDate>
         )}
         <div>
