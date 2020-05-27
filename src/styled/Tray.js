@@ -17,7 +17,7 @@ export const TrayContent = styled.div`
     }
 `
 
-export default styled(div)`
+export default styled.div`
     width: 100vw;
     height: 40%;
     z-index: 0;

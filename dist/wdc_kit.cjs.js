@@ -1971,7 +1971,7 @@ const TrayContent = styled__default.div`
         margin: 0 auto;
     }
 `;
-var Tray = styled__default(div)`
+var Tray = styled__default.div`
     width: 100vw;
     height: 40%;
     z-index: 0;

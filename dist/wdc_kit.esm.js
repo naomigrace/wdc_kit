@@ -1963,7 +1963,7 @@ const TrayContent = styled.div`
         margin: 0 auto;
     }
 `;
-var Tray = styled(div)`
+var Tray = styled.div`
     width: 100vw;
     height: 40%;
     z-index: 0;
