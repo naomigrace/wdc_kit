@@ -1956,7 +1956,7 @@ const ScrollToTopIconContainer = styled__default.div`
   }
 `;
 
-const TrayNavigation = styled__default(framerMotion.motion.div)`
+const TrayNavigation = styled__default(div)`
     display: flex;
     justify-content: center;
     position: fixed;
@@ -1971,7 +1971,7 @@ const TrayContent = styled__default.div`
         margin: 0 auto;
     }
 `;
-var Tray = styled__default(framerMotion.motion.div)`
+var Tray = styled__default(div)`
     width: 100vw;
     height: 40%;
     z-index: 0;
@@ -2409,6 +2409,30 @@ const useFilterBox = ({
   };
 };
 
+var dcIllustration = "e2070f9a55151199.svg";
+
+const NotFoundHeading = styled__default.h1`
+    font-family: ${props => props.theme.fonts.family.display};
+`;
+const NotFoundContainer = styled__default(framerMotion.motion.div)`
+    width: 400px;
+    text-align: center;
+`;
+
+const NotFound404 = (...props) => {
+  return /*#__PURE__*/React__default.createElement(NotFoundContainer, props, /*#__PURE__*/React__default.createElement("img", {
+    src: dcIllustration,
+    alt: "illustration of washington dc",
+    width: 300
+  }), /*#__PURE__*/React__default.createElement(NotFoundHeading, null, "Event not found..."), /*#__PURE__*/React__default.createElement(P, null, "This is awkward, but we don't have an event here. We scrape for fresh events every day, so urls will change."), /*#__PURE__*/React__default.createElement("a", {
+    href: "/"
+  }, /*#__PURE__*/React__default.createElement(Button, {
+    bold: true,
+    color: `tertiary_mid_wod`,
+    mt: 1
+  }, "find new events")));
+};
+
 exports.BackButton = BackButton;
 exports.Box = Box;
 exports.BoxGradient = BoxGradient;
@@ -2434,6 +2458,7 @@ exports.Label = Label;
 exports.Logo = Logo;
 exports.MainBody_EventPage = MainBody_EventPage;
 exports.MainBody_HomePage = MainBody_HomePage;
+exports.NotFound = NotFound404;
 exports.P = P;
 exports.PageContainer = PageContainer;
 exports.ScrollToTopIconContainer = ScrollToTopIconContainer;

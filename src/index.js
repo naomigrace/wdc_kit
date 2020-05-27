@@ -32,6 +32,7 @@ import ScrollWrapper from "./components/ScrollWrapper"
 import ButtonInput from "./components/ButtonInput"
 import ButtonInputBackground from "./components/ButtonInputBackground"
 import useFilterBox from "./components/useFilterBox"
+import NotFound from "./components/NotFound"
 
 export {
   //
@@ -72,6 +73,7 @@ export {
   ScrollWrapper,
   ButtonInput,
   ButtonInputBackground,
-  useFilterBox
+  useFilterBox,
+  NotFound,
   //
 }

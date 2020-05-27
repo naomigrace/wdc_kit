@@ -1948,7 +1948,7 @@ const ScrollToTopIconContainer = styled.div`
   }
 `;
 
-const TrayNavigation = styled(motion.div)`
+const TrayNavigation = styled(div)`
     display: flex;
     justify-content: center;
     position: fixed;
@@ -1963,7 +1963,7 @@ const TrayContent = styled.div`
         margin: 0 auto;
     }
 `;
-var Tray = styled(motion.div)`
+var Tray = styled(div)`
     width: 100vw;
     height: 40%;
     z-index: 0;
@@ -2401,5 +2401,29 @@ const useFilterBox = ({
   };
 };
 
-export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, StyledHeader as Header, Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Logo, MainBody_EventPage, MainBody_HomePage, P, PageContainer, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox };
+var dcIllustration = "e2070f9a55151199.svg";
+
+const NotFoundHeading = styled.h1`
+    font-family: ${props => props.theme.fonts.family.display};
+`;
+const NotFoundContainer = styled(motion.div)`
+    width: 400px;
+    text-align: center;
+`;
+
+const NotFound404 = (...props) => {
+  return /*#__PURE__*/React__default.createElement(NotFoundContainer, props, /*#__PURE__*/React__default.createElement("img", {
+    src: dcIllustration,
+    alt: "illustration of washington dc",
+    width: 300
+  }), /*#__PURE__*/React__default.createElement(NotFoundHeading, null, "Event not found..."), /*#__PURE__*/React__default.createElement(P, null, "This is awkward, but we don't have an event here. We scrape for fresh events every day, so urls will change."), /*#__PURE__*/React__default.createElement("a", {
+    href: "/"
+  }, /*#__PURE__*/React__default.createElement(Button, {
+    bold: true,
+    color: `tertiary_mid_wod`,
+    mt: 1
+  }, "find new events")));
+};
+
+export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, StyledHeader as Header, Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox };
 //# sourceMappingURL=wdc_kit.esm.js.map

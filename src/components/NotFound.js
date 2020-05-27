@@ -2,7 +2,8 @@ import React from "react"
 import dcIllustration from "../images/washington_dc.svg"
 import { motion } from "framer-motion"
 import styled from "styled-components"
-import { P, Button } from ".."
+import P from "../styled/P"
+import Button from "../styled/Button"
 
 const NotFoundHeading = styled.h1`
     font-family: ${props => props.theme.fonts.family.display};
