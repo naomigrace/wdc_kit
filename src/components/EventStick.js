@@ -48,20 +48,11 @@ const EventStick = styled(props => (
   transition: all 250ms ease-in-out;
   margin-bottom: 5px;
 
-  &:active {
-    transform: scale(0.99);
-    cursor: pointer;
-  }
-
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
-  }
-
   &:hover,
   &:active {
     box-shadow: ${props => props.theme.shadows.base};
     transform: translateY(-2px);
+    cursor: pointer;
   }
 
   &:hover {
@@ -98,6 +89,15 @@ const EventStick = styled(props => (
     border: 1px solid ${props.theme.colors.primary_lightest};
 
     `}
+    &:active,
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
+    }
+  
+    &:active {
+      transform: scale(0.99);
+    }
 `
 
 export default ({ title, description, date, ...rest }) => {
