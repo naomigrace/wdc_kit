@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const TrayNavigation = styled(div)`
+export const TrayNavigation = styled.div`
     display: flex;
     justify-content: center;
     position: fixed;

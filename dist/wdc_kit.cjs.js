@@ -1956,7 +1956,7 @@ const ScrollToTopIconContainer = styled__default.div`
   }
 `;
 
-const TrayNavigation = styled__default(div)`
+const TrayNavigation = styled__default.div`
     display: flex;
     justify-content: center;
     position: fixed;
