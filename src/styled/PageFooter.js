@@ -3,8 +3,7 @@ import BoxGradient from "./BoxGradient"
 import Button from "./Button"
 
 export const FooterContainer = styled.div`
-  position: fixed;
-  bottom: 0;
+  position: relative;
   width: 100%;
 
 `
@@ -38,10 +37,7 @@ export const FooterActionBar = styled.div`
   }
 
   ${BoxGradient} {
-    border-top-left-radius: ${props => props.theme.radius.baby};
-    border-top-right-radius: ${props => props.theme.radius.baby};
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: ${props => props.theme.radius.baby};
     box-shadow: ${props => props.theme.shadows.base_reverse};
   }
 `

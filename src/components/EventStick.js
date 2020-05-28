@@ -11,7 +11,9 @@ import {
 } from "../utils"
 
 const EventTitle = styled(props => <P bold size={`md`} {...props} />)`
+  color: ${props => props.theme.colors.tertiary_mid_wod};
   letter-spacing: 2px;
+  word-break: break-all;
 `
 
 const EventDate = styled.time`
@@ -39,6 +41,7 @@ const Today = styled.time`
 const EventDescription = styled(P)`
   letter-spacing: 2px;
   color: grey;
+  word-break: break-all;
 `
 
 const EventStick = styled(props => (

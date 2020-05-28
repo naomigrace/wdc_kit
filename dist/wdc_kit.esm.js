@@ -1493,7 +1493,7 @@ function filterSVGProps(props) {
   }, {});
 }
 
-const StyledIconBaseBase = forwardRef((props, ref) => {
+const StyledIconBaseBase = /*#__PURE__*/forwardRef((props, ref) => {
   const {
     children,
     iconAttrs,
@@ -1513,9 +1513,9 @@ const StyledIconBaseBase = forwardRef((props, ref) => {
     role: title != null ? 'img' : undefined
   }, iconAttrs);
   const svgProps = filterSVGProps(otherProps);
-  return createElement("svg", Object.assign({}, iconProps, svgProps, {
+  return /*#__PURE__*/createElement("svg", Object.assign({}, iconProps, svgProps, {
     ref: ref
-  }), title && createElement("title", {
+  }), title && /*#__PURE__*/createElement("title", {
     key: "icon-title"
   }, title), children);
 });
@@ -1525,21 +1525,21 @@ const StyledIconBase = styled(StyledIconBaseBase)`
   overflow: hidden;
 `;
 
-var Close = forwardRef(function (props, ref) {
+var Close = /*#__PURE__*/forwardRef(function (props, ref) {
   var attrs = {
     "fill": "currentColor",
     "xmlns": "http://www.w3.org/2000/svg"
   };
-  return createElement(StyledIconBase, __assign({
+  return /*#__PURE__*/createElement(StyledIconBase, __assign({
     iconAttrs: attrs,
     iconVerticalAlign: "middle",
     iconViewBox: "0 0 24 24"
   }, props, {
     ref: ref
-  }), createElement("path", {
+  }), /*#__PURE__*/createElement("path", {
     d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z",
     key: "k0"
-  }), createElement("path", {
+  }), /*#__PURE__*/createElement("path", {
     fill: "none",
     d: "M0 0h24v24H0z",
     key: "k1"
@@ -1547,44 +1547,44 @@ var Close = forwardRef(function (props, ref) {
 });
 Close.displayName = 'Close';
 
-var ArrowUpward = forwardRef(function (props, ref) {
+var ArrowUpward = /*#__PURE__*/forwardRef(function (props, ref) {
   var attrs = {
     "fill": "currentColor",
     "xmlns": "http://www.w3.org/2000/svg"
   };
-  return createElement(StyledIconBase, __assign({
+  return /*#__PURE__*/createElement(StyledIconBase, __assign({
     iconAttrs: attrs,
     iconVerticalAlign: "middle",
     iconViewBox: "0 0 24 24"
   }, props, {
     ref: ref
-  }), createElement("path", {
+  }), /*#__PURE__*/createElement("path", {
     fill: "none",
     d: "M0 0h24v24H0V0z",
     key: "k0"
-  }), createElement("path", {
+  }), /*#__PURE__*/createElement("path", {
     d: "M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z",
     key: "k1"
   }));
 });
 ArrowUpward.displayName = 'ArrowUpward';
 
-var ArrowBack = forwardRef(function (props, ref) {
+var ArrowBack = /*#__PURE__*/forwardRef(function (props, ref) {
   var attrs = {
     "fill": "currentColor",
     "xmlns": "http://www.w3.org/2000/svg"
   };
-  return createElement(StyledIconBase, __assign({
+  return /*#__PURE__*/createElement(StyledIconBase, __assign({
     iconAttrs: attrs,
     iconVerticalAlign: "middle",
     iconViewBox: "0 0 24 24"
   }, props, {
     ref: ref
-  }), createElement("path", {
+  }), /*#__PURE__*/createElement("path", {
     fill: "none",
     d: "M0 0h24v24H0V0z",
     key: "k0"
-  }), createElement("path", {
+  }), /*#__PURE__*/createElement("path", {
     d: "M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z",
     key: "k1"
   }));
@@ -1648,8 +1648,7 @@ const BackButton = ({
 }, children)));
 
 const FooterContainer = styled.div`
-  position: fixed;
-  bottom: 0;
+  position: relative;
   width: 100%;
 
 `;
@@ -1682,10 +1681,7 @@ const FooterActionBar = styled.div`
   }
 
   ${BoxGradient} {
-    border-top-left-radius: ${props => props.theme.radius.baby};
-    border-top-right-radius: ${props => props.theme.radius.baby};
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    border-radius: ${props => props.theme.radius.baby};
     box-shadow: ${props => props.theme.shadows.base_reverse};
   }
 `;
@@ -1907,7 +1903,7 @@ var P = styled.p`
 `;
 
 var PageContainer = styled.div`
-    margin: 0 auto 20rem auto;
+    margin: 0 auto;
     padding: 20px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -1916,7 +1912,7 @@ var PageContainer = styled.div`
     
     ${props => props.theme.breakpoints.desktop} {
         max-width: 960px;
-        margin: 0 auto 10rem auto;
+        margin: 0 auto;
     }
 `;
 
@@ -1982,7 +1978,9 @@ const EventTitle = styled(props => /*#__PURE__*/React__default.createElement(P, 
   bold: true,
   size: `md`
 }, props)))`
+  color: ${props => props.theme.colors.tertiary_mid_wod};
   letter-spacing: 2px;
+  word-break: break-all;
 `;
 const EventDate = styled.time`
   color: ${props => props.theme.colors.neutral_mid_wod};
@@ -2008,6 +2006,7 @@ const Today = styled.time`
 const EventDescription = styled(P)`
   letter-spacing: 2px;
   color: grey;
+  word-break: break-all;
 `;
 const EventStick = styled(props => /*#__PURE__*/React__default.createElement(Box, _extends$1({
   shadow: `sm`,
@@ -2133,18 +2132,18 @@ class ScrollWrapper extends React__default.Component {
 
 }
 
-var Check = forwardRef(function (props, ref) {
+var Check = /*#__PURE__*/forwardRef(function (props, ref) {
   var attrs = {
     "fill": "currentColor",
     "xmlns": "http://www.w3.org/2000/svg"
   };
-  return createElement(StyledIconBase, __assign({
+  return /*#__PURE__*/createElement(StyledIconBase, __assign({
     iconAttrs: attrs,
     iconVerticalAlign: "middle",
     iconViewBox: "0 0 20 20"
   }, props, {
     ref: ref
-  }), createElement("path", {
+  }), /*#__PURE__*/createElement("path", {
     d: "M8.294 16.998c-.435 0-.847-.203-1.111-.553L3.61 11.724a1.392 1.392 0 01.27-1.951 1.392 1.392 0 011.953.27l2.351 3.104 5.911-9.492a1.396 1.396 0 011.921-.445c.653.406.854 1.266.446 1.92L9.478 16.34a1.39 1.39 0 01-1.12.656c-.022.002-.042.002-.064.002z",
     key: "k0"
   }));
