@@ -1980,12 +1980,12 @@ const EventTitle = styled(props => /*#__PURE__*/React__default.createElement(P, 
 }, props)))`
   color: ${props => props.theme.colors.tertiary_mid_wod};
   letter-spacing: 2px;
-  word-break: break-all;
+  hyphens: auto;
 `;
 const EventDate = styled.time`
   color: ${props => props.theme.colors.neutral_mid_wod};
   font-family: ${props => props.theme.fonts.family.display};
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin: auto 0.75rem auto 0;
   padding-right: 0.75rem;
   text-align: right;
@@ -2006,7 +2006,7 @@ const Today = styled.time`
 const EventDescription = styled(P)`
   letter-spacing: 2px;
   color: grey;
-  word-break: break-all;
+  hyphens: auto;
 `;
 const EventStick = styled(props => /*#__PURE__*/React__default.createElement(Box, _extends$1({
   shadow: `sm`,
