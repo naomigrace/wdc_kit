@@ -44,8 +44,29 @@ const EventDescription = styled(P)`
   hyphens: auto;
 `
 
+const LoadingLine = styled.div`
+  position: relative;
+  height: 5px;
+  background: #777;
+  margin-top: -5px;
+  border-bottom-left-radius: ${props => props.theme.radius.mini};
+  border-bottom-right-radius: ${props => props.theme.radius.mini};
+  animation : shimmer 2s infinite linear;
+  background: linear-gradient(to right, rgb(192, 182, 242, 0.6) 4%, ${props => props.theme.colors.primary_light} 25%, rgb(192, 182, 242, 0.4) 36%);
+  background-size: 1000px 100%;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+`
+
 const EventStick = styled(props => (
-  <Box shadow={`sm`} padding={`mini`} {...props} />
+  <Box shadow={`sm`} padding={`none`} {...props} />
 ))`
   width: 95%;
   transition: all 250ms ease-in-out;
@@ -66,7 +87,6 @@ const EventStick = styled(props => (
       color: ${props => props.theme.colors.primary_dark_wod};
     }
   }
-
 
   ${props =>
     props.active
@@ -101,9 +121,14 @@ const EventStick = styled(props => (
     &:active {
       transform: scale(0.99);
     }
+
+    padding: 0px;
+    ${FlexContainer}{
+      padding: 8px;
+    }
 `
 
-export default ({ title, description, date, ...rest }) => {
+export default ({ title, description, date, isLoading, ...rest }) => {
   let formattedDate = new Date(date)
   let month = formattedDate.getMonth() + 1
   let day = formattedDate.getDate()
@@ -130,6 +155,7 @@ export default ({ title, description, date, ...rest }) => {
           )}
         </div>
       </FlexContainer>
+      {isLoading && <LoadingLine/>}
     </EventStick>
   )
 }

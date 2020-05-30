@@ -2008,9 +2008,29 @@ const EventDescription = styled(P)`
   color: grey;
   hyphens: auto;
 `;
+const LoadingLine = styled.div`
+  position: relative;
+  height: 5px;
+  background: #777;
+  margin-top: -5px;
+  border-bottom-left-radius: ${props => props.theme.radius.mini};
+  border-bottom-right-radius: ${props => props.theme.radius.mini};
+  animation : shimmer 2s infinite linear;
+  background: linear-gradient(to right, rgb(192, 182, 242, 0.6) 4%, ${props => props.theme.colors.primary_light} 25%, rgb(192, 182, 242, 0.4) 36%);
+  background-size: 1000px 100%;
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+`;
 const EventStick = styled(props => /*#__PURE__*/React__default.createElement(Box, _extends$1({
   shadow: `sm`,
-  padding: `mini`
+  padding: `none`
 }, props)))`
   width: 95%;
   transition: all 250ms ease-in-out;
@@ -2031,7 +2051,6 @@ const EventStick = styled(props => /*#__PURE__*/React__default.createElement(Box
       color: ${props => props.theme.colors.primary_dark_wod};
     }
   }
-
 
   ${props => props.active ? `
     ${handleWhiteTextOnDark(props, true)}
@@ -2062,11 +2081,17 @@ const EventStick = styled(props => /*#__PURE__*/React__default.createElement(Box
     &:active {
       transform: scale(0.99);
     }
+
+    padding: 0px;
+    ${FlexContainer}{
+      padding: 8px;
+    }
 `;
 var EventStick$1 = (({
   title,
   description,
   date,
+  isLoading,
   ...rest
 }) => {
   let formattedDate = new Date(date);
@@ -2081,7 +2106,7 @@ var EventStick$1 = (({
     datetime: date
   }, "TODAY") : /*#__PURE__*/React__default.createElement(EventDate, {
     datetime: date
-  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, title), description && description.length && /*#__PURE__*/React__default.createElement(EventDescription, null, description.toUpperCase()))));
+  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, title), description && description.length && /*#__PURE__*/React__default.createElement(EventDescription, null, description.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
 });
 
 class ScrollWrapper extends React__default.Component {
