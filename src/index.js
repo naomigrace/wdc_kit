@@ -4,6 +4,7 @@ import BoxGradient from "./styled/BoxGradient"
 import Button from "./styled/Button"
 import ButtonBackground from "./styled/ButtonBackground"
 import ButtonOpen from "./styled/ButtonOpen"
+import CenterContainer from "./styled/CenterContainer"
 import { CloseButton, UpButton, BackButton } from "./styled/ButtonIcon"
 import { FooterContainer, FooterActionBar } from "./styled/PageFooter"
 import FlexContainer from "./styled/FlexContainer"
@@ -47,6 +48,7 @@ export {
   Button,
   ButtonBackground,
   ButtonOpen,
+  CenterContainer, 
   CloseButton,
   FlexContainer,
   FormAlert,

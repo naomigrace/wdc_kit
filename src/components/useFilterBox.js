@@ -12,9 +12,10 @@ import ButtonInputBackground from "./ButtonInputBackground"
 const useFilterBox = ({ filterState }) => {
   const [justToday, setJustToday] = useState(filterState.justToday)
   const [price, setPrice] = useState(filterState.price)
-  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState(filterState.neighborhoods)
+  const [selectedNeighborhoods, setSelectedNeighborhoods] = useState(
+    filterState.neighborhoods
+  )
   const [selectedVenues, setSelectedVenues] = useState(filterState.venues)
-
 
   const handlePrice = toggle => {
     setPrice({ ...price, [toggle]: 1 - (price[toggle] | 0) })
@@ -35,21 +36,21 @@ const useFilterBox = ({ filterState }) => {
   }
 
   const handleToggleSelectNeighborhoods = () => {
-    let toggleNeighborhoods = {...selectedNeighborhoods}
-    if(noNeighborhoodSelected){
-        Object.keys(toggleNeighborhoods).map(n => toggleNeighborhoods[n] = 1)
+    let toggleNeighborhoods = { ...selectedNeighborhoods }
+    if (noNeighborhoodSelected) {
+      Object.keys(toggleNeighborhoods).map(n => (toggleNeighborhoods[n] = 1))
     } else {
-        Object.keys(toggleNeighborhoods).map(n => toggleNeighborhoods[n] = 0)
+      Object.keys(toggleNeighborhoods).map(n => (toggleNeighborhoods[n] = 0))
     }
     setSelectedNeighborhoods(toggleNeighborhoods)
   }
 
   const handleToggleSelectVenues = () => {
-    let toggleVenues = {...selectedVenues}
-    if(noVenueSelected){
-        Object.keys(toggleVenues).map(v => toggleVenues[v] = 1)
+    let toggleVenues = { ...selectedVenues }
+    if (noVenueSelected) {
+      Object.keys(toggleVenues).map(v => (toggleVenues[v] = 1))
     } else {
-        Object.keys(toggleVenues).map(v => toggleVenues[v] = 0)
+      Object.keys(toggleVenues).map(v => (toggleVenues[v] = 0))
     }
     setSelectedVenues(toggleVenues)
   }
@@ -94,7 +95,7 @@ const useFilterBox = ({ filterState }) => {
               >
                 today and after
               </ButtonInput>
-    
+
               <Label id="price-filter" bold mt={1.5}>
                 price
               </Label>
@@ -116,13 +117,13 @@ const useFilterBox = ({ filterState }) => {
               >
                 not free
               </ButtonInput>
-    
+
               {noPriceSelected && (
                 <FormAlert href="#price-filter" id="price-filter-error">
                   please select a price filter
                 </FormAlert>
               )}
-    
+
               <Label id="neighborhoods-filter" bold mt={1.5}>
                 neighborhoods{" "}
                 <InlineLinkSpan
@@ -132,7 +133,9 @@ const useFilterBox = ({ filterState }) => {
                   name="deselect all neighborhoods"
                   onClick={() => handleToggleSelectNeighborhoods()}
                   onKeyPress={event => {
-                    event.key === "Enter" ? handleToggleSelectNeighborhoods() : null
+                    event.key === "Enter"
+                      ? handleToggleSelectNeighborhoods()
+                      : null
                   }}
                 >
                   {noNeighborhoodSelected ? `select all?` : `deselect all?`}
@@ -151,7 +154,7 @@ const useFilterBox = ({ filterState }) => {
                   {neighborhoods[neighborhood]}
                 </ButtonInputBackground>
               ))}
-    
+
               {noNeighborhoodSelected && (
                 <FormAlert
                   href="#neighborhoods-filter"
@@ -160,7 +163,7 @@ const useFilterBox = ({ filterState }) => {
                   please select a neighborhood filter
                 </FormAlert>
               )}
-    
+
               <Label bold mt={1.5} id="venues-filter">
                 venues{" "}
                 <InlineLinkSpan
@@ -175,6 +178,7 @@ const useFilterBox = ({ filterState }) => {
               </Label>
               {Object.keys(venues).map(venue => (
                 <ButtonInputBackground
+                  small
                   key={venue}
                   labelID={"venues-filter"}
                   selected={selectedVenues[venue]}
@@ -185,7 +189,7 @@ const useFilterBox = ({ filterState }) => {
                   {venues[venue]}
                 </ButtonInputBackground>
               ))}
-    
+
               {noVenueSelected && (
                 <FormAlert href="#venues-filter" id="venues-filter-error">
                   please select a venue filter
@@ -195,9 +199,8 @@ const useFilterBox = ({ filterState }) => {
           </form>
         </Box>
       )
-    }
+    },
   }
-
 }
 
 export default useFilterBox

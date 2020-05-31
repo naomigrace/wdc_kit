@@ -12,7 +12,7 @@ const ButtonInput = ({ selected, labelID, children, ...rest }) => {
       color={`primary_mid_wod`}
       aria-labelledby={labelID}
       aria-checked={"true"}
-      style={{paddingRight: `37px`}}
+      style={{paddingRight: rest.small ? `26px` : `36px`}}
       {...rest}
     >
       {children}

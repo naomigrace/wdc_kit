@@ -12,7 +12,7 @@ const ButtonInputBackground = ({ color, selected, labelID, children, ...rest }) 
       color={color || `primary_mid_wod`}
       aria-labelledby={labelID}
       aria-checked={"true"}
-      style={{paddingRight: `37px`}}
+      style={{paddingRight: rest.small ? `26px` : `36px`}}
       {...rest}
     >
       {children}
@@ -25,7 +25,7 @@ const ButtonInputBackground = ({ color, selected, labelID, children, ...rest }) 
       role="switch"
       aria-labelledby={labelID}
       aria-checked={"false"}
-      style={{paddingRight: `37px`}}
+      style={{paddingRight: rest.small ? `26px` : `36px`}}
       color={color}
       {...rest}
     >

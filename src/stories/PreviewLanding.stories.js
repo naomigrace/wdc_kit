@@ -12,14 +12,6 @@ export default {
 
 export const PreviewLanding = () => (
     <PreviewContainer>
-    <div
-      style={{
-        textAlign: `center`,
-        width: `100%`,
-        height: `100%`,
-        paddingTop: `3rem`,
-      }}
-    >
       <PreviewText>washington, d.c., we really</PreviewText>
       <PreviewLogo>wannadc.</PreviewLogo>
       <PreviewText>
@@ -53,7 +45,6 @@ export const PreviewLanding = () => (
           </h3>
         </Button>
       </a>
-    </div>
   </PreviewContainer>
 )
 

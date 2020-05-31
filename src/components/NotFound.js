@@ -12,6 +12,8 @@ const NotFoundHeading = styled.h1`
 const NotFoundContainer = styled(motion.div)`
     width: 400px;
     text-align: center;
+    margin: 0 auto;
+    padding: 20px;
 `
 
 
