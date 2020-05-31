@@ -10,6 +10,7 @@ import { FooterContainer, FooterActionBar } from "./styled/PageFooter"
 import FlexContainer from "./styled/FlexContainer"
 import FormAlert from "./styled/FormAlert"
 import Header from "./styled/Header"
+import { Heading1, Heading2 } from "./styled/Heading"
 import Hero, { HeroTitle } from "./styled/Hero"
 import HiddenFieldset from "./styled/HiddenFieldset"
 import HomePageContainer from "./styled/HomePageContainer"
@@ -30,13 +31,13 @@ import {
 } from "./styled/ScrollWrapperStyles"
 import Tray, { TrayNavigation, TrayContent } from "./styled/Tray"
 
-
 import EventStick from "./components/EventStick"
 import ScrollWrapper from "./components/ScrollWrapper"
 import ButtonInput from "./components/ButtonInput"
 import ButtonInputBackground from "./components/ButtonInputBackground"
 import useFilterBox from "./components/useFilterBox"
 import NotFound from "./components/NotFound"
+import AboutPage from "./templates/AboutPage"
 
 export {
   //
@@ -48,13 +49,15 @@ export {
   Button,
   ButtonBackground,
   ButtonOpen,
-  CenterContainer, 
+  CenterContainer,
   CloseButton,
   FlexContainer,
   FormAlert,
   FooterActionBar,
   FooterContainer,
   Header,
+  Heading1,
+  Heading2,
   Hero,
   HiddenFieldset,
   HomePageContainer,
@@ -84,5 +87,6 @@ export {
   ButtonInputBackground,
   useFilterBox,
   NotFound,
+  AboutPage,
   //
 }

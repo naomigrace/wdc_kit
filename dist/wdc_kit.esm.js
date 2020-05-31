@@ -1779,6 +1779,17 @@ var StyledHeader = styled.header`
   }
 `;
 
+const Heading1 = styled.h1`
+  ${props => handleGradientHoverColor(props)};
+  font-family: ${props => props.theme.fonts.family.display};
+  letter-spacing: 1px;
+`;
+const Heading2 = styled.h2`
+  ${props => handleGradientHoverColor(props)};
+  font-family: ${props => props.theme.fonts.family.display};
+  letter-spacing: 1px;
+`;
+
 const HeroTitle = styled.h1`
   color: ${props => props.theme.colors.neutral_white};
   text-align: center;
@@ -1950,7 +1961,7 @@ const PreviewLogo = styled.h1`
   font-family: ${props => props.theme.fonts.family.display};
   font-size: 3.5rem;
   letter-spacing: 2px;
-  color: #fff;
+  color: ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.neutral_white};
   -webkit-font-smoothing: antialiased;
   margin-top: 0;
   margin-bottom: 0;
@@ -2533,5 +2544,16 @@ const NotFound404 = (...props) => {
   }, "find new events")));
 };
 
-export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CenterContainer$1 as CenterContainer, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, StyledHeader as Header, Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, PreviewContainer$1 as PreviewContainer, PreviewLogo, PreviewText, PreviewTextSmall, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox };
+var AboutPage = (({
+  about
+}) => /*#__PURE__*/React__default.createElement(CenterContainer$1, null, /*#__PURE__*/React__default.createElement("div", {
+  style: {
+    margin: `0 auto`,
+    maxWidth: `40ch`
+  }
+}, /*#__PURE__*/React__default.createElement(Heading1, null, "about us"), /*#__PURE__*/React__default.createElement(P, null, /*#__PURE__*/React__default.createElement("strong", null, "WANNADC"), " is a new centralized source for music, comedy, and cultural events in Washington, D.C. with events located across ", about.neighborhoodCount, " neighborhoods and ", about.venueCount, " venues."), /*#__PURE__*/React__default.createElement("br", null), /*#__PURE__*/React__default.createElement(P, null, "We launched on [ insert date here ] and are just getting started. If you are a venue that would like to partner with us, reach out at ", /*#__PURE__*/React__default.createElement("a", {
+  href: "mailto:hello@wannadc.com"
+}, "hello@wannadc.com")))));
+
+export { AboutPage, BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CenterContainer$1 as CenterContainer, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, StyledHeader as Header, Heading1, Heading2, Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, PreviewContainer$1 as PreviewContainer, PreviewLogo, PreviewText, PreviewTextSmall, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox };
 //# sourceMappingURL=wdc_kit.esm.js.map
