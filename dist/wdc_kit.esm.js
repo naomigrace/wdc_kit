@@ -1,8 +1,8 @@
 import styled, { ThemeProvider } from 'styled-components';
 import React__default, { forwardRef, createElement, useState } from 'react';
+import Div100vh from 'react-div-100vh';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
-import Div100vh from 'react-div-100vh';
 import { motion } from 'framer-motion';
 
 var theme = {
@@ -1416,6 +1416,25 @@ var ButtonOpen = styled.button`
   }
 `;
 
+const CenterContainer = styled(Div100vh)`
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100vw;
+`;
+var CenterContainer$1 = (({
+  children,
+  ...rest
+}) => /*#__PURE__*/React__default.createElement(CenterContainer, rest, /*#__PURE__*/React__default.createElement("div", {
+  style: {
+    width: `100%`,
+    height: `100%`
+  }
+}, children)));
+
 var IconTextStyle = styled.span`
   vertical-align: middle;
   ${props => props.iconLeft && `margin-left: 5px;`}
@@ -1909,6 +1928,7 @@ const PreviewContainer = styled(Div100vh)`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   width: 100vw;
   background: linear-gradient(
     -35deg,
@@ -1916,6 +1936,15 @@ const PreviewContainer = styled(Div100vh)`
     ${props => props.theme.colors.primary_darkest_wod}
   );
 `;
+var PreviewContainer$1 = (({
+  children,
+  ...rest
+}) => /*#__PURE__*/React__default.createElement(PreviewContainer, rest, /*#__PURE__*/React__default.createElement("div", {
+  style: {
+    width: `100%`,
+    height: `100%`
+  }
+}, children)));
 
 const PreviewLogo = styled.h1`
   font-family: ${props => props.theme.fonts.family.display};
@@ -2241,7 +2270,7 @@ const ButtonInput = ({
     "aria-labelledby": labelID,
     "aria-checked": "true",
     style: {
-      paddingRight: `37px`
+      paddingRight: rest.small ? `26px` : `36px`
     }
   }, rest), children, /*#__PURE__*/React__default.createElement(Check, {
     size: "1rem",
@@ -2276,7 +2305,7 @@ const ButtonInputBackground = ({
     "aria-labelledby": labelID,
     "aria-checked": "true",
     style: {
-      paddingRight: `37px`
+      paddingRight: rest.small ? `26px` : `36px`
     }
   }, rest), children, /*#__PURE__*/React__default.createElement(Check, {
     size: "1rem",
@@ -2291,7 +2320,7 @@ const ButtonInputBackground = ({
     "aria-labelledby": labelID,
     "aria-checked": "false",
     style: {
-      paddingRight: `37px`
+      paddingRight: rest.small ? `26px` : `36px`
     },
     color: color
   }, rest), children);
@@ -2463,6 +2492,7 @@ const useFilterBox = ({
         name: "deselect all venues",
         onClick: () => handleToggleSelectVenues()
       }, noVenueSelected ? `select all?` : `deselect all?`)), Object.keys(venues).map(venue => /*#__PURE__*/React__default.createElement(ButtonInputBackground, {
+        small: true,
         key: venue,
         labelID: "venues-filter",
         selected: selectedVenues[venue],
@@ -2485,6 +2515,8 @@ const NotFoundHeading = styled.h1`
 const NotFoundContainer = styled(motion.div)`
     width: 400px;
     text-align: center;
+    margin: 0 auto;
+    padding: 20px;
 `;
 
 const NotFound404 = (...props) => {
@@ -2501,5 +2533,5 @@ const NotFound404 = (...props) => {
   }, "find new events")));
 };
 
-export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, StyledHeader as Header, Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, PreviewContainer, PreviewLogo, PreviewText, PreviewTextSmall, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox };
+export { BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CenterContainer$1 as CenterContainer, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, StyledHeader as Header, Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, PreviewContainer$1 as PreviewContainer, PreviewLogo, PreviewText, PreviewTextSmall, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox };
 //# sourceMappingURL=wdc_kit.esm.js.map

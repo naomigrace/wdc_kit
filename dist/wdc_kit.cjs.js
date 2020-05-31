@@ -8,9 +8,9 @@ var styled = require('styled-components');
 var styled__default = _interopDefault(styled);
 var React = require('react');
 var React__default = _interopDefault(React);
+var Div100vh = _interopDefault(require('react-div-100vh'));
 var PropTypes = _interopDefault(require('prop-types'));
 var reactResponsive = require('react-responsive');
-var Div100vh = _interopDefault(require('react-div-100vh'));
 var framerMotion = require('framer-motion');
 
 var theme = {
@@ -1424,6 +1424,25 @@ var ButtonOpen = styled__default.button`
   }
 `;
 
+const CenterContainer = styled__default(Div100vh)`
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100vw;
+`;
+var CenterContainer$1 = (({
+  children,
+  ...rest
+}) => /*#__PURE__*/React__default.createElement(CenterContainer, rest, /*#__PURE__*/React__default.createElement("div", {
+  style: {
+    width: `100%`,
+    height: `100%`
+  }
+}, children)));
+
 var IconTextStyle = styled__default.span`
   vertical-align: middle;
   ${props => props.iconLeft && `margin-left: 5px;`}
@@ -1917,6 +1936,7 @@ const PreviewContainer = styled__default(Div100vh)`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  text-align: center;
   width: 100vw;
   background: linear-gradient(
     -35deg,
@@ -1924,6 +1944,15 @@ const PreviewContainer = styled__default(Div100vh)`
     ${props => props.theme.colors.primary_darkest_wod}
   );
 `;
+var PreviewContainer$1 = (({
+  children,
+  ...rest
+}) => /*#__PURE__*/React__default.createElement(PreviewContainer, rest, /*#__PURE__*/React__default.createElement("div", {
+  style: {
+    width: `100%`,
+    height: `100%`
+  }
+}, children)));
 
 const PreviewLogo = styled__default.h1`
   font-family: ${props => props.theme.fonts.family.display};
@@ -2249,7 +2278,7 @@ const ButtonInput = ({
     "aria-labelledby": labelID,
     "aria-checked": "true",
     style: {
-      paddingRight: `37px`
+      paddingRight: rest.small ? `26px` : `36px`
     }
   }, rest), children, /*#__PURE__*/React__default.createElement(Check, {
     size: "1rem",
@@ -2284,7 +2313,7 @@ const ButtonInputBackground = ({
     "aria-labelledby": labelID,
     "aria-checked": "true",
     style: {
-      paddingRight: `37px`
+      paddingRight: rest.small ? `26px` : `36px`
     }
   }, rest), children, /*#__PURE__*/React__default.createElement(Check, {
     size: "1rem",
@@ -2299,7 +2328,7 @@ const ButtonInputBackground = ({
     "aria-labelledby": labelID,
     "aria-checked": "false",
     style: {
-      paddingRight: `37px`
+      paddingRight: rest.small ? `26px` : `36px`
     },
     color: color
   }, rest), children);
@@ -2471,6 +2500,7 @@ const useFilterBox = ({
         name: "deselect all venues",
         onClick: () => handleToggleSelectVenues()
       }, noVenueSelected ? `select all?` : `deselect all?`)), Object.keys(venues).map(venue => /*#__PURE__*/React__default.createElement(ButtonInputBackground, {
+        small: true,
         key: venue,
         labelID: "venues-filter",
         selected: selectedVenues[venue],
@@ -2493,6 +2523,8 @@ const NotFoundHeading = styled__default.h1`
 const NotFoundContainer = styled__default(framerMotion.motion.div)`
     width: 400px;
     text-align: center;
+    margin: 0 auto;
+    padding: 20px;
 `;
 
 const NotFound404 = (...props) => {
@@ -2517,6 +2549,7 @@ exports.ButtonBackground = ButtonBackground;
 exports.ButtonInput = ButtonInput;
 exports.ButtonInputBackground = ButtonInputBackground;
 exports.ButtonOpen = ButtonOpen;
+exports.CenterContainer = CenterContainer$1;
 exports.CloseButton = CloseButton;
 exports.EventStick = EventStick$1;
 exports.FlexContainer = FlexContainer;
@@ -2537,7 +2570,7 @@ exports.MainBody_HomePage = MainBody_HomePage;
 exports.NotFound = NotFound404;
 exports.P = P;
 exports.PageContainer = PageContainer;
-exports.PreviewContainer = PreviewContainer;
+exports.PreviewContainer = PreviewContainer$1;
 exports.PreviewLogo = PreviewLogo;
 exports.PreviewText = PreviewText;
 exports.PreviewTextSmall = PreviewTextSmall;
