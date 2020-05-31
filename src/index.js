@@ -1,5 +1,4 @@
 import theme from "./styled/theme"
-
 import Box from "./styled/Box"
 import BoxGradient from "./styled/BoxGradient"
 import Button from "./styled/Button"
@@ -19,6 +18,10 @@ import Label from "./styled/Label"
 import Logo from "./styled/Logo"
 import { MainBody_EventPage, MainBody_HomePage } from "./styled/Main"
 import P from "./styled/P"
+import PreviewContainer from "./styled/PreviewContainer"
+import PreviewLogo from "./styled/PreviewLogo"
+import PreviewText from "./styled/PreviewText"
+import PreviewTextSmall from "./styled/PreviewTextSmall"
 import PageContainer from "./styled/PageContainer"
 import {
   ScrollToTopIconContainer,
@@ -61,6 +64,10 @@ export {
   MainBody_EventPage,
   MainBody_HomePage,
   P,
+  PreviewContainer,
+  PreviewLogo,
+  PreviewText,
+  PreviewTextSmall,
   PageContainer,
   Tray,
   TrayContent,

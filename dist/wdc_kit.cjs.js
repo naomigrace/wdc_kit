@@ -10,6 +10,7 @@ var React = require('react');
 var React__default = _interopDefault(React);
 var PropTypes = _interopDefault(require('prop-types'));
 var reactResponsive = require('react-responsive');
+var Div100vh = _interopDefault(require('react-div-100vh'));
 var framerMotion = require('framer-motion');
 
 var theme = {
@@ -1910,6 +1911,59 @@ var P = styled__default.p`
     ${props => handleSpacing(props)};
 `;
 
+const PreviewContainer = styled__default(Div100vh)`
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100vw;
+  background: linear-gradient(
+    -35deg,
+    rgb(164, 147, 247),
+    ${props => props.theme.colors.primary_darkest_wod}
+  );
+`;
+
+const PreviewLogo = styled__default.h1`
+  font-family: ${props => props.theme.fonts.family.display};
+  font-size: 3.5rem;
+  letter-spacing: 2px;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  margin-top: 0;
+  margin-bottom: 0;
+`;
+
+const PreviewText = styled__default.h2`
+  text-align: center;
+  display: inline-block;
+  font-family: ${props => props.family ? props.theme.fonts[props.family] : props.theme.fonts.family.sans};
+  font-weight: 800;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  ${props => props.family === "serif" && `border-bottom: 1px solid white`};
+  max-width: 20ch;
+  line-height: 2rem;
+`;
+
+const PreviewTextSmall = styled__default(P)`
+  ${props => handleWhiteTextOnDark(props, true)};
+  color: ${props => props.theme.colors.neutral_white};
+  font-weight: 400;
+  max-width: 30ch;
+  text-align: center;
+  line-height: 1.25rem;
+  margin: 0 auto 2rem auto;
+  padding-top: 2rem;
+  margin-top: 1rem;
+  border-top: 1px solid white;
+`;
+
 var PageContainer = styled__default.div`
     margin: 0 auto;
     padding: 20px;
@@ -2080,11 +2134,11 @@ const EventStick = styled__default(props => /*#__PURE__*/React__default.createEl
     border: 1px solid ${props.theme.colors.primary_lightest};
 
     `}
-    &:active,
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
-    }
+    // &:active,
+    // &:focus {
+    //   outline: none;
+    //   box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
+    // }
   
     &:active {
       transform: scale(0.99);
@@ -2108,9 +2162,7 @@ var EventStick$1 = (({
   let year = formattedDate.getFullYear();
   let dateIsToday = isToday(formattedDate);
   let afterThisYear = isAfterThisYear(formattedDate);
-  return /*#__PURE__*/React__default.createElement(EventStick, _extends$1({}, rest, {
-    tabIndex: 0
-  }), /*#__PURE__*/React__default.createElement(FlexContainer, null, dateIsToday ? /*#__PURE__*/React__default.createElement(Today, {
+  return /*#__PURE__*/React__default.createElement(EventStick, rest, /*#__PURE__*/React__default.createElement(FlexContainer, null, dateIsToday ? /*#__PURE__*/React__default.createElement(Today, {
     datetime: date
   }, "TODAY") : /*#__PURE__*/React__default.createElement(EventDate, {
     datetime: date
@@ -2212,7 +2264,7 @@ const ButtonInput = ({
     "aria-labelledby": labelID,
     "aria-checked": "false",
     style: {
-      paddingRight: `37px`
+      paddingRight: rest.small ? `26px` : `36px`
     }
   }, rest), children);
 };
@@ -2485,6 +2537,10 @@ exports.MainBody_HomePage = MainBody_HomePage;
 exports.NotFound = NotFound404;
 exports.P = P;
 exports.PageContainer = PageContainer;
+exports.PreviewContainer = PreviewContainer;
+exports.PreviewLogo = PreviewLogo;
+exports.PreviewText = PreviewText;
+exports.PreviewTextSmall = PreviewTextSmall;
 exports.ScrollToTopIconContainer = ScrollToTopIconContainer;
 exports.ScrollWrapper = ScrollWrapper;
 exports.ScrollWrapperContainer = ScrollWrapperContainer;
