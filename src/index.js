@@ -39,6 +39,8 @@ import useFilterBox from "./components/useFilterBox"
 import NotFound from "./components/NotFound"
 import AboutPage from "./templates/AboutPage"
 
+import utils from "./utils"
+
 export {
   //
   theme,
@@ -89,4 +91,5 @@ export {
   NotFound,
   AboutPage,
   //
+  utils,
 }

@@ -1156,6 +1156,30 @@ const buttonBase = props => `
   }
 `;
 
+const determineTitleAndSub = (title, title2, description) => {
+  let determineTitle, determineSubTitle;
+
+  if (title && !title2) {
+    determineTitle = title;
+    determineSubTitle = description || null;
+  } else if (!title && title2) {
+    determineTitle = title2;
+    determineSubTitle = description || null;
+  } else if (title && title2) {
+    determineTitle = title;
+    determineSubTitle = title2;
+  }
+
+  return {
+    determineTitle,
+    determineSubTitle
+  };
+};
+
+const handleSpacing = props => {
+  return props.mb ? `margin-bottom: ${props.mb}rem` : props.mt ? `margin-top: ${props.mt}rem` : props.mr ? `margin-right: ${props.mr}rem` : props.ml ? `margin-left: ${props.ml}rem` : ``;
+};
+
 const handleColor = props => props.color ? `color: ${props.theme.colors[props.color]}` : `color: ${props.theme.colors.neutral_black_wod}`;
 
 const handleGradientHoverColor = props => `      background: linear-gradient(
@@ -1192,7 +1216,7 @@ const handleShadow = props => `
   ${props.shadow && `box-shadow: ${props.theme.shadows[props.shadow]};`}
 `;
 
-const handleSpacing = props => {
+const handleSpacing$1 = props => {
   return props.mb ? `margin-bottom: ${props.mb}rem` : props.mt ? `margin-top: ${props.mt}rem` : props.mr ? `margin-right: ${props.mr}rem` : props.ml ? `margin-left: ${props.ml}rem` : ``;
 };
 
@@ -1289,6 +1313,22 @@ const isToday = someDate => {
   return someDate.getDate() == today.getDate() && someDate.getMonth() == today.getMonth() && someDate.getFullYear() == today.getFullYear();
 };
 
+var index = {
+  buttonBase,
+  determineTitleAndSub,
+  getFontSize: handleSpacing,
+  handleColor,
+  handleFont,
+  handleGradientHoverColor,
+  handleIconStyle,
+  handleShadow,
+  handleSpacing: handleSpacing$1,
+  handleWhiteTextOnDark,
+  imageResolver,
+  isAfterThisYear,
+  isToday
+};
+
 var Box = styled__default.div`
   ${props => handleFont(props)}
   ${props => handleShadow(props)}
@@ -1300,7 +1340,7 @@ var Box = styled__default.div`
   p {
     ${props => handleWhiteTextOnDark(props)};
   }
-  ${props => handleSpacing(props)};
+  ${props => handleSpacing$1(props)};
   ${props => props.fitContent && `width: fit-content;`}
 
 `;
@@ -1325,7 +1365,7 @@ var Button = styled__default.button`
   ${props => handleWhiteTextOnDark(props)};
   ${props => buttonBase(props)};
   ${props => handleShadow(props)};
-  ${props => handleSpacing(props)};
+  ${props => handleSpacing$1(props)};
   border: ${props => props.theme.widths.mini} solid
     ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.primary_dark_wod};
   background: ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.primary_dark_wod};
@@ -1399,7 +1439,7 @@ var ButtonBackground = styled__default(props => /*#__PURE__*/React__default.crea
 var ButtonOpen = styled__default.button`
   ${props => handleFont(props)};
   ${props => buttonBase(props)};
-  ${props => handleSpacing(props)};
+  ${props => handleSpacing$1(props)};
 
   color: ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.primary_dark_wod};
   border: ${props => props.theme.widths.mini} solid
@@ -1438,8 +1478,7 @@ var CenterContainer$1 = (({
   ...rest
 }) => /*#__PURE__*/React__default.createElement(CenterContainer, rest, /*#__PURE__*/React__default.createElement("div", {
   style: {
-    width: `100%`,
-    height: `100%`
+    padding: `20px`
   }
 }, children)));
 
@@ -1497,7 +1536,7 @@ function memoize(fn) {
 
 var reactPropsRegex = /^((children|dangerouslySetInnerHTML|key|ref|autoFocus|defaultValue|defaultChecked|innerHTML|suppressContentEditableWarning|suppressHydrationWarning|valueLink|accept|acceptCharset|accessKey|action|allow|allowUserMedia|allowPaymentRequest|allowFullScreen|allowTransparency|alt|async|autoComplete|autoPlay|capture|cellPadding|cellSpacing|challenge|charSet|checked|cite|classID|className|cols|colSpan|content|contentEditable|contextMenu|controls|controlsList|coords|crossOrigin|data|dateTime|decoding|default|defer|dir|disabled|disablePictureInPicture|download|draggable|encType|form|formAction|formEncType|formMethod|formNoValidate|formTarget|frameBorder|headers|height|hidden|high|href|hrefLang|htmlFor|httpEquiv|id|inputMode|integrity|is|keyParams|keyType|kind|label|lang|list|loading|loop|low|marginHeight|marginWidth|max|maxLength|media|mediaGroup|method|min|minLength|multiple|muted|name|nonce|noValidate|open|optimum|pattern|placeholder|playsInline|poster|preload|profile|radioGroup|readOnly|referrerPolicy|rel|required|reversed|role|rows|rowSpan|sandbox|scope|scoped|scrolling|seamless|selected|shape|size|sizes|slot|span|spellCheck|src|srcDoc|srcLang|srcSet|start|step|style|summary|tabIndex|target|title|type|useMap|value|width|wmode|wrap|about|datatype|inlist|prefix|property|resource|typeof|vocab|autoCapitalize|autoCorrect|autoSave|color|inert|itemProp|itemScope|itemType|itemID|itemRef|on|results|security|unselectable|accentHeight|accumulate|additive|alignmentBaseline|allowReorder|alphabetic|amplitude|arabicForm|ascent|attributeName|attributeType|autoReverse|azimuth|baseFrequency|baselineShift|baseProfile|bbox|begin|bias|by|calcMode|capHeight|clip|clipPathUnits|clipPath|clipRule|colorInterpolation|colorInterpolationFilters|colorProfile|colorRendering|contentScriptType|contentStyleType|cursor|cx|cy|d|decelerate|descent|diffuseConstant|direction|display|divisor|dominantBaseline|dur|dx|dy|edgeMode|elevation|enableBackground|end|exponent|externalResourcesRequired|fill|fillOpacity|fillRule|filter|filterRes|filterUnits|floodColor|floodOpacity|focusable|fontFamily|fontSize|fontSizeAdjust|fontStretch|fontStyle|fontVariant|fontWeight|format|from|fr|fx|fy|g1|g2|glyphName|glyphOrientationHorizontal|glyphOrientationVertical|glyphRef|gradientTransform|gradientUnits|hanging|horizAdvX|horizOriginX|ideographic|imageRendering|in|in2|intercept|k|k1|k2|k3|k4|kernelMatrix|kernelUnitLength|kerning|keyPoints|keySplines|keyTimes|lengthAdjust|letterSpacing|lightingColor|limitingConeAngle|local|markerEnd|markerMid|markerStart|markerHeight|markerUnits|markerWidth|mask|maskContentUnits|maskUnits|mathematical|mode|numOctaves|offset|opacity|operator|order|orient|orientation|origin|overflow|overlinePosition|overlineThickness|panose1|paintOrder|pathLength|patternContentUnits|patternTransform|patternUnits|pointerEvents|points|pointsAtX|pointsAtY|pointsAtZ|preserveAlpha|preserveAspectRatio|primitiveUnits|r|radius|refX|refY|renderingIntent|repeatCount|repeatDur|requiredExtensions|requiredFeatures|restart|result|rotate|rx|ry|scale|seed|shapeRendering|slope|spacing|specularConstant|specularExponent|speed|spreadMethod|startOffset|stdDeviation|stemh|stemv|stitchTiles|stopColor|stopOpacity|strikethroughPosition|strikethroughThickness|string|stroke|strokeDasharray|strokeDashoffset|strokeLinecap|strokeLinejoin|strokeMiterlimit|strokeOpacity|strokeWidth|surfaceScale|systemLanguage|tableValues|targetX|targetY|textAnchor|textDecoration|textRendering|textLength|to|transform|u1|u2|underlinePosition|underlineThickness|unicode|unicodeBidi|unicodeRange|unitsPerEm|vAlphabetic|vHanging|vIdeographic|vMathematical|values|vectorEffect|version|vertAdvY|vertOriginX|vertOriginY|viewBox|viewTarget|visibility|widths|wordSpacing|writingMode|x|xHeight|x1|x2|xChannelSelector|xlinkActuate|xlinkArcrole|xlinkHref|xlinkRole|xlinkShow|xlinkTitle|xlinkType|xmlBase|xmlns|xmlnsXlink|xmlLang|xmlSpace|y|y1|y2|yChannelSelector|z|zoomAndPan|for|class|autofocus)|(([Dd][Aa][Tt][Aa]|[Aa][Rr][Ii][Aa]|x)-.*))$/; // https://esbench.com/bench/5bfee68a4cd7e6009ef61d23
 
-var index = memoize(function (prop) {
+var index$1 = memoize(function (prop) {
   return reactPropsRegex.test(prop) || prop.charCodeAt(0) === 111
   /* o */
   && prop.charCodeAt(1) === 110
@@ -1508,7 +1547,7 @@ var index = memoize(function (prop) {
 );
 
 function isValidProp(key) {
-  return index(key);
+  return index$1(key);
 }
 
 function filterSVGProps(props) {
@@ -1886,7 +1925,7 @@ var HomePageContainer = (({
 }) => /*#__PURE__*/React__default.createElement(Layout, null, /*#__PURE__*/React__default.createElement(MainBody_HomePage, null, children)));
 
 var InlineLinkSpan = styled__default.span`
-  ${props => handleSpacing(props)};
+  ${props => handleSpacing$1(props)};
   font-weight: normal;
   text-decoration: underline;
   font-size: 0.75rem;
@@ -1907,7 +1946,7 @@ var InlineLinkSpan = styled__default.span`
 
 var Label = styled__default.label`
     ${props => handleFont(props)};
-    ${props => handleSpacing(props)};
+    ${props => handleSpacing$1(props)};
     text-transform: uppercase;
     color: ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.neutral_mid_wod};
     display: block;
@@ -1938,7 +1977,7 @@ var P = styled__default.p`
     ${props => handleFont(props)};
     ${props => handleColor(props)};
     margin: 0.25rem 0;
-    ${props => handleSpacing(props)};
+    ${props => handleSpacing$1(props)};
 `;
 
 const PreviewContainer = styled__default(Div100vh)`
@@ -2117,8 +2156,13 @@ const LoadingLine = styled__default.div`
   margin-top: -5px;
   border-bottom-left-radius: ${props => props.theme.radius.mini};
   border-bottom-right-radius: ${props => props.theme.radius.mini};
-  animation : shimmer 2s infinite linear;
-  background: linear-gradient(to right, rgb(192, 182, 242, 0.6) 4%, ${props => props.theme.colors.primary_light} 25%, rgb(192, 182, 242, 0.4) 36%);
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    rgb(192, 182, 242, 0.6) 4%,
+    ${props => props.theme.colors.primary_light} 25%,
+    rgb(192, 182, 242, 0.4) 36%
+  );
   background-size: 1000px 100%;
 
   @keyframes shimmer {
@@ -2191,6 +2235,7 @@ const EventStick = styled__default(props => /*#__PURE__*/React__default.createEl
 `;
 var EventStick$1 = (({
   title,
+  title2,
   description,
   date,
   isLoading,
@@ -2202,11 +2247,15 @@ var EventStick$1 = (({
   let year = formattedDate.getFullYear();
   let dateIsToday = isToday(formattedDate);
   let afterThisYear = isAfterThisYear(formattedDate);
+  let {
+    determineTitle,
+    determineSubTitle
+  } = determineTitleAndSub(title, title2, description);
   return /*#__PURE__*/React__default.createElement(EventStick, rest, /*#__PURE__*/React__default.createElement(FlexContainer, null, dateIsToday ? /*#__PURE__*/React__default.createElement(Today, {
     datetime: date
   }, "TODAY") : /*#__PURE__*/React__default.createElement(EventDate, {
     datetime: date
-  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, title), description && description.length && /*#__PURE__*/React__default.createElement(EventDescription, null, description.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
+  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, determineTitle), determineSubTitle && determineSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determineSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
 });
 
 class ScrollWrapper extends React__default.Component {
@@ -2528,22 +2577,18 @@ const useFilterBox = ({
 
 var dcIllustration = "e2070f9a55151199.svg";
 
-const NotFoundHeading = styled__default.h1`
-    font-family: ${props => props.theme.fonts.family.display};
-`;
 const NotFoundContainer = styled__default(framerMotion.motion.div)`
-    width: 400px;
+    max-width: 250px;
     text-align: center;
     margin: 0 auto;
-    padding: 20px;
 `;
 
 const NotFound404 = (...props) => {
   return /*#__PURE__*/React__default.createElement(NotFoundContainer, props, /*#__PURE__*/React__default.createElement("img", {
     src: dcIllustration,
     alt: "illustration of washington dc",
-    width: 300
-  }), /*#__PURE__*/React__default.createElement(NotFoundHeading, null, "Event not found..."), /*#__PURE__*/React__default.createElement(P, null, "This is awkward, but we don't have an event here. We scrape for fresh events every day, so urls will change."), /*#__PURE__*/React__default.createElement("a", {
+    width: 200
+  }), /*#__PURE__*/React__default.createElement(Heading1, null, "Event not found..."), /*#__PURE__*/React__default.createElement(P, null, "This is awkward, but we don't have an event here. We scrape for fresh events every day, so urls will change."), /*#__PURE__*/React__default.createElement("a", {
     href: "/"
   }, /*#__PURE__*/React__default.createElement(Button, {
     bold: true,
@@ -2608,4 +2653,5 @@ exports.TrayNavigation = TrayNavigation;
 exports.UpButton = UpButton;
 exports.theme = theme;
 exports.useFilterBox = useFilterBox;
+exports.utils = index;
 //# sourceMappingURL=wdc_kit.cjs.js.map

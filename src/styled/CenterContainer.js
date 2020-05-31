@@ -13,7 +13,7 @@ const CenterContainer = styled(Div100vh)`
 `
 export default ({ children, ...rest }) => (
     <CenterContainer {...rest}>
-      <div style={{ width: `100%`, height: `100%` }}>{children}</div>
+      <div style={{ padding: `20px`}}>{children}</div>
     </CenterContainer>
   )
   

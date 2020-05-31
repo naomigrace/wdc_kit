@@ -1,4 +1,5 @@
 import buttonBase from "./buttonBase"
+import determineTitleAndSub from "./determineTitleAndSub"
 import getFontSize from "./getFontSize"
 import handleColor from "./handleColor"
 import handleGradientHoverColor from "./handleGradientHoverColor"
@@ -13,6 +14,23 @@ import isToday from "./isToday"
 
 export {
     buttonBase,
+    determineTitleAndSub,
+    getFontSize,
+    handleColor,
+    handleFont,
+    handleGradientHoverColor,
+    handleIconStyle,
+    handleShadow,
+    handleSpacing,
+    handleWhiteTextOnDark,
+    imageResolver,
+    isAfterThisYear,
+    isToday
+}
+
+export default {
+    buttonBase,
+    determineTitleAndSub,
     getFontSize,
     handleColor,
     handleFont,

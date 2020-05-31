@@ -8,6 +8,7 @@ import {
   handleWhiteTextOnDark,
   isAfterThisYear,
   handleGradientHoverColor,
+  determineTitleAndSub
 } from "../utils"
 
 const EventTitle = styled(props => <P bold size={`md`} {...props} />)`
@@ -51,8 +52,13 @@ const LoadingLine = styled.div`
   margin-top: -5px;
   border-bottom-left-radius: ${props => props.theme.radius.mini};
   border-bottom-right-radius: ${props => props.theme.radius.mini};
-  animation : shimmer 2s infinite linear;
-  background: linear-gradient(to right, rgb(192, 182, 242, 0.6) 4%, ${props => props.theme.colors.primary_light} 25%, rgb(192, 182, 242, 0.4) 36%);
+  animation: shimmer 2s infinite linear;
+  background: linear-gradient(
+    to right,
+    rgb(192, 182, 242, 0.6) 4%,
+    ${props => props.theme.colors.primary_light} 25%,
+    rgb(192, 182, 242, 0.4) 36%
+  );
   background-size: 1000px 100%;
 
   @keyframes shimmer {
@@ -106,8 +112,7 @@ const EventStick = styled(props => (
       }
     }
     `
-    : 
-    `
+      : `
     background-color: ${props.theme.colors.neutral_white};
     border: 1px solid ${props.theme.colors.primary_lightest};
 
@@ -128,7 +133,7 @@ const EventStick = styled(props => (
     }
 `
 
-export default ({ title, description, date, isLoading, ...rest }) => {
+export default ({ title, title2, description, date, isLoading, ...rest }) => {
   let formattedDate = new Date(date)
   let month = formattedDate.getMonth() + 1
   let day = formattedDate.getDate()
@@ -136,6 +141,8 @@ export default ({ title, description, date, isLoading, ...rest }) => {
 
   let dateIsToday = isToday(formattedDate)
   let afterThisYear = isAfterThisYear(formattedDate)
+
+  let { determineTitle, determineSubTitle } = determineTitleAndSub(title, title2, description)
 
   return (
     <EventStick {...rest}>
@@ -149,13 +156,13 @@ export default ({ title, description, date, isLoading, ...rest }) => {
           </EventDate>
         )}
         <div>
-          <EventTitle>{title}</EventTitle>
-          {description && description.length && (
-            <EventDescription>{description.toUpperCase()}</EventDescription>
+          <EventTitle>{determineTitle}</EventTitle>
+          {determineSubTitle && determineSubTitle.length && (
+            <EventDescription>{determineSubTitle.toUpperCase()}</EventDescription>
           )}
         </div>
       </FlexContainer>
-      {isLoading && <LoadingLine/>}
+      {isLoading && <LoadingLine />}
     </EventStick>
   )
 }
