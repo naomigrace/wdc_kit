@@ -112,11 +112,11 @@ const EventStick = styled(props => (
     border: 1px solid ${props.theme.colors.primary_lightest};
 
     `}
-    &:active,
-    &:focus {
-      outline: none;
-      box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
-    }
+    // &:active,
+    // &:focus {
+    //   outline: none;
+    //   box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
+    // }
   
     &:active {
       transform: scale(0.99);
@@ -138,7 +138,7 @@ export default ({ title, description, date, isLoading, ...rest }) => {
   let afterThisYear = isAfterThisYear(formattedDate)
 
   return (
-    <EventStick {...rest} tabIndex={0}>
+    <EventStick {...rest}>
       <FlexContainer>
         {dateIsToday ? (
           <Today datetime={date}>TODAY</Today>

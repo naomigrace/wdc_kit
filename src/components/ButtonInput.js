@@ -25,7 +25,7 @@ const ButtonInput = ({ selected, labelID, children, ...rest }) => {
       role="switch"
       aria-labelledby={labelID}
       aria-checked={"false"}
-      style={{paddingRight: `37px`}}
+      style={{paddingRight: rest.small ? `26px` : `36px`}}
       {...rest}
     >
       {children}
