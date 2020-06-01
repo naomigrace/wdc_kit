@@ -151,6 +151,7 @@ export default ({
   date,
   postponed,
   canceled,
+  status,
   ageRestriction,
   isLoading,
   ...rest
@@ -190,7 +191,7 @@ export default ({
                 display: `inline-block`,
               }}
             >
-              {cancelled && <Pill>{canceled}</Pill>}
+              {canceled && <Pill>{canceled}</Pill>}
               {postponed && <Pill>{postponed}</Pill>}
               {status && <Pill>{status}</Pill>}
               {ageRestriction && <Pill>{ageRestriction}</Pill>}
