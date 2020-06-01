@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import Box from "../styled/Box"
 import P from "../styled/P"
+import Pill from "../styled/Pill"
 import FlexContainer from "../styled/FlexContainer"
 import {
   isToday,
@@ -15,6 +16,7 @@ const EventTitle = styled(props => <P bold size={`md`} {...props} />)`
   color: ${props => props.theme.colors.tertiary_mid_wod};
   letter-spacing: 2px;
   hyphens: auto;
+  display: inline-block;
 `
 
 const EventDate = styled.time`
@@ -86,6 +88,13 @@ const EventStick = styled(props => (
   }
 
   &:hover {
+
+    ${Pill} {
+      background: linear-gradient(
+        90deg, ${props => props.theme.colors.secondary_peach_wod}, ${props => props.theme.colors.secondary_peach_wod}) !important;
+      color: #fff !important;
+    }
+
     ${EventTitle}, ${EventDescription}{
       ${props => !props.active && handleGradientHoverColor(props)};
     }
@@ -133,7 +142,7 @@ const EventStick = styled(props => (
     }
 `
 
-export default ({ title, title2, description, date, isLoading, ...rest }) => {
+export default ({ title, title2, description, date, postponed, cancelled, ageRestriction, isLoading, ...rest }) => {
   let formattedDate = new Date(date)
   let month = formattedDate.getMonth() + 1
   let day = formattedDate.getDate()
@@ -156,7 +165,7 @@ export default ({ title, title2, description, date, isLoading, ...rest }) => {
           </EventDate>
         )}
         <div>
-          <EventTitle>{determineTitle}</EventTitle>
+        <EventTitle>{determineTitle}</EventTitle> {(cancelled || postponed || ageRestriction) && <div style={{ marginBottom: `2px`, marginTop: `2px`, display: `inline-block`}}>{(cancelled || postponed) && <Pill>{cancelled || postponed}</Pill>}{ageRestriction && <Pill>{ageRestriction}</Pill>}</div>}
           {determineSubTitle && determineSubTitle.length && (
             <EventDescription>{determineSubTitle.toUpperCase()}</EventDescription>
           )}

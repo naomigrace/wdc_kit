@@ -1980,6 +1980,22 @@ var P = styled__default.p`
     ${props => handleSpacing$1(props)};
 `;
 
+var Pill = styled__default.span`
+    ${props => handleFont(props)};
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 11px;
+    padding: 2px 8px;
+    text-align: center;
+    vertical-align: top;
+    margin-right: 2px;
+    border-radius: ${props => props.theme.radius.chubby};
+    ${props => handleWhiteTextOnDark(props, true)};
+    ${props => handleShadow(props)};
+    background-color: ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.neutral_black_wod};
+
+`;
+
 const PreviewContainer = styled__default(Div100vh)`
   overflow: scroll;
   display: flex;
@@ -2122,6 +2138,7 @@ const EventTitle = styled__default(props => /*#__PURE__*/React__default.createEl
   color: ${props => props.theme.colors.tertiary_mid_wod};
   letter-spacing: 2px;
   hyphens: auto;
+  display: inline-block;
 `;
 const EventDate = styled__default.time`
   color: ${props => props.theme.colors.neutral_mid_wod};
@@ -2190,6 +2207,13 @@ const EventStick = styled__default(props => /*#__PURE__*/React__default.createEl
   }
 
   &:hover {
+
+    ${Pill} {
+      background: linear-gradient(
+        90deg, ${props => props.theme.colors.secondary_peach_wod}, ${props => props.theme.colors.secondary_peach_wod}) !important;
+      color: #fff !important;
+    }
+
     ${EventTitle}, ${EventDescription}{
       ${props => !props.active && handleGradientHoverColor(props)};
     }
@@ -2238,6 +2262,9 @@ var EventStick$1 = (({
   title2,
   description,
   date,
+  postponed,
+  cancelled,
+  ageRestriction,
   isLoading,
   ...rest
 }) => {
@@ -2255,7 +2282,13 @@ var EventStick$1 = (({
     datetime: date
   }, "TODAY") : /*#__PURE__*/React__default.createElement(EventDate, {
     datetime: date
-  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, determineTitle), determineSubTitle && determineSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determineSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
+  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, determineTitle), " ", (cancelled || postponed || ageRestriction) && /*#__PURE__*/React__default.createElement("div", {
+    style: {
+      marginBottom: `2px`,
+      marginTop: `2px`,
+      display: `inline-block`
+    }
+  }, (cancelled || postponed) && /*#__PURE__*/React__default.createElement(Pill, null, cancelled || postponed), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction)), determineSubTitle && determineSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determineSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
 });
 
 class ScrollWrapper extends React__default.Component {
@@ -2640,6 +2673,7 @@ exports.MainBody_HomePage = MainBody_HomePage;
 exports.NotFound = NotFound404;
 exports.P = P;
 exports.PageContainer = PageContainer;
+exports.Pill = Pill;
 exports.PreviewContainer = PreviewContainer$1;
 exports.PreviewLogo = PreviewLogo;
 exports.PreviewText = PreviewText;

@@ -20,6 +20,7 @@ import Label from "./styled/Label"
 import Logo from "./styled/Logo"
 import { MainBody_EventPage, MainBody_HomePage } from "./styled/Main"
 import P from "./styled/P"
+import Pill from "./styled/Pill"
 import PreviewContainer from "./styled/PreviewContainer"
 import PreviewLogo from "./styled/PreviewLogo"
 import PreviewText from "./styled/PreviewText"
@@ -71,6 +72,7 @@ export {
   MainBody_EventPage,
   MainBody_HomePage,
   P,
+  Pill,
   PreviewContainer,
   PreviewLogo,
   PreviewText,

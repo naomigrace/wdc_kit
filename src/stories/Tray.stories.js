@@ -26,7 +26,9 @@ const eventSample = [
     link: "https://www.pearlstreetwarehouse.com/e/live-stream-martin-and-kelly-103526560730/",
     neighborhood: "sowe",
     latitude: 38.878824,
-    longitude: -77.023982
+    longitude: -77.023982,
+    postponed: "postponed",
+    ageRestriction: "21+",
     },
     {
     id: "wdc-4-9",
@@ -53,6 +55,7 @@ const eventSample = [
     date: "2016-03-27T15:00:00.000Z",
     neighborhood: "admo",
     latitude: 38.9223863,
+    cancelled: "cancelled",
     longitude: -77.0444571
     },
     {
@@ -62,6 +65,7 @@ const eventSample = [
     description: "WILCO - SCHMILCO Listening Party+ GiveawaysUpstairs, All Ages",
     price: 0,
     time: "7:00 PM",
+    ageRestriction: "18+",
     link: "https://www.songbyrddc.com/shows/2016-09-06-wilco",
     tickets: "https://www.facebook.com/events/1777020935901839/",
     date: "2016-09-06T23:00:00.000Z",
