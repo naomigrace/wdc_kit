@@ -10,10 +10,12 @@ class ScrollWrapper extends React.Component {
   }
 
   onScroll = () => {
-    if (this.scrollingWrapper.scrollTop > 100 && !this.state.hasScrolled) {
-      this.setState({ hasScrolled: true })
-    } else if (this.scrollingWrapper.scrollTop < 100 && this.state.hasScrolled) {
-      this.setState({ hasScrolled: false })
+    if(this.scrollingWrapper){
+      if (this.scrollingWrapper.scrollTop > 100 && !this.state.hasScrolled) {
+        this.setState({ hasScrolled: true })
+      } else if (this.scrollingWrapper.scrollTop < 100 && this.state.hasScrolled) {
+        this.setState({ hasScrolled: false })
+      }
     }
   }
 

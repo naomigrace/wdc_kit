@@ -142,7 +142,7 @@ const EventStick = styled(props => (
     }
 `
 
-export default ({ title, title2, description, date, postponed, cancelled, ageRestriction, isLoading, ...rest }) => {
+export default ({ title, title2, description, date, postponed, canceled, ageRestriction, isLoading, ...rest }) => {
   let formattedDate = new Date(date)
   let month = formattedDate.getMonth() + 1
   let day = formattedDate.getDate()
@@ -165,7 +165,7 @@ export default ({ title, title2, description, date, postponed, cancelled, ageRes
           </EventDate>
         )}
         <div>
-        <EventTitle>{determineTitle}</EventTitle> {(cancelled || postponed || ageRestriction) && <div style={{ marginBottom: `2px`, marginTop: `2px`, display: `inline-block`}}>{(cancelled || postponed) && <Pill>{cancelled || postponed}</Pill>}{ageRestriction && <Pill>{ageRestriction}</Pill>}</div>}
+        <EventTitle>{determineTitle}</EventTitle> {(canceled || postponed || ageRestriction || status) && <div style={{ marginBottom: `2px`, marginTop: `2px`, display: `inline-block`}}>{(canceled || postponed) && <Pill>{canceled || postponed}</Pill>}{ageRestriction && <Pill>{ageRestriction}</Pill>}</div>}
           {determineSubTitle && determineSubTitle.length && (
             <EventDescription>{determineSubTitle.toUpperCase()}</EventDescription>
           )}

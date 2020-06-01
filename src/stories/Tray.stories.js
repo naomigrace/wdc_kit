@@ -55,7 +55,7 @@ const eventSample = [
     date: "2016-03-27T15:00:00.000Z",
     neighborhood: "admo",
     latitude: 38.9223863,
-    cancelled: "cancelled",
+    canceled: "canceled",
     longitude: -77.0444571
     },
     {

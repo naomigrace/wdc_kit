@@ -2263,7 +2263,7 @@ var EventStick$1 = (({
   description,
   date,
   postponed,
-  cancelled,
+  canceled,
   ageRestriction,
   isLoading,
   ...rest
@@ -2282,13 +2282,13 @@ var EventStick$1 = (({
     datetime: date
   }, "TODAY") : /*#__PURE__*/React__default.createElement(EventDate, {
     datetime: date
-  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, determineTitle), " ", (cancelled || postponed || ageRestriction) && /*#__PURE__*/React__default.createElement("div", {
+  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, determineTitle), " ", (canceled || postponed || ageRestriction || status) && /*#__PURE__*/React__default.createElement("div", {
     style: {
       marginBottom: `2px`,
       marginTop: `2px`,
       display: `inline-block`
     }
-  }, (cancelled || postponed) && /*#__PURE__*/React__default.createElement(Pill, null, cancelled || postponed), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction)), determineSubTitle && determineSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determineSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
+  }, (canceled || postponed) && /*#__PURE__*/React__default.createElement(Pill, null, canceled || postponed), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction)), determineSubTitle && determineSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determineSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
 });
 
 class ScrollWrapper extends React__default.Component {
@@ -2300,14 +2300,16 @@ class ScrollWrapper extends React__default.Component {
     });
 
     _defineProperty(this, "onScroll", () => {
-      if (this.scrollingWrapper.scrollTop > 100 && !this.state.hasScrolled) {
-        this.setState({
-          hasScrolled: true
-        });
-      } else if (this.scrollingWrapper.scrollTop < 100 && this.state.hasScrolled) {
-        this.setState({
-          hasScrolled: false
-        });
+      if (this.scrollingWrapper) {
+        if (this.scrollingWrapper.scrollTop > 100 && !this.state.hasScrolled) {
+          this.setState({
+            hasScrolled: true
+          });
+        } else if (this.scrollingWrapper.scrollTop < 100 && this.state.hasScrolled) {
+          this.setState({
+            hasScrolled: false
+          });
+        }
       }
     });
 
