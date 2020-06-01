@@ -9,7 +9,7 @@ import {
   handleWhiteTextOnDark,
   isAfterThisYear,
   handleGradientHoverColor,
-  determineTitleAndSub
+  determineTitleAndSub,
 } from "../utils"
 
 const EventTitle = styled(props => <P bold size={`md`} {...props} />)`
@@ -91,7 +91,8 @@ const EventStick = styled(props => (
 
     ${Pill} {
       background: linear-gradient(
-        90deg, ${props => props.theme.colors.secondary_peach_wod}, ${props => props.theme.colors.secondary_peach_wod}) !important;
+        90deg, ${props => props.theme.colors.secondary_peach_wod}, ${props =>
+  props.theme.colors.secondary_peach_wod}) !important;
       color: #fff !important;
     }
 
@@ -129,7 +130,8 @@ const EventStick = styled(props => (
     // &:active,
     // &:focus {
     //   outline: none;
-    //   box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
+    //   box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props =>
+  props.theme.colors.focus};
     // }
   
     &:active {
@@ -142,7 +144,17 @@ const EventStick = styled(props => (
     }
 `
 
-export default ({ title, title2, description, date, postponed, canceled, ageRestriction, isLoading, ...rest }) => {
+export default ({
+  title,
+  title2,
+  description,
+  date,
+  postponed,
+  canceled,
+  ageRestriction,
+  isLoading,
+  ...rest
+}) => {
   let formattedDate = new Date(date)
   let month = formattedDate.getMonth() + 1
   let day = formattedDate.getDate()
@@ -151,7 +163,11 @@ export default ({ title, title2, description, date, postponed, canceled, ageRest
   let dateIsToday = isToday(formattedDate)
   let afterThisYear = isAfterThisYear(formattedDate)
 
-  let { determineTitle, determineSubTitle } = determineTitleAndSub(title, title2, description)
+  let { determineTitle, determineSubTitle } = determineTitleAndSub(
+    title,
+    title2,
+    description
+  )
 
   return (
     <EventStick {...rest}>
@@ -165,9 +181,24 @@ export default ({ title, title2, description, date, postponed, canceled, ageRest
           </EventDate>
         )}
         <div>
-        <EventTitle>{determineTitle}</EventTitle> {(canceled || postponed || ageRestriction || status) && <div style={{ marginBottom: `2px`, marginTop: `2px`, display: `inline-block`}}>{(canceled || postponed) && <Pill>{canceled || postponed}</Pill>}{ageRestriction && <Pill>{ageRestriction}</Pill>}</div>}
+          <EventTitle>{determineTitle}</EventTitle>{" "}
+          {(canceled || postponed || ageRestriction || status) && (
+            <div
+              style={{
+                marginBottom: `2px`,
+                marginTop: `2px`,
+                display: `inline-block`,
+              }}
+            >
+              {(canceled || postponed) && <Pill>{canceled || postponed}</Pill>}
+              {status && <Pill>{status}</Pill>}
+              {ageRestriction && <Pill>{ageRestriction}</Pill>}
+            </div>
+          )}
           {determineSubTitle && determineSubTitle.length && (
-            <EventDescription>{determineSubTitle.toUpperCase()}</EventDescription>
+            <EventDescription>
+              {determineSubTitle.toUpperCase()}
+            </EventDescription>
           )}
         </div>
       </FlexContainer>
