@@ -2264,6 +2264,7 @@ var EventStick$1 = (({
   date,
   postponed,
   canceled,
+  status,
   ageRestriction,
   isLoading,
   ...rest
@@ -2288,7 +2289,7 @@ var EventStick$1 = (({
       marginTop: `2px`,
       display: `inline-block`
     }
-  }, (canceled || postponed) && /*#__PURE__*/React__default.createElement(Pill, null, canceled || postponed), status && /*#__PURE__*/React__default.createElement(Pill, null, status), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction)), determineSubTitle && determineSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determineSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
+  }, canceled && /*#__PURE__*/React__default.createElement(Pill, null, canceled), postponed && /*#__PURE__*/React__default.createElement(Pill, null, postponed), status && /*#__PURE__*/React__default.createElement(Pill, null, status), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction)), determineSubTitle && determineSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determineSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
 });
 
 class ScrollWrapper extends React__default.Component {
