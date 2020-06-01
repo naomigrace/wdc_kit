@@ -190,7 +190,8 @@ export default ({
                 display: `inline-block`,
               }}
             >
-              {(canceled || postponed) && <Pill>{canceled || postponed}</Pill>}
+              {cancelled && <Pill>{canceled}</Pill>}
+              {postponed && <Pill>{postponed}</Pill>}
               {status && <Pill>{status}</Pill>}
               {ageRestriction && <Pill>{ageRestriction}</Pill>}
             </div>
