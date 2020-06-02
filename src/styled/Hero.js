@@ -1,3 +1,4 @@
+import React from "react"
 import styled from "styled-components"
 import { imageResolver, handleWhiteTextOnDark } from "../utils"
 
@@ -19,11 +20,31 @@ export const HeroTitle = styled.h1`
   }
 `
 
-export default styled.div`
-  background: linear-gradient(${props => props.theme.gradients.primary_opaque_wod}),
-    url(${props => imageResolver(props.image)});
-  background-size: cover;
-  background-position-y: center;
+const Hero = styled.div`
   min-height: 100px;
   width: 100%;
+  overflow-y: hidden;
+  position: relative;
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(
+        ${props => props.theme.gradients.primary_opaque_wod}
+      ),
+      url(${props => imageResolver(props.image)});
+    background-size: cover;
+    background-position-y: center;
+    filter: blur(3px);
+    transform: scale(1.1);
+  }
 `
+
+export default ({ children, ...props }) => (
+  <Hero {...props}>
+    <div style={{ position: `relative` }}>{children}</div>
+  </Hero>
+)

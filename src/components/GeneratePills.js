@@ -6,6 +6,7 @@ const GeneratePills = ({
   cancel,
   postpone,
   rescheduled,
+  soldOut,
   status,
   ageRestriction,
   ...rest
@@ -15,6 +16,7 @@ const GeneratePills = ({
     {cancel && <Pill>{cancel}</Pill>}
     {postpone && <Pill>{postpone}</Pill>}
     {rescheduled && <Pill>{rescheduled}</Pill>}
+    {soldOut && <Pill>{soldOut}</Pill>}
     {status && <Pill>{status}</Pill>}
     {ageRestriction && <Pill>{ageRestriction}</Pill>}
   </div>

@@ -34,6 +34,7 @@ const EventDate = styled.time`
     font-size: 0.75rem;
     font-family: ${props => props.theme.fonts.family.sans};
     letter-spacing: 1.5px;
+    margin-bottom: 5px;
   }
 `
 const Today = styled.time`
@@ -161,6 +162,7 @@ export default ({
   cancel,
   status,
   rescheduled,
+  soldOut,
   virtual,
   ageRestriction,
   isLoading,
@@ -201,13 +203,14 @@ export default ({
           <GeneratePills
             style={{
               marginBottom: `2px`,
-              marginTop: `2px`,
+              marginTop: `4px`,
               display: `inline-block`,
             }}
             virtual={virtual}
             cancel={cancel}
             postpone={postpone}
             rescheduled={rescheduled}
+            soldOut={soldOut}
             status={status}
             ageRestriction={ageRestriction}
           />
