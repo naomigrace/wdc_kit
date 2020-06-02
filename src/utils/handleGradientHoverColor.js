@@ -1,4 +1,5 @@
-const handleGradientHoverColor = props => `      background: linear-gradient(
+const handleGradientHoverColor = props => `      
+    background: linear-gradient(
     90deg,
     ${props.theme.colors.primary_dark_wod},
     ${props.theme.colors.secondary_peach_wod}
@@ -7,6 +8,7 @@ const handleGradientHoverColor = props => `      background: linear-gradient(
   -webkit-text-fill-color: transparent;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  text-shadow: none;`
+  text-shadow: none;
+`
 
 export default handleGradientHoverColor

@@ -1156,23 +1156,25 @@ const buttonBase = props => `
   }
 `;
 
-const determineTitleAndSub = (title, title2, description) => {
-  let determineTitle, determineSubTitle;
+const determineTitleAndSub = (title, title2) => {
+  let determinedTitle, determinedSubTitle; //  if there's only one of title2 and description, it should go in the space below
 
   if (title && !title2) {
-    determineTitle = title;
-    determineSubTitle = description || null;
+    determinedTitle = title;
+    determinedSubTitle = null;
   } else if (!title && title2) {
-    determineTitle = title2;
-    determineSubTitle = description || null;
+    determinedTitle = title2;
+    determinedSubTitle = null;
   } else if (title && title2) {
-    determineTitle = title;
-    determineSubTitle = title2;
-  }
+    determinedTitle = title;
+    determinedSubTitle = title2;
+  } // capitalize the first letter of the subtitle
 
+
+  determinedSubTitle = determinedSubTitle && determinedSubTitle.charAt(0).toUpperCase() + determinedSubTitle.slice(1);
   return {
-    determineTitle,
-    determineSubTitle
+    determinedTitle,
+    determinedSubTitle
   };
 };
 
@@ -1182,7 +1184,8 @@ const handleSpacing = props => {
 
 const handleColor = props => props.color ? `color: ${props.theme.colors[props.color]}` : `color: ${props.theme.colors.neutral_black_wod}`;
 
-const handleGradientHoverColor = props => `      background: linear-gradient(
+const handleGradientHoverColor = props => `      
+    background: linear-gradient(
     90deg,
     ${props.theme.colors.primary_dark_wod},
     ${props.theme.colors.secondary_peach_wod}
@@ -1191,7 +1194,8 @@ const handleGradientHoverColor = props => `      background: linear-gradient(
   -webkit-text-fill-color: transparent;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  text-shadow: none;`;
+  text-shadow: none;
+`;
 
 const getFontSize = props => {
   return props.size ? props.theme.fonts.size[props.size] : props.theme.fonts.size.base;
@@ -1988,7 +1992,7 @@ var Pill = styled__default.span`
     padding: 2px 8px;
     text-align: center;
     vertical-align: top;
-    margin-right: 2px;
+    margin-right: 3px;
     border-radius: ${props => props.theme.radius.chubby};
     ${props => handleWhiteTextOnDark(props, true)};
     ${props => handleShadow(props)};
@@ -2131,6 +2135,16 @@ var Tray = styled__default.div`
     }
 `;
 
+const GeneratePills = ({
+  virtual,
+  cancel,
+  postpone,
+  rescheduled,
+  status,
+  ageRestriction,
+  ...rest
+}) => /*#__PURE__*/React__default.createElement("div", rest, virtual && /*#__PURE__*/React__default.createElement(Pill, null, virtual), cancel && /*#__PURE__*/React__default.createElement(Pill, null, cancel), postpone && /*#__PURE__*/React__default.createElement(Pill, null, postpone), rescheduled && /*#__PURE__*/React__default.createElement(Pill, null, rescheduled), status && /*#__PURE__*/React__default.createElement(Pill, null, status), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction));
+
 const EventTitle = styled__default(props => /*#__PURE__*/React__default.createElement(P, _extends$1({
   bold: true,
   size: `md`
@@ -2149,6 +2163,12 @@ const EventDate = styled__default.time`
   text-align: right;
   min-width: 100px;
   border-right: 1px solid ${props => props.theme.colors.neutral_grey};
+
+  .time {
+    font-size: 0.75rem;
+    font-family: ${props => props.theme.fonts.family.sans};
+    letter-spacing: 1.5px;
+  }
 `;
 const Today = styled__default.time`
   color: ${props => props.theme.colors.neutral_mid_wod};
@@ -2262,9 +2282,12 @@ var EventStick$1 = (({
   title2,
   description,
   date,
-  postponed,
-  canceled,
+  time,
+  postpone,
+  cancel,
   status,
+  rescheduled,
+  virtual,
   ageRestriction,
   isLoading,
   ...rest
@@ -2276,20 +2299,32 @@ var EventStick$1 = (({
   let dateIsToday = isToday(formattedDate);
   let afterThisYear = isAfterThisYear(formattedDate);
   let {
-    determineTitle,
-    determineSubTitle
-  } = determineTitleAndSub(title, title2, description);
+    determinedTitle,
+    determinedSubTitle
+  } = determineTitleAndSub(title, title2);
   return /*#__PURE__*/React__default.createElement(EventStick, rest, /*#__PURE__*/React__default.createElement(FlexContainer, null, dateIsToday ? /*#__PURE__*/React__default.createElement(Today, {
     datetime: date
   }, "TODAY") : /*#__PURE__*/React__default.createElement(EventDate, {
     datetime: date
-  }, month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, null, determineTitle), " ", (canceled || postponed || ageRestriction || status) && /*#__PURE__*/React__default.createElement("div", {
+  }, /*#__PURE__*/React__default.createElement("div", null, " ", month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), time && /*#__PURE__*/React__default.createElement("div", {
+    className: "time"
+  }, time)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, {
+    style: {
+      marginRight: `0.4rem`
+    }
+  }, determinedTitle), " ", /*#__PURE__*/React__default.createElement(GeneratePills, {
     style: {
       marginBottom: `2px`,
       marginTop: `2px`,
       display: `inline-block`
-    }
-  }, canceled && /*#__PURE__*/React__default.createElement(Pill, null, canceled), postponed && /*#__PURE__*/React__default.createElement(Pill, null, postponed), status && /*#__PURE__*/React__default.createElement(Pill, null, status), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction)), determineSubTitle && determineSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determineSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
+    },
+    virtual: virtual,
+    cancel: cancel,
+    postpone: postpone,
+    rescheduled: rescheduled,
+    status: status,
+    ageRestriction: ageRestriction
+  }), determinedSubTitle && determinedSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determinedSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
 });
 
 class ScrollWrapper extends React__default.Component {
@@ -2660,6 +2695,7 @@ exports.FlexContainer = FlexContainer;
 exports.FooterActionBar = FooterActionBar;
 exports.FooterContainer = FooterContainer;
 exports.FormAlert = FormAlert;
+exports.GeneratePills = GeneratePills;
 exports.Header = StyledHeader;
 exports.Heading1 = Heading1;
 exports.Heading2 = Heading2;

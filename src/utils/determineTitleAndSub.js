@@ -1,18 +1,24 @@
-const determineTitleAndSub = (title, title2, description) => {
-  let determineTitle, determineSubTitle
+const determineTitleAndSub = (title, title2) => {
+  let determinedTitle, determinedSubTitle;
 
+  //  if there's only one of title2 and description, it should go in the space below
   if (title && !title2) {
-    determineTitle = title
-    determineSubTitle = description || null
+    determinedTitle = title;
+    determinedSubTitle = null;
   } else if (!title && title2) {
-    determineTitle = title2
-    determineSubTitle = description || null
-  } else if (title && title2) {
-    determineTitle = title
-    determineSubTitle = title2
+    determinedTitle = title2;
+    determinedSubTitle = null;
+  } else if (title && title2){
+    determinedTitle = title;
+    determinedSubTitle = title2;
   }
 
-  return { determineTitle, determineSubTitle }
-}
+  // capitalize the first letter of the subtitle
+  determinedSubTitle =
+    determinedSubTitle &&
+    determinedSubTitle.charAt(0).toUpperCase() + determinedSubTitle.slice(1);
 
-export default determineTitleAndSub
+  return { determinedTitle, determinedSubTitle };
+};
+
+export default determineTitleAndSub;

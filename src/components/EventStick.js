@@ -4,6 +4,7 @@ import Box from "../styled/Box"
 import P from "../styled/P"
 import Pill from "../styled/Pill"
 import FlexContainer from "../styled/FlexContainer"
+import GeneratePills from "../components/GeneratePills"
 import {
   isToday,
   handleWhiteTextOnDark,
@@ -28,6 +29,12 @@ const EventDate = styled.time`
   text-align: right;
   min-width: 100px;
   border-right: 1px solid ${props => props.theme.colors.neutral_grey};
+
+  .time {
+    font-size: 0.75rem;
+    font-family: ${props => props.theme.fonts.family.sans};
+    letter-spacing: 1.5px;
+  }
 `
 const Today = styled.time`
   color: ${props => props.theme.colors.neutral_mid_wod};
@@ -149,9 +156,12 @@ export default ({
   title2,
   description,
   date,
-  postponed,
-  canceled,
+  time,
+  postpone,
+  cancel,
   status,
+  rescheduled,
+  virtual,
   ageRestriction,
   isLoading,
   ...rest
@@ -164,10 +174,9 @@ export default ({
   let dateIsToday = isToday(formattedDate)
   let afterThisYear = isAfterThisYear(formattedDate)
 
-  let { determineTitle, determineSubTitle } = determineTitleAndSub(
+  let { determinedTitle, determinedSubTitle } = determineTitleAndSub(
     title,
-    title2,
-    description
+    title2
   )
 
   return (
@@ -177,29 +186,34 @@ export default ({
           <Today datetime={date}>TODAY</Today>
         ) : (
           <EventDate datetime={date}>
-            {month}/{day}
-            {afterThisYear && `/${year.toString().slice(2)}`}
+            <div>
+              {" "}
+              {month}/{day}
+              {afterThisYear && `/${year.toString().slice(2)}`}
+            </div>
+            {time && <div className="time">{time}</div>}
           </EventDate>
         )}
         <div>
-          <EventTitle>{determineTitle}</EventTitle>{" "}
-          {(canceled || postponed || ageRestriction || status) && (
-            <div
-              style={{
-                marginBottom: `2px`,
-                marginTop: `2px`,
-                display: `inline-block`,
-              }}
-            >
-              {canceled && <Pill>{canceled}</Pill>}
-              {postponed && <Pill>{postponed}</Pill>}
-              {status && <Pill>{status}</Pill>}
-              {ageRestriction && <Pill>{ageRestriction}</Pill>}
-            </div>
-          )}
-          {determineSubTitle && determineSubTitle.length && (
+          <EventTitle style={{ marginRight: `0.4rem` }}>
+            {determinedTitle}
+          </EventTitle>{" "}
+          <GeneratePills
+            style={{
+              marginBottom: `2px`,
+              marginTop: `2px`,
+              display: `inline-block`,
+            }}
+            virtual={virtual}
+            cancel={cancel}
+            postpone={postpone}
+            rescheduled={rescheduled}
+            status={status}
+            ageRestriction={ageRestriction}
+          />
+          {determinedSubTitle && determinedSubTitle.length && (
             <EventDescription>
-              {determineSubTitle.toUpperCase()}
+              {determinedSubTitle.toUpperCase()}
             </EventDescription>
           )}
         </div>

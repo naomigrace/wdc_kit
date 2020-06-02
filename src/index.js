@@ -33,6 +33,7 @@ import {
 import Tray, { TrayNavigation, TrayContent } from "./styled/Tray"
 
 import EventStick from "./components/EventStick"
+import GeneratePills from "./components/GeneratePills"
 import ScrollWrapper from "./components/ScrollWrapper"
 import ButtonInput from "./components/ButtonInput"
 import ButtonInputBackground from "./components/ButtonInputBackground"
@@ -86,6 +87,7 @@ export {
   UpButton,
   //
   EventStick,
+  GeneratePills,
   ScrollWrapper,
   ButtonInput,
   ButtonInputBackground,
