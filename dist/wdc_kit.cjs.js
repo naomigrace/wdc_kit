@@ -1858,14 +1858,36 @@ const HeroTitle = styled__default.h1`
     font-size: 3rem;
   }
 `;
-var Hero = styled__default.div`
-  background: linear-gradient(${props => props.theme.gradients.primary_opaque_wod}),
-    url(${props => imageResolver(props.image)});
-  background-size: cover;
-  background-position-y: center;
+const Hero = styled__default.div`
   min-height: 100px;
   width: 100%;
+  overflow-y: hidden;
+  position: relative;
+  &::before {
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(
+        ${props => props.theme.gradients.primary_opaque_wod}
+      ),
+      url(${props => imageResolver(props.image)});
+    background-size: cover;
+    background-position-y: center;
+    filter: blur(3px);
+    transform: scale(1.1);
+  }
 `;
+var Hero$1 = (({
+  children,
+  ...props
+}) => /*#__PURE__*/React__default.createElement(Hero, props, /*#__PURE__*/React__default.createElement("div", {
+  style: {
+    position: `relative`
+  }
+}, children)));
 
 var HiddenFieldset = styled__default.fieldset`
   border: 0;
@@ -2140,10 +2162,11 @@ const GeneratePills = ({
   cancel,
   postpone,
   rescheduled,
+  soldOut,
   status,
   ageRestriction,
   ...rest
-}) => /*#__PURE__*/React__default.createElement("div", rest, virtual && /*#__PURE__*/React__default.createElement(Pill, null, virtual), cancel && /*#__PURE__*/React__default.createElement(Pill, null, cancel), postpone && /*#__PURE__*/React__default.createElement(Pill, null, postpone), rescheduled && /*#__PURE__*/React__default.createElement(Pill, null, rescheduled), status && /*#__PURE__*/React__default.createElement(Pill, null, status), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction));
+}) => /*#__PURE__*/React__default.createElement("div", rest, virtual && /*#__PURE__*/React__default.createElement(Pill, null, virtual), cancel && /*#__PURE__*/React__default.createElement(Pill, null, cancel), postpone && /*#__PURE__*/React__default.createElement(Pill, null, postpone), rescheduled && /*#__PURE__*/React__default.createElement(Pill, null, rescheduled), soldOut && /*#__PURE__*/React__default.createElement(Pill, null, soldOut), status && /*#__PURE__*/React__default.createElement(Pill, null, status), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction));
 
 const EventTitle = styled__default(props => /*#__PURE__*/React__default.createElement(P, _extends$1({
   bold: true,
@@ -2168,6 +2191,7 @@ const EventDate = styled__default.time`
     font-size: 0.75rem;
     font-family: ${props => props.theme.fonts.family.sans};
     letter-spacing: 1.5px;
+    margin-bottom: 5px;
   }
 `;
 const Today = styled__default.time`
@@ -2260,13 +2284,7 @@ const EventStick = styled__default(props => /*#__PURE__*/React__default.createEl
     ` : `
     background-color: ${props.theme.colors.neutral_white};
     border: 1px solid ${props.theme.colors.primary_lightest};
-
     `}
-    // &:active,
-    // &:focus {
-    //   outline: none;
-    //   box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props => props.theme.colors.focus};
-    // }
   
     &:active {
       transform: scale(0.99);
@@ -2287,6 +2305,7 @@ var EventStick$1 = (({
   cancel,
   status,
   rescheduled,
+  soldOut,
   virtual,
   ageRestriction,
   isLoading,
@@ -2315,13 +2334,14 @@ var EventStick$1 = (({
   }, determinedTitle), " ", /*#__PURE__*/React__default.createElement(GeneratePills, {
     style: {
       marginBottom: `2px`,
-      marginTop: `2px`,
+      marginTop: `4px`,
       display: `inline-block`
     },
     virtual: virtual,
     cancel: cancel,
     postpone: postpone,
     rescheduled: rescheduled,
+    soldOut: soldOut,
     status: status,
     ageRestriction: ageRestriction
   }), determinedSubTitle && determinedSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determinedSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
@@ -2699,7 +2719,7 @@ exports.GeneratePills = GeneratePills;
 exports.Header = StyledHeader;
 exports.Heading1 = Heading1;
 exports.Heading2 = Heading2;
-exports.Hero = Hero;
+exports.Hero = Hero$1;
 exports.HeroTitle = HeroTitle;
 exports.HiddenFieldset = HiddenFieldset;
 exports.HomePageContainer = HomePageContainer;

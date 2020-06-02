@@ -133,14 +133,7 @@ const EventStick = styled(props => (
       : `
     background-color: ${props.theme.colors.neutral_white};
     border: 1px solid ${props.theme.colors.primary_lightest};
-
     `}
-    // &:active,
-    // &:focus {
-    //   outline: none;
-    //   box-shadow: 0 0 0 ${props => props.theme.widths.mini} ${props =>
-  props.theme.colors.focus};
-    // }
   
     &:active {
       transform: scale(0.99);
