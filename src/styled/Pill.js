@@ -9,7 +9,7 @@ export default styled.span`
     padding: 2px 8px;
     text-align: center;
     vertical-align: top;
-    margin-right: 3px;
+    margin-right: 6px;
     border-radius: ${props => props.theme.radius.chubby};
     ${props => handleWhiteTextOnDark(props, true)};
     ${props => handleShadow(props)};

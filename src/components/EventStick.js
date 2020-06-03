@@ -13,7 +13,11 @@ import {
   determineTitleAndSub,
 } from "../utils"
 
-const EventTitle = styled(props => <P bold size={`md`} {...props} />)`
+const EventTitle = styled.h1`
+  font-size: 1.25rem;
+  font-family: ${props => props.theme.fonts.family.sans};
+  font-weight: 700;
+  margin: 0.25rem 0;
   color: ${props => props.theme.colors.tertiary_mid_wod};
   letter-spacing: 2px;
   hyphens: auto;
@@ -96,18 +100,19 @@ const EventStick = styled(props => (
   }
 
   &:hover {
-
     ${Pill} {
       background: linear-gradient(
-        90deg, ${props => props.theme.colors.secondary_peach_wod}, ${props =>
-  props.theme.colors.secondary_peach_wod}) !important;
+        90deg,
+        ${props => props.theme.colors.secondary_peach_wod},
+        ${props => props.theme.colors.secondary_peach_wod}
+      ) !important;
       color: #fff !important;
     }
 
-    ${EventTitle}, ${EventDescription}{
+    ${EventTitle}, ${EventDescription} {
       ${props => !props.active && handleGradientHoverColor(props)};
     }
-    ${EventDate}, ${Today}{
+    ${EventDate}, ${Today} {
       color: ${props => props.theme.colors.primary_dark_wod};
     }
   }
@@ -134,15 +139,15 @@ const EventStick = styled(props => (
     background-color: ${props.theme.colors.neutral_white};
     border: 1px solid ${props.theme.colors.primary_lightest};
     `}
-  
-    &:active {
-      transform: scale(0.99);
-    }
 
-    padding: 0px;
-    ${FlexContainer}{
-      padding: 8px;
-    }
+  &:active {
+    transform: scale(0.99);
+  }
+
+  padding: 0px;
+  ${FlexContainer} {
+    padding: 8px;
+  }
 `
 
 export default ({
@@ -189,24 +194,29 @@ export default ({
             {time && <div className="time">{time}</div>}
           </EventDate>
         )}
-        <div>
-          <EventTitle style={{ marginRight: `0.4rem` }}>
-            {determinedTitle}
-          </EventTitle>{" "}
-          <GeneratePills
-            style={{
-              marginBottom: `2px`,
-              marginTop: `4px`,
-              display: `inline-block`,
-            }}
-            virtual={virtual}
-            cancel={cancel}
-            postpone={postpone}
-            rescheduled={rescheduled}
-            soldOut={soldOut}
-            status={status}
-            ageRestriction={ageRestriction}
-          />
+        <div
+          style={{
+            display: `flex`,
+            flexDirection: `column`,
+            justifyContent: `center`,
+          }}
+        >
+          <div
+            style={{ display: `flex`, alignItems: `center`, flexWrap: `wrap` }}
+          >
+            <EventTitle style={{ marginRight: `0.4rem` }}>
+              {determinedTitle}
+            </EventTitle>{" "}
+            <GeneratePills
+              style={{
+                marginBottom: `2px`,
+                marginTop: `4px`,
+                display: `inline-block`,
+              }}
+              status={status}
+              ageRestriction={ageRestriction}
+            />
+          </div>
           {determinedSubTitle && determinedSubTitle.length && (
             <EventDescription>
               {determinedSubTitle.toUpperCase()}

@@ -2014,7 +2014,7 @@ var Pill = styled__default.span`
     padding: 2px 8px;
     text-align: center;
     vertical-align: top;
-    margin-right: 3px;
+    margin-right: 6px;
     border-radius: ${props => props.theme.radius.chubby};
     ${props => handleWhiteTextOnDark(props, true)};
     ${props => handleShadow(props)};
@@ -2158,20 +2158,16 @@ var Tray = styled__default.div`
 `;
 
 const GeneratePills = ({
-  virtual,
-  cancel,
-  postpone,
-  rescheduled,
-  soldOut,
   status,
   ageRestriction,
   ...rest
-}) => /*#__PURE__*/React__default.createElement("div", rest, virtual && /*#__PURE__*/React__default.createElement(Pill, null, virtual), cancel && /*#__PURE__*/React__default.createElement(Pill, null, cancel), postpone && /*#__PURE__*/React__default.createElement(Pill, null, postpone), rescheduled && /*#__PURE__*/React__default.createElement(Pill, null, rescheduled), soldOut && /*#__PURE__*/React__default.createElement(Pill, null, soldOut), status && /*#__PURE__*/React__default.createElement(Pill, null, status), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction));
+}) => /*#__PURE__*/React__default.createElement("div", rest, status.map(s => /*#__PURE__*/React__default.createElement(Pill, null, s)), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, null, ageRestriction));
 
-const EventTitle = styled__default(props => /*#__PURE__*/React__default.createElement(P, _extends$1({
-  bold: true,
-  size: `md`
-}, props)))`
+const EventTitle = styled__default.h1`
+  font-size: 1.25rem;
+  font-family: ${props => props.theme.fonts.family.sans};
+  font-weight: 700;
+  margin: 0.25rem 0;
   color: ${props => props.theme.colors.tertiary_mid_wod};
   letter-spacing: 2px;
   hyphens: auto;
@@ -2251,17 +2247,19 @@ const EventStick = styled__default(props => /*#__PURE__*/React__default.createEl
   }
 
   &:hover {
-
     ${Pill} {
       background: linear-gradient(
-        90deg, ${props => props.theme.colors.secondary_peach_wod}, ${props => props.theme.colors.secondary_peach_wod}) !important;
+        90deg,
+        ${props => props.theme.colors.secondary_peach_wod},
+        ${props => props.theme.colors.secondary_peach_wod}
+      ) !important;
       color: #fff !important;
     }
 
-    ${EventTitle}, ${EventDescription}{
+    ${EventTitle}, ${EventDescription} {
       ${props => !props.active && handleGradientHoverColor(props)};
     }
-    ${EventDate}, ${Today}{
+    ${EventDate}, ${Today} {
       color: ${props => props.theme.colors.primary_dark_wod};
     }
   }
@@ -2285,15 +2283,15 @@ const EventStick = styled__default(props => /*#__PURE__*/React__default.createEl
     background-color: ${props.theme.colors.neutral_white};
     border: 1px solid ${props.theme.colors.primary_lightest};
     `}
-  
-    &:active {
-      transform: scale(0.99);
-    }
 
-    padding: 0px;
-    ${FlexContainer}{
-      padding: 8px;
-    }
+  &:active {
+    transform: scale(0.99);
+  }
+
+  padding: 0px;
+  ${FlexContainer} {
+    padding: 8px;
+  }
 `;
 var EventStick$1 = (({
   title,
@@ -2327,7 +2325,19 @@ var EventStick$1 = (({
     datetime: date
   }, /*#__PURE__*/React__default.createElement("div", null, " ", month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), time && /*#__PURE__*/React__default.createElement("div", {
     className: "time"
-  }, time)), /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(EventTitle, {
+  }, time)), /*#__PURE__*/React__default.createElement("div", {
+    style: {
+      display: `flex`,
+      flexDirection: `column`,
+      justifyContent: `center`
+    }
+  }, /*#__PURE__*/React__default.createElement("div", {
+    style: {
+      display: `flex`,
+      alignItems: `center`,
+      flexWrap: `wrap`
+    }
+  }, /*#__PURE__*/React__default.createElement(EventTitle, {
     style: {
       marginRight: `0.4rem`
     }
@@ -2337,14 +2347,9 @@ var EventStick$1 = (({
       marginTop: `4px`,
       display: `inline-block`
     },
-    virtual: virtual,
-    cancel: cancel,
-    postpone: postpone,
-    rescheduled: rescheduled,
-    soldOut: soldOut,
     status: status,
     ageRestriction: ageRestriction
-  }), determinedSubTitle && determinedSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determinedSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
+  })), determinedSubTitle && determinedSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determinedSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null));
 });
 
 class ScrollWrapper extends React__default.Component {
