@@ -14,4 +14,3 @@ export default ({ about }) => (
     </div>
   </CenterContainer>
 )
-s
