@@ -36,11 +36,10 @@ const InputContainer = styled.div`
   position: relative;
 `
 
-const useInput = ({ type, defaultValue, ...props }) => {
+const useInput = ({ type, defaultValue, setValue, ...props }) => {
   const [value, setValue] = useState(defaultValue)
   return {
     value,
-    setValue,
     renderInput: () => (
       <InputContainer>
         {type === "search" && <SearchIcon size="1rem" title="search icon" />}
