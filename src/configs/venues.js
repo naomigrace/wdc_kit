@@ -1,13 +1,16 @@
 export default {
-    _930: "930 Club",
-    blackcat: "Black Cat",
-    echostage: "Echo Stage",
-    howardtheatre: "The Howard Theatre",
-    pearlstreet: "Pearl Street",
-    songbyrd: "Songbyrd Cafe",
-    theanthem: "The Anthem",
-    unionstage: "Union Stage",
-    ustreet: "U Street Music Hall",
-    velvetlounge: "The Velvet Lounge",
-  }
-  
+  _930: "9:30 Club",
+  theanthem: "The Anthem",
+  blackcat: "Black Cat",
+  citywinery: "City Winery",
+  dc9: "DC9 Nightclub",
+  echostage: "Echo Stage",
+  thehamilton: "The Hamilton",
+  howardtheatre: "The Howard Theatre",
+  pieshop: "Pie Shop",
+  pearlstreet: "Pearl Street",
+  songbyrd: "Songbyrd Cafe",
+  ustreet: "U Street Music Hall",
+  unionstage: "Union Stage",
+  velvetlounge: "The Velvet Lounge",
+}

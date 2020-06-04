@@ -1,12 +1,16 @@
 import Image930 from "../images/venue__930.jpg"
+import ImageCityWinery from "../images/venue_citywinery.jpeg"
+import ImageDC9 from "../images/venue_dc9.jpg"
 import ImageBlackCat from "../images/venue_blackcat.jpg"
 import ImageEchoStage from "../images/venue_echostage.jpg"
+import ImageTheHamilton from "../images/venue_thehamilton.jpg"
 import ImageHowardTheatre from "../images/venue_howardtheatre.jpg"
 import ImagePearlStreet from "../images/venue_pearlstreet.jpg"
+import ImagePieShop from "../images/venue_pieshop.jpg"
 import ImageSongbyrd from "../images/venue_songbyrd.jpg"
 import ImageUnionStage from "../images/venue_unionstage.jpg"
 import ImageUStreet from "../images/venue_ustreet.jpeg"
-import ImageVelvetLounge from "../images/venue_velvetlounge.jpg"
+import ImageVelvetLounge from "../images/venue_velvetlounge.jpeg"
 import ImageAnthem from "../images/venue_anthem.jpg"
 
 import ImageAdmo from "../images/neighborhood_admo.jpg"
@@ -29,8 +33,12 @@ const imageResolver = machine_name => {
     // venues
     _930: Image930,
     blackcat: ImageBlackCat,
+    citywinery: ImageCityWinery,
+    dc9: ImageDC9,
     echostage: ImageEchoStage,
+    thehamilton: ImageTheHamilton,
     howardtheatre: ImageHowardTheatre,
+    pieshop: ImagePieShop,
     pearlstreet: ImagePearlStreet,
     songbyrd: ImageSongbyrd,
     unionstage: ImageUnionStage,
