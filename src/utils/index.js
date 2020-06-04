@@ -1,6 +1,7 @@
 import buttonBase from "./buttonBase"
 import determineTitleAndSub from "./determineTitleAndSub"
 import getFontSize from "./getFontSize"
+import handleFocus from "./handleFocus"
 import handleColor from "./handleColor"
 import handleGradientHoverColor from "./handleGradientHoverColor"
 import { handleFont } from "./handleFont"
@@ -16,6 +17,7 @@ export {
     buttonBase,
     determineTitleAndSub,
     getFontSize,
+    handleFocus,
     handleColor,
     handleFont,
     handleGradientHoverColor,
@@ -32,6 +34,7 @@ export default {
     buttonBase,
     determineTitleAndSub,
     getFontSize,
+    handleFocus,
     handleColor,
     handleFont,
     handleGradientHoverColor,

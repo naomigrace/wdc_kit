@@ -1,4 +1,5 @@
 import theme from "./styled/theme"
+import A from "./styled/A"
 import Box from "./styled/Box"
 import BoxGradient from "./styled/BoxGradient"
 import Button from "./styled/Button"
@@ -38,6 +39,7 @@ import ScrollWrapper from "./components/ScrollWrapper"
 import ButtonInput from "./components/ButtonInput"
 import ButtonInputBackground from "./components/ButtonInputBackground"
 import useFilterBox from "./components/useFilterBox"
+import useInput from "./components/useInput"
 import NotFound from "./components/NotFound"
 import AboutPage from "./templates/AboutPage"
 
@@ -47,6 +49,7 @@ export {
   //
   theme,
   //
+  A,
   BackButton,
   Box,
   BoxGradient,
@@ -92,6 +95,7 @@ export {
   ButtonInput,
   ButtonInputBackground,
   useFilterBox,
+  useInput,
   NotFound,
   AboutPage,
   //

@@ -1,4 +1,4 @@
-import { transparentize } from "polished"
+import handleFocus from "./handleFocus"
 
 const buttonBase = props => `
   display: inline-block;
@@ -37,14 +37,7 @@ const buttonBase = props => `
     ${!props.background && `transform: scale(0.98);`}
   }
 
-  &:focus, &:active {
-    outline: none;
-    box-shadow: 0 0 0 ${props.theme.widths.mini} ${
-  props.colors
-    ? transparentize(0.41, props.theme.colors[props.color])
-    : props.theme.colors.focus
-};
-  }
+  ${handleFocus(props)};
 `
 
 export default buttonBase

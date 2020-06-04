@@ -10,27 +10,36 @@ import {
 import EventStick from "../components/EventStick"
 import ScrollWrapper from "../components/ScrollWrapper"
 import eventSample from "../fixtures/eventSample"
+import useInput from "../components/useInput"
 
 export default {
   title: "Tray",
   component: Tray,
 }
 
-export const TraySample = () => (
+export const TraySample = () => {
+  const {
+    value,
+    setValue,
+    renderInput
+  } = useInput({type: "search", shadow: "md", placeholder: "search events"})
+return (
   <Tray>
     <ScrollWrapper>
       <TrayNavigation>
         <Button
           small
-          color={`primary_mid_wod`}
+          bold
+          color={`tertiary_mid_wod`}
           shadow={`md`}
           style={{
-            margin: `0 auto`,
             display: `block`,
           }}
         >
           show filters
         </Button>
+        {renderInput()}
+        {/* <Input type="search" shadow="md" placeholder="search events" /> */}
       </TrayNavigation>
       <TrayContent>
         <Label bold size={`sm`}>
@@ -44,3 +53,4 @@ export const TraySample = () => (
     </ScrollWrapper>
   </Tray>
 )
+}
