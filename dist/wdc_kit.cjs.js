@@ -2752,13 +2752,12 @@ const InputContainer = styled__default.div`
 
 const useInput = ({
   type,
-  defaultValue,
+  value,
+  setValue,
   ...props
 }) => {
-  const [value, setValue] = React.useState(defaultValue);
   return {
     value,
-    setValue,
     renderInput: () => /*#__PURE__*/React__default.createElement(InputContainer, null, type === "search" && /*#__PURE__*/React__default.createElement(SearchIcon, {
       size: "1rem",
       title: "search icon"
@@ -2802,6 +2801,7 @@ var AboutPage = (({
 }, /*#__PURE__*/React__default.createElement(Heading1, null, "about us"), /*#__PURE__*/React__default.createElement(P, null, /*#__PURE__*/React__default.createElement("strong", null, "WANNADC"), " is a new centralized source for music, comedy, and cultural events in Washington, D.C. with events located across ", about.neighborhoodCount, " neighborhoods and ", about.venueCount, " venues."), /*#__PURE__*/React__default.createElement("br", null), /*#__PURE__*/React__default.createElement(P, null, "We launched on [ insert date here ] and are just getting started. If you are a venue that would like to partner with us, reach out at ", /*#__PURE__*/React__default.createElement(A, {
   href: "mailto:hello@wannadc.com"
 }, "hello@wannadc.com")))));
+s;
 
 exports.A = A;
 exports.AboutPage = AboutPage;

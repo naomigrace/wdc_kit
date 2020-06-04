@@ -2744,13 +2744,12 @@ const InputContainer = styled.div`
 
 const useInput = ({
   type,
-  defaultValue,
+  value,
+  setValue,
   ...props
 }) => {
-  const [value, setValue] = useState(defaultValue);
   return {
     value,
-    setValue,
     renderInput: () => /*#__PURE__*/React__default.createElement(InputContainer, null, type === "search" && /*#__PURE__*/React__default.createElement(SearchIcon, {
       size: "1rem",
       title: "search icon"
@@ -2794,6 +2793,7 @@ var AboutPage = (({
 }, /*#__PURE__*/React__default.createElement(Heading1, null, "about us"), /*#__PURE__*/React__default.createElement(P, null, /*#__PURE__*/React__default.createElement("strong", null, "WANNADC"), " is a new centralized source for music, comedy, and cultural events in Washington, D.C. with events located across ", about.neighborhoodCount, " neighborhoods and ", about.venueCount, " venues."), /*#__PURE__*/React__default.createElement("br", null), /*#__PURE__*/React__default.createElement(P, null, "We launched on [ insert date here ] and are just getting started. If you are a venue that would like to partner with us, reach out at ", /*#__PURE__*/React__default.createElement(A, {
   href: "mailto:hello@wannadc.com"
 }, "hello@wannadc.com")))));
+s;
 
 export { A, AboutPage, BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CenterContainer$1 as CenterContainer, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, GeneratePills, StyledHeader as Header, Heading1, Heading2, Hero$1 as Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, Pill, PreviewContainer$1 as PreviewContainer, PreviewLogo, PreviewText, PreviewTextSmall, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox, useInput, index as utils };
 //# sourceMappingURL=wdc_kit.esm.js.map

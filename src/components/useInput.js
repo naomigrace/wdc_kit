@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { handleFocus, handleShadow, handleWhiteTextOnDark } from "../utils"
 import { Search } from "@styled-icons/icomoon/Search"
@@ -36,8 +36,7 @@ const InputContainer = styled.div`
   position: relative;
 `
 
-const useInput = ({ type, defaultValue, setValue, ...props }) => {
-  const [value, setValue] = useState(defaultValue)
+const useInput = ({ type, value, setValue, ...props }) => {
   return {
     value,
     renderInput: () => (
