@@ -61,11 +61,14 @@ var theme = {
     "neutral_light": `rgb(240, 243, 249)`,
     "neutral_white": `rgb(255, 255, 255)`,
     // tags
-    music: `rgb(255, 62, 85)`,
-    comedy: `rgb(254, 106, 62)`,
-    culture: `rgb(37, 109, 202)`,
-    sports: `rgb(33, 122, 57)`,
-    community: `rgb(172, 37, 130)`
+    music_wod: `rgb(255, 62, 85)`,
+    // secondary_peach_wod
+    comedy_wod: `rgb(254, 106, 62)`,
+    // secondary_orange_wod
+    culture_wod: `rgb(60, 132, 224)`,
+    sports_wod: `rgb(41, 171, 76)`,
+    community_wod: `rgb(101, 84, 192)` // primary_mid_wod
+
   },
   gradients: {
     solid_white: `rgb(255, 255, 255), rgb(255, 255, 255)`,
