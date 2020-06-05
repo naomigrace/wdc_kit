@@ -48,6 +48,13 @@ export default {
     "neutral_grey": `rgb(228, 228, 228)`,
     "neutral_light": `rgb(240, 243, 249)`,
     "neutral_white": `rgb(255, 255, 255)`,
+
+    // tags
+    music: `rgb(255, 62, 85)`,
+    comedy: `rgb(254, 106, 62)`,
+    culture: `rgb(37, 109, 202)`,
+    sports: `rgb(33, 122, 57)`,
+    community: `rgb(172, 37, 130)`,
   },
   gradients: {
       solid_white: `rgb(255, 255, 255), rgb(255, 255, 255)`,
