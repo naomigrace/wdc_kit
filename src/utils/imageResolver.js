@@ -1,6 +1,7 @@
 import Image930 from "../images/venue__930.jpg"
 import ImageCityWinery from "../images/venue_citywinery.jpeg"
 import ImageDC9 from "../images/venue_dc9.jpg"
+import ImageDCImprov from "../images/venue_dcimprov.jpg"
 import ImageBlackCat from "../images/venue_blackcat.jpg"
 import ImageEchoStage from "../images/venue_echostage.jpg"
 import ImageTheHamilton from "../images/venue_thehamilton.jpg"
@@ -35,6 +36,7 @@ const imageResolver = machine_name => {
     blackcat: ImageBlackCat,
     citywinery: ImageCityWinery,
     dc9: ImageDC9,
+    dcimprov: ImageDCImprov,
     echostage: ImageEchoStage,
     thehamilton: ImageTheHamilton,
     howardtheatre: ImageHowardTheatre,

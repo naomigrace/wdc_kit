@@ -15,13 +15,15 @@ const SearchIcon = styled(Search)`
 
 const DefaultInput = styled.input`
   border-color: transparent;
-  padding: 0.5rem 1rem 0.5rem ${props => props.type === "search" ? `2rem` : `1rem`};
+  padding: 0rem 1rem 0rem ${props => props.type === "search" ? `2rem` : `1rem`};
   border-radius: ${props => props.theme.padding.baby};
   background-color: ${props => props.theme.colors.tertiary_mid_wod};
   color: ${props => props.theme.colors.neutral_white};
   font-family: ${props => props.theme.fonts.family.sans};
   font-weight: bold;
-  width: ${props => props.type !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `125px`};
+  line-height: 2;
+  height: 38px;
+  width: ${props => props.type !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `150px`};
   &:hover,
   &:focus {
     width: ${props => props.type !== "search" ? "auto" :maxWidth};

@@ -3,12 +3,13 @@ import { handleFont, handleWhiteTextOnDark, handleShadow } from "../utils"
 
 export default styled.span`
     ${props => handleFont(props)};
+    display: inline-block;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 11px;
-    padding: 2px 8px;
+    padding: 3px 8px;
     text-align: center;
-    vertical-align: top;
+    vertical-align: super;
     margin-right: 6px;
     border-radius: ${props => props.theme.radius.chubby};
     ${props => handleWhiteTextOnDark(props, true)};

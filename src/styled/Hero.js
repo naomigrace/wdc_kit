@@ -49,7 +49,7 @@ export const HeroTitle = styled.h1`
 const Hero = styled.div`
   min-height: 100px;
   width: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
   position: relative;
   &::before {
     content: "";

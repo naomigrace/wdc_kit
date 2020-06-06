@@ -1239,6 +1239,8 @@ const img = "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUQ
 
 var ImageDC9 = "b372cbee36563ade.jpg";
 
+var ImageDCImprov = "c439ea8ed0a0e828.jpg";
+
 var ImageBlackCat = "b131167e4de74cff.jpg";
 
 var ImageEchoStage = "4e62292c77c1eed5.jpg";
@@ -1296,6 +1298,7 @@ const imageResolver = machine_name => {
     blackcat: ImageBlackCat,
     citywinery: img,
     dc9: ImageDC9,
+    dcimprov: ImageDCImprov,
     echostage: ImageEchoStage,
     thehamilton: ImageTheHamilton,
     howardtheatre: ImageHowardTheatre,
@@ -1334,6 +1337,11 @@ const isToday = someDate => {
   return someDate.getDate() == today.getDate() && someDate.getMonth() == today.getMonth() && someDate.getFullYear() == today.getFullYear();
 };
 
+const isTomorrow = someDate => {
+  const today = new Date();
+  return someDate.getDate() == today.getDate() + 1 && someDate.getMonth() == today.getMonth() && someDate.getFullYear() == today.getFullYear();
+};
+
 var index = {
   buttonBase,
   determineTitleAndSub,
@@ -1348,7 +1356,8 @@ var index = {
   handleWhiteTextOnDark,
   imageResolver,
   isAfterThisYear,
-  isToday
+  isToday,
+  isTomorrow
 };
 
 var A = styled.a`
@@ -1911,7 +1920,7 @@ const HeroTitle = styled.h1`
 const Hero = styled.div`
   min-height: 100px;
   width: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
   position: relative;
   &::before {
     content: "";
@@ -2059,12 +2068,13 @@ var P = styled.p`
 
 var Pill = styled.span`
     ${props => handleFont(props)};
+    display: inline-block;
     text-transform: uppercase;
     font-weight: bold;
     font-size: 11px;
-    padding: 2px 8px;
+    padding: 3px 8px;
     text-align: center;
-    vertical-align: top;
+    vertical-align: super;
     margin-right: 6px;
     border-radius: ${props => props.theme.radius.chubby};
     ${props => handleWhiteTextOnDark(props, true)};
@@ -2208,11 +2218,15 @@ var Tray = styled.div`
     }
 `;
 
+const PillContainer = styled.div`
+  /* margin-top: -2px; */
+`;
+
 const GeneratePills = ({
   status,
   ageRestriction,
   ...rest
-}) => /*#__PURE__*/React__default.createElement("div", rest, status.map(s => /*#__PURE__*/React__default.createElement(Pill, {
+}) => /*#__PURE__*/React__default.createElement(PillContainer, rest, status.map(s => /*#__PURE__*/React__default.createElement(Pill, {
   key: s
 }, s)), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, {
   key: ageRestriction
@@ -2757,13 +2771,15 @@ const SearchIcon = styled(Search)`
 `;
 const DefaultInput = styled.input`
   border-color: transparent;
-  padding: 0.5rem 1rem 0.5rem ${props => props.type === "search" ? `2rem` : `1rem`};
+  padding: 0rem 1rem 0rem ${props => props.type === "search" ? `2rem` : `1rem`};
   border-radius: ${props => props.theme.padding.baby};
   background-color: ${props => props.theme.colors.tertiary_mid_wod};
   color: ${props => props.theme.colors.neutral_white};
   font-family: ${props => props.theme.fonts.family.sans};
   font-weight: bold;
-  width: ${props => props.type !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `125px`};
+  line-height: 2;
+  height: 38px;
+  width: ${props => props.type !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `150px`};
   &:hover,
   &:focus {
     width: ${props => props.type !== "search" ? "auto" : maxWidth};

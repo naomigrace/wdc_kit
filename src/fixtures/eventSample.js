@@ -1,8 +1,9 @@
 const eventSample = [
   {
     id: "390",
+    category: "music",
     venue: "theanthem",
-    date: "2020-06-03T21:30:00.000Z",
+date: "2020-06-03T21:30:00.000Z",
     time: "5:30PM",
     title: "Local Natives & Foals",
     title2: "Cherry Glazerr",
@@ -17,7 +18,8 @@ const eventSample = [
   {
     id: "3121",
     venue: "ustreet",
-    date: "2020-06-03T23:00:00.000Z",
+        category: "music",
+date: "2020-06-04T23:00:00.000Z",
     time: "7 PM",
     title: "Tall Heights",
     title2: "Victoria Canal",
@@ -34,7 +36,8 @@ const eventSample = [
   {
     id: "3100",
     venue: "thehamilton",
-    date: "2020-06-03T23:30:00.000Z",
+        category: "music",
+date: "2020-06-07T23:30:00.000Z",
     time: "7:30 PM",
     title: "Bettye Lavette",
     title2: "Opening Act TBA",
@@ -48,7 +51,8 @@ const eventSample = [
   {
     id: "370",
     venue: "pieshop",
-    date: "2020-06-04T00:00:00.000Z",
+        category: "music",
+date: "2020-06-04T00:00:00.000Z",
     time: "8pm",
     title: "(FREE) Upper Crust Comedy",
     link: "https://pieshopdc.com/events/free-upper-crust-comedy-12/",
@@ -59,7 +63,8 @@ const eventSample = [
   {
     id: "330",
     venue: "dc9",
-    date: "2020-06-04T00:00:00.000Z",
+        category: "music",
+date: "2020-06-04T00:00:00.000Z",
     time: "8 PM",
     title: "Phoebe Ryan",
     title2: "EZI",
@@ -73,7 +78,8 @@ const eventSample = [
   {
     id: "3717",
     venue: "pieshop",
-    date: "2020-06-04T16:00:00.000Z",
+        category: "music",
+date: "2020-06-04T16:00:00.000Z",
     time: "8pm",
     title: "Brett Cameron / Big Like Bear / Jahnel Daliya",
     price: 8,
@@ -86,7 +92,8 @@ const eventSample = [
   {
     id: "374",
     venue: "pieshop",
-    date: "2020-06-04T16:00:00.000Z",
+        category: "music",
+date: "2020-06-04T16:00:00.000Z",
     time: "8pm",
     title: "Ezra Bell “This Way To Oblivion” Album Release Tour w/ Evolfo",
     price: 12,
@@ -99,7 +106,8 @@ const eventSample = [
   {
     id: "3725",
     venue: "pieshop",
-    date: "2020-06-04T16:00:00.000Z",
+        category: "music",
+date: "2020-06-04T16:00:00.000Z",
     time: "8pm",
     title: "The Lagoons",
     price: 12,
@@ -111,7 +119,8 @@ const eventSample = [
   {
     id: "3712",
     venue: "pieshop",
-    date: "2020-06-04T16:00:00.000Z",
+        category: "music",
+date: "2020-06-04T16:00:00.000Z",
     time: "8pm",
     title: "Tim Kardashian, Superstar: A 40th birthday charity roast",
     link:
@@ -129,7 +138,8 @@ const eventSample = [
     time: "8:00 PM",
     link: "https://www.songbyrddc.com/shows/2020-06-04-the-coathangers",
     tickets: "https://www.eventbrite.com/e/the-coathangers-tickets-96162967023",
-    date: "2020-06-05T00:00:00.000Z",
+        category: "music",
+date: "2020-06-05T00:00:00.000Z",
     img:
       "https://www.songbyrddc.com/thecoathangers.jpg?Action=thumbnail&Width=400&algorithm=proportional",
     ageRestriction: "All Ages",
@@ -138,7 +148,8 @@ const eventSample = [
   {
     id: "3110",
     venue: "unionstage",
-    date: "2020-06-05T01:30:00.000Z",
+        category: "music",
+date: "2020-06-05T01:30:00.000Z",
     time: "9:30 PM",
     title: "Star Kitchen",
     status: ["Canceled"],
@@ -157,7 +168,8 @@ const eventSample = [
     time: "12:00 PM",
     link: "https://www.songbyrddc.com/shows/2020-06-05-FreeFlowFridays",
     tickets: "https://www.facebook.com/events/2044090372401479/",
-    date: "2020-06-05T16:00:00.000Z",
+        category: "music",
+date: "2020-06-05T16:00:00.000Z",
     img:
       "https://www.songbyrddc.com/FreeFlow.png?Action=thumbnail&Width=400&algorithm=proportional",
     status: ["Virtual"],
@@ -165,7 +177,8 @@ const eventSample = [
   {
     id: "391",
     venue: "theanthem",
-    date: "2020-06-05T22:30:00.000Z",
+        category: "music",
+date: "2020-06-05T22:30:00.000Z",
     time: "6:30PM",
     title: "Kaytranada",
     link: "https://theanthemdc.com/event/kaytranada-postponed-new-date-tba",
@@ -176,7 +189,8 @@ const eventSample = [
   {
     id: "3122",
     venue: "ustreet",
-    date: "2020-06-05T22:30:00.000Z",
+        category: "music",
+date: "2020-06-05T22:30:00.000Z",
     time: "6:30 PM",
     title: "KAYTRANADA",
     title2: "Stwo",
@@ -192,7 +206,8 @@ const eventSample = [
   {
     id: "3123",
     venue: "ustreet",
-    date: "2020-06-05T23:00:00.000Z",
+        category: "music",
+date: "2020-06-05T23:00:00.000Z",
     time: "7 PM",
     title: "City of the Sun",
     description:
@@ -208,7 +223,8 @@ const eventSample = [
   {
     id: "371",
     venue: "pieshop",
-    date: "2020-06-06T00:00:00.000Z",
+        category: "music",
+date: "2020-06-06T00:00:00.000Z",
     time: "8pm",
     title: "Laser Background / BRNDA / Kid Claws",
     price: 10,
@@ -220,7 +236,8 @@ const eventSample = [
   {
     id: "3101",
     venue: "thehamilton",
-    date: "2020-06-06T00:00:00.000Z",
+        category: "music",
+date: "2020-06-06T00:00:00.000Z",
     time: "8 PM",
     title: "Start Making Sense",
     title2: "Nik Greeley & The Operators",
@@ -234,7 +251,8 @@ const eventSample = [
   {
     id: "3111",
     venue: "unionstage",
-    date: "2020-06-06T01:00:00.000Z",
+        category: "music",
+date: "2020-06-06T01:00:00.000Z",
     time: "9 PM",
     title: "White Ford Bronco: DC's All 90s Band",
     status: ["Postponed"],
@@ -247,7 +265,8 @@ const eventSample = [
   {
     id: "3103",
     venue: "thehamilton",
-    date: "2020-06-06T16:00:00.000Z",
+        category: "music",
+date: "2020-06-06T16:00:00.000Z",
     title: "Carsie Blanton (Livestream)",
     price: 10,
     ageRestriction: "All Ages",
@@ -260,7 +279,8 @@ const eventSample = [
   {
     id: "312",
     venue: "blackcat",
-    date: "2020-06-06T16:00:00.000Z",
+        category: "music",
+date: "2020-06-06T16:00:00.000Z",
     title: "NILÜFER YANYA",
     title2:
       "has postponed. New date announced soon. Refunds available when new date is announced.",
@@ -276,7 +296,8 @@ const eventSample = [
     link: "https://www.songbyrddc.com/shows/2020-06-06-snotty-nose-rez-kids",
     tickets:
       "https://www.eventbrite.com/e/songbyrd-presents-snotty-nose-rez-kids-tickets-92953256693",
-    date: "2020-06-06T16:00:00.000Z",
+        category: "music",
+date: "2020-06-06T16:00:00.000Z",
     img:
       "https://www.songbyrddc.com/snrk.jpg?Action=thumbnail&Width=400&algorithm=proportional",
     status: ["Postponed"],
@@ -284,7 +305,8 @@ const eventSample = [
   {
     id: "3102",
     venue: "thehamilton",
-    date: "2020-06-07T00:00:00.000Z",
+        category: "music",
+date: "2020-06-07T00:00:00.000Z",
     time: "8 PM",
     title: "An Evening With: Get The Led Out (Rescheduled - 4/29/21)",
     price: 25,
@@ -298,7 +320,8 @@ const eventSample = [
   {
     id: "372",
     venue: "pieshop",
-    date: "2020-06-07T00:00:00.000Z",
+        category: "music",
+date: "2020-06-07T00:00:00.000Z",
     time: "8pm",
     title: "Hillbilly Casino",
     price: 12,
@@ -310,7 +333,8 @@ const eventSample = [
   {
     id: "300",
     venue: "_930",
-    date: "2020-06-07T00:00:00.000Z",
+        category: "music",
+date: "2020-06-07T00:00:00.000Z",
     time: "8 PM",
     title: "Stormzy",
     description: "This event has been postponed. Stay tuned for more details.*",
@@ -323,7 +347,8 @@ const eventSample = [
   {
     id: "313",
     venue: "blackcat",
-    date: "2020-06-07T16:00:00.000Z",
+        category: "music",
+date: "2020-06-07T16:00:00.000Z",
     title: "PROTOMARTYR",
     title2:
       "has cancelled. Online purchases refunded automatically. Please return to place of purchase for all other refunds.",

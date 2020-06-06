@@ -7,7 +7,7 @@ export default {
 
 const data = {
     "id": "wdc-5-37",
-    "venue": "songbyrd",
+    "venue": "dcimprov",
     "title": "A DAWG CALLED PHIFE",
     "description": "A DAWG CALLED PHIFE Phife Dawg Tribute EventListening Party/Dance PartySongbyrd PresentsAll Ages",
     "price": 0,

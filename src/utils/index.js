@@ -11,7 +11,7 @@ import handleSpacing from "./handleSpacing"
 import handleWhiteTextOnDark from "./handleWhiteTextOnDark"
 import imageResolver from "./imageResolver"
 import isAfterThisYear from "./isAfterThisYear"
-import isToday from "./isToday"
+import isToday, { isTomorrow } from "./isToday"
 
 export {
     buttonBase,
@@ -27,7 +27,8 @@ export {
     handleWhiteTextOnDark,
     imageResolver,
     isAfterThisYear,
-    isToday
+    isToday,
+    isTomorrow
 }
 
 export default {
@@ -44,5 +45,6 @@ export default {
     handleWhiteTextOnDark,
     imageResolver,
     isAfterThisYear,
-    isToday
+    isToday,
+    isTomorrow
 }
