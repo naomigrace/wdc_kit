@@ -47,7 +47,7 @@ export default ({
     <Layout>
       <MainBody_EventPage>
         <div>
-          <Hero image={venue}>
+          <Hero image={venue} isLoading={true}>
             <HeroTitle>{title}</HeroTitle>
           </Hero>
           <PageContainer>
