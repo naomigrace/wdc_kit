@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { handleFocus, handleShadow, handleWhiteTextOnDark } from "../utils"
 import { Search } from "@styled-icons/icomoon/Search"
 
-const maxWidth = `200px`
+const maxWidth = `175px`
 
 const SearchIcon = styled(Search)`
   position: absolute;
@@ -15,7 +15,7 @@ const SearchIcon = styled(Search)`
 
 const DefaultInput = styled.input`
   border-color: transparent;
-  padding: 0rem 1rem 0rem ${props => props.type === "search" ? `2rem` : `1rem`};
+  padding: 0rem 1rem 0rem ${props => props.visual === "search" ? `2rem` : `1rem`};
   border-radius: ${props => props.theme.padding.baby};
   background-color: ${props => props.theme.colors.tertiary_mid_wod};
   color: ${props => props.theme.colors.neutral_white};
@@ -23,10 +23,10 @@ const DefaultInput = styled.input`
   font-weight: bold;
   line-height: 2;
   height: 38px;
-  width: ${props => props.type !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `150px`};
+  width: ${props => props.visual !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `130px`};
   &:hover,
   &:focus {
-    width: ${props => props.type !== "search" ? "auto" :maxWidth};
+    width: ${props => props.visual !== "search" ? "auto" :maxWidth};
   }
   ${props => handleShadow(props)};
   ${props => handleFocus(props)};
@@ -44,7 +44,7 @@ const useInput = ({ type, value, setValue, ...props }) => {
     renderInput: () => (
       <InputContainer>
         {type === "search" && <SearchIcon size="1rem" title="search icon" />}
-        <DefaultInput {...props} type={type} value={value} onChange={(e) => setValue(e.target.value)}/>
+        <DefaultInput {...props} visual={type} value={value} onChange={(e) => setValue(e.target.value)}/>
       </InputContainer>
     ),
   }

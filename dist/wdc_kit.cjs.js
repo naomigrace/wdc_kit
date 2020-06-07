@@ -1251,11 +1251,15 @@ var ImageDCImprov = "c439ea8ed0a0e828.jpg";
 
 var ImageBlackCat = "b131167e4de74cff.jpg";
 
+var ImageBossaDC = "2342ed075ca0c67b.jpg";
+
 var ImageEchoStage = "4e62292c77c1eed5.jpg";
 
 var ImageTheHamilton = "a367a10d13d39747.jpg";
 
 var ImageHowardTheatre = "cb46cc6b2d10c416.jpg";
+
+var ImageLincolnTheatre = "e5a4b4ac331a6fd8.jpg";
 
 var ImagePearlStreet = "93934ce50d9d8b56.jpg";
 
@@ -1304,12 +1308,14 @@ const imageResolver = machine_name => {
     // venues
     _930: Image930,
     blackcat: ImageBlackCat,
+    bossadc: ImageBossaDC,
     citywinery: img,
     dc9: ImageDC9,
     dcimprov: ImageDCImprov,
     echostage: ImageEchoStage,
     thehamilton: ImageTheHamilton,
     howardtheatre: ImageHowardTheatre,
+    lincolntheatre: ImageLincolnTheatre,
     pieshop: ImagePieShop,
     pearlstreet: ImagePearlStreet,
     songbyrd: ImageSongbyrd,
@@ -2769,7 +2775,7 @@ var Search = /*#__PURE__*/React.forwardRef(function (props, ref) {
 });
 Search.displayName = 'Search';
 
-const maxWidth = `200px`;
+const maxWidth = `175px`;
 const SearchIcon = styled__default(Search)`
   position: absolute;
   top: 12px;
@@ -2779,7 +2785,7 @@ const SearchIcon = styled__default(Search)`
 `;
 const DefaultInput = styled__default.input`
   border-color: transparent;
-  padding: 0rem 1rem 0rem ${props => props.type === "search" ? `2rem` : `1rem`};
+  padding: 0rem 1rem 0rem ${props => props.visual === "search" ? `2rem` : `1rem`};
   border-radius: ${props => props.theme.padding.baby};
   background-color: ${props => props.theme.colors.tertiary_mid_wod};
   color: ${props => props.theme.colors.neutral_white};
@@ -2787,10 +2793,10 @@ const DefaultInput = styled__default.input`
   font-weight: bold;
   line-height: 2;
   height: 38px;
-  width: ${props => props.type !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `150px`};
+  width: ${props => props.visual !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `130px`};
   &:hover,
   &:focus {
-    width: ${props => props.type !== "search" ? "auto" : maxWidth};
+    width: ${props => props.visual !== "search" ? "auto" : maxWidth};
   }
   ${props => handleShadow(props)};
   ${props => handleFocus(props)};
@@ -2813,7 +2819,7 @@ const useInput = ({
       size: "1rem",
       title: "search icon"
     }), /*#__PURE__*/React__default.createElement(DefaultInput, _extends$1({}, props, {
-      type: type,
+      visual: type,
       value: value,
       onChange: e => setValue(e.target.value)
     })))
