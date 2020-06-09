@@ -1,5 +1,5 @@
 import styled, { ThemeProvider } from 'styled-components';
-import React__default, { forwardRef, createElement, useState } from 'react';
+import React$1__default, { forwardRef, createElement, useState } from 'react';
 import Div100vh from 'react-div-100vh';
 import PropTypes from 'prop-types';
 import { useMediaQuery } from 'react-responsive';
@@ -1464,7 +1464,7 @@ function _extends$1() {
   return _extends$1.apply(this, arguments);
 }
 
-var ButtonBackground = styled(props => /*#__PURE__*/React__default.createElement(Button, _extends$1({
+var ButtonBackground = styled(props => /*#__PURE__*/React$1__default.createElement(Button, _extends$1({
   background: true
 }, props)))`
   background: linear-gradient(${props => props.color === "secondary_peach_wod" ? props.theme.gradients.secondary_peach_wod_opaque : props.theme.gradients.primary_opaque_wod}), url(${props => imageResolver(props.image)});
@@ -1520,7 +1520,7 @@ const CenterContainer = styled(Div100vh)`
 var CenterContainer$1 = (({
   children,
   ...rest
-}) => /*#__PURE__*/React__default.createElement(CenterContainer, rest, /*#__PURE__*/React__default.createElement("div", {
+}) => /*#__PURE__*/React$1__default.createElement(CenterContainer, rest, /*#__PURE__*/React$1__default.createElement("div", {
   style: {
     padding: `20px`
   }
@@ -1716,17 +1716,17 @@ const ButtonIcon = ({
   icon: Icon,
   openStyle,
   ...rest
-}) => openStyle ? /*#__PURE__*/React__default.createElement(ButtonOpen, _extends$1({
+}) => openStyle ? /*#__PURE__*/React$1__default.createElement(ButtonOpen, _extends$1({
   icon: true
-}, rest), /*#__PURE__*/React__default.createElement(Icon, null)) : /*#__PURE__*/React__default.createElement(Button, _extends$1({
+}, rest), /*#__PURE__*/React$1__default.createElement(Icon, null)) : /*#__PURE__*/React$1__default.createElement(Button, _extends$1({
   icon: true
-}, rest), /*#__PURE__*/React__default.createElement(Icon, null));
+}, rest), /*#__PURE__*/React$1__default.createElement(Icon, null));
 
 const CloseButton = ({
   openStyle,
   ...rest
-}) => /*#__PURE__*/React__default.createElement(ButtonIcon, _extends$1({
-  icon: () => /*#__PURE__*/React__default.createElement(StyledClose, {
+}) => /*#__PURE__*/React$1__default.createElement(ButtonIcon, _extends$1({
+  icon: () => /*#__PURE__*/React$1__default.createElement(StyledClose, {
     size: rest.small ? `1.15rem` : `2.5rem`,
     color: openStyle ? rest.color : `neutral_white`
   }),
@@ -1735,8 +1735,8 @@ const CloseButton = ({
 const UpButton = ({
   openStyle,
   ...rest
-}) => /*#__PURE__*/React__default.createElement(ButtonIcon, _extends$1({
-  icon: () => /*#__PURE__*/React__default.createElement(StyledArrowUpwards, {
+}) => /*#__PURE__*/React$1__default.createElement(ButtonIcon, _extends$1({
+  icon: () => /*#__PURE__*/React$1__default.createElement(StyledArrowUpwards, {
     size: rest.small ? `1.15rem` : `2.5rem`,
     color: rest.color
   }),
@@ -1746,15 +1746,15 @@ const BackButton = ({
   openStyle,
   children,
   ...rest
-}) => /*#__PURE__*/React__default.createElement("div", null, openStyle ? /*#__PURE__*/React__default.createElement(ButtonOpen, rest, /*#__PURE__*/React__default.createElement(StyledArrowBack, {
+}) => /*#__PURE__*/React$1__default.createElement("div", null, openStyle ? /*#__PURE__*/React$1__default.createElement(ButtonOpen, rest, /*#__PURE__*/React$1__default.createElement(StyledArrowBack, {
   size: rest.small ? `1.15rem` : `1.4rem`,
   color: rest.color
-}), /*#__PURE__*/React__default.createElement(IconTextStyle, {
+}), /*#__PURE__*/React$1__default.createElement(IconTextStyle, {
   iconLeft: true
-}, children)) : /*#__PURE__*/React__default.createElement(Button, rest, /*#__PURE__*/React__default.createElement(StyledArrowBack, {
+}, children)) : /*#__PURE__*/React$1__default.createElement(Button, rest, /*#__PURE__*/React$1__default.createElement(StyledArrowBack, {
   size: rest.small ? `1.15rem` : `1.4rem`,
   color: rest.color
-}), /*#__PURE__*/React__default.createElement(IconTextStyle, {
+}), /*#__PURE__*/React$1__default.createElement(IconTextStyle, {
   iconLeft: true
 }, children)));
 
@@ -1949,7 +1949,7 @@ var Hero$1 = (({
   isLoading,
   children,
   ...props
-}) => /*#__PURE__*/React__default.createElement(Hero, props, isLoading && /*#__PURE__*/React__default.createElement(LoadingLine, null), /*#__PURE__*/React__default.createElement("div", {
+}) => /*#__PURE__*/React$1__default.createElement(Hero, props, isLoading && /*#__PURE__*/React$1__default.createElement(LoadingLine, null), /*#__PURE__*/React$1__default.createElement("div", {
   style: {
     position: `relative`
   }
@@ -1964,7 +1964,7 @@ var HiddenFieldset = styled.fieldset`
 
 const Header = ({
   siteTitle
-}) => /*#__PURE__*/React__default.createElement(StyledHeader, null);
+}) => /*#__PURE__*/React$1__default.createElement(StyledHeader, null);
 
 Header.propTypes = {
   siteTitle: PropTypes.string
@@ -1981,9 +1981,9 @@ const Layout = ({
   });
   let themeWithMediaQueries = theme;
   themeWithMediaQueries[`isDesktopOrLaptop`] = isDesktopOrLaptop;
-  return /*#__PURE__*/React__default.createElement(ThemeProvider, {
+  return /*#__PURE__*/React$1__default.createElement(ThemeProvider, {
     theme: themeWithMediaQueries
-  }, /*#__PURE__*/React__default.createElement(Header, {
+  }, /*#__PURE__*/React$1__default.createElement(Header, {
     siteTitle: "wdc"
   }), children);
 };
@@ -2014,7 +2014,7 @@ const MainBody_HomePage = styled.main`
 
 var HomePageContainer = (({
   children
-}) => /*#__PURE__*/React__default.createElement(Layout, null, /*#__PURE__*/React__default.createElement(MainBody_HomePage, null, children)));
+}) => /*#__PURE__*/React$1__default.createElement(Layout, null, /*#__PURE__*/React$1__default.createElement(MainBody_HomePage, null, children)));
 
 var InlineLinkSpan = styled.span`
   ${props => handleSpacing$1(props)};
@@ -2106,7 +2106,7 @@ const PreviewContainer = styled(Div100vh)`
 var PreviewContainer$1 = (({
   children,
   ...rest
-}) => /*#__PURE__*/React__default.createElement(PreviewContainer, rest, /*#__PURE__*/React__default.createElement("div", {
+}) => /*#__PURE__*/React$1__default.createElement(PreviewContainer, rest, /*#__PURE__*/React$1__default.createElement("div", {
   style: {
     width: `100%`,
     height: `100%`
@@ -2195,46 +2195,49 @@ const ScrollToTopIconContainer = styled.div`
 `;
 
 const TrayNavigation = styled.div`
-    display: flex;
-    justify-content: center;
-    position: fixed;
-    width: 100%;
-    margin: -60px 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: -50px 0;
+  position: absolute;
+  pointer-events: none;
+  z-index: 400;
 `;
 const TrayContent = styled.div`
-    padding: 20px;
-    background-color: ${props => props.theme.colors.neutral_white};
-    ${props => props.theme.breakpoints.desktop} {
-        max-width: 960px;
-        margin: 0 auto;
-    }
+  padding: 20px;
+  background-color: ${props => props.theme.colors.neutral_white};
+  ${props => props.theme.breakpoints.desktop} {
+    max-width: 960px;
+    margin: 0 auto;
+  }
 `;
 var Tray = styled.div`
-    width: 100vw;
-    height: 40%;
-    z-index: 0;
-    background-color: ${props => props.theme.colors.neutral_white};
-    box-shadow: ${props => props.theme.shadows.base_reverse};
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
+  width: 100vw;
+  height: 40%;
+  z-index: 0;
+  background-color: ${props => props.theme.colors.neutral_white};
+  box-shadow: ${props => props.theme.shadows.base_reverse};
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 
-    ${props => props.theme.breakpoints.desktop} {
-        height: 50%;
-    }
+  ${props => props.theme.breakpoints.desktop} {
+    height: 50%;
+  }
 `;
 
 const PillContainer = styled.div`
-  /* margin-top: -2px; */
+  margin: 2rem 0 0 0;
+  text-align: center;
 `;
 
 const GeneratePills = ({
   status,
   ageRestriction,
   ...rest
-}) => /*#__PURE__*/React__default.createElement(PillContainer, rest, status.map(s => /*#__PURE__*/React__default.createElement(Pill, {
+}) => /*#__PURE__*/React$1__default.createElement(PillContainer, rest, status && status.length && status.map(s => /*#__PURE__*/React$1__default.createElement(Pill, {
   key: s
-}, s)), ageRestriction && /*#__PURE__*/React__default.createElement(Pill, {
+}, s)), ageRestriction && /*#__PURE__*/React$1__default.createElement(Pill, {
   key: ageRestriction
 }, ageRestriction));
 
@@ -2306,7 +2309,7 @@ const LoadingLine$1 = styled.div`
     }
   }
 `;
-const EventStick = styled(props => /*#__PURE__*/React__default.createElement(Box, _extends$1({
+const EventStick = styled(props => /*#__PURE__*/React$1__default.createElement(Box, _extends$1({
   shadow: `sm`,
   padding: `none`
 }, props)))`
@@ -2394,29 +2397,29 @@ var EventStick$1 = (({
     determinedTitle,
     determinedSubTitle
   } = determineTitleAndSub(title, title2);
-  return /*#__PURE__*/React__default.createElement(EventStick, rest, /*#__PURE__*/React__default.createElement(FlexContainer, null, dateIsToday ? /*#__PURE__*/React__default.createElement(Today, {
+  return /*#__PURE__*/React$1__default.createElement(EventStick, rest, /*#__PURE__*/React$1__default.createElement(FlexContainer, null, dateIsToday ? /*#__PURE__*/React$1__default.createElement(Today, {
     datetime: date
-  }, "TODAY") : /*#__PURE__*/React__default.createElement(EventDate, {
+  }, "TODAY") : /*#__PURE__*/React$1__default.createElement(EventDate, {
     datetime: date
-  }, /*#__PURE__*/React__default.createElement("div", null, " ", month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), time && /*#__PURE__*/React__default.createElement("div", {
+  }, /*#__PURE__*/React$1__default.createElement("div", null, " ", month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), time && /*#__PURE__*/React$1__default.createElement("div", {
     className: "time"
-  }, time)), /*#__PURE__*/React__default.createElement("div", {
+  }, time)), /*#__PURE__*/React$1__default.createElement("div", {
     style: {
       display: `flex`,
       flexDirection: `column`,
       justifyContent: `center`
     }
-  }, /*#__PURE__*/React__default.createElement("div", {
+  }, /*#__PURE__*/React$1__default.createElement("div", {
     style: {
       display: `flex`,
       alignItems: `center`,
       flexWrap: `wrap`
     }
-  }, /*#__PURE__*/React__default.createElement(EventTitle, {
+  }, /*#__PURE__*/React$1__default.createElement(EventTitle, {
     style: {
       marginRight: `0.4rem`
     }
-  }, determinedTitle), " ", /*#__PURE__*/React__default.createElement(GeneratePills, {
+  }, determinedTitle), " ", status && status.length && /*#__PURE__*/React$1__default.createElement(GeneratePills, {
     style: {
       marginBottom: `2px`,
       marginTop: `4px`,
@@ -2424,10 +2427,10 @@ var EventStick$1 = (({
     },
     status: status,
     ageRestriction: ageRestriction
-  })), determinedSubTitle && determinedSubTitle.length && /*#__PURE__*/React__default.createElement(EventDescription, null, determinedSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React__default.createElement(LoadingLine$1, null));
+  })), determinedSubTitle && determinedSubTitle.length && /*#__PURE__*/React$1__default.createElement(EventDescription, null, determinedSubTitle.toUpperCase()))), isLoading && /*#__PURE__*/React$1__default.createElement(LoadingLine$1, null));
 });
 
-class ScrollWrapper extends React__default.Component {
+class ScrollWrapper extends React$1__default.Component {
   constructor(...args) {
     super(...args);
 
@@ -2463,11 +2466,11 @@ class ScrollWrapper extends React__default.Component {
   }
 
   render() {
-    return /*#__PURE__*/React__default.createElement("div", this.props, /*#__PURE__*/React__default.createElement(ScrollWrapperContainer, {
+    return /*#__PURE__*/React$1__default.createElement("div", this.props, /*#__PURE__*/React$1__default.createElement(ScrollWrapperContainer, {
       ref: this.reference('scrollingWrapper')
-    }, this.props.children), this.state.hasScrolled && /*#__PURE__*/React__default.createElement(ScrollToTopIconContainer, {
+    }, this.props.children), this.state.hasScrolled && /*#__PURE__*/React$1__default.createElement(ScrollToTopIconContainer, {
       onClick: this.scrollToTop
-    }, /*#__PURE__*/React__default.createElement(UpButton, {
+    }, /*#__PURE__*/React$1__default.createElement(UpButton, {
       name: "backToTop",
       small: true,
       color: `tertiary_mid_wod`,
@@ -2501,7 +2504,7 @@ const ButtonInput = ({
   children,
   ...rest
 }) => {
-  return selected ? /*#__PURE__*/React__default.createElement(Button, _extends$1({
+  return selected ? /*#__PURE__*/React$1__default.createElement(Button, _extends$1({
     bold: true,
     type: "button",
     role: "switch",
@@ -2511,13 +2514,13 @@ const ButtonInput = ({
     style: {
       paddingRight: rest.small ? `26px` : `36px`
     }
-  }, rest), children, /*#__PURE__*/React__default.createElement(Check, {
+  }, rest), children, /*#__PURE__*/React$1__default.createElement(Check, {
     size: "1rem",
     style: {
       position: `absolute`
     },
     role: "graphic"
-  })) : /*#__PURE__*/React__default.createElement(ButtonOpen, _extends$1({
+  })) : /*#__PURE__*/React$1__default.createElement(ButtonOpen, _extends$1({
     bold: true,
     type: "button",
     role: "switch",
@@ -2536,7 +2539,7 @@ const ButtonInputBackground = ({
   children,
   ...rest
 }) => {
-  return selected ? /*#__PURE__*/React__default.createElement(ButtonBackground, _extends$1({
+  return selected ? /*#__PURE__*/React$1__default.createElement(ButtonBackground, _extends$1({
     bold: true,
     type: "button",
     role: "switch",
@@ -2546,13 +2549,13 @@ const ButtonInputBackground = ({
     style: {
       paddingRight: rest.small ? `26px` : `36px`
     }
-  }, rest), children, /*#__PURE__*/React__default.createElement(Check, {
+  }, rest), children, /*#__PURE__*/React$1__default.createElement(Check, {
     size: "1rem",
     style: {
       position: `absolute`
     },
     role: "graphic"
-  })) : /*#__PURE__*/React__default.createElement(ButtonOpen, _extends$1({
+  })) : /*#__PURE__*/React$1__default.createElement(ButtonOpen, _extends$1({
     bold: true,
     type: "button",
     role: "switch",
@@ -2664,47 +2667,47 @@ const useFilterBox = ({
     setSelectedNeighborhoods,
     setSelectedVenues,
     renderFilterBox: () => {
-      return /*#__PURE__*/React__default.createElement(Box, {
+      return /*#__PURE__*/React$1__default.createElement(Box, {
         radius: "none"
-      }, /*#__PURE__*/React__default.createElement("form", null, /*#__PURE__*/React__default.createElement(HiddenFieldset, null, /*#__PURE__*/React__default.createElement("legend", {
+      }, /*#__PURE__*/React$1__default.createElement("form", null, /*#__PURE__*/React$1__default.createElement(HiddenFieldset, null, /*#__PURE__*/React$1__default.createElement("legend", {
         className: "sr-only"
-      }, "filters"), /*#__PURE__*/React__default.createElement(Label, {
+      }, "filters"), /*#__PURE__*/React$1__default.createElement(Label, {
         id: "date-filter",
         bold: true
-      }, "date"), /*#__PURE__*/React__default.createElement(ButtonInput, {
+      }, "date"), /*#__PURE__*/React$1__default.createElement(ButtonInput, {
         labelID: "date-filter",
         selected: justToday,
         mb: 0.5,
         onClick: () => setJustToday(!justToday)
-      }, "just today"), /*#__PURE__*/React__default.createElement(ButtonInput, {
+      }, "just today"), /*#__PURE__*/React$1__default.createElement(ButtonInput, {
         labelID: "date-filter",
         selected: !justToday,
         mb: 0.5,
         onClick: () => setJustToday(!justToday)
-      }, "today and after"), /*#__PURE__*/React__default.createElement(Label, {
+      }, "today and after"), /*#__PURE__*/React$1__default.createElement(Label, {
         id: "price-filter",
         bold: true,
         mt: 1.5
-      }, "price"), /*#__PURE__*/React__default.createElement(ButtonInput, {
+      }, "price"), /*#__PURE__*/React$1__default.createElement(ButtonInput, {
         labelID: "price-filter",
         selected: price.free,
         onClick: () => handlePrice("free"),
         mb: 0.5,
         color: `secondary_orange_wod`
-      }, "free"), /*#__PURE__*/React__default.createElement(ButtonInput, {
+      }, "free"), /*#__PURE__*/React$1__default.createElement(ButtonInput, {
         labelID: "price-filter",
         selected: price["not free"],
         onClick: () => handlePrice("not free"),
         mb: 0.5,
         color: `secondary_orange_wod`
-      }, "not free"), noPriceSelected && /*#__PURE__*/React__default.createElement(FormAlert, {
+      }, "not free"), noPriceSelected && /*#__PURE__*/React$1__default.createElement(FormAlert, {
         href: "#price-filter",
         id: "price-filter-error"
-      }, "please select a price filter"), /*#__PURE__*/React__default.createElement(Label, {
+      }, "please select a price filter"), /*#__PURE__*/React$1__default.createElement(Label, {
         id: "neighborhoods-filter",
         bold: true,
         mt: 1.5
-      }, "neighborhoods", " ", /*#__PURE__*/React__default.createElement(InlineLinkSpan, {
+      }, "neighborhoods", " ", /*#__PURE__*/React$1__default.createElement(InlineLinkSpan, {
         ml: 0.5,
         tabIndex: "0",
         role: "link",
@@ -2713,27 +2716,27 @@ const useFilterBox = ({
         onKeyPress: event => {
           event.key === "Enter" ? handleToggleSelectNeighborhoods() : null;
         }
-      }, noNeighborhoodSelected ? `select all?` : `deselect all?`)), Object.keys(neighborhoods).map(neighborhood => /*#__PURE__*/React__default.createElement(ButtonInput, {
+      }, noNeighborhoodSelected ? `select all?` : `deselect all?`)), Object.keys(neighborhoods).map(neighborhood => /*#__PURE__*/React$1__default.createElement(ButtonInput, {
         key: neighborhood,
         color: `secondary_peach_wod`,
         labelID: "neighborhoods-filter",
         selected: selectedNeighborhoods[neighborhood] === 1,
         mb: 0.5,
         onClick: () => handleNeighborhoods(neighborhood)
-      }, neighborhoods[neighborhood])), noNeighborhoodSelected && /*#__PURE__*/React__default.createElement(FormAlert, {
+      }, neighborhoods[neighborhood])), noNeighborhoodSelected && /*#__PURE__*/React$1__default.createElement(FormAlert, {
         href: "#neighborhoods-filter",
         id: "neighborhoods-filter-error"
-      }, "please select a neighborhood filter"), /*#__PURE__*/React__default.createElement(Label, {
+      }, "please select a neighborhood filter"), /*#__PURE__*/React$1__default.createElement(Label, {
         bold: true,
         mt: 1.5,
         id: "venues-filter"
-      }, "venues", " ", /*#__PURE__*/React__default.createElement(InlineLinkSpan, {
+      }, "venues", " ", /*#__PURE__*/React$1__default.createElement(InlineLinkSpan, {
         ml: 0.5,
         tabIndex: "0",
         role: "link",
         name: "deselect all venues",
         onClick: () => handleToggleSelectVenues()
-      }, noVenueSelected ? `select all?` : `deselect all?`)), Object.keys(venues).map(venue => /*#__PURE__*/React__default.createElement(ButtonInputBackground, {
+      }, noVenueSelected ? `select all?` : `deselect all?`)), Object.keys(venues).map(venue => /*#__PURE__*/React$1__default.createElement(ButtonInputBackground, {
         small: true,
         key: venue,
         labelID: "venues-filter",
@@ -2741,7 +2744,7 @@ const useFilterBox = ({
         image: venue,
         mb: 0.5,
         onClick: () => handleVenues(venue)
-      }, venues[venue])), noVenueSelected && /*#__PURE__*/React__default.createElement(FormAlert, {
+      }, venues[venue])), noVenueSelected && /*#__PURE__*/React$1__default.createElement(FormAlert, {
         href: "#venues-filter",
         id: "venues-filter-error"
       }, "please select a venue filter"))));
@@ -2807,10 +2810,10 @@ const useInput = ({
 }) => {
   return {
     value,
-    renderInput: () => /*#__PURE__*/React__default.createElement(InputContainer, null, type === "search" && /*#__PURE__*/React__default.createElement(SearchIcon, {
+    renderInput: () => /*#__PURE__*/React$1__default.createElement(InputContainer, null, type === "search" && /*#__PURE__*/React$1__default.createElement(SearchIcon, {
       size: "1rem",
       title: "search icon"
-    }), /*#__PURE__*/React__default.createElement(DefaultInput, _extends$1({}, props, {
+    }), /*#__PURE__*/React$1__default.createElement(DefaultInput, _extends$1({}, props, {
       visual: type,
       value: value,
       onChange: e => setValue(e.target.value)
@@ -2827,29 +2830,62 @@ const NotFoundContainer = styled(motion.div)`
 `;
 
 const NotFound404 = (...props) => {
-  return /*#__PURE__*/React__default.createElement(NotFoundContainer, props, /*#__PURE__*/React__default.createElement("img", {
+  return /*#__PURE__*/React$1__default.createElement(NotFoundContainer, props, /*#__PURE__*/React$1__default.createElement("img", {
     src: dcIllustration,
     alt: "illustration of washington dc",
     width: 200
-  }), /*#__PURE__*/React__default.createElement(Heading1, null, "Event not found..."), /*#__PURE__*/React__default.createElement(P, null, "This is awkward, but we don't have an event here. We scrape for fresh events every day, so urls will change."), /*#__PURE__*/React__default.createElement("a", {
+  }), /*#__PURE__*/React$1__default.createElement(Heading1, null, "Event not found..."), /*#__PURE__*/React$1__default.createElement(P, null, "This is awkward, but we don't have an event here. We scrape for fresh events every day, so urls will change."), /*#__PURE__*/React$1__default.createElement("a", {
     href: "/"
-  }, /*#__PURE__*/React__default.createElement(Button, {
+  }, /*#__PURE__*/React$1__default.createElement(Button, {
     bold: true,
     color: `tertiary_mid_wod`,
     mt: 1
   }, "find new events")));
 };
 
+const LoaderContainer = styled.div`
+  padding: 20px;
+  text-align: center;
+  p {
+    font-size: 1.5rem;
+  }
+  display: block;
+`;
+const Loader = /*#__PURE__*/forwardRef(({
+  children,
+  invisible
+}, ref) => /*#__PURE__*/React.createElement(LoaderContainer, {
+  ref: ref,
+  style: {
+    display: invisible ? `none` : `inline-block`
+  }
+}, /*#__PURE__*/React.createElement(motion.p, {
+  animate: {
+    color: ["rgb(82, 67, 170)", "rgb(225, 225, 255)", "rgb(255, 62, 85)"]
+  },
+  transition: {
+    duration: 4,
+    yoyo: Infinity
+  },
+  color: "rgb(23, 43, 77)"
+}, /*#__PURE__*/React.createElement("strong", {
+  style: {
+    fontFamily: `"Poppins", sans-serif`
+  }
+}, children))));
+
 var AboutPage = (({
-  about
-}) => /*#__PURE__*/React__default.createElement(CenterContainer$1, null, /*#__PURE__*/React__default.createElement("div", {
+  about,
+  children,
+  ...rest
+}) => /*#__PURE__*/React$1__default.createElement(CenterContainer$1, rest, /*#__PURE__*/React$1__default.createElement("div", {
   style: {
     margin: `0 auto`,
     maxWidth: `40ch`
   }
-}, /*#__PURE__*/React__default.createElement(Heading1, null, "about us"), /*#__PURE__*/React__default.createElement(P, null, /*#__PURE__*/React__default.createElement("strong", null, "WANNADC"), " is a new centralized source for music, comedy, and cultural events in Washington, D.C. with events located across ", about.neighborhoodCount, " neighborhoods and ", about.venueCount, " venues."), /*#__PURE__*/React__default.createElement("br", null), /*#__PURE__*/React__default.createElement(P, null, "We launched on [ insert date here ] and are just getting started. If you are a venue that would like to partner with us, reach out at ", /*#__PURE__*/React__default.createElement(A, {
+}, /*#__PURE__*/React$1__default.createElement(Heading1, null, "about us"), children || /*#__PURE__*/React$1__default.createElement(React$1__default.Fragment, null, /*#__PURE__*/React$1__default.createElement(P, null, /*#__PURE__*/React$1__default.createElement("strong", null, "WANNADC"), " is a new centralized source for music, comedy, and cultural events in Washington, D.C. with events located across ", about.neighborhoodCount, " neighborhoods and", " ", about.venueCount, " venues."), /*#__PURE__*/React$1__default.createElement("br", null), /*#__PURE__*/React$1__default.createElement(P, null, "We launched on [ insert date here ] and are just getting started. If you are a venue that would like to partner with us, reach out at", " ", /*#__PURE__*/React$1__default.createElement(A, {
   href: "mailto:hello@wannadc.com"
-}, "hello@wannadc.com")))));
+}, "hello@wannadc.com"))))));
 
-export { A, AboutPage, BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CenterContainer$1 as CenterContainer, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, GeneratePills, StyledHeader as Header, Heading1, Heading2, Hero$1 as Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, Pill, PreviewContainer$1 as PreviewContainer, PreviewLogo, PreviewText, PreviewTextSmall, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox, useInput, index as utils };
+export { A, AboutPage, BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CenterContainer$1 as CenterContainer, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, GeneratePills, StyledHeader as Header, Heading1, Heading2, Hero$1 as Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Loader, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, Pill, PreviewContainer$1 as PreviewContainer, PreviewLogo, PreviewText, PreviewTextSmall, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox, useInput, index as utils };
 //# sourceMappingURL=wdc_kit.esm.js.map
