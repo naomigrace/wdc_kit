@@ -207,7 +207,6 @@ export default ({
             <EventTitle style={{ marginRight: `0.4rem` }}>
               {determinedTitle}
             </EventTitle>{" "}
-            {status && status.length &&
             <GeneratePills
               style={{
                 marginBottom: `2px`,
@@ -216,7 +215,7 @@ export default ({
               }}
               status={status}
               ageRestriction={ageRestriction}
-            />}
+            />
           </div>
           {determinedSubTitle && determinedSubTitle.length && (
             <EventDescription>

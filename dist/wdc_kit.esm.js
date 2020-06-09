@@ -2235,11 +2235,11 @@ const GeneratePills = ({
   status,
   ageRestriction,
   ...rest
-}) => /*#__PURE__*/React$1__default.createElement(PillContainer, rest, status && status.length && status.map(s => /*#__PURE__*/React$1__default.createElement(Pill, {
+}) => /*#__PURE__*/React$1__default.createElement(PillContainer, rest, status?.length ? status.map(s => /*#__PURE__*/React$1__default.createElement(Pill, {
   key: s
-}, s)), ageRestriction && /*#__PURE__*/React$1__default.createElement(Pill, {
+}, s)) : null, ageRestriction ? /*#__PURE__*/React$1__default.createElement(Pill, {
   key: ageRestriction
-}, ageRestriction));
+}, ageRestriction) : null);
 
 const EventTitle = styled.h1`
   font-size: 1.25rem;
@@ -2419,7 +2419,7 @@ var EventStick$1 = (({
     style: {
       marginRight: `0.4rem`
     }
-  }, determinedTitle), " ", status && status.length && /*#__PURE__*/React$1__default.createElement(GeneratePills, {
+  }, determinedTitle), " ", /*#__PURE__*/React$1__default.createElement(GeneratePills, {
     style: {
       marginBottom: `2px`,
       marginTop: `4px`,

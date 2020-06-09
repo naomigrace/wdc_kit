@@ -328,7 +328,6 @@ date: "2020-06-07T00:00:00.000Z",
     link: "https://pieshopdc.com/events/hillbilly-casino/",
     tickets:
       "https://www.etix.com/ticket/p/7053575/hillbilly-casino-washington-pie-shop?partner_id=240",
-    status: [],
   },
   {
     id: "300",
