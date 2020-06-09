@@ -5,7 +5,7 @@
 
 component and UI kit for wannadc
 
-[DEMO](https://naomigrace.github.io/wdc_kit/)
+[Storybook](https://naomigrace.github.io/wdc_kit/)
 
 install: `npm i wdc_kit`
 

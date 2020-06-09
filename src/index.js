@@ -41,8 +41,8 @@ import ButtonInputBackground from "./components/ButtonInputBackground"
 import useFilterBox from "./components/useFilterBox"
 import useInput from "./components/useInput"
 import NotFound from "./components/NotFound"
+import Loader from "./components/Loader"
 import AboutPage from "./templates/AboutPage"
-
 import utils from "./utils"
 
 export {
@@ -98,6 +98,7 @@ export {
   useInput,
   NotFound,
   AboutPage,
+  Loader,
   //
   utils,
 }
