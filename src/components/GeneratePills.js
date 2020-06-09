@@ -9,7 +9,7 @@ const PillContainer = styled.div`
 
 const GeneratePills = ({ status, ageRestriction, ...rest }) => (
   <PillContainer {...rest}>
-    {status?.length ? status.map(s => <Pill key={s}>{s}</Pill>) : null}
+    {(status && status.length) ? status.map(s => <Pill key={s}>{s}</Pill>) : null}
     {ageRestriction ? <Pill key={ageRestriction}>{ageRestriction}</Pill> : null}
   </PillContainer>
 )

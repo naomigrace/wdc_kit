@@ -2235,7 +2235,7 @@ const GeneratePills = ({
   status,
   ageRestriction,
   ...rest
-}) => /*#__PURE__*/React$1__default.createElement(PillContainer, rest, status?.length ? status.map(s => /*#__PURE__*/React$1__default.createElement(Pill, {
+}) => /*#__PURE__*/React$1__default.createElement(PillContainer, rest, status && status.length ? status.map(s => /*#__PURE__*/React$1__default.createElement(Pill, {
   key: s
 }, s)) : null, ageRestriction ? /*#__PURE__*/React$1__default.createElement(Pill, {
   key: ageRestriction
