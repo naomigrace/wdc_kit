@@ -2074,10 +2074,14 @@ var Logo = styled__default.div`
 `;
 
 var P = styled__default.p`
+  ${props => handleFont(props)};
+  ${props => handleColor(props)};
+  margin: 0.25rem 0;
+  ${props => handleSpacing$1(props)};
+  ${A} {
     ${props => handleFont(props)};
     ${props => handleColor(props)};
-    margin: 0.25rem 0;
-    ${props => handleSpacing$1(props)};
+  }
 `;
 
 var Pill = styled__default.span`
