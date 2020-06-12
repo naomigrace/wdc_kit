@@ -20,6 +20,7 @@ import {
 } from "../index"
 import neighborhoods from "../configs/neighborhoods"
 import venues from "../configs/venues"
+import GeneratePills from "../components/GeneratePills"
 
 export default ({
   venue,
@@ -28,6 +29,7 @@ export default ({
   description,
   neighborhood,
   link,
+  status,
   tickets,
   latitude,
   longitude,
@@ -49,6 +51,7 @@ export default ({
         <div>
           <Hero image={venue} isLoading={true}>
             <HeroTitle>{title}</HeroTitle>
+            <GeneratePills status={status} big={true}/>
           </Hero>
           <PageContainer>
             <FlexContainer>

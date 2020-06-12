@@ -1,6 +1,7 @@
 import Image930 from "../images/venue__930.jpg"
 import ImageAfricanAmericanHistory from "../images/venue_africanamericanhistory.jpg"
 import ImageAfricanArtMuseum from "../images/venue_africanartmuseum.jpg"
+import ImageAirAndSpace from "../images/venue_airandspace.jpg"
 import ImageAnacostiaArt from "../images/venue_anacostiaart.jpg"
 import ImageCityWinery from "../images/venue_citywinery.jpeg"
 import ImageDC9 from "../images/venue_dc9.jpg"
@@ -43,6 +44,7 @@ const imageResolver = machine_name => {
     _930: Image930,
     africanamericanhistory: ImageAfricanAmericanHistory,
     africanartmuseum: ImageAfricanArtMuseum,
+    airandspacemuseum: ImageAirAndSpace,
     anacostiamuseum: ImageAnacostiaArt,
     blackcat: ImageBlackCat,
     bossadc: ImageBossaDC,

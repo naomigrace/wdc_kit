@@ -4,13 +4,13 @@ import styled from "styled-components"
 
 const PillContainer = styled.div`
   margin: 2rem 0 0 0;
-  text-align: center;
+  text-align: left;
 `
 
-const GeneratePills = ({ status, ageRestriction, ...rest }) => (
+const GeneratePills = ({ status, ageRestriction, big, ...rest }) => (
   <PillContainer {...rest}>
-    {(status && status.length) ? status.map(s => <Pill key={s}>{s}</Pill>) : null}
-    {ageRestriction ? <Pill key={ageRestriction}>{ageRestriction}</Pill> : null}
+    {(status && status.length) ? status.map(s => <Pill big={big} key={s}>{s}</Pill>) : null}
+    {ageRestriction ? <Pill big={big} key={ageRestriction}>{ageRestriction}</Pill> : null}
   </PillContainer>
 )
 

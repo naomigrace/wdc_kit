@@ -6,8 +6,8 @@ export default styled.span`
     display: inline-block;
     text-transform: uppercase;
     font-weight: bold;
-    font-size: 11px;
-    padding: 3px 8px;
+    font-size: ${props => props.big ? `16px` : `11px`};
+    padding: ${props => props.big ? `8px 18px` : `3px 8px`};
     text-align: center;
     vertical-align: super;
     margin-right: 6px;
