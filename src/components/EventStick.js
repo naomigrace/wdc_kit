@@ -21,6 +21,7 @@ const EventTitle = styled.h1`
   color: ${props => props.theme.colors.tertiary_mid_wod};
   letter-spacing: 2px;
   hyphens: auto;
+  word-break: break-word;
   display: inline-block;
 `
 
@@ -88,9 +89,33 @@ const LoadingLine = styled.div`
 const EventStick = styled(props => (
   <Box shadow={`sm`} padding={`none`} {...props} />
 ))`
-  width: 95%;
+  width: 100%;
   transition: all 250ms ease-in-out;
   margin-bottom: 5px;
+
+  ${FlexContainer} {
+    padding: 8px;
+  }
+
+  ${props => props.theme.breakpoints.phone_portrait}{
+    ${FlexContainer}{
+      flex-direction: column;
+    }
+
+    ${EventDate}, ${Today}{
+      text-align: left;
+      border-right: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding-right: 0;
+      justify-content: space-between;
+      .time {
+        margin-left: 10px;
+        border-bottom: 1px solid ${props => props.theme.colors.neutral_grey};
+      }
+    }
+  }
 
   &:hover,
   &:active {
@@ -145,9 +170,7 @@ const EventStick = styled(props => (
   }
 
   padding: 0px;
-  ${FlexContainer} {
-    padding: 8px;
-  }
+
 `
 
 export default ({

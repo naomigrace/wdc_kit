@@ -7,7 +7,7 @@ const maxWidth = `175px`
 
 const SearchIcon = styled(Search)`
   position: absolute;
-  top: 12px;
+  top: 11px;
   left: 12px;
   size: 1rem;
   color: ${props => props.theme.colors.neutral_white};

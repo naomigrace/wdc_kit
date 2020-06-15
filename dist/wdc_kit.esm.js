@@ -1327,8 +1327,8 @@ const imageResolver = machine_name => {
     anacostiamuseum: ImageAnacostiaArt,
     blackcat: ImageBlackCat,
     bossadc: ImageBossaDC,
+    capitalone: ImageCapitolOne,
     capitalpride: ImageCapitalPride,
-    capitolone: ImageCapitolOne,
     citywinery: img,
     dc9: ImageDC9,
     dcimprov: ImageDCImprov,
@@ -1939,6 +1939,7 @@ const LoadingLine = styled.div`
     }
   }
 `;
+
 const HeroTitle = styled.h1`
   color: ${props => props.theme.colors.neutral_white};
   text-align: center;
@@ -2289,6 +2290,7 @@ const EventTitle = styled.h1`
   color: ${props => props.theme.colors.tertiary_mid_wod};
   letter-spacing: 2px;
   hyphens: auto;
+  word-break: break-word;
   display: inline-block;
 `;
 const EventDate = styled.time`
@@ -2353,9 +2355,33 @@ const EventStick = styled(props => /*#__PURE__*/React$1__default.createElement(B
   shadow: `sm`,
   padding: `none`
 }, props)))`
-  width: 95%;
+  width: 100%;
   transition: all 250ms ease-in-out;
   margin-bottom: 5px;
+
+  ${FlexContainer} {
+    padding: 8px;
+  }
+
+  ${props => props.theme.breakpoints.phone_portrait}{
+    ${FlexContainer}{
+      flex-direction: column;
+    }
+
+    ${EventDate}, ${Today}{
+      text-align: left;
+      border-right: none;
+      display: flex;
+      align-items: center;
+      margin: 0;
+      padding-right: 0;
+      justify-content: space-between;
+      .time {
+        margin-left: 10px;
+        border-bottom: 1px solid ${props => props.theme.colors.neutral_grey};
+      }
+    }
+  }
 
   &:hover,
   &:active {
@@ -2407,9 +2433,7 @@ const EventStick = styled(props => /*#__PURE__*/React$1__default.createElement(B
   }
 
   padding: 0px;
-  ${FlexContainer} {
-    padding: 8px;
-  }
+
 `;
 var EventStick$1 = (({
   title,
@@ -2813,7 +2837,7 @@ Search.displayName = 'Search';
 const maxWidth = `175px`;
 const SearchIcon = styled(Search)`
   position: absolute;
-  top: 12px;
+  top: 11px;
   left: 12px;
   size: 1rem;
   color: ${props => props.theme.colors.neutral_white};
@@ -2927,5 +2951,5 @@ var AboutPage = (({
   href: "mailto:hello@wannadc.com"
 }, "hello@wannadc.com"))))));
 
-export { A, AboutPage, BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CenterContainer$1 as CenterContainer, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, GeneratePills, StyledHeader as Header, Heading1, Heading2, Hero$1 as Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Loader, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, Pill, PreviewContainer$1 as PreviewContainer, PreviewLogo, PreviewText, PreviewTextSmall, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox, useInput, index as utils };
+export { A, AboutPage, BackButton, Box, BoxGradient, Button, ButtonBackground, ButtonInput, ButtonInputBackground, ButtonOpen, CenterContainer$1 as CenterContainer, CloseButton, EventStick$1 as EventStick, FlexContainer, FooterActionBar, FooterContainer, FormAlert, GeneratePills, StyledHeader as Header, Heading1, Heading2, Hero$1 as Hero, HeroTitle, HiddenFieldset, HomePageContainer, IconTextStyle, InlineLinkSpan, Label, Loader, LoadingLine, Logo, MainBody_EventPage, MainBody_HomePage, NotFound404 as NotFound, P, PageContainer, Pill, PreviewContainer$1 as PreviewContainer, PreviewLogo, PreviewText, PreviewTextSmall, ScrollToTopIconContainer, ScrollWrapper, ScrollWrapperContainer, Tray, TrayContent, TrayNavigation, UpButton, theme, useFilterBox, useInput, index as utils };
 //# sourceMappingURL=wdc_kit.esm.js.map

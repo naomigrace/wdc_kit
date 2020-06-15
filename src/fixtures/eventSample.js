@@ -3,7 +3,7 @@ const eventSample = [
     id: "390",
     category: "music",
     venue: "theanthem",
-date: "2020-06-03T21:30:00.000Z",
+date: new Date(),
     time: "5:30PM",
     title: "Local Natives & Foals",
     title2: "Cherry Glazerr",

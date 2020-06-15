@@ -18,6 +18,7 @@ import HomePageContainer from "./styled/HomePageContainer"
 import IconTextStyle from "./styled/IconTextStyle"
 import InlineLinkSpan from "./styled/InlineLinkSpan"
 import Label from "./styled/Label"
+import LoadingLine from "./styled/LoadingLine"
 import Logo from "./styled/Logo"
 import { MainBody_EventPage, MainBody_HomePage } from "./styled/Main"
 import P from "./styled/P"
@@ -72,6 +73,7 @@ export {
   InlineLinkSpan,
   HeroTitle,
   Label,
+  LoadingLine,
   Logo,
   MainBody_EventPage,
   MainBody_HomePage,

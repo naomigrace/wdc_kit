@@ -22,6 +22,12 @@ module.exports = ({ config }) => {
       presets: [["react-app", { flow: false, typescript: true }]],
       plugins: [
         require.resolve("@babel/plugin-proposal-class-properties"),
+        [
+          "babel-plugin-styled-components",
+          {
+            "displayName": true
+          }
+        ]
       ],
     },
   })
