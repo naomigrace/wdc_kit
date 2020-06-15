@@ -3,6 +3,8 @@ import ImageAfricanAmericanHistory from "../images/venue_africanamericanhistory.
 import ImageAfricanArtMuseum from "../images/venue_africanartmuseum.jpg"
 import ImageAirAndSpace from "../images/venue_airandspace.jpg"
 import ImageAnacostiaArt from "../images/venue_anacostiaart.jpg"
+import ImageCapitalPride from "../images/venue_capitalpride.jpg"
+import ImageCapitolOne from "../images/venue_capitolone.jpg"
 import ImageCityWinery from "../images/venue_citywinery.jpeg"
 import ImageDC9 from "../images/venue_dc9.jpg"
 import ImageDCImprov from "../images/venue_dcimprov.jpg"
@@ -12,8 +14,10 @@ import ImageEchoStage from "../images/venue_echostage.jpg"
 import ImageFreerSackler from "../images/venue_freersackler.jpg"
 import ImageTheHamilton from "../images/venue_thehamilton.jpg"
 import ImageHowardTheatre from "../images/venue_howardtheatre.jpg"
+import ImageKennedyCenter from "../images/venue_kennedycenter.jpg"
 import ImageLincolnTheatre from "../images/venue_lincolntheatre.jpg"
 import ImageNatsPark from "../images/venue_natspark.jpg"
+import ImageNGA from "../images/venue_nga.jpg"
 import ImagePearlStreet from "../images/venue_pearlstreet.jpg"
 import ImagePieShop from "../images/venue_pieshop.jpg"
 import ImagePoliticsProse from "../images/venue_politicsprose.jpeg"
@@ -48,6 +52,8 @@ const imageResolver = machine_name => {
     anacostiamuseum: ImageAnacostiaArt,
     blackcat: ImageBlackCat,
     bossadc: ImageBossaDC,
+    capitalpride: ImageCapitalPride,
+    capitolone: ImageCapitolOne,
     citywinery: ImageCityWinery,
     dc9: ImageDC9,
     dcimprov: ImageDCImprov,
@@ -55,8 +61,10 @@ const imageResolver = machine_name => {
     freersackler: ImageFreerSackler,
     thehamilton: ImageTheHamilton,
     howardtheatre: ImageHowardTheatre,
+    kennedycenter: ImageKennedyCenter,
     lincolntheatre: ImageLincolnTheatre,
     natspark: ImageNatsPark,
+    nga: ImageNGA,
     pieshop: ImagePieShop,
     pearlstreet: ImagePearlStreet,
     politicsprose: ImagePoliticsProse,

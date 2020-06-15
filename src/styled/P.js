@@ -7,7 +7,7 @@ export default styled.p`
   ${props => handleColor(props)};
   margin: 0.25rem 0;
   ${props => handleSpacing(props)};
-  ${A} {
+  ${A}, a {
     ${props => handleFont(props)};
     ${props => handleColor(props)};
   }
