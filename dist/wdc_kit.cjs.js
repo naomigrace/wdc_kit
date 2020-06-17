@@ -17,6 +17,7 @@ var theme = {
   breakpoints: {
     phone_portrait: `@media only screen and (max-width : 320px)`,
     phone_landscape: `@media only screen and (min-width : 321px)`,
+    sweet_spot: `@media only screen and (max-width : 1024px)`,
     tablet: `@media only screen and (min-width: 768px)`,
     tablet_landscape: `@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)`,
     tablet_portrait: `@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)`,
@@ -2371,7 +2372,7 @@ const EventStick = styled__default(props => /*#__PURE__*/React$1__default.create
     padding: 8px;
   }
 
-  ${props => props.theme.breakpoints.phone_portrait}{
+  ${props => props.theme.breakpoints.sweet_spot}{
     ${FlexContainer}{
       flex-direction: column;
     }

@@ -2,6 +2,7 @@ export default {
   breakpoints: {
     phone_portrait: `@media only screen and (max-width : 320px)`,
     phone_landscape: `@media only screen and (min-width : 321px)`,
+    sweet_spot: `@media only screen and (max-width : 1024px)`,
     tablet: `@media only screen and (min-width: 768px)`,
     tablet_landscape: `@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)`,
     tablet_portrait: `@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait)`,

@@ -10,3 +10,7 @@
     position: absolute;
     width: 1px;
 }
+
+body {
+    touch-action: manipulation;
+}

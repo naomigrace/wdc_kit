@@ -97,7 +97,7 @@ const EventStick = styled(props => (
     padding: 8px;
   }
 
-  ${props => props.theme.breakpoints.phone_portrait}{
+  ${props => props.theme.breakpoints.sweet_spot}{
     ${FlexContainer}{
       flex-direction: column;
     }
