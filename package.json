@@ -1,6 +1,6 @@
 {
   "name": "wdc_kit",
-  "version": "0.0.69",
+  "version": "0.0.70",
   "description": "shared UI components for wannadc",
   "main": "dist/wdc_kit.cjs.js",
   "module": "dist/wdc_kit.esm.js",

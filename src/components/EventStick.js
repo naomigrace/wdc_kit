@@ -19,7 +19,7 @@ const EventTitle = styled.h1`
   font-weight: 700;
   margin: 0.25rem 0;
   color: ${props => props.theme.colors.tertiary_mid_wod};
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   hyphens: auto;
   word-break: break-word;
   display: inline-block;
@@ -52,10 +52,17 @@ const Today = styled.time`
   text-align: right;
   min-width: 100px;
   border-right: 1px solid ${props => props.theme.colors.neutral_grey};
+
+  .time {
+    font-size: 0.75rem;
+    font-family: ${props => props.theme.fonts.family.sans};
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+  }
 `
 
 const EventDescription = styled(P)`
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: grey;
   hyphens: auto;
 `
@@ -91,18 +98,18 @@ const EventStick = styled(props => (
 ))`
   width: 100%;
   transition: all 250ms ease-in-out;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 
   ${FlexContainer} {
     padding: 8px;
   }
 
-  ${props => props.theme.breakpoints.sweet_spot}{
-    ${FlexContainer}{
+  ${props => props.theme.breakpoints.sweet_spot} {
+    ${FlexContainer} {
       flex-direction: column;
     }
 
-    ${EventDate}, ${Today}{
+    ${EventDate}, ${Today} {
       text-align: left;
       border-right: none;
       display: flex;
@@ -170,7 +177,6 @@ const EventStick = styled(props => (
   }
 
   padding: 0px;
-
 `
 
 export default ({
@@ -206,7 +212,9 @@ export default ({
     <EventStick {...rest}>
       <FlexContainer>
         {dateIsToday ? (
-          <Today datetime={date}>TODAY</Today>
+          <Today datetime={date}>
+            <div>TODAY</div> {time && <div className="time">{time}</div>}
+          </Today>
         ) : (
           <EventDate datetime={date}>
             <div>

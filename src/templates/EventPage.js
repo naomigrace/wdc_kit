@@ -50,8 +50,8 @@ export default ({
       <MainBody_EventPage>
         <div>
           <Hero image={venue} isLoading={true}>
-            <HeroTitle>{title}</HeroTitle>
-            <GeneratePills status={status} big={true}/>
+            <HeroTitle style={{ paddingBottom: `0`}}>{title}</HeroTitle>
+            <GeneratePills status={status} big={true} style={{ textAlign: `center`, paddingBottom: `2rem` }}/>
           </Hero>
           <PageContainer>
             <FlexContainer>

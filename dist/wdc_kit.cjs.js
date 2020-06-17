@@ -2120,20 +2120,19 @@ var P = styled__default.p`
 `;
 
 var Pill = styled__default.span`
-    ${props => handleFont(props)};
-    display: inline-block;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size: ${props => props.big ? `16px` : `11px`};
-    padding: ${props => props.big ? `8px 18px` : `3px 8px`};
-    text-align: center;
-    vertical-align: super;
-    margin-right: 6px;
-    border-radius: ${props => props.theme.radius.chubby};
-    ${props => handleWhiteTextOnDark(props, true)};
-    ${props => handleShadow(props)};
-    background-color: ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.neutral_black_wod};
-
+  ${props => handleFont(props)};
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: ${props => props.big ? `16px` : `11px`};
+  padding: ${props => props.big ? `8px 18px` : `3px 8px`};
+  text-align: center;
+  vertical-align: super;
+  margin-right: ${props => props.big ? `10px` : `6px`};
+  border-radius: ${props => props.big ? props.theme.radius.baby : props.theme.radius.chubby};
+  ${props => handleWhiteTextOnDark(props, true)};
+  ${props => handleShadow(props)};
+  background-color: ${props => props.color ? props.theme.colors[props.color] : props.theme.colors.neutral_black_wod};
 `;
 
 const PreviewContainer = styled__default(Div100vh)`
@@ -2276,6 +2275,10 @@ var Tray = styled__default.div`
 const PillContainer = styled__default.div`
   margin: 2rem 0 0 0;
   text-align: left;
+  ${props => props.big && `${Pill} {
+      background: rgba(255, 255, 255, 0.08);
+    }`}
+
 `;
 
 const GeneratePills = ({
@@ -2283,10 +2286,12 @@ const GeneratePills = ({
   ageRestriction,
   big,
   ...rest
-}) => /*#__PURE__*/React$1__default.createElement(PillContainer, rest, status && status.length ? status.map(s => /*#__PURE__*/React$1__default.createElement(Pill, {
+}) => /*#__PURE__*/React$1__default.createElement(PillContainer, _extends$1({
+  big: big
+}, rest), status && status.length ? status.map(s => /*#__PURE__*/React$1__default.createElement(Pill, {
   big: big,
   key: s
-}, s)) : null, ageRestriction ? /*#__PURE__*/React$1__default.createElement(Pill, {
+}, "#", s)) : null, ageRestriction ? /*#__PURE__*/React$1__default.createElement(Pill, {
   big: big,
   key: ageRestriction
 }, ageRestriction) : null);
@@ -2297,7 +2302,7 @@ const EventTitle = styled__default.h1`
   font-weight: 700;
   margin: 0.25rem 0;
   color: ${props => props.theme.colors.tertiary_mid_wod};
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   hyphens: auto;
   word-break: break-word;
   display: inline-block;
@@ -2329,9 +2334,16 @@ const Today = styled__default.time`
   text-align: right;
   min-width: 100px;
   border-right: 1px solid ${props => props.theme.colors.neutral_grey};
+
+  .time {
+    font-size: 0.75rem;
+    font-family: ${props => props.theme.fonts.family.sans};
+    letter-spacing: 1.5px;
+    margin-bottom: 5px;
+  }
 `;
 const EventDescription = styled__default(P)`
-  letter-spacing: 2px;
+  letter-spacing: 1px;
   color: grey;
   hyphens: auto;
 `;
@@ -2366,18 +2378,18 @@ const EventStick = styled__default(props => /*#__PURE__*/React$1__default.create
 }, props)))`
   width: 100%;
   transition: all 250ms ease-in-out;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 
   ${FlexContainer} {
     padding: 8px;
   }
 
-  ${props => props.theme.breakpoints.sweet_spot}{
-    ${FlexContainer}{
+  ${props => props.theme.breakpoints.sweet_spot} {
+    ${FlexContainer} {
       flex-direction: column;
     }
 
-    ${EventDate}, ${Today}{
+    ${EventDate}, ${Today} {
       text-align: left;
       border-right: none;
       display: flex;
@@ -2442,7 +2454,6 @@ const EventStick = styled__default(props => /*#__PURE__*/React$1__default.create
   }
 
   padding: 0px;
-
 `;
 var EventStick$1 = (({
   title,
@@ -2472,7 +2483,9 @@ var EventStick$1 = (({
   } = determineTitleAndSub(title, title2);
   return /*#__PURE__*/React$1__default.createElement(EventStick, rest, /*#__PURE__*/React$1__default.createElement(FlexContainer, null, dateIsToday ? /*#__PURE__*/React$1__default.createElement(Today, {
     datetime: date
-  }, "TODAY") : /*#__PURE__*/React$1__default.createElement(EventDate, {
+  }, /*#__PURE__*/React$1__default.createElement("div", null, "TODAY"), " ", time && /*#__PURE__*/React$1__default.createElement("div", {
+    className: "time"
+  }, time)) : /*#__PURE__*/React$1__default.createElement(EventDate, {
     datetime: date
   }, /*#__PURE__*/React$1__default.createElement("div", null, " ", month, "/", day, afterThisYear && `/${year.toString().slice(2)}`), time && /*#__PURE__*/React$1__default.createElement("div", {
     className: "time"
