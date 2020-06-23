@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { handleFocus, handleShadow, handleWhiteTextOnDark } from "../utils"
 import { Search } from "@styled-icons/icomoon/Search"
 
-const maxWidth = `175px`
+const maxWidth = `180px`
 
 const SearchIcon = styled(Search)`
   position: absolute;
@@ -23,7 +23,7 @@ const DefaultInput = styled.input`
   font-weight: bold;
   line-height: 2;
   height: 38px;
-  width: ${props => props.visual !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `130px`};
+  width: ${props => props.visual !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `150px`};
   &:hover,
   &:focus {
     width: ${props => props.visual !== "search" ? "auto" :maxWidth};

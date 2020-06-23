@@ -12,8 +12,11 @@ export const HeroTitle = styled.h1`
   font-family: ${props => props.theme.fonts.family.display};
   letter-spacing: 1px;
   font-size: 2.5rem;
+  hyphens: auto;
+  word-break: break-word;
   max-width: 35;
   margin: 0;
+  
 
   ${props => props.theme.breakpoints.tablet_portrait} {
     padding: 6rem 4rem 4rem 4rem;

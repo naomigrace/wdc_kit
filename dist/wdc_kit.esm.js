@@ -1950,8 +1950,11 @@ const HeroTitle = styled.h1`
   font-family: ${props => props.theme.fonts.family.display};
   letter-spacing: 1px;
   font-size: 2.5rem;
+  hyphens: auto;
+  word-break: break-word;
   max-width: 35;
   margin: 0;
+  
 
   ${props => props.theme.breakpoints.tablet_portrait} {
     padding: 6rem 4rem 4rem 4rem;
@@ -2848,7 +2851,7 @@ var Search = /*#__PURE__*/forwardRef(function (props, ref) {
 });
 Search.displayName = 'Search';
 
-const maxWidth = `175px`;
+const maxWidth = `180px`;
 const SearchIcon = styled(Search)`
   position: absolute;
   top: 11px;
@@ -2866,7 +2869,7 @@ const DefaultInput = styled.input`
   font-weight: bold;
   line-height: 2;
   height: 38px;
-  width: ${props => props.visual !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `130px`};
+  width: ${props => props.visual !== "search" ? "auto" : props.value && props.value.length ? maxWidth : `150px`};
   &:hover,
   &:focus {
     width: ${props => props.visual !== "search" ? "auto" : maxWidth};
